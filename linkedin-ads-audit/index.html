@@ -21,21 +21,60 @@
 
 /* hero */
 .aud-hero{background:var(--rizz-navy);border-radius:20px;margin:44px 0 0;padding:44px 40px;
-  display:grid;grid-template-columns:1.35fr .65fr;gap:28px;align-items:center;}
+  display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:30px;align-items:center;}
 .aud-hero .kick{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky-blue);margin:0 0 14px;}
-.aud-hero h1{font-family:var(--font-display);font-weight:700;color:#fff;font-size:clamp(38px,5.4vw,60px);line-height:1.02;margin:0 0 8px;}
-.aud-hero .price{font-family:var(--font-display);font-weight:700;color:var(--sky-blue);font-size:clamp(34px,5vw,48px);line-height:1;margin:0 0 18px;}
-.aud-hero .price span{font-family:var(--font-sans);font-weight:700;font-size:18px;color:#cfc7bd;letter-spacing:0;}
+.aud-hero h1{font-family:var(--font-display);font-weight:700;color:#fff;font-size:clamp(46px,6.6vw,76px);line-height:1.0;margin:0 0 10px;}
+.aud-hero .price{font-family:var(--font-display);font-weight:700;color:var(--sky-blue);font-size:clamp(26px,3.75vw,36px);line-height:1;margin:0 0 18px;}
+.aud-hero .price span{font-family:var(--font-sans);font-weight:700;font-size:13.5px;color:#cfc7bd;letter-spacing:0;}
 .aud-hero p.lede{color:#dcd6cd;font-size:18px;line-height:1.65;margin:0 0 24px;max-width:520px;}
 .aud-hero p.lede strong{color:#fff;}
 .aud-cta-row{display:flex;flex-wrap:wrap;gap:12px;}
+.aud-hero .aud-cta-row{flex-wrap:nowrap;}
+.aud-hero .btn-primary,.aud-hero .btn-ghost{padding:13px 20px;font-size:15.5px;white-space:nowrap;}
 .btn-primary{display:inline-block;background:var(--sky-blue);color:var(--rizz-navy)!important;font-weight:700;
   text-decoration:none;padding:14px 24px;border-radius:10px;font-size:16px;}
 .btn-ghost{display:inline-block;background:transparent;color:#efd2ba!important;font-weight:700;
   text-decoration:none;padding:14px 22px;border-radius:10px;font-size:16px;border:1.5px solid rgba(239,210,186,.4);}
-.aud-hero .mascot{width:100%;max-width:210px;height:auto;justify-self:end;}
-@media(max-width:760px){.aud-hero{grid-template-columns:1fr;padding:34px 26px;}
-  .aud-hero .mascot{display:none;}}
+.hero-viz{width:100%;max-width:472px;height:auto;justify-self:end;display:block;
+  filter:drop-shadow(0 14px 34px rgba(0,0,0,.38));}
+
+/* trust / social proof strip */
+.trust{background:var(--ink-black);border-radius:20px;margin:26px 0 0;padding:30px 34px;overflow:hidden;}
+.trust-line{display:flex;align-items:center;justify-content:center;gap:10px;color:#efd2ba;
+  font-size:15.5px;font-weight:600;text-align:center;margin:0 0 26px;}
+.trust-line svg{width:18px;height:18px;stroke:#4bd07b;flex:0 0 auto;}
+.logos-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:24px 40px;}
+.logos-row + .logos-row{margin-top:24px;}
+.logos-row img{height:25px;width:auto;opacity:.82;filter:brightness(0) invert(1);}
+.logos-row img.ico{height:31px;filter:none;}
+@media(min-width:761px){.logos-row.stagger{transform:translateX(30px);}}
+
+/* included title */
+.inc-title{font-family:var(--font-sans);font-weight:800;color:#1c1c28;font-size:15px;
+  letter-spacing:.02em;text-transform:uppercase;margin:44px 0 0;}
+.inc-title + .included{margin-top:16px;}
+
+/* faq accordion */
+.faq details{border-top:1px solid #ececec;}
+.faq details:last-child{border-bottom:1px solid #ececec;}
+.faq summary{cursor:pointer;list-style:none;padding:18px 0;font-weight:800;color:#1c1c28;
+  font-size:19px;display:flex;justify-content:space-between;align-items:flex-start;gap:18px;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary:hover{color:#1c6f82;}
+.faq summary .ind{flex:0 0 auto;width:20px;height:20px;position:relative;margin-top:3px;}
+.faq summary .ind::before,.faq summary .ind::after{content:"";position:absolute;background:#9a9aa6;border-radius:2px;}
+.faq summary .ind::before{top:9px;left:2px;right:2px;height:2px;}
+.faq summary .ind::after{left:9px;top:2px;bottom:2px;width:2px;transition:opacity .18s;}
+.faq details[open] summary .ind::after{opacity:0;}
+.faq .faq-a{margin:0 0 20px;color:#2a2a36;padding-right:38px;}
+
+@media(max-width:760px){
+  .aud-hero{grid-template-columns:1fr;padding:34px 26px;}
+  .aud-hero .aud-cta-row{flex-wrap:wrap;}
+  .hero-viz{max-width:100%;justify-self:stretch;margin-top:8px;}
+  .logos-row img{height:21px;}
+  .logos-row{gap:20px 30px;}
+}
 
 /* included checklist */
 .included{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 30px;margin:34px 0 8px;}
@@ -86,6 +125,33 @@
 .addon .a-h b{color:var(--pink);}
 .addon p{margin:0;color:#5a5a6a;font-size:15.5px;}
 
+/* dark costs band */
+.cost-band{background:var(--rizz-navy);border-radius:20px;margin:56px 0 0;padding:38px 40px 44px;}
+.cost-band .sec-h{color:#fff;margin:0 0 24px;}
+.cost-band .price-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);
+  border-left:4px solid var(--sky-blue);margin:0;}
+.cost-band .price-card .pc-top{border-bottom-color:rgba(255,255,255,0.14);}
+.cost-band .price-card .pc-name,.cost-band .price-card .pc-fig{color:#fff;}
+.cost-band .price-card .pc-fig span{color:#9a9aad;}
+.cost-band .price-card li{color:#dcd6cd;}
+.cost-band .price-card li strong{color:#fff;}
+.cost-band .price-card li .ck{color:#4bd07b;}
+.cost-band .addon{background:rgba(192,57,122,0.10);border-color:rgba(255,255,255,0.16);}
+.cost-band .addon .a-h{color:#fff;}
+.cost-band .addon .a-h b{color:#e072a8;}
+.cost-band .addon p{color:#cfc7bd;}
+
+/* why not free */
+.freewhy{border:1px solid #e6e6ea;border-left:4px solid var(--sky-blue);border-radius:16px;padding:28px 30px;background:#fff;}
+.freewhy .lead{margin:0 0 20px;color:#3a3a48;font-size:17.5px;line-height:1.6;}
+.freewhy .lead strong{color:#1c1c28;}
+.free-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:13px 30px;}
+.free-list li{display:flex;gap:11px;align-items:flex-start;font-size:16px;color:#3a3a48;line-height:1.5;}
+.free-list li .ck{flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:#eafaf0;color:#28c840;
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;margin-top:1px;}
+.free-list li strong{color:#1c1c28;}
+@media(max-width:640px){.free-list{grid-template-columns:1fr;}}
+
 /* guarantee strip */
 .guarantee{display:flex;gap:16px;align-items:center;background:#f5fbfc;border:1px solid #dceef2;
   border-radius:14px;padding:22px 26px;margin:26px 0 0;}
@@ -99,7 +165,7 @@
 .aud-cta{background:var(--rizz-navy);border-radius:20px;padding:44px 40px;margin:56px 0 0;text-align:left;}
 .aud-cta h2{font-family:var(--font-display);font-weight:700;color:#fff;font-size:clamp(30px,4.4vw,44px);line-height:1.04;margin:0 0 12px;}
 .aud-cta p{color:#cfc7bd;font-size:18px;margin:0 0 24px;max-width:560px;}
-.aud-cta .trust{color:#9a9aad;font-size:13.5px;margin:18px 0 0;}
+.aud-cta .cta-note{color:#9a9aad;font-size:13.5px;margin:18px 0 0;}
 </style>
 </head>
 <body>
@@ -117,26 +183,101 @@
   <!-- HERO -->
   <section class="aud-hero">
     <div>
-      <p class="kick">No-BS LinkedIn Ads audit</p>
-      <h1>The good, the bad, and the ugly from your ad account</h1>
+      <p class="kick">100% satisfaction or your money back</p>
+      <h1>No-BS LinkedIn Ads Audit</h1>
       <p class="price">$1,000 <span>/ one-time project</span></p>
-      <p class="lede">A brutally honest LinkedIn Ads audit from someone who has been inside way too many ad accounts. No fluff, no buzzwords. You walk away with quick wins, strategy ideas, and a clear path to better performance. <strong>If you don't find it valuable, you get your money back. No questions asked.</strong></p>
+      <p class="lede">Get an honest LinkedIn Ads audit from a third-party expert. You'll walk away with quick wins you can make that day, short, mid and long-term strategic ideas, and a clear path to better performance.</p>
       <div class="aud-cta-row">
         <!-- REPLACE href below with your booking/scheduling link -->
-        <a class="btn-primary" href="https://YOUR-BOOKING-LINK">Book a 20-minute intro call</a>
+        <a class="btn-primary" href="https://YOUR-BOOKING-LINK">Book 20-min audit call</a>
         <!-- REPLACE href below with your sample-audit Google Doc link -->
-        <a class="btn-ghost" href="https://YOUR-SAMPLE-AUDIT-LINK" target="_blank" rel="noopener">See a sample audit</a>
+        <a class="btn-ghost" href="https://YOUR-SAMPLE-AUDIT-LINK" target="_blank" rel="noopener">See sample audit</a>
       </div>
     </div>
-    <img class="mascot" src="/assets/mascot-binoculars.png" alt="">
+    <svg class="hero-viz" viewBox="0 0 580 504" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sample LinkedIn Ads audit dashboard showing improving cost per lead, qualified leads, and pipeline after an audit.">
+      <defs>
+        <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#b0e2eb" stop-opacity=".30"/>
+          <stop offset="1" stop-color="#b0e2eb" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <rect x="6" y="6" width="568" height="492" rx="20" fill="#12121b" stroke="rgba(255,255,255,0.09)"/>
+      <!-- window chrome -->
+      <circle cx="34" cy="40" r="6" fill="#e0564b"/>
+      <circle cx="54" cy="40" r="6" fill="#e8b34a"/>
+      <circle cx="74" cy="40" r="6" fill="#4bd07b"/>
+      <text x="106" y="45" font-family="ui-monospace, Menlo, monospace" font-size="15" fill="#cfc7bd" letter-spacing=".3">LinkedIn Ads Audit</text>
+      <line x1="22" y1="70" x2="558" y2="70" stroke="rgba(255,255,255,0.08)"/>
+      <!-- KPI tiles -->
+      <text x="34" y="108" font-family="Satoshi, sans-serif" font-weight="700" font-size="11.5" letter-spacing="1" fill="#8a8a9a">COST / LEAD</text>
+      <text x="34" y="150" font-family="'TGS Perfect Condensed', sans-serif" font-weight="700" font-size="40" fill="#ffffff">-34%</text>
+      <text x="34" y="172" font-family="ui-monospace, Menlo, monospace" font-size="12.5" fill="#4bd07b">vs. pre-audit</text>
+      <line x1="200" y1="92" x2="200" y2="170" stroke="rgba(255,255,255,0.08)"/>
+      <text x="220" y="108" font-family="Satoshi, sans-serif" font-weight="700" font-size="11.5" letter-spacing="1" fill="#8a8a9a">QUALIFIED LEADS</text>
+      <text x="220" y="150" font-family="'TGS Perfect Condensed', sans-serif" font-weight="700" font-size="40" fill="#ffffff">+52%</text>
+      <text x="220" y="172" font-family="ui-monospace, Menlo, monospace" font-size="12.5" fill="#4bd07b">last 90 days</text>
+      <line x1="384" y1="92" x2="384" y2="170" stroke="rgba(255,255,255,0.08)"/>
+      <text x="404" y="108" font-family="Satoshi, sans-serif" font-weight="700" font-size="11.5" letter-spacing="1" fill="#8a8a9a">PIPELINE</text>
+      <text x="404" y="150" font-family="'TGS Perfect Condensed', sans-serif" font-weight="700" font-size="40" fill="#ffffff">4.8x</text>
+      <text x="404" y="172" font-family="ui-monospace, Menlo, monospace" font-size="12.5" fill="#4bd07b">+3.5x</text>
+      <line x1="22" y1="196" x2="558" y2="196" stroke="rgba(255,255,255,0.08)"/>
+      <!-- chart -->
+      <text x="34" y="226" font-family="ui-monospace, Menlo, monospace" font-size="13" letter-spacing=".5" fill="#6fdca0">// QUALIFIED LEADS &#183; 90D</text>
+      <path d="M40,322 L103,316 L165,326 L228,300 L290,308 L353,282 L415,290 L478,262 L540,250 L540,344 L40,344 Z" fill="url(#areaFill)"/>
+      <path d="M40,322 L103,316 L165,326 L228,300 L290,308 L353,282 L415,290 L478,262 L540,250" fill="none" stroke="#b0e2eb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="540" cy="250" r="4.5" fill="#b0e2eb"/>
+      <!-- bars -->
+      <text x="34" y="374" font-family="ui-monospace, Menlo, monospace" font-size="13" letter-spacing=".5" fill="#6fdca0">// LINKEDIN ADS PIPELINE</text>
+      <text x="34" y="400" font-family="Satoshi, sans-serif" font-weight="600" font-size="14" fill="#cfc7bd">Pre-audit</text>
+      <rect x="150" y="390" width="320" height="10" rx="5" fill="rgba(255,255,255,0.06)"/>
+      <rect x="150" y="390" width="83" height="10" rx="5" fill="#2e7d5b"/>
+      <text x="486" y="400" font-family="'TGS Perfect Condensed', sans-serif" font-weight="700" font-size="18" fill="#cfc7bd">1.3x</text>
+      <text x="34" y="428" font-family="Satoshi, sans-serif" font-weight="600" font-size="14" fill="#cfc7bd">Month 1</text>
+      <rect x="150" y="418" width="320" height="10" rx="5" fill="rgba(255,255,255,0.06)"/>
+      <rect x="150" y="418" width="147" height="10" rx="5" fill="#3ba36e"/>
+      <text x="486" y="428" font-family="'TGS Perfect Condensed', sans-serif" font-weight="700" font-size="18" fill="#cfc7bd">2.3x</text>
+      <text x="34" y="456" font-family="Satoshi, sans-serif" font-weight="600" font-size="14" fill="#cfc7bd">Month 2</text>
+      <rect x="150" y="446" width="320" height="10" rx="5" fill="rgba(255,255,255,0.06)"/>
+      <rect x="150" y="446" width="237" height="10" rx="5" fill="#47b57d"/>
+      <text x="486" y="456" font-family="'TGS Perfect Condensed', sans-serif" font-weight="700" font-size="18" fill="#cfc7bd">3.7x</text>
+      <text x="34" y="484" font-family="Satoshi, sans-serif" font-weight="600" font-size="14" fill="#ffffff">Month 3</text>
+      <rect x="150" y="474" width="320" height="10" rx="5" fill="rgba(255,255,255,0.06)"/>
+      <rect x="150" y="474" width="307" height="10" rx="5" fill="#b0e2eb"/>
+      <text x="486" y="484" font-family="'TGS Perfect Condensed', sans-serif" font-weight="700" font-size="18" fill="#ffffff">4.8x</text>
+    </svg>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="trust">
+    <p class="trust-line">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      100% satisfaction, no one's asked for their money back.
+    </p>
+    <div class="logos-row">
+      <img src="/assets/logos/chili-piper.png" alt="Chili Piper">
+      <img src="/assets/logos/superside.png" alt="Superside">
+      <img src="/assets/logos/idexx.png" alt="IDEXX">
+      <img src="/assets/logos/sprig.png" alt="Sprig">
+      <img src="/assets/logos/path-factory.png" alt="PathFactory">
+      <img src="/assets/logos/staffbase.svg" alt="Staffbase">
+    </div>
+    <div class="logos-row stagger">
+      <img src="/assets/logos/validity.png" alt="Validity">
+      <img class="ico" src="/assets/logos/guru.svg" alt="Guru">
+      <img src="/assets/logos/north-cloud.png" alt="North Cloud">
+      <img src="/assets/logos/marketer-hire.png" alt="MarketerHire">
+      <img src="/assets/logos/shipbob.svg" alt="ShipBob">
+      <img src="/assets/logos/globality.png" alt="Globality">
+    </div>
   </section>
 
   <!-- WHAT'S INCLUDED -->
+  <p class="inc-title">What's included:</p>
   <div class="included">
     <div class="inc"><span class="ck">&#10003;</span><span>Looks at everything, from <strong>campaign setup and settings</strong> to <strong>ad copy and creative</strong>.</span></div>
     <div class="inc"><span class="ck">&#10003;</span><span>A full written report with <strong>Loom videos</strong>, so you can actually implement the changes.</span></div>
     <div class="inc"><span class="ck">&#10003;</span><span>A <strong>one-time project</strong>, not a retainer. No lock-in.</span></div>
-    <div class="inc"><span class="ck">&#10003;</span><span><strong>One-week turnaround</strong> from payment and LinkedIn Ads access.</span></div>
+    <div class="inc"><span class="ck">&#10003;</span><span><strong>One-week turnaround (5 business days)</strong> from LinkedIn Ads access granted.</span></div>
   </div>
 
   <!-- HOW IT WORKS -->
@@ -193,6 +334,7 @@
   </section>
 
   <!-- PRICING -->
+  <section class="cost-band">
   <h2 class="sec-h">What it costs</h2>
   <div class="price-card">
     <div class="pc-top">
@@ -201,7 +343,7 @@
     </div>
     <ul>
       <li><span class="ck">&#10003;</span><span>Full audit of setup, settings, targeting, budget and bidding, ad copy, and creative.</span></li>
-      <li><span class="ck">&#10003;</span><span>Written report plus <strong>Loom walkthroughs</strong> of every section.</span></li>
+      <li><span class="ck">&#10003;</span><span>In-depth report plus <strong>video walkthroughs</strong> in applicable sections.</span></li>
       <li><span class="ck">&#10003;</span><span>Prioritized list of quick wins and bigger strategic moves.</span></li>
       <li><span class="ck">&#10003;</span><span>Optional 30-minute walkthrough call once it's delivered.</span></li>
       <li><span class="ck">&#10003;</span><span><strong>100% money-back guarantee.</strong> Invoiced Net 14.</span></li>
@@ -210,6 +352,20 @@
       <p class="a-h">Add-on: <b>done-for-you implementation, +$1,500</b></p>
       <p>Prefer to hand it off? I'll implement the recommendations in your account instead of leaving it to your team.</p>
     </div>
+  </div>
+  </section>
+
+  <!-- WHY NOT FREE -->
+  <h2 class="sec-h">Why isn't this audit free?</h2>
+  <p class="sec-sub">Most "free audits" exist to find just enough problems to start a sales call. This one is a standalone consulting engagement, not a lead magnet.</p>
+  <div class="freewhy">
+    <p class="lead">You're paying for a complete review, direct recommendations, documentation, and a plan your team can implement, <strong>whether or not we ever work together again.</strong></p>
+    <ul class="free-list">
+      <li><span class="ck">&#10003;</span><span>No obligation to hire me afterward.</span></li>
+      <li><span class="ck">&#10003;</span><span>No recommendation depends on buying another service.</span></li>
+      <li><span class="ck">&#10003;</span><span>You keep every deliverable: the report, the recordings, the plan.</span></li>
+      <li><span class="ck">&#10003;</span><span>The strategy call is for implementation, not a pitch.</span></li>
+    </ul>
   </div>
 
   <!-- GUARANTEE -->
@@ -224,44 +380,44 @@
   </div>
 
   <!-- FAQ -->
-  <h2 class="sec-h">Common questions</h2>
+  <h2 class="sec-h">FAQ</h2>
   <div class="faq">
-    <div class="faq-item">
-      <p class="faq-q">What does the audit actually cover?</p>
+    <details>
+      <summary>What does the audit actually cover?<span class="ind"></span></summary>
       <p class="faq-a">Everything that affects performance: account and campaign structure, targeting and audiences, budgets and bidding, conversion tracking, ad copy, and creative. You get the good, the bad, and the ugly, along with what to fix first.</p>
-    </div>
-    <div class="faq-item">
-      <p class="faq-q">How do you deliver it?</p>
-      <p class="faq-a">A full written report with Loom videos walking through each section, so the recommendations are clear and easy to act on. You also get an optional 30-minute call to ask questions.</p>
-    </div>
-    <div class="faq-item">
-      <p class="faq-q">How long does it take?</p>
-      <p class="faq-a">Under a week. The clock starts once payment is in and I have view access to your LinkedIn Ads account.</p>
-    </div>
-    <div class="faq-item">
-      <p class="faq-q">What do you need from me to get started?</p>
+    </details>
+    <details>
+      <summary>How do you deliver it?<span class="ind"></span></summary>
+      <p class="faq-a">A full written report with Loom videos walking through certain areas, so the recommendations are clear and easy to act on.</p>
+    </details>
+    <details>
+      <summary>How long does it take?<span class="ind"></span></summary>
+      <p class="faq-a">In under a week (5 business days) from LinkedIn Ads access.</p>
+    </details>
+    <details>
+      <summary>What do you need from me to get started?<span class="ind"></span></summary>
       <p class="faq-a">View access to your LinkedIn Ads account, and a quick 20-minute call so I understand what you're looking for. That's it.</p>
-    </div>
-    <div class="faq-item">
-      <p class="faq-q">Is view access safe to give?</p>
+    </details>
+    <details>
+      <summary>Is view access safe to give?<span class="ind"></span></summary>
       <p class="faq-a">Yes. View access is read-only, so I can see the account and the data but can't make changes, spend money, or touch your settings. You keep full control the whole time.</p>
-    </div>
-    <div class="faq-item">
-      <p class="faq-q">How does payment work?</p>
+    </details>
+    <details>
+      <summary>How does payment work?<span class="ind"></span></summary>
       <p class="faq-a">It's a flat $1,000 for the project, invoiced Net 14 once you've given me access. No retainer and no long-term commitment.</p>
-    </div>
-    <div class="faq-item">
-      <p class="faq-q">What if I'm not happy with it?</p>
+    </details>
+    <details>
+      <summary>What if I'm not happy with it?<span class="ind"></span></summary>
       <p class="faq-a">You get your money back. It's a 100% money-back guarantee, no questions asked. If the audit isn't valuable to you, you don't pay for it.</p>
-    </div>
-    <div class="faq-item">
-      <p class="faq-q">Do I have to make the changes myself?</p>
+    </details>
+    <details>
+      <summary>Do I have to make the changes myself?<span class="ind"></span></summary>
       <p class="faq-a">The audit is built so your team can implement it. If you'd rather hand it off, I can implement the recommendations for you for an extra $1,500.</p>
-    </div>
-    <div class="faq-item">
-      <p class="faq-q">Is this only for B2B SaaS?</p>
-      <p class="faq-a">That's where I spend most of my time and where the audit is sharpest, but if you're running LinkedIn Ads and want an honest read on the account, book a call and we'll see if it's a fit.</p>
-    </div>
+    </details>
+    <details>
+      <summary>Is this only for B2B SaaS?<span class="ind"></span></summary>
+      <p class="faq-a">No, absolutely not. It's for anyone spending money on LinkedIn Ads. That tends to be B2B SaaS, but some of the most impactful audits have been for services, manufacturing, and non-tech brands.</p>
+    </details>
   </div>
 
   <!-- FINAL CTA -->
@@ -270,11 +426,11 @@
     <p>Book a 20-minute call and I'll tell you whether an audit is worth it before you spend a dollar.</p>
     <div class="aud-cta-row">
       <!-- REPLACE href below with your booking/scheduling link -->
-      <a class="btn-primary" href="https://YOUR-BOOKING-LINK">Book a 20-minute intro call</a>
+      <a class="btn-primary" href="https://YOUR-BOOKING-LINK">Book 20-min audit call</a>
       <!-- REPLACE href below with your sample-audit Google Doc link -->
-      <a class="btn-ghost" href="https://YOUR-SAMPLE-AUDIT-LINK" target="_blank" rel="noopener">See a sample audit</a>
+      <a class="btn-ghost" href="https://YOUR-SAMPLE-AUDIT-LINK" target="_blank" rel="noopener">See sample audit</a>
     </div>
-    <p class="trust">$1,000, one-time. One-week turnaround. 100% money-back guarantee.</p>
+    <p class="cta-note">$1,000, one-time. One-week turnaround. 100% money-back guarantee.</p>
   </section>
 
 </div>
