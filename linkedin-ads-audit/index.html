@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The No-BS LinkedIn Ads Audit ($1,000) | B2B Rizz</title>
+<meta name="description" content="A brutally honest LinkedIn Ads audit for B2B SaaS. $1,000, one week, 100% money-back guarantee. Full write-up plus Loom walkthroughs of everything from setup to creative.">
+<link rel="canonical" href="https://resources.b2brizz.com/linkedin-ads-audit/">
+<meta name="robots" content="noindex, nofollow"><!-- TEST MODE: change to "index, follow, max-image-preview:large" when ready to publish -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="B2B Rizz">
+<meta property="og:title" content="The No-BS LinkedIn Ads Audit ($1,000) | B2B Rizz">
+<meta property="og:description" content="A brutally honest LinkedIn Ads audit for B2B SaaS. $1,000, one week, 100% money-back guarantee.">
+<meta property="og:url" content="https://resources.b2brizz.com/linkedin-ads-audit/">
+<meta property="og:image" content="https://resources.b2brizz.com/assets/logo-white.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/styles.css">
+<style>
+/* ===== audit landing page (page-specific) ===== */
+.aud-wrap{max-width:940px;margin:0 auto;padding:0 22px;}
+
+/* hero */
+.aud-hero{background:var(--rizz-navy);border-radius:20px;margin:44px 0 0;padding:44px 40px;
+  display:grid;grid-template-columns:1.35fr .65fr;gap:28px;align-items:center;}
+.aud-hero .kick{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky-blue);margin:0 0 14px;}
+.aud-hero h1{font-family:var(--font-display);font-weight:700;color:#fff;font-size:clamp(38px,5.4vw,60px);line-height:1.02;margin:0 0 8px;}
+.aud-hero .price{font-family:var(--font-display);font-weight:700;color:var(--sky-blue);font-size:clamp(34px,5vw,48px);line-height:1;margin:0 0 18px;}
+.aud-hero .price span{font-family:var(--font-sans);font-weight:700;font-size:18px;color:#cfc7bd;letter-spacing:0;}
+.aud-hero p.lede{color:#dcd6cd;font-size:18px;line-height:1.65;margin:0 0 24px;max-width:520px;}
+.aud-hero p.lede strong{color:#fff;}
+.aud-cta-row{display:flex;flex-wrap:wrap;gap:12px;}
+.btn-primary{display:inline-block;background:var(--sky-blue);color:var(--rizz-navy)!important;font-weight:700;
+  text-decoration:none;padding:14px 24px;border-radius:10px;font-size:16px;}
+.btn-ghost{display:inline-block;background:transparent;color:#efd2ba!important;font-weight:700;
+  text-decoration:none;padding:14px 22px;border-radius:10px;font-size:16px;border:1.5px solid rgba(239,210,186,.4);}
+.aud-hero .mascot{width:100%;max-width:210px;height:auto;justify-self:end;}
+@media(max-width:760px){.aud-hero{grid-template-columns:1fr;padding:34px 26px;}
+  .aud-hero .mascot{display:none;}}
+
+/* included checklist */
+.included{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 30px;margin:34px 0 8px;}
+.inc{display:flex;gap:12px;align-items:flex-start;font-size:16.5px;color:#3a3a48;line-height:1.5;}
+.inc .ck{flex:0 0 auto;width:22px;height:22px;border-radius:6px;background:#eafaf0;color:#28c840;
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;margin-top:2px;}
+.inc strong{color:#1c1c28;}
+@media(max-width:640px){.included{grid-template-columns:1fr;}}
+
+/* section heading */
+.sec-h{font-family:var(--font-sans);font-weight:800;color:#1c1c28;font-size:29px;margin:56px 0 8px;letter-spacing:-0.01em;}
+.sec-sub{color:#5a5a6a;font-size:17px;margin:0 0 26px;max-width:620px;}
+
+/* process steps */
+.steps{margin:0;padding:0;list-style:none;}
+.step{display:grid;grid-template-columns:64px 1fr;gap:20px;padding:22px 0;border-top:1px solid #ececec;}
+.step:first-child{border-top:0;}
+.step .snum{font-family:var(--font-display);font-weight:700;font-size:44px;line-height:.9;color:var(--green);}
+.step .sbody h3{font-family:var(--font-sans);font-weight:800;color:#1c1c28;font-size:20px;margin:2px 0 6px;}
+.step .sbody p{margin:0;color:#3a3a48;font-size:17px;line-height:1.6;}
+.step .sbody p .tag{display:inline-block;background:#f5fbfc;border:1px solid #dceef2;color:#1c6f82;
+  font-size:12px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:2px 9px;border-radius:999px;margin-left:6px;vertical-align:middle;}
+.step.optional{background:#fbfaf7;border:1px solid #ece7df;border-radius:14px;padding:22px 24px;margin-top:14px;}
+.step.optional .snum{color:var(--pink);}
+.step.optional .opt-pill{display:inline-block;background:#fbe9f2;color:var(--pink);font-size:12px;font-weight:700;
+  letter-spacing:.03em;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin:0 0 8px;}
+
+/* sample callout */
+.sample{background:var(--cream);border-radius:16px;padding:30px 32px;margin:34px 0 0;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+.sample h3{font-family:var(--font-display);font-weight:700;color:#1c1c28;font-size:30px;line-height:1.05;margin:0 0 6px;}
+.sample p{margin:0;color:#4a4136;font-size:16.5px;max-width:520px;}
+.btn-dark{display:inline-block;background:var(--rizz-navy);color:#fff!important;font-weight:700;
+  text-decoration:none;padding:14px 26px;border-radius:10px;font-size:16px;white-space:nowrap;}
+
+/* pricing card */
+.price-card{border:1px solid #e6e6ea;border-left:4px solid var(--sky-blue);border-radius:16px;padding:30px 32px;margin:26px 0 0;background:#fff;}
+.price-card .pc-top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid #ececec;padding-bottom:18px;margin-bottom:18px;}
+.price-card .pc-name{font-family:var(--font-sans);font-weight:800;color:#1c1c28;font-size:22px;}
+.price-card .pc-fig{font-family:var(--font-display);font-weight:700;color:#1c1c28;font-size:40px;line-height:1;}
+.price-card .pc-fig span{font-family:var(--font-sans);font-weight:700;font-size:16px;color:#8a8a9a;}
+.price-card ul{margin:0;padding:0;list-style:none;}
+.price-card li{display:flex;gap:11px;align-items:flex-start;font-size:16.5px;color:#3a3a48;margin:0 0 11px;line-height:1.5;}
+.price-card li .ck{flex:0 0 auto;color:#28c840;font-weight:900;}
+.price-card li strong{color:#1c1c28;}
+.addon{border:1px dashed #e0cfe0;background:#fdfafc;border-radius:14px;padding:20px 24px;margin:16px 0 0;}
+.addon .a-h{font-weight:800;color:#1c1c28;font-size:17px;margin:0 0 4px;}
+.addon .a-h b{color:var(--pink);}
+.addon p{margin:0;color:#5a5a6a;font-size:15.5px;}
+
+/* guarantee strip */
+.guarantee{display:flex;gap:16px;align-items:center;background:#f5fbfc;border:1px solid #dceef2;
+  border-radius:14px;padding:22px 26px;margin:26px 0 0;}
+.guarantee .g-ic{flex:0 0 auto;width:46px;height:46px;border-radius:12px;background:#fff;border:1px solid #cfeaf0;
+  display:flex;align-items:center;justify-content:center;}
+.guarantee .g-ic svg{width:24px;height:24px;stroke:#1c6f82;}
+.guarantee .g-txt h3{font-family:var(--font-sans);font-weight:800;color:#1c1c28;font-size:19px;margin:0 0 3px;}
+.guarantee .g-txt p{margin:0;color:#4a5a5e;font-size:16px;}
+
+/* final cta */
+.aud-cta{background:var(--rizz-navy);border-radius:20px;padding:44px 40px;margin:56px 0 0;text-align:left;}
+.aud-cta h2{font-family:var(--font-display);font-weight:700;color:#fff;font-size:clamp(30px,4.4vw,44px);line-height:1.04;margin:0 0 12px;}
+.aud-cta p{color:#cfc7bd;font-size:18px;margin:0 0 24px;max-width:560px;}
+.aud-cta .trust{color:#9a9aad;font-size:13.5px;margin:18px 0 0;}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="nav-in">
+    <a class="brand" href="/"><img class="logo" src="/assets/logo-white.png" alt="B2B Rizz"></a>
+    <div class="nav-links">
+      <a href="https://b2brizz.com">Home</a><a href="/">Resources</a>
+      <!-- REPLACE href below with your booking/scheduling link -->
+      <a href="https://YOUR-BOOKING-LINK" class="nav-cta">Book an intro call</a>
+    </div>
+</div></nav>
+
+<div class="aud-wrap">
+
+  <!-- HERO -->
+  <section class="aud-hero">
+    <div>
+      <p class="kick">No-BS LinkedIn Ads audit</p>
+      <h1>The good, the bad, and the ugly from your ad account</h1>
+      <p class="price">$1,000 <span>/ one-time project</span></p>
+      <p class="lede">A brutally honest LinkedIn Ads audit from someone who has been inside way too many ad accounts. No fluff, no buzzwords. You walk away with quick wins, strategy ideas, and a clear path to better performance. <strong>If you don't find it valuable, you get your money back. No questions asked.</strong></p>
+      <div class="aud-cta-row">
+        <!-- REPLACE href below with your booking/scheduling link -->
+        <a class="btn-primary" href="https://YOUR-BOOKING-LINK">Book a 20-minute intro call</a>
+        <!-- REPLACE href below with your sample-audit Google Doc link -->
+        <a class="btn-ghost" href="https://YOUR-SAMPLE-AUDIT-LINK" target="_blank" rel="noopener">See a sample audit</a>
+      </div>
+    </div>
+    <img class="mascot" src="/assets/mascot-binoculars.png" alt="">
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <div class="included">
+    <div class="inc"><span class="ck">&#10003;</span><span>Looks at everything, from <strong>campaign setup and settings</strong> to <strong>ad copy and creative</strong>.</span></div>
+    <div class="inc"><span class="ck">&#10003;</span><span>A full written report with <strong>Loom videos</strong>, so you can actually implement the changes.</span></div>
+    <div class="inc"><span class="ck">&#10003;</span><span>A <strong>one-time project</strong>, not a retainer. No lock-in.</span></div>
+    <div class="inc"><span class="ck">&#10003;</span><span><strong>One-week turnaround</strong> from payment and LinkedIn Ads access.</span></div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <h2 class="sec-h">How it works</h2>
+  <p class="sec-sub">Five steps from first call to a finished audit. The fifth one is optional.</p>
+
+  <ol class="steps">
+    <li class="step">
+      <div class="snum">1</div>
+      <div class="sbody">
+        <h3>Schedule a 20-minute call with me</h3>
+        <p>Book a quick intro call. No pitch deck, no sales theater. We just make sure the audit is a fit for what you need.</p>
+      </div>
+    </li>
+    <li class="step">
+      <div class="snum">2</div>
+      <div class="sbody">
+        <h3>Tell me what you're looking for</h3>
+        <p>On the call, you walk me through what you want out of the audit and I gather the context I need on your account so I can get started.</p>
+      </div>
+    </li>
+    <li class="step">
+      <div class="snum">3</div>
+      <div class="sbody">
+        <h3>Give me view access and I send an invoice</h3>
+        <p>All I need is view access to your LinkedIn Ads account. Once that's in, I send the invoice.<span class="tag">Net 14</span></p>
+      </div>
+    </li>
+    <li class="step">
+      <div class="snum">4</div>
+      <div class="sbody">
+        <h3>You get the full audit in under a week</h3>
+        <p>I send the complete write-up with Loom walkthroughs, plus a scheduling link for an optional 30-minute call so you can ask questions and I can walk you through any section.</p>
+      </div>
+    </li>
+    <li class="step optional">
+      <div class="snum">5</div>
+      <div class="sbody">
+        <span class="opt-pill">Optional</span>
+        <h3>Want me to implement it? I can do that too</h3>
+        <p>If you'd rather not make the changes yourself, I'll implement the recommendations for you for an extra <strong>$1,500</strong>.</p>
+      </div>
+    </li>
+  </ol>
+
+  <!-- SAMPLE AUDIT -->
+  <section class="sample">
+    <div>
+      <h3>See exactly what you get</h3>
+      <p>Here's a real sample audit so you know what lands in your inbox before you book anything.</p>
+    </div>
+    <!-- REPLACE href below with your sample-audit Google Doc link -->
+    <a class="btn-dark" href="https://YOUR-SAMPLE-AUDIT-LINK" target="_blank" rel="noopener">View sample audit</a>
+  </section>
+
+  <!-- PRICING -->
+  <h2 class="sec-h">What it costs</h2>
+  <div class="price-card">
+    <div class="pc-top">
+      <div class="pc-name">LinkedIn Ads audit</div>
+      <div class="pc-fig">$1,000 <span>/ project</span></div>
+    </div>
+    <ul>
+      <li><span class="ck">&#10003;</span><span>Full audit of setup, settings, targeting, budget and bidding, ad copy, and creative.</span></li>
+      <li><span class="ck">&#10003;</span><span>Written report plus <strong>Loom walkthroughs</strong> of every section.</span></li>
+      <li><span class="ck">&#10003;</span><span>Prioritized list of quick wins and bigger strategic moves.</span></li>
+      <li><span class="ck">&#10003;</span><span>Optional 30-minute walkthrough call once it's delivered.</span></li>
+      <li><span class="ck">&#10003;</span><span><strong>100% money-back guarantee.</strong> Invoiced Net 14.</span></li>
+    </ul>
+    <div class="addon">
+      <p class="a-h">Add-on: <b>done-for-you implementation, +$1,500</b></p>
+      <p>Prefer to hand it off? I'll implement the recommendations in your account instead of leaving it to your team.</p>
+    </div>
+  </div>
+
+  <!-- GUARANTEE -->
+  <div class="guarantee">
+    <div class="g-ic">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+    </div>
+    <div class="g-txt">
+      <h3>100% money-back guarantee</h3>
+      <p>If you don't find the audit valuable, you get your money back. No questions asked.</p>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <h2 class="sec-h">Common questions</h2>
+  <div class="faq">
+    <div class="faq-item">
+      <p class="faq-q">What does the audit actually cover?</p>
+      <p class="faq-a">Everything that affects performance: account and campaign structure, targeting and audiences, budgets and bidding, conversion tracking, ad copy, and creative. You get the good, the bad, and the ugly, along with what to fix first.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How do you deliver it?</p>
+      <p class="faq-a">A full written report with Loom videos walking through each section, so the recommendations are clear and easy to act on. You also get an optional 30-minute call to ask questions.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How long does it take?</p>
+      <p class="faq-a">Under a week. The clock starts once payment is in and I have view access to your LinkedIn Ads account.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">What do you need from me to get started?</p>
+      <p class="faq-a">View access to your LinkedIn Ads account, and a quick 20-minute call so I understand what you're looking for. That's it.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Is view access safe to give?</p>
+      <p class="faq-a">Yes. View access is read-only, so I can see the account and the data but can't make changes, spend money, or touch your settings. You keep full control the whole time.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How does payment work?</p>
+      <p class="faq-a">It's a flat $1,000 for the project, invoiced Net 14 once you've given me access. No retainer and no long-term commitment.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">What if I'm not happy with it?</p>
+      <p class="faq-a">You get your money back. It's a 100% money-back guarantee, no questions asked. If the audit isn't valuable to you, you don't pay for it.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Do I have to make the changes myself?</p>
+      <p class="faq-a">The audit is built so your team can implement it. If you'd rather hand it off, I can implement the recommendations for you for an extra $1,500.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Is this only for B2B SaaS?</p>
+      <p class="faq-a">That's where I spend most of my time and where the audit is sharpest, but if you're running LinkedIn Ads and want an honest read on the account, book a call and we'll see if it's a fit.</p>
+    </div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <section class="aud-cta">
+    <h2>Ready for an honest look at your account?</h2>
+    <p>Book a 20-minute call and I'll tell you whether an audit is worth it before you spend a dollar.</p>
+    <div class="aud-cta-row">
+      <!-- REPLACE href below with your booking/scheduling link -->
+      <a class="btn-primary" href="https://YOUR-BOOKING-LINK">Book a 20-minute intro call</a>
+      <!-- REPLACE href below with your sample-audit Google Doc link -->
+      <a class="btn-ghost" href="https://YOUR-SAMPLE-AUDIT-LINK" target="_blank" rel="noopener">See a sample audit</a>
+    </div>
+    <p class="trust">$1,000, one-time. One-week turnaround. 100% money-back guarantee.</p>
+  </section>
+
+</div>
+
+<footer class="foot"><div class="foot-in">
+    <img class="flogo" src="/assets/logo-white.png" alt="B2B Rizz">
+    <div class="fright"><span class="ftag">LinkedIn Ads that don't suck</span>
+      <img class="fmascot" src="/assets/mascot-moon.png" alt=""></div>
+</div></footer>
+</body>
+</html>
