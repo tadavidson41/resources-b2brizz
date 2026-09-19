@@ -204,6 +204,28 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
  .cp-name{grid-column:1/-1}
 }
 
+
+.exec{margin:20px 0 10px;padding:16px 18px 14px;background:#fff;border:1px solid var(--bd);border-radius:10px;border-left:4px solid #7319F2;box-shadow:0 1px 0 rgba(115,25,242,.05)}
+.exec h3{margin:0 0 10px;font-size:18px;font-weight:800;color:#0D062B;letter-spacing:-.2px;padding-bottom:2px}
+.exec h3:after{content:"";display:block;width:44px;height:3px;background:#7319F2;border-radius:2px;margin:8px 0 0}
+.exec ul{margin:0;padding:0 0 0 18px;color:var(--tx);font-size:13.5px;line-height:1.55}
+.exec li{margin:0 0 8px}
+.exec li:last-child{margin-bottom:4px}
+.exec .exec-foot{font-size:11.5px;color:var(--s3);margin:10px 0 0;line-height:1.45}
+.cp-eff{margin:14px 0 18px;padding:14px 16px;background:var(--card);border:1px solid var(--bd);border-radius:10px}
+.cp-eff h3{margin:0 0 10px;font-size:22px;font-weight:800;color:var(--tx);text-align:center;letter-spacing:-.3px;padding-bottom:4px}
+.cp-eff h3:after{content:"";display:block;width:48px;height:3px;background:#7319F2;border-radius:2px;margin:10px auto 0}
+.cp-eff .cp-eff-intro{font-size:12.5px;color:var(--s2);margin:0 0 16px;line-height:1.45}
+.cp-eff-block{margin:0 0 18px;padding:16px 14px 14px;border:1px solid var(--bd);border-radius:10px;background:var(--white)}
+.cp-eff-block:last-child{margin-bottom:4px}
+.cp-eff-block h4{margin:0 0 10px;font-size:16px;font-weight:800;color:#0D062B;text-align:center;letter-spacing:-.2px}
+.cp-eff-block h4:after{content:"";display:block;width:36px;height:2px;background:#7319F2;border-radius:2px;margin:8px auto 0}
+.cp-eff .tscroll table{min-width:640px;margin-top:0}
+.cp-eff th{font-size:10.5px}
+.cp-eff td{font-size:13px}
+.cp-eff td.num,.cp-eff th.r{font-variant-numeric:tabular-nums}
+.cp-eff .muted{color:var(--s3);font-weight:600}
+
 @media(max-width:720px){.wrap{padding:24px 14px 60px}h1{font-size:24px}}
 </style>
 </head>
@@ -247,6 +269,8 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 <div class="mcard"><div class="l">Influenced pipeline</div><div class="v" id="kpi-pipe">$17,751,500</div><div class="n">Open stages only</div></div>
 <div class="mcard"><div class="l">Influenced revenue</div><div class="v" id="kpi-rev">$1,168,655</div><div class="n">Closed won by close date in period</div></div>
 </div>
+
+<div id="exec-takeaways" class="exec"></div>
 
 <div id="pipe-section">
 <h2>Influenced pipeline by create month</h2>
@@ -315,6 +339,7 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 </div>
 <div class="cp-totals" id="cp-totals"></div>
 <div id="cp-summary" class="cp-summary"></div>
+<div id="cp-efficiency" class="cp-eff"></div>
 <div id="cp-list"></div>
 <div class="pager" id="cp-pager">
 <button type="button" id="cp-prev" onclick="cpPrev()">Previous</button>
@@ -336,7 +361,8 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 <li><b>September 2026 is partial</b> (pulled September 18, 2026; 18 of 30 days).</li>
 <li><b>Campaign splits</b> only exist for deals Fibbler returned; card totals may be below the table's paid impr/clicks. Campaign cards are not period-filtered.</li>
 <li><b>Journeys.</b> Company-level paid touchpoints for the 12 months ending on deal create (create month last/highlighted). YTD shows the top 20 open+Closed Won companies by amount (includes POC/Discovery/etc). Last 3 months, last full month, and MTD show every unique company with a cohort deal created in that period in Qualified, POC, Closed Won, Engagement Model Discussion, Procurement, or Security + Legal. Visible journeys for the selected period paginate at 10 per page. Pipeline and revenue bar charts are hidden on MTD and last full month.</li>
-<li><b>Campaign performance.</b> Fibbler campaign-level influence for LinkedIn. Default list paginates influencing campaigns at 10 per page (sorted by influenced revenue, then pipeline). Show all disables pagination. Summary analysis aggregates the full period set by ad type, Remarketing vs Awareness, and account segment (share charts). Pipe/rev can double-count across campaigns. Expand shows top 10 companies by influenced revenue, then pipeline, among cohort deals that campaign touched in-period.</li>
+<li><b>Campaign performance.</b> Fibbler campaign-level influence for LinkedIn. Default list paginates influencing campaigns at 10 per page (sorted by influenced revenue, then pipeline). Show all disables pagination. Summary analysis aggregates the full period set by ad type, Remarketing vs Awareness, and account segment (share charts). Efficiency tables use Fibbler campaign spend vs influenced pipeline and revenue (pipe/$1 and rev/$1); Spotlight is excluded from the ad-type efficiency table only. Pipe/rev can double-count across campaigns. Expand shows top 10 companies by influenced revenue, then pipeline, among cohort deals that campaign touched in-period.</li>
+<li><b>Executive takeaways.</b> Auto-built for the selected period: overview pipe/rev are deal-level cohort KPIs; mix and efficiency bullets use Fibbler campaign-level influence and campaign spend (can double-count across campaigns).</li>
 <li><b>Est. Spend on journeys.</b> Radar-style cost-to-reach in the journey header: round(paid impr/1000 x CPM) + round(paid clicks x CPC). Rates are L30 LinkedIn account averages excluding Spotlight campaigns (Aug 20 to Sep 18, 2026). Not booked spend.</li>
 <li><b>Coverage.</b> Fibbler influenced-deal calls cap at 200 rows; open and all lists were merged across amount/date/name sorts. deal_filter=lost returned empty for this account, so Closed Lost came from all-deal pulls. Some deals were backfilled from an earlier L12M pull when createDate fell in 2026 YTD.</li>
 <li><b>Salesforce</b> was connected at pull time. No deal figures were invented.</li>
@@ -741,11 +767,9 @@ function cpShareChartsHtml(items){
   cpShareBlock('Revenue mix', items, 'rev', CP_SHARE_COLORS_REV, {'#13E2BF':1,'#CFEF09':1})+
   '</div>';
 }
-function renderCpSummary(camps){
- var el=document.getElementById('cp-summary');
- if(!el) return;
+function aggregateCampaignCuts(camps){
  var typeOrder=['Document Ads','Image Ads','Video Ads','Other'];
- var byType={}; var byRm={Remarketing:{n:0,pipe:0,rev:0,deals:0},Awareness:{n:0,pipe:0,rev:0,deals:0}};
+ var byType={}; var byRm={Remarketing:{n:0,pipe:0,rev:0,deals:0,spend:0},Awareness:{n:0,pipe:0,rev:0,deals:0,spend:0}};
  var bandOrder=['Strategic Owned','Upmarket+ Owned & Unowned P1-2','Upmarket / Tier 1-3','Enterprise Owned / Unowned / Priority 1-2','Other / Unknown'];
  var bandShort={
   'Strategic Owned':'Strategic Owned',
@@ -755,30 +779,42 @@ function renderCpSummary(camps){
   'Other / Unknown':'Other'
  };
  var byBand={};
- typeOrder.forEach(function(k){ byType[k]={n:0,pipe:0,rev:0,deals:0}; });
- bandOrder.forEach(function(k){ byBand[k]={n:0,pipe:0,rev:0,deals:0}; });
- camps.forEach(function(c){
+ typeOrder.forEach(function(k){ byType[k]={n:0,pipe:0,rev:0,deals:0,spend:0}; });
+ bandOrder.forEach(function(k){ byBand[k]={n:0,pipe:0,rev:0,deals:0,spend:0}; });
+ (camps||[]).forEach(function(c){
+  var pipe=+(c.pipeline||0), rev=+(c.revenue||0), deals=+(c.deals||0), spend=+(c.spend||0);
   var ad=campaignAdType(c);
   var tk=summaryAdTypeKey(ad);
   if(tk!=='Spotlight Ads'){
-   if(!byType[tk]) byType[tk]={n:0,pipe:0,rev:0,deals:0};
-   byType[tk].n++; byType[tk].pipe+=(c.pipeline||0); byType[tk].rev+=(c.revenue||0); byType[tk].deals+=(c.deals||0);
+   if(!byType[tk]) byType[tk]={n:0,pipe:0,rev:0,deals:0,spend:0};
+   byType[tk].n++; byType[tk].pipe+=pipe; byType[tk].rev+=rev; byType[tk].deals+=deals; byType[tk].spend+=spend;
   }
   var rk=campaignIsRemarketing(c)?'Remarketing':'Awareness';
-  byRm[rk].n++; byRm[rk].pipe+=(c.pipeline||0); byRm[rk].rev+=(c.revenue||0); byRm[rk].deals+=(c.deals||0);
+  byRm[rk].n++; byRm[rk].pipe+=pipe; byRm[rk].rev+=rev; byRm[rk].deals+=deals; byRm[rk].spend+=spend;
   var bk=campaignAccountBand(c.name);
-  if(!byBand[bk]) byBand[bk]={n:0,pipe:0,rev:0,deals:0};
-  byBand[bk].n++; byBand[bk].pipe+=(c.pipeline||0); byBand[bk].rev+=(c.revenue||0); byBand[bk].deals+=(c.deals||0);
+  if(!byBand[bk]) byBand[bk]={n:0,pipe:0,rev:0,deals:0,spend:0};
+  byBand[bk].n++; byBand[bk].pipe+=pipe; byBand[bk].rev+=rev; byBand[bk].deals+=deals; byBand[bk].spend+=spend;
  });
  function itemsFrom(map, order, shortMap){
   return order.filter(function(k){ return map[k] && map[k].n>0; }).map(function(k){
    var x=map[k];
-   return {label:(shortMap&&shortMap[k])||k, pipe:x.pipe, rev:x.rev, n:x.n};
+   return {label:(shortMap&&shortMap[k])||k, pipe:x.pipe, rev:x.rev, n:x.n, spend:x.spend||0};
   });
  }
- var typeItems=itemsFrom(byType, typeOrder);
- var rmItems=itemsFrom(byRm, ['Remarketing','Awareness']);
- var bandItems=itemsFrom(byBand, bandOrder, bandShort);
+ return {
+  typeItems:itemsFrom(byType, typeOrder),
+  rmItems:itemsFrom(byRm, ['Remarketing','Awareness']),
+  bandItems:itemsFrom(byBand, bandOrder, bandShort),
+  bandShort:bandShort,
+  typeOrder:typeOrder,
+  bandOrder:bandOrder
+ };
+}
+function renderCpSummary(camps){
+ var el=document.getElementById('cp-summary');
+ if(!el) return;
+ var cuts=aggregateCampaignCuts(camps);
+ var typeItems=cuts.typeItems, rmItems=cuts.rmItems, bandItems=cuts.bandItems;
  function section(title, intro, items){
   if(!items.length){
    return '<div class="cp-sum-section"><h4>'+title+'</h4><p class="cp-sum-sec-intro">No campaigns in this breakdown for the period.</p></div>';
@@ -793,6 +829,157 @@ function renderCpSummary(camps){
   section('Remarketing vs Awareness','Remarketing if the campaign name contains remarketing; otherwise Awareness.',rmItems)+
   section('By account segment','Best-effort from campaign name. Short labels on the legend; full names in the footnote.',bandItems)+
   '<p class="cp-sum-foot">Account segments (best-effort from campaign name): Strategic Owned; Upmarket+ Owned &amp; Unowned P1-2; Upmarket / Tier 1-3; Enterprise Owned / Unowned / Priority 1-2; Other / Unknown (AWS, Competitive Takeout, CTV, Vista, Gartner, Customers, ZERO Paid, and unclear names). Numbers in parentheses are campaign counts. Spotlight stays in the campaign list and other breakdowns, but not in By ad type. Hover a share slice for the full label when the bar is too small to print text.</p>';
+}
+function effPipePerDollar(it){
+ var s=+(it.spend||0);
+ if(!(s>0)) return null;
+ return Math.round((+(it.pipe||0))/s);
+}
+function effRevPerDollar(it){
+ var s=+(it.spend||0);
+ if(!(s>0)) return null;
+ return Math.round((+(it.rev||0))/s);
+}
+function fmtEffRatio(r){
+ return r==null?'n/a':money(r);
+}
+function sortEffItems(items){
+ return (items||[]).slice().sort(function(a,b){
+  var as=+(a.spend||0)>0, bs=+(b.spend||0)>0;
+  if(as && !bs) return -1;
+  if(bs && !as) return 1;
+  var ap=effPipePerDollar(a), bp=effPipePerDollar(b);
+  var av=ap==null?-1:ap, bv=bp==null?-1:bp;
+  if(bv!==av) return bv-av;
+  return (+(b.spend||0))-(+(a.spend||0));
+ });
+}
+function cpEffTableHtml(title, items){
+ if(!(items&&items.length)){
+  return '<div class="cp-eff-block"><h4>'+title+'</h4><p class="cp-eff-intro" style="margin:0">No campaigns in this breakdown for the period.</p></div>';
+ }
+ var rows=sortEffItems(items).map(function(it){
+  return '<tr><td>'+escHtml(it.label)+'</td>'+
+   '<td class="c num">'+fmtN(it.n)+'</td>'+
+   '<td class="r num">'+money(it.spend||0)+'</td>'+
+   '<td class="r num">'+money(it.pipe||0)+'</td>'+
+   '<td class="r num'+(effPipePerDollar(it)==null?' muted':'')+'">'+fmtEffRatio(effPipePerDollar(it))+'</td>'+
+   '<td class="r num">'+money(it.rev||0)+'</td>'+
+   '<td class="r num'+(effRevPerDollar(it)==null?' muted':'')+'">'+fmtEffRatio(effRevPerDollar(it))+'</td></tr>';
+ }).join('');
+ return '<div class="cp-eff-block"><h4>'+title+'</h4><div class="tscroll"><table><thead><tr>'+
+  '<th>Segment / Type</th><th class="c">Campaigns</th><th class="r">Spend</th><th class="r">Pipeline</th><th class="r">Pipe / $1</th><th class="r">Revenue</th><th class="r">Rev / $1</th>'+
+  '</tr></thead><tbody>'+rows+'</tbody></table></div></div>';
+}
+function renderCpEfficiency(camps){
+ var el=document.getElementById('cp-efficiency');
+ if(!el) return;
+ var cuts=aggregateCampaignCuts(camps);
+ el.innerHTML='<h3>Efficiency</h3>'+
+  '<p class="cp-eff-intro">Fibbler campaign spend vs influenced pipeline and revenue. Pipe and revenue can double-count across campaigns. Spotlight excluded from ad-type table only.</p>'+
+  cpEffTableHtml('Efficiency by ad type', cuts.typeItems)+
+  cpEffTableHtml('Efficiency by remarketing vs awareness', cuts.rmItems)+
+  cpEffTableHtml('Efficiency by account segment', cuts.bandItems);
+}
+function cohortPipeRev(){
+ var openPipe=0, wonRev=0;
+ D.deals.forEach(function(d){
+  if(dealCreatedInPeriod(d) && OPEN[d.stage]) openPipe+=(d.amount||0);
+  if(dealClosedInPeriod(d)) wonRev+=(d.amount||0);
+ });
+ return {openPipe:openPipe, wonRev:wonRev};
+}
+function topByShare(items, key){
+ var best=null, total=0;
+ (items||[]).forEach(function(it){ total+=Math.max(0,+(it[key]||0)); });
+ (items||[]).forEach(function(it){
+  var v=Math.max(0,+(it[key]||0));
+  if(!best || v>(+(best[key]||0))) best=it;
+ });
+ if(!best || total<=0) return null;
+ return {item:best, pct:Math.round((+(best[key]||0)/total)*100), total:total};
+}
+function renderExecTakeaways(){
+ var el=document.getElementById('exec-takeaways');
+ if(!el) return;
+ var p=PERIODS[cur];
+ var kpis=cohortPipeRev();
+ var map=D.campaignPerfByPeriod||{};
+ var camps=((map[cur]||{}).campaigns)||[];
+ var cuts=aggregateCampaignCuts(camps);
+ var bullets=[];
+ bullets.push('<b>Outcome:</b> Influenced open pipeline '+money(kpis.openPipe)+' and closed-won revenue '+money(kpis.wonRev)+' in '+escHtml(p.title)+' (3+ paid-click new-business cohort).');
+ var topType=topByShare(cuts.typeItems,'pipe');
+ var topBand=topByShare(cuts.bandItems,'pipe');
+ var rmPipe=0, awPipe=0;
+ cuts.rmItems.forEach(function(it){
+  if(it.label==='Remarketing') rmPipe=+(it.pipe||0);
+  else if(it.label==='Awareness') awPipe=+(it.pipe||0);
+ });
+ var rmAwTotal=rmPipe+awPipe;
+ var mixParts=[];
+ if(topType) mixParts.push(escHtml(topType.item.label)+' led ad-type mix at '+topType.pct+'% of campaign-influenced pipeline (Spotlight excluded)');
+ if(topBand) mixParts.push(escHtml(topBand.item.label)+' led account segments at '+topBand.pct+'% of campaign-influenced pipeline');
+ if(rmAwTotal>0){
+  var awPct=Math.round((awPipe/rmAwTotal)*100);
+  var rmPct=100-awPct;
+  mixParts.push('Awareness '+awPct+'% of campaign-influenced pipeline / Remarketing '+rmPct+'%');
+ }
+ if(mixParts.length){
+  bullets.push('<b>What drove mix:</b> '+mixParts.join('; ')+'.');
+ } else {
+  bullets.push('<b>What drove mix:</b> Campaign mix data is not available for this period.');
+ }
+ var typedSpend=cuts.typeItems.filter(function(it){ return +(it.spend||0)>0; });
+ if(typedSpend.length){
+  var ranked=sortEffItems(typedSpend);
+  var best=ranked[0], worst=ranked[ranked.length-1];
+  var effLine='<b>Efficiency:</b> Best ad type by pipe per $1 spend is '+escHtml(best.label)+' ('+fmtEffRatio(effPipePerDollar(best))+'); weakest is '+escHtml(worst.label)+' ('+fmtEffRatio(effPipePerDollar(worst))+').';
+  var rmIt=null, awIt=null;
+  cuts.rmItems.forEach(function(it){
+   if(it.label==='Remarketing') rmIt=it;
+   else if(it.label==='Awareness') awIt=it;
+  });
+  if(rmIt && awIt && +(rmIt.spend||0)>0 && +(awIt.spend||0)>0){
+   effLine+=' Remarketing pipe/$1 is '+fmtEffRatio(effPipePerDollar(rmIt))+'; Awareness is '+fmtEffRatio(effPipePerDollar(awIt))+'.';
+  }
+  bullets.push(effLine);
+ } else {
+  bullets.push('<b>Efficiency:</b> Campaign spend is not available to rank ad-type efficiency for this period.');
+ }
+ // Next moves (1-2)
+ var moves=[];
+ var meaningful=typedSpend.filter(function(it){
+  var tot=typedSpend.reduce(function(s,x){return s+(+(x.spend||0));},0);
+  return tot>0 && (+(it.spend||0))>=Math.max(tot*0.05, 1);
+ });
+ if(meaningful.length){
+  var bestM=sortEffItems(meaningful)[0];
+  moves.push('Lean into '+escHtml(bestM.label)+' where pipe per $1 is strongest among types with meaningful spend ('+fmtEffRatio(effPipePerDollar(bestM))+' pipe/$1).');
+  var weakCand=sortEffItems(meaningful);
+  var flag=weakCand[weakCand.length-1];
+  if(flag && bestM && flag.label!==bestM.label){
+   var revPer=effRevPerDollar(flag);
+   if((revPer==null || revPer===0) || (effPipePerDollar(flag)!=null && effPipePerDollar(bestM)!=null && effPipePerDollar(flag)<effPipePerDollar(bestM)*0.35)){
+    var why=(revPer==null || revPer===0)?'near-zero influenced revenue':'weaker pipe per $1 despite spend';
+    moves.push('Review '+escHtml(flag.label)+' ('+money(flag.spend)+' spend, '+fmtEffRatio(effPipePerDollar(flag))+' pipe/$1) for '+why+'.');
+   }
+  }
+ }
+ if(!moves.length && cuts.bandItems.length){
+  var bandSpend=cuts.bandItems.filter(function(it){ return +(it.spend||0)>0; });
+  if(bandSpend.length){
+   var bestB=sortEffItems(bandSpend)[0];
+   moves.push('Prioritize the '+escHtml(bestB.label)+' account segment on pipe efficiency ('+fmtEffRatio(effPipePerDollar(bestB))+' pipe/$1).');
+  }
+ }
+ if(moves.length){
+  bullets.push('<b>Next moves:</b> '+moves.join(' '));
+ } else {
+  bullets.push('<b>Next moves:</b> Keep monitoring campaign mix as more spend and influenced deals land in-period.');
+ }
+ el.innerHTML='<h3>Executive takeaways</h3><ul>'+bullets.map(function(b){return '<li>'+b+'</li>';}).join('')+'</ul>'+
+  '<p class="exec-foot">Campaign mix/efficiency uses Fibbler campaign-level influence and spend (can double-count across campaigns). Overview pipe/rev are deal-level cohort KPIs.</p>';
 }
 function renderCampaignPerf(resetPage){
  if(resetPage!==false) cpPage=0;
@@ -812,6 +999,8 @@ function renderCampaignPerf(resetPage){
  });
  // Summary always uses full period list (all campaigns in period block for influencing set when not show-all? Spec: campaignPerfByPeriod[period].campaigns full set)
  renderCpSummary(camps);
+ renderCpEfficiency(camps);
+ renderExecTakeaways();
  var t=block.totals||{};
  var totEl=document.getElementById('cp-totals');
  if(totEl){
@@ -913,6 +1102,7 @@ function setPeriod(id,push){
  });
  updateCopy();
  recomputeKPIs();
+ renderExecTakeaways();
  rebuildPipeChart();
  rebuildRevChart();
  applyChartVisibility();
