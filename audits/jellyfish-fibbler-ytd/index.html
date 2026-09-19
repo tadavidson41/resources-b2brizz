@@ -815,10 +815,10 @@ function renderCampaignPerf(resetPage){
  var t=block.totals||{};
  var totEl=document.getElementById('cp-totals');
  if(totEl){
-  totEl.innerHTML='<div class="cp-metric"><span class="lbl">Impr</span><b>'+fmtN(t.impressions||0)+'</b></div>'+
+  totEl.innerHTML='<div class="cp-metric"><span class="lbl">Impressions</span><b>'+fmtN(t.impressions||0)+'</b></div>'+
    '<div class="cp-metric"><span class="lbl">Clicks</span><b>'+fmtN(t.clicks||0)+'</b></div>'+
    '<div class="cp-metric"><span class="lbl">Spend</span><b>'+money(t.spend||0)+'</b></div>'+
-   '<div class="cp-metric"><span class="lbl">Pipe</span><b>'+money(t.weightedPipeline||0)+'</b></div>'+
+   '<div class="cp-metric"><span class="lbl">Pipeline</span><b>'+money(t.weightedPipeline||0)+'</b></div>'+
    '<div class="cp-metric"><span class="lbl">Revenue</span><b>'+money(t.weightedRevenue||0)+'</b></div>';
  }
  var pages, pageRows;
