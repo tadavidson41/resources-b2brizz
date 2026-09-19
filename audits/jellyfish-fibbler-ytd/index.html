@@ -697,7 +697,11 @@ function campaignIsRemarketing(c){
 }
 function campaignAccountBand(name){
  var n=String(name||'');
- if(/ZERO Paid|Customers:|AWS\b|Competitive Takeout|\bCTV\b|Vista Portcos|\bGartner\b|Catch-All/i.test(n))
+ if(/Competitive Takeout/i.test(n)) return 'Competitor';
+ if(/\bCTV\b/i.test(n) && /remarketing/i.test(n)) return 'Remarketing';
+ if(/\bCTV\b/i.test(n) && /Enterprise/i.test(n)) return 'Enterprise Owned / Unowned / Priority 1-2';
+ if(/\bGartner\b/i.test(n) && /Enterprise/i.test(n)) return 'Enterprise Owned / Unowned / Priority 1-2';
+ if(/ZERO Paid|Customers:|AWS\b|Vista Portcos|Catch-All/i.test(n))
   return 'Other / Unknown';
  if(/Strategic\s*\(Owned\)|Strategic\s+Owned|Strategic\s*-\s*Tier\s*1-3/i.test(n))
   return 'Strategic Owned';
@@ -759,12 +763,14 @@ function cpShareChartsHtml(items){
 function aggregateCampaignCuts(camps){
  var typeOrder=['Document Ads','Image Ads','Video Ads','Other'];
  var byType={}; var byRm={Remarketing:{n:0,pipe:0,rev:0,deals:0,spend:0},Awareness:{n:0,pipe:0,rev:0,deals:0,spend:0}};
- var bandOrder=['Strategic Owned','Upmarket+ Owned & Unowned P1-2','Upmarket / Tier 1-3','Enterprise Owned / Unowned / Priority 1-2','Other / Unknown'];
+ var bandOrder=['Strategic Owned','Upmarket+ Owned & Unowned P1-2','Upmarket / Tier 1-3','Enterprise Owned / Unowned / Priority 1-2','Remarketing','Competitor','Other / Unknown'];
  var bandShort={
   'Strategic Owned':'Strategic Owned',
   'Upmarket+ Owned & Unowned P1-2':'Upmarket+ P1-2',
   'Upmarket / Tier 1-3':'Upmarket T1-3',
   'Enterprise Owned / Unowned / Priority 1-2':'Enterprise',
+  'Remarketing':'Remarketing',
+  'Competitor':'Competitor',
   'Other / Unknown':'Other'
  };
  var byBand={};
@@ -817,7 +823,7 @@ function renderCpSummary(camps){
   section('By ad type','Document, Image, and Video only. Spotlight excluded. Empty categories omitted.',typeItems)+
   section('Remarketing vs Awareness','Remarketing if the campaign name contains remarketing; otherwise Awareness.',rmItems)+
   section('By account segment','Best-effort from campaign name. Short labels on the legend; full names in the footnote.',bandItems)+
-  '<p class="cp-sum-foot">Account segments (best-effort from campaign name): Strategic Owned; Upmarket+ Owned &amp; Unowned P1-2; Upmarket / Tier 1-3; Enterprise Owned / Unowned / Priority 1-2; Other / Unknown (AWS, Competitive Takeout, CTV, Vista, Gartner, Customers, ZERO Paid, and unclear names). Numbers in parentheses are campaign counts. Spotlight stays in the campaign list and other breakdowns, but not in By ad type. Hover a share slice for the full label when the bar is too small to print text.</p>';
+  '<p class="cp-sum-foot">Account segments (best-effort from campaign name): Strategic Owned; Upmarket+ Owned &amp; Unowned P1-2; Upmarket / Tier 1-3; Enterprise; Remarketing (CTV remarketing); Competitor (Competitive Takeout); Other / Unknown (AWS, Vista, Customers, ZERO Paid, and unclear names). CTV or Gartner lines that name Enterprise map to Enterprise. Numbers in parentheses are campaign counts. Spotlight stays in the campaign list and other breakdowns, but not in By ad type. Hover a share slice for the full label when the bar is too small to print text.</p>';
 }
 function effPipePerDollar(it){
  var s=+(it.spend||0);
