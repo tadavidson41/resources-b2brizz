@@ -216,7 +216,9 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 .cp-eff .tscroll table{min-width:640px;margin-top:0}
 .cp-eff th{font-size:10.5px}
 .cp-eff td{font-size:13px}
-.cp-eff td.num,.cp-eff th.r{font-variant-numeric:tabular-nums}
+.cp-eff th:first-child,.cp-eff td:first-child{text-align:left}
+.cp-eff th:not(:first-child),.cp-eff td:not(:first-child){text-align:center}
+.cp-eff td.num{font-variant-numeric:tabular-nums}
 .cp-eff .muted{color:var(--s3);font-weight:600}
 
 @media(max-width:720px){.wrap{padding:24px 14px 60px}h1{font-size:24px}}
@@ -267,7 +269,7 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 <div id="pipe-section">
 <h2>Influenced pipeline by create month</h2>
 <p class="sech" id="pipe-sech">Filtered 3+ click new business, by create month. September 2026 is partial (18 of 30 days).</p>
-<div class="box trend" id="pipe-chart"><div class="vchart"><div class="vcol"><div class="vval">$452,900<span class="vsub">open $138,400 · won $314,500</span></div><div class="vtrack"><div class="vbar" style="height:10.1%;background:#C7A3FA;"></div></div><div class="vlab">Jan &#x27;26</div></div><div class="vcol"><div class="vval">$1,571,100<span class="vsub">open $1,224,000 · won $347,100</span></div><div class="vtrack"><div class="vbar" style="height:35.2%;background:#C7A3FA;"></div></div><div class="vlab">Feb &#x27;26</div></div><div class="vcol"><div class="vval">$1,440,005<span class="vsub">open $1,133,950 · won $306,055</span></div><div class="vtrack"><div class="vbar" style="height:32.3%;background:#C7A3FA;"></div></div><div class="vlab">Mar &#x27;26</div></div><div class="vcol"><div class="vval">$931,000<span class="vsub">open $845,000 · won $86,000</span></div><div class="vtrack"><div class="vbar" style="height:20.9%;background:#C7A3FA;"></div></div><div class="vlab">Apr &#x27;26</div></div><div class="vcol"><div class="vval">$1,425,250<span class="vsub">open $1,310,250 · won $115,000</span></div><div class="vtrack"><div class="vbar" style="height:31.9%;background:#C7A3FA;"></div></div><div class="vlab">May &#x27;26</div></div><div class="vcol"><div class="vval">$1,420,700<span class="vsub">open</span></div><div class="vtrack"><div class="vbar" style="height:31.8%;background:#C7A3FA;"></div></div><div class="vlab">Jun &#x27;26</div></div><div class="vcol"><div class="vval">$3,920,250<span class="vsub">open</span></div><div class="vtrack"><div class="vbar" style="height:87.8%;background:#C7A3FA;"></div></div><div class="vlab">Jul &#x27;26</div></div><div class="vcol"><div class="vval">$4,463,950<span class="vsub">open</span></div><div class="vtrack"><div class="vbar" style="height:100.0%;background:#C7A3FA;"></div></div><div class="vlab">Aug &#x27;26</div></div><div class="vcol"><div class="vval">$3,295,000<span class="vsub">open</span></div><div class="vtrack"><div class="vbar" style="height:73.8%;background:#7319F2;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.35) 0 6px,transparent 6px 12px);"></div></div><div class="vlab">Sep &#x27;26<span class="mtd">partial</span></div></div></div></div>
+<div class="box trend" id="pipe-chart"><div class="vchart"><div class="vcol"><div class="vval">$452,900</div><div class="vtrack"><div class="vbar" style="height:10.1%;background:#C7A3FA;"></div></div><div class="vlab">Jan &#x27;26</div></div><div class="vcol"><div class="vval">$1,571,100</div><div class="vtrack"><div class="vbar" style="height:35.2%;background:#C7A3FA;"></div></div><div class="vlab">Feb &#x27;26</div></div><div class="vcol"><div class="vval">$1,440,005</div><div class="vtrack"><div class="vbar" style="height:32.3%;background:#C7A3FA;"></div></div><div class="vlab">Mar &#x27;26</div></div><div class="vcol"><div class="vval">$931,000</div><div class="vtrack"><div class="vbar" style="height:20.9%;background:#C7A3FA;"></div></div><div class="vlab">Apr &#x27;26</div></div><div class="vcol"><div class="vval">$1,425,250</div><div class="vtrack"><div class="vbar" style="height:31.9%;background:#C7A3FA;"></div></div><div class="vlab">May &#x27;26</div></div><div class="vcol"><div class="vval">$1,420,700</div><div class="vtrack"><div class="vbar" style="height:31.8%;background:#C7A3FA;"></div></div><div class="vlab">Jun &#x27;26</div></div><div class="vcol"><div class="vval">$3,920,250</div><div class="vtrack"><div class="vbar" style="height:87.8%;background:#C7A3FA;"></div></div><div class="vlab">Jul &#x27;26</div></div><div class="vcol"><div class="vval">$4,463,950</div><div class="vtrack"><div class="vbar" style="height:100.0%;background:#C7A3FA;"></div></div><div class="vlab">Aug &#x27;26</div></div><div class="vcol"><div class="vval">$3,295,000</div><div class="vtrack"><div class="vbar" style="height:73.8%;background:#7319F2;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.35) 0 6px,transparent 6px 12px);"></div></div><div class="vlab">Sep &#x27;26<span class="mtd">partial</span></div></div></div></div>
 </div>
 
 <div id="rev-section">
@@ -504,13 +506,9 @@ function rebuildPipeChart(){
  var totals=ms.map(function(m){return openBy[m]+wonBy[m];});
  var maxV=Math.max.apply(null,totals.concat([1]));
  var cols=ms.map(function(m,i){
-  var o=openBy[m],w=wonBy[m],t=totals[i];
-  var tsub='';
-  if(o&&w) tsub='open '+money(o)+' · won '+money(w);
-  else if(o&&!w) tsub='open';
-  else if(w&&!o) tsub='won';
+  var t=totals[i];
   var partial=!!D.accountPartial[D.months.indexOf(m)];
-  return vbarCol(D.monthLabel[m]||m,t,maxV,partial,tsub);
+  return vbarCol(D.monthLabel[m]||m,t,maxV,partial,'');
  });
  var sech;
  if(cur==='lfm') sech='Filtered 3+ click new business, by create month. August 2026 is a full month.';
@@ -851,15 +849,15 @@ function cpEffTableHtml(title, items){
  }
  var rows=sortEffItems(items).map(function(it){
   return '<tr><td>'+escHtml(it.label)+'</td>'+
-   '<td class="c num">'+fmtN(it.n)+'</td>'+
-   '<td class="r num">'+money(it.spend||0)+'</td>'+
-   '<td class="r num">'+money(it.pipe||0)+'</td>'+
-   '<td class="r num'+(effPipePerDollar(it)==null?' muted':'')+'">'+fmtEffRatio(effPipePerDollar(it))+'</td>'+
-   '<td class="r num">'+money(it.rev||0)+'</td>'+
-   '<td class="r num'+(effRevPerDollar(it)==null?' muted':'')+'">'+fmtEffRatio(effRevPerDollar(it))+'</td></tr>';
+   '<td class="num">'+fmtN(it.n)+'</td>'+
+   '<td class="num">'+money(it.spend||0)+'</td>'+
+   '<td class="num">'+money(it.pipe||0)+'</td>'+
+   '<td class="num'+(effPipePerDollar(it)==null?' muted':'')+'">'+fmtEffRatio(effPipePerDollar(it))+'</td>'+
+   '<td class="num">'+money(it.rev||0)+'</td>'+
+   '<td class="num'+(effRevPerDollar(it)==null?' muted':'')+'">'+fmtEffRatio(effRevPerDollar(it))+'</td></tr>';
  }).join('');
  return '<div class="cp-eff-block"><h4>'+title+'</h4><div class="tscroll"><table><thead><tr>'+
-  '<th>Segment / Type</th><th class="c">Campaigns</th><th class="r">Spend</th><th class="r">Pipeline</th><th class="r">Pipe / $1</th><th class="r">Revenue</th><th class="r">Rev / $1</th>'+
+  '<th>Segment / Type</th><th>Campaigns</th><th>Spend</th><th>Pipeline</th><th>Pipe / $1</th><th>Revenue</th><th>Rev / $1</th>'+
   '</tr></thead><tbody>'+rows+'</tbody></table></div></div>';
 }
 function renderCpEfficiency(camps){
