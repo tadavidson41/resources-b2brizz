@@ -181,13 +181,17 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 .cp-sum-section h4{margin:0 0 8px;font-size:18px;font-weight:800;text-transform:none;letter-spacing:-.2px;color:#0D062B;text-align:center}
 .cp-sum-section h4:after{content:"";display:block;width:40px;height:2px;background:#7319F2;border-radius:2px;margin:8px auto 0}
 .cp-sum-section .cp-sum-sec-intro{font-size:12px;color:var(--s2);margin:0 auto 14px;line-height:1.4;text-align:center;max-width:560px}
-.cp-sum-chart-block{margin:0 0 12px}
-.cp-sum-chart-block:last-child{margin-bottom:0}
-.cp-sum-chart-block h5{margin:0 0 6px;font-size:12px;font-weight:700;color:var(--tx)}
 .cp-sum-chart-wrap{max-width:100%;overflow-x:auto}
-.cp-vchart{display:flex;align-items:flex-end;gap:10px;min-height:200px;padding:8px 4px 0;min-width:280px}
-.cp-vtrack{height:150px;max-width:64px}
-.cp-vchart .vlab{font-size:10.5px;max-width:76px;overflow-wrap:anywhere;line-height:1.2}
+.cp-vchart{display:flex;align-items:flex-end;justify-content:center;gap:18px;min-height:210px;padding:8px 8px 0;min-width:0}
+.cp-vchart.cp-vchart-tight{gap:28px}
+.cp-vgroup{display:flex;flex-direction:column;align-items:center;gap:6px;flex:0 0 auto;min-width:72px}
+.cp-pair{display:flex;align-items:flex-end;gap:5px;height:150px}
+.cp-pair-col{width:30px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px}
+.cp-pair-val{font-size:9.5px;font-weight:700;font-variant-numeric:tabular-nums;text-align:center;line-height:1.15;color:var(--tx);max-width:42px}
+.cp-pair-track{width:100%;flex:1;max-height:130px;background:var(--card);border:1px solid var(--bd);border-radius:4px 4px 2px 2px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
+.cp-pair-bar{width:100%;border-radius:3px 3px 0 0;min-height:2px}
+.cp-vgroup .vlab{font-size:10.5px;max-width:88px;overflow-wrap:anywhere;line-height:1.2;text-align:center}
+.cp-vgroup .vsub{font-weight:400;color:var(--s3);font-size:10px;display:block;margin-top:2px}
 .cp-sum-foot{font-size:11.5px;color:var(--s3);margin:4px 0 0;line-height:1.45}
 .cp-totals .cp-metric,.cp-totals-metrics{text-align:center}
 @media(max-width:900px){
@@ -693,27 +697,34 @@ function summaryAdTypeKey(ad){
  if(ad.key==='image') return 'Image Ads';
  return 'Other';
 }
-function cpVbarCol(label,value,maxV,color,sub){
+function cpPairBar(value,maxV,color){
  var pct=maxV<=0?0:Math.min(100,(value/maxV)*100);
- var subHtml=sub?'<span class="vsub">'+sub+'</span>':'';
- return '<div class="vcol"><div class="vval">'+money(value)+subHtml+'</div>'+
-  '<div class="vtrack cp-vtrack"><div class="vbar" style="height:'+pct.toFixed(1)+'%;background:'+color+'"></div></div>'+
-  '<div class="vlab">'+label+'</div></div>';
+ return '<div class="cp-pair-col"><div class="cp-pair-val">'+money(value)+'</div>'+
+  '<div class="cp-pair-track"><div class="cp-pair-bar" style="height:'+pct.toFixed(1)+'%;background:'+color+'"></div></div></div>';
 }
-function cpChartHtml(items,valueKey,color){
- var vals=items.map(function(it){ return +(it[valueKey]||0); });
- var maxV=Math.max.apply(null,vals.concat([1]));
- var cols=items.map(function(it){
-  var sub=(it.n!=null)?('('+it.n+')'):'';
-  return cpVbarCol(escHtml(it.label),+(it[valueKey]||0),maxV,color,sub);
+function cpGroupedChartHtml(items,opts){
+ opts=opts||{};
+ var PIPE_C='#7319F2';
+ var REV_C='#13E2BF';
+ var maxV=1;
+ items.forEach(function(it){
+  maxV=Math.max(maxV,+(it.pipe||0),+(it.rev||0));
  });
- var minW=Math.max(280, items.length*88);
- return '<div class="cp-sum-chart-wrap"><div class="vchart cp-vchart" style="min-width:'+minW+'px">'+cols.join('')+'</div></div>';
+ var cols=items.map(function(it){
+  var sub=(it.n!=null)?('<span class="vsub">('+it.n+')</span>'):'';
+  return '<div class="cp-vgroup"><div class="cp-pair">'+
+   cpPairBar(+(it.pipe||0),maxV,PIPE_C)+
+   cpPairBar(+(it.rev||0),maxV,REV_C)+
+   '</div><div class="vlab">'+escHtml(it.label)+sub+'</div></div>';
+ });
+ var tight=items.length<=2?' cp-vchart-tight':'';
+ var minW=Math.max(160, items.length*(opts.groupWidth||92));
+ return '<div class="cp-sum-chart-wrap"><div class="vchart cp-vchart'+tight+'" style="min-width:'+minW+'px">'+cols.join('')+'</div></div>';
 }
 function renderCpSummary(camps){
  var el=document.getElementById('cp-summary');
  if(!el) return;
- var typeOrder=['Document Ads','Image Ads','Video Ads','Spotlight Ads','Other'];
+ var typeOrder=['Document Ads','Image Ads','Video Ads','Other'];
  var byType={}; var byRm={Remarketing:{n:0,pipe:0,rev:0,deals:0},Awareness:{n:0,pipe:0,rev:0,deals:0}};
  var bandOrder=['Strategic Owned','Upmarket+ Owned & Unowned P1-2','Upmarket / Tier 1-3','Enterprise Owned / Unowned / Priority 1-2','Other / Unknown'];
  var bandShort={
@@ -729,8 +740,10 @@ function renderCpSummary(camps){
  camps.forEach(function(c){
   var ad=campaignAdType(c);
   var tk=summaryAdTypeKey(ad);
-  if(!byType[tk]) byType[tk]={n:0,pipe:0,rev:0,deals:0};
-  byType[tk].n++; byType[tk].pipe+=(c.pipeline||0); byType[tk].rev+=(c.revenue||0); byType[tk].deals+=(c.deals||0);
+  if(tk!=='Spotlight Ads'){
+   if(!byType[tk]) byType[tk]={n:0,pipe:0,rev:0,deals:0};
+   byType[tk].n++; byType[tk].pipe+=(c.pipeline||0); byType[tk].rev+=(c.revenue||0); byType[tk].deals+=(c.deals||0);
+  }
   var rk=campaignIsRemarketing(c)?'Remarketing':'Awareness';
   byRm[rk].n++; byRm[rk].pipe+=(c.pipeline||0); byRm[rk].rev+=(c.revenue||0); byRm[rk].deals+=(c.deals||0);
   var bk=campaignAccountBand(c.name);
@@ -746,25 +759,22 @@ function renderCpSummary(camps){
  var typeItems=itemsFrom(byType, typeOrder);
  var rmItems=itemsFrom(byRm, ['Remarketing','Awareness']);
  var bandItems=itemsFrom(byBand, bandOrder, bandShort);
- var PIPE_C='#7319F2';
- var REV_C='#13E2BF';
- function section(title, intro, items){
+ function section(title, intro, items, chartOpts){
   if(!items.length){
    return '<div class="cp-sum-section"><h4>'+title+'</h4><p class="cp-sum-sec-intro">No campaigns in this breakdown for the period.</p></div>';
   }
   return '<div class="cp-sum-section"><h4>'+title+'</h4>'+
    '<p class="cp-sum-sec-intro">'+intro+'</p>'+
-   '<div class="cp-sum-chart-block"><h5>Influenced pipeline</h5>'+cpChartHtml(items,'pipe',PIPE_C)+'</div>'+
-   '<div class="cp-sum-chart-block"><h5>Influenced revenue</h5>'+cpChartHtml(items,'rev',REV_C)+'</div>'+
+   cpGroupedChartHtml(items, chartOpts||{})+
    '</div>';
  }
  el.innerHTML='<h3>Summary analysis</h3>'+
-  '<p class="cp-sum-intro">Influenced pipeline and revenue for all campaigns in this period (full set, not just the current page). Image Ads includes TLA / Image. Values can double-count across campaigns. Bar height is relative within each chart.</p>'+
-  '<p class="cp-sum-legend"><span><span class="cp-sum-swatch" style="background:#7319F2"></span> Pipeline</span><span><span class="cp-sum-swatch" style="background:#13E2BF"></span> Revenue</span></p>'+
-  section('By ad type','Breakdown by LinkedIn ad format. Empty categories are omitted.',typeItems)+
-  section('Remarketing vs Awareness','Remarketing if the campaign name contains remarketing; otherwise Awareness.',rmItems)+
+  '<p class="cp-sum-intro">Influenced pipeline and revenue for all campaigns in this period (full set, not just the current page). Each category shows pipeline and revenue side by side. Image Ads includes TLA / Image. Spotlight Ads are omitted from the ad-type chart (impression-heavy). Values can double-count across campaigns. Bar height is relative within each chart.</p>'+
+  '<p class="cp-sum-legend" style="justify-content:center"><span><span class="cp-sum-swatch" style="background:#7319F2"></span> Influenced pipeline</span><span><span class="cp-sum-swatch" style="background:#13E2BF"></span> Influenced revenue</span></p>'+
+  section('By ad type','Document, Image, and Video only. Spotlight excluded. Empty categories omitted.',typeItems)+
+  section('Remarketing vs Awareness','Remarketing if the campaign name contains remarketing; otherwise Awareness.',rmItems,{groupWidth:110})+
   section('By account band','Best-effort segments from campaign name. Axis uses short labels; full names are in the footnote.',bandItems)+
-  '<p class="cp-sum-foot">Account bands (best-effort from campaign name): Strategic Owned; Upmarket+ Owned &amp; Unowned P1-2; Upmarket / Tier 1-3; Enterprise Owned / Unowned / Priority 1-2; Other / Unknown (AWS, Competitive Takeout, CTV, Vista, Gartner, Customers, ZERO Paid, and unclear names). Numbers in parentheses under each bar are campaign counts in that bucket.</p>';
+  '<p class="cp-sum-foot">Account bands (best-effort from campaign name): Strategic Owned; Upmarket+ Owned &amp; Unowned P1-2; Upmarket / Tier 1-3; Enterprise Owned / Unowned / Priority 1-2; Other / Unknown (AWS, Competitive Takeout, CTV, Vista, Gartner, Customers, ZERO Paid, and unclear names). Numbers in parentheses are campaign counts. Spotlight stays in the campaign list and other breakdowns, but not in By ad type.</p>';
 }
 function renderCampaignPerf(resetPage){
  if(resetPage!==false) cpPage=0;
