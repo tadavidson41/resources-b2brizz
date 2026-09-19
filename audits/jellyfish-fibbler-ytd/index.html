@@ -25,15 +25,18 @@ body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 Roboto,Helveti
 .period-pill.active{background:#7319F2;border-color:#7319F2;color:#fff}
 .period-pill:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 section[id]{scroll-margin-top:64px}
-section.block{padding:8px 0 28px;margin:0 0 8px;border-top:1px solid var(--bd)}
-section.block:first-of-type{border-top:none;padding-top:0}
+section.block{padding:28px 22px 36px;margin:18px -8px 8px;border-radius:14px;border:1px solid transparent}
+section.block:nth-of-type(odd){background:#F9F6FE;border-color:#E8D9FC}
+section.block:nth-of-type(even){background:var(--white);border-color:var(--bd)}
+section.block:first-of-type{margin-top:8px}
 
 .brand{display:flex;align-items:center;gap:14px}
 .brand .logo{height:40px;width:auto;min-width:100px;display:block}
 .ctx{text-transform:uppercase;letter-spacing:.13em;font-size:11px;color:var(--s3);font-weight:700;margin-top:10px}
 h1{font-size:31px;margin:16px 0 8px;letter-spacing:-.6px;font-weight:800}
 .lede{color:var(--s2);font-size:14px;max-width:900px}
-h2{font-size:26px;margin:56px 0 10px;letter-spacing:-.4px;font-weight:800;text-align:center}
+h2{font-size:26px;margin:36px 0 10px;letter-spacing:-.4px;font-weight:800;text-align:center;padding-bottom:12px;position:relative}
+h2:after{content:"";display:block;width:56px;height:3px;background:#7319F2;border-radius:2px;margin:10px auto 0}
 .count{display:inline-block;background:var(--blue);color:#fff;border-radius:999px;font-size:12px;font-weight:700;padding:2px 10px;margin-left:8px;vertical-align:2px}
 .sech{color:var(--s2);font-size:13px;margin:0 auto 18px;text-align:center;max-width:720px;line-height:1.45}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:24px}
@@ -130,6 +133,7 @@ details[open] .chev{transform:rotate(90deg)}
 .callout{position:absolute;top:104px;left:50%;transform:translateX(-50%);width:min(176px,100%);text-align:center;background:#F5FCCE;color:#0D062B;border:1px solid #CFEF09;border-radius:10px;font-size:12.5px;padding:7px 10px;font-weight:700;line-height:1.35;z-index:2}
 .notes{background:var(--card);border:1px solid var(--bd);border-left:3px solid var(--blue);border-radius:8px;padding:20px 22px;margin-top:44px;font-size:13px;color:var(--s2)}
 .notes h3{margin:0 0 12px;font-size:22px;color:var(--tx);font-weight:800;text-align:center;letter-spacing:-.3px}
+.notes h3:after{content:"";display:block;width:48px;height:3px;background:#7319F2;border-radius:2px;margin:10px auto 0}
 .notes ul{margin:0;padding-left:18px} .notes li{margin:6px 0}
 .notes b{color:var(--tx)}
 
@@ -166,7 +170,8 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 .cp-empty{color:var(--s3);font-size:13px;padding:8px 0}
 .cp-note{font-size:12px;color:var(--s3);margin:8px 0 0}
 .cp-summary{margin:14px 0 18px;padding:14px 16px;background:var(--card);border:1px solid var(--bd);border-radius:10px}
-.cp-summary h3{margin:0 0 10px;font-size:22px;font-weight:800;color:var(--tx);text-align:center;letter-spacing:-.3px}
+.cp-summary h3{margin:0 0 10px;font-size:22px;font-weight:800;color:var(--tx);text-align:center;letter-spacing:-.3px;padding-bottom:4px}
+.cp-summary h3:after{content:"";display:block;width:48px;height:3px;background:#7319F2;border-radius:2px;margin:10px auto 0}
 .cp-summary .cp-sum-intro{font-size:12.5px;color:var(--s2);margin:0 auto 18px;text-align:center;max-width:640px;line-height:1.45}
 .cp-sum-legend{font-size:11.5px;color:var(--s2);margin:0 0 14px;display:flex;flex-wrap:wrap;gap:14px}
 .cp-sum-legend span{display:inline-flex;align-items:center;gap:6px}
@@ -174,6 +179,7 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 .cp-sum-section{margin:0 0 22px;padding:18px 16px 20px;border:1px solid var(--bd);border-radius:10px;background:var(--white)}
 .cp-sum-section:last-of-type{margin-bottom:10px}
 .cp-sum-section h4{margin:0 0 8px;font-size:18px;font-weight:800;text-transform:none;letter-spacing:-.2px;color:#0D062B;text-align:center}
+.cp-sum-section h4:after{content:"";display:block;width:40px;height:2px;background:#7319F2;border-radius:2px;margin:8px auto 0}
 .cp-sum-section .cp-sum-sec-intro{font-size:12px;color:var(--s2);margin:0 auto 14px;line-height:1.4;text-align:center;max-width:560px}
 .cp-sum-chart-block{margin:0 0 12px}
 .cp-sum-chart-block:last-child{margin-bottom:0}
