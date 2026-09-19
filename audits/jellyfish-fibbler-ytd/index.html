@@ -24,7 +24,7 @@ body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 Roboto,Helveti
 .period-pill:hover{border-color:var(--blue);color:var(--blue)}
 .period-pill.active{background:#7319F2;border-color:#7319F2;color:#fff}
 .period-pill:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
-section[id]{scroll-margin-top:64px}
+section[id]{scroll-margin-top:88px}
 section.block{padding:8px 0 40px;margin:0 0 12px;border-top:none}
 section.block + section.block{margin-top:28px;padding-top:36px;border-top:2px solid #E8D9FC}
 section.block:first-of-type{padding-top:0;margin-top:0}
@@ -928,6 +928,18 @@ function setPeriod(id,push){
   }catch(e){}
  }
 }
+
+document.querySelectorAll('.topnav a[href^="#"]').forEach(function(a){
+ a.addEventListener('click',function(e){
+  var id=(a.getAttribute('href')||'').slice(1);
+  if(!id) return;
+  var el=document.getElementById(id);
+  if(!el) return;
+  e.preventDefault();
+  el.scrollIntoView({behavior:'smooth',block:'start'});
+  try{ history.pushState(null,'', '#'+id); }catch(err){}
+ });
+});
 
 document.querySelectorAll('.period-pill').forEach(function(b){
  b.addEventListener('click',function(){ setPeriod(b.dataset.period); });
