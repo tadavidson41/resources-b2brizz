@@ -139,8 +139,10 @@ details[open] .chev{transform:rotate(90deg)}
 .cp-toolbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:10px 0 14px}
 .cp-toolbar label{display:inline-flex;gap:8px;align-items:center;font-size:13px;font-weight:600;cursor:pointer}
 .cp-toolbar input{width:16px;height:16px;accent-color:#7319F2}
-.cp-totals{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 12px;font-size:12.5px;color:var(--s2)}
-.cp-totals b{color:var(--tx);font-variant-numeric:tabular-nums}
+.cp-totals{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin:0 0 8px;padding:14px 16px;background:var(--white);border:1px solid var(--bd);border-radius:10px}
+.cp-totals .cp-metric{text-align:center}
+.cp-totals .cp-metric b{display:block;font-size:18px;font-weight:800;color:var(--tx);font-variant-numeric:tabular-nums;letter-spacing:-.3px;margin-top:2px}
+.cp-totals-note{font-size:11.5px;color:var(--s3);margin:0 0 14px;text-align:center}
 details.cp-row{background:var(--white);border:1px solid var(--bd);border-radius:8px;margin-top:8px}
 details.cp-row > summary{cursor:pointer;padding:12px 40px 12px 14px;position:relative;list-style:none}
 details.cp-row > summary::-webkit-details-marker{display:none}
@@ -181,18 +183,19 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 .cp-sum-section h4:after{content:"";display:block;width:40px;height:2px;background:#7319F2;border-radius:2px;margin:8px auto 0}
 .cp-sum-section .cp-sum-sec-intro{font-size:12px;color:var(--s2);margin:0 auto 14px;line-height:1.4;text-align:center;max-width:560px}
 .cp-sum-chart-wrap{max-width:100%;overflow-x:auto}
-.cp-vchart{display:flex;align-items:flex-end;justify-content:center;gap:18px;min-height:210px;padding:8px 8px 0;min-width:0}
-.cp-vchart.cp-vchart-tight{gap:28px}
-.cp-vgroup{display:flex;flex-direction:column;align-items:center;gap:6px;flex:0 0 auto;min-width:72px}
-.cp-pair{display:flex;align-items:flex-end;gap:5px;height:150px}
-.cp-pair-col{width:30px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:3px}
-.cp-pair-val{font-size:9.5px;font-weight:700;font-variant-numeric:tabular-nums;text-align:center;line-height:1.15;color:var(--tx);max-width:42px}
-.cp-pair-track{width:100%;flex:1;max-height:130px;background:var(--card);border:1px solid var(--bd);border-radius:4px 4px 2px 2px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden}
-.cp-pair-bar{width:100%;border-radius:3px 3px 0 0;min-height:2px}
-.cp-vgroup .vlab{font-size:10.5px;max-width:88px;overflow-wrap:anywhere;line-height:1.2;text-align:center}
-.cp-vgroup .vsub{font-weight:400;color:var(--s3);font-size:10px;display:block;margin-top:2px}
+.cp-vchart{display:flex;align-items:flex-end;justify-content:center;gap:28px;min-height:240px;padding:4px 12px 0;min-width:0}
+.cp-vchart.cp-vchart-tight{gap:48px}
+.cp-vgroup{display:flex;flex-direction:column;align-items:center;gap:8px;flex:0 0 auto;min-width:110px}
+.cp-pair{display:flex;align-items:flex-end;gap:8px;height:170px}
+.cp-pair-col{width:44px;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end}
+.cp-pair-track{width:100%;height:170px;background:#F9F6FE;border:1px solid var(--bd);border-radius:6px 6px 3px 3px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;box-sizing:border-box}
+.cp-pair-bar{width:100%;border-radius:4px 4px 0 0;min-height:3px}
+.cp-vgroup .vlab{font-size:12px;font-weight:700;max-width:120px;overflow-wrap:anywhere;line-height:1.25;text-align:center;color:var(--tx)}
+.cp-vgroup .vsub{font-weight:500;color:var(--s3);font-size:11px;display:block;margin-top:2px}
+.cp-vvals{font-size:11px;font-variant-numeric:tabular-nums;text-align:center;line-height:1.35;margin-top:2px}
+.cp-vvals .p{color:#7319F2;font-weight:700;display:block}
+.cp-vvals .r{color:#0A6B5C;font-weight:700;display:block}
 .cp-sum-foot{font-size:11.5px;color:var(--s3);margin:4px 0 0;line-height:1.45}
-.cp-totals .cp-metric,.cp-totals-metrics{text-align:center}
 @media(max-width:900px){
  .cp-sum{grid-template-columns:1fr 1fr;gap:6px}
  .cp-name{grid-column:1/-1}
@@ -308,6 +311,7 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 <span class="showing" id="cp-showing"></span>
 </div>
 <div class="cp-totals" id="cp-totals"></div>
+<div class="cp-totals-note" id="cp-totals-note"></div>
 <div id="cp-summary" class="cp-summary"></div>
 <div id="cp-list"></div>
 <div class="pager" id="cp-pager">
@@ -696,28 +700,39 @@ function summaryAdTypeKey(ad){
  if(ad.key==='image') return 'Image Ads';
  return 'Other';
 }
+function moneyShort(n){
+ n=Math.round(n||0);
+ var a=Math.abs(n);
+ if(a>=1e9) return '$'+(n/1e9).toFixed(1).replace(/\\.0$/,'')+'B';
+ if(a>=1e6) return '$'+(n/1e6).toFixed(1).replace(/\\.0$/,'')+'M';
+ if(a>=1e3) return '$'+(n/1e3).toFixed(a>=10000?0:1).replace(/\\.0$/,'')+'K';
+ return money(n);
+}
 function cpPairBar(value,maxV,color){
  var pct=maxV<=0?0:Math.min(100,(value/maxV)*100);
- return '<div class="cp-pair-col"><div class="cp-pair-val">'+money(value)+'</div>'+
-  '<div class="cp-pair-track"><div class="cp-pair-bar" style="height:'+pct.toFixed(1)+'%;background:'+color+'"></div></div></div>';
+ if(value>0 && pct<4) pct=4;
+ return '<div class="cp-pair-col"><div class="cp-pair-track"><div class="cp-pair-bar" style="height:'+pct.toFixed(1)+'%;background:'+color+'"></div></div></div>';
 }
 function cpGroupedChartHtml(items,opts){
  opts=opts||{};
  var PIPE_C='#7319F2';
  var REV_C='#13E2BF';
- var maxV=1;
+ var maxPipe=1, maxRev=1;
  items.forEach(function(it){
-  maxV=Math.max(maxV,+(it.pipe||0),+(it.rev||0));
+  maxPipe=Math.max(maxPipe,+(it.pipe||0));
+  maxRev=Math.max(maxRev,+(it.rev||0));
  });
  var cols=items.map(function(it){
-  var sub=(it.n!=null)?('<span class="vsub">('+it.n+')</span>'):'';
+  var pipe=+(it.pipe||0), rev=+(it.rev||0);
+  var sub=(it.n!=null)?('<span class="vsub">('+it.n+' campaigns)</span>'):'';
   return '<div class="cp-vgroup"><div class="cp-pair">'+
-   cpPairBar(+(it.pipe||0),maxV,PIPE_C)+
-   cpPairBar(+(it.rev||0),maxV,REV_C)+
-   '</div><div class="vlab">'+escHtml(it.label)+sub+'</div></div>';
+   cpPairBar(pipe,maxPipe,PIPE_C)+
+   cpPairBar(rev,maxRev,REV_C)+
+   '</div><div class="vlab">'+escHtml(it.label)+sub+'</div>'+
+   '<div class="cp-vvals"><span class="p">Pipe '+moneyShort(pipe)+'</span><span class="r">Rev '+moneyShort(rev)+'</span></div></div>';
  });
  var tight=items.length<=2?' cp-vchart-tight':'';
- var minW=Math.max(160, items.length*(opts.groupWidth||92));
+ var minW=Math.max(200, items.length*(opts.groupWidth||130));
  return '<div class="cp-sum-chart-wrap"><div class="vchart cp-vchart'+tight+'" style="min-width:'+minW+'px">'+cols.join('')+'</div></div>';
 }
 function renderCpSummary(camps){
@@ -768,7 +783,7 @@ function renderCpSummary(camps){
    '</div>';
  }
  el.innerHTML='<h3>Summary analysis</h3>'+
-  '<p class="cp-sum-intro">Influenced pipeline and revenue for all campaigns in this period (full set, not just the current page). Each category shows pipeline and revenue side by side. Image Ads includes TLA / Image. Spotlight Ads are omitted from the ad-type chart (impression-heavy). Values can double-count across campaigns. Bar height is relative within each chart.</p>'+
+  '<p class="cp-sum-intro">Influenced pipeline and revenue for all campaigns in this period (full set, not just the current page). Each category shows pipeline and revenue side by side. Image Ads includes TLA / Image. Spotlight Ads are omitted from the ad-type chart (impression-heavy). Values can double-count across campaigns. Pipeline and revenue each use their own scale within a chart so both series stay readable.</p>'+
   '<p class="cp-sum-legend" style="justify-content:center"><span><span class="cp-sum-swatch" style="background:#7319F2"></span> Influenced pipeline</span><span><span class="cp-sum-swatch" style="background:#13E2BF"></span> Influenced revenue</span></p>'+
   section('By ad type','Document, Image, and Video only. Spotlight excluded. Empty categories omitted.',typeItems)+
   section('Remarketing vs Awareness','Remarketing if the campaign name contains remarketing; otherwise Awareness.',rmItems,{groupWidth:110})+
@@ -796,13 +811,15 @@ function renderCampaignPerf(resetPage){
  var t=block.totals||{};
  var totEl=document.getElementById('cp-totals');
  if(totEl){
-  var deliv=t.deliveredImpressions!=null?(' · delivered '+fmtN(t.deliveredImpressions)):'';
   totEl.innerHTML='<div class="cp-metric"><span class="lbl">Impr</span><b>'+fmtN(t.impressions||0)+'</b></div>'+
    '<div class="cp-metric"><span class="lbl">Clicks</span><b>'+fmtN(t.clicks||0)+'</b></div>'+
    '<div class="cp-metric"><span class="lbl">Spend</span><b>'+money(t.spend||0)+'</b></div>'+
    '<div class="cp-metric"><span class="lbl">Pipe</span><b>'+money(t.weightedPipeline||0)+'</b></div>'+
-   '<div class="cp-metric"><span class="lbl">Revenue</span><b>'+money(t.weightedRevenue||0)+'</b></div>'+
-   (deliv?'<span style="font-size:12px;color:var(--s2)">Delivered '+fmtN(t.deliveredImpressions)+'</span>':'');
+   '<div class="cp-metric"><span class="lbl">Revenue</span><b>'+money(t.weightedRevenue||0)+'</b></div>';
+  var noteEl=document.getElementById('cp-totals-note');
+  if(noteEl){
+   noteEl.textContent=t.deliveredImpressions!=null?('Delivered impressions: '+fmtN(t.deliveredImpressions)):'';
+  }
  }
  var pages, pageRows;
  if(showAll){
