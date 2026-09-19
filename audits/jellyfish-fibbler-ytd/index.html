@@ -25,10 +25,9 @@ body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 Roboto,Helveti
 .period-pill.active{background:#7319F2;border-color:#7319F2;color:#fff}
 .period-pill:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 section[id]{scroll-margin-top:64px}
-section.block{padding:28px 22px 36px;margin:18px -8px 8px;border-radius:14px;border:1px solid transparent}
-section.block:nth-of-type(odd){background:#F9F6FE;border-color:#E8D9FC}
-section.block:nth-of-type(even){background:var(--white);border-color:var(--bd)}
-section.block:first-of-type{margin-top:8px}
+section.block{padding:8px 0 40px;margin:0 0 12px;border-top:none}
+section.block + section.block{margin-top:28px;padding-top:36px;border-top:2px solid #E8D9FC}
+section.block:first-of-type{padding-top:0;margin-top:0}
 
 .brand{display:flex;align-items:center;gap:14px}
 .brand .logo{height:40px;width:auto;min-width:100px;display:block}
