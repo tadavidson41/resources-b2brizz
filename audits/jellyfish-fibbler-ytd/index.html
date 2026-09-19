@@ -135,7 +135,7 @@ details.cp-row > summary::-webkit-details-marker{display:none}
 details.cp-row[open] summary .chev{transform:rotate(90deg)}
 .hint{font-size:11px;color:var(--s3);font-weight:500}
 .noamt{color:var(--s3);font-size:12.5px}
-.cp-sum{display:grid;grid-template-columns:minmax(180px,2.2fr) repeat(6,minmax(72px,1fr));gap:8px;align-items:center}
+.cp-sum{display:grid;grid-template-columns:minmax(180px,2.2fr) repeat(5,minmax(72px,1fr));gap:8px;align-items:center}
 .cp-name{font-weight:700;font-size:13.5px;line-height:1.35}
 .cp-fmt{display:block;font-size:11px;color:var(--s3);font-weight:500;margin-top:2px}
 .cp-metric{text-align:right;font-variant-numeric:tabular-nums;font-size:13px}
@@ -565,7 +565,6 @@ function renderCampaignPerf(){
   var deliv=t.deliveredImpressions!=null?(' · delivered '+fmtN(t.deliveredImpressions)):'';
   totEl.innerHTML='<span>Account paid impr <b>'+fmtN(t.impressions||0)+'</b>'+deliv+'</span>'+
    '<span>Clicks <b>'+fmtN(t.clicks||0)+'</b></span>'+
-   '<span>Engagements <b>'+fmtN(t.engagements||0)+'</b></span>'+
    '<span>Spend <b>'+money(t.spend||0)+'</b></span>'+
    '<span>Weighted pipe <b>'+money(t.weightedPipeline||0)+'</b> · weighted rev <b>'+money(t.weightedRevenue||0)+'</b></span>';
  }
@@ -600,16 +599,15 @@ function renderCampaignPerf(){
      '<td class="r num">'+(co.revenue?money(co.revenue):'<span class="noamt">$0</span>')+'</td>'+
      '<td class="c num">'+fmtN(co.impressions)+'</td>'+
      '<td class="c num">'+fmtN(co.clicks)+'</td>'+
-     '<td class="c num">'+fmtN(co.engagements)+'</td></tr>';
+     '</tr>';
    }).join('');
-   body='<table><thead><tr><th>Company</th><th class="c">Stage</th><th class="r">Pipeline</th><th class="r">Revenue</th><th class="c">Paid impr</th><th class="c">Paid clicks</th><th class="c">Engagements</th></tr></thead><tbody>'+rows+'</tbody></table>'+
+   body='<table><thead><tr><th>Company</th><th class="c">Stage</th><th class="r">Pipeline</th><th class="r">Revenue</th><th class="c">Paid impr</th><th class="c">Paid clicks</th></tr></thead><tbody>'+rows+'</tbody></table>'+
     '<p class="cp-note">Top 10 companies by influenced revenue, then pipeline, for deals this campaign touched in-period (3+ click new-business cohort). Paid impr/clicks are from that campaign on the deal.</p>';
   }
   return '<details class="cp-row"><summary><span class="chev">›</span><div class="cp-sum">'+
    '<div class="cp-name">'+escHtml(c.name)+'<span class="cp-fmt">'+escHtml(c.format||'')+'</span></div>'+
    '<div class="cp-metric"><span class="lbl">Impr</span>'+fmtN(c.impressions)+'</div>'+
    '<div class="cp-metric"><span class="lbl">Clicks</span>'+fmtN(c.clicks)+'</div>'+
-   '<div class="cp-metric"><span class="lbl">Eng</span>'+fmtN(c.engagements)+'</div>'+
    '<div class="cp-metric"><span class="lbl">Pipe</span>'+money(c.pipeline)+'</div>'+
    '<div class="cp-metric"><span class="lbl">Revenue</span>'+money(c.revenue)+'</div>'+
    '<div class="cp-metric"><span class="lbl">Deals</span>'+fmtN(c.deals)+'</div>'+
