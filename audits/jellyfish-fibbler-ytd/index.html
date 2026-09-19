@@ -25,15 +25,17 @@ body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 Roboto,Helveti
 .period-pill.active{background:#7319F2;border-color:#7319F2;color:#fff}
 .period-pill:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 section[id]{scroll-margin-top:64px}
+section.block{padding:8px 0 28px;margin:0 0 8px;border-top:1px solid var(--bd)}
+section.block:first-of-type{border-top:none;padding-top:0}
 
 .brand{display:flex;align-items:center;gap:14px}
 .brand .logo{height:40px;width:auto;min-width:100px;display:block}
 .ctx{text-transform:uppercase;letter-spacing:.13em;font-size:11px;color:var(--s3);font-weight:700;margin-top:10px}
 h1{font-size:31px;margin:16px 0 8px;letter-spacing:-.6px;font-weight:800}
 .lede{color:var(--s2);font-size:14px;max-width:900px}
-h2{font-size:19px;margin:44px 0 6px;letter-spacing:-.3px;font-weight:700}
+h2{font-size:26px;margin:56px 0 10px;letter-spacing:-.4px;font-weight:800;text-align:center}
 .count{display:inline-block;background:var(--blue);color:#fff;border-radius:999px;font-size:12px;font-weight:700;padding:2px 10px;margin-left:8px;vertical-align:2px}
-.sech{color:var(--s2);font-size:13px;margin:0 0 14px}
+.sech{color:var(--s2);font-size:13px;margin:0 auto 18px;text-align:center;max-width:720px;line-height:1.45}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:24px}
 .mcard{background:var(--card);border:1px solid var(--bd);border-left:3px solid var(--blue);border-radius:8px;padding:16px 18px}
 .mcard .l{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--s2);font-weight:700}
@@ -127,7 +129,7 @@ details[open] .chev{transform:rotate(90deg)}
 .jcol:first-child .callout{left:0;right:auto;transform:none}
 .callout{position:absolute;top:104px;left:50%;transform:translateX(-50%);width:min(176px,100%);text-align:center;background:#F5FCCE;color:#0D062B;border:1px solid #CFEF09;border-radius:10px;font-size:12.5px;padding:7px 10px;font-weight:700;line-height:1.35;z-index:2}
 .notes{background:var(--card);border:1px solid var(--bd);border-left:3px solid var(--blue);border-radius:8px;padding:20px 22px;margin-top:44px;font-size:13px;color:var(--s2)}
-.notes h3{margin:0 0 10px;font-size:15px;color:var(--tx);font-weight:700}
+.notes h3{margin:0 0 12px;font-size:22px;color:var(--tx);font-weight:800;text-align:center;letter-spacing:-.3px}
 .notes ul{margin:0;padding-left:18px} .notes li{margin:6px 0}
 .notes b{color:var(--tx)}
 
@@ -164,15 +166,15 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 .cp-empty{color:var(--s3);font-size:13px;padding:8px 0}
 .cp-note{font-size:12px;color:var(--s3);margin:8px 0 0}
 .cp-summary{margin:14px 0 18px;padding:14px 16px;background:var(--card);border:1px solid var(--bd);border-radius:10px}
-.cp-summary h3{margin:0 0 6px;font-size:15px;font-weight:700;color:var(--tx)}
-.cp-summary .cp-sum-intro{font-size:12.5px;color:var(--s2);margin:0 0 12px}
+.cp-summary h3{margin:0 0 10px;font-size:22px;font-weight:800;color:var(--tx);text-align:center;letter-spacing:-.3px}
+.cp-summary .cp-sum-intro{font-size:12.5px;color:var(--s2);margin:0 auto 18px;text-align:center;max-width:640px;line-height:1.45}
 .cp-sum-legend{font-size:11.5px;color:var(--s2);margin:0 0 14px;display:flex;flex-wrap:wrap;gap:14px}
 .cp-sum-legend span{display:inline-flex;align-items:center;gap:6px}
 .cp-sum-swatch{display:inline-block;width:10px;height:10px;border-radius:2px;flex-shrink:0}
-.cp-sum-section{margin:0 0 16px;padding:0 0 14px;border-bottom:1px solid var(--bd)}
-.cp-sum-section:last-of-type{border-bottom:0;margin-bottom:6px;padding-bottom:0}
-.cp-sum-section h4{margin:0 0 4px;font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;color:#7319F2}
-.cp-sum-section .cp-sum-sec-intro{font-size:12px;color:var(--s2);margin:0 0 10px;line-height:1.4}
+.cp-sum-section{margin:0 0 22px;padding:18px 16px 20px;border:1px solid var(--bd);border-radius:10px;background:var(--white)}
+.cp-sum-section:last-of-type{margin-bottom:10px}
+.cp-sum-section h4{margin:0 0 8px;font-size:18px;font-weight:800;text-transform:none;letter-spacing:-.2px;color:#0D062B;text-align:center}
+.cp-sum-section .cp-sum-sec-intro{font-size:12px;color:var(--s2);margin:0 auto 14px;line-height:1.4;text-align:center;max-width:560px}
 .cp-sum-chart-block{margin:0 0 12px}
 .cp-sum-chart-block:last-child{margin-bottom:0}
 .cp-sum-chart-block h5{margin:0 0 6px;font-size:12px;font-weight:700;color:var(--tx)}
@@ -220,7 +222,7 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
   <path d="M499.914 18.116V68.514C499.914 68.7978 499.684 69.0323 499.405 69.0323H493.902C493.623 69.0323 493.393 68.7978 493.393 68.514V45.5362H462.569V68.514C462.569 68.7978 462.339 69.0323 462.06 69.0323H456.557C456.278 69.0323 456.048 68.7978 456.048 68.514V18.116C456.048 17.8321 456.278 17.5977 456.557 17.5977H462.06C462.339 17.5977 462.569 17.8321 462.569 18.116V39.7856H493.393V18.116C493.393 17.8321 493.623 17.5977 493.902 17.5977H499.405C499.684 17.61 499.914 17.8321 499.914 18.116Z" fill="#7319F2"></path>
 </svg></div>
 <div class="ctx">LinkedIn Ads &middot; Fibbler Attribution</div>
-<section id="overview">
+<section id="overview" class="block">
 <h1 id="page-title">2026 YTD &middot; new business with 3+ paid clicks</h1>
 <p class="lede" id="lede">January 1, 2026 to September 18, 2026. September 2026 is a partial month (18 of 30 days). LinkedIn-sourced attribution. Cohort is new-business deals with 3 or more paid clicks at the company. Pipeline and table filter by create date; influenced revenue filters by close date.</p>
 
@@ -245,7 +247,7 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 
 </section>
 
-<section id="new-business">
+<section id="new-business" class="block">
 <h2>New Business<span class="count" id="nb-count">426</span></h2>
 <p class="sech">One row per influenced new-business deal created in the selected period. Default sort is stage (Closed Won to Disqualified). Table shows 25 rows per page. Closed-lost and disqualified deals count toward influenced deals but contribute no pipeline or revenue. Click a row to jump to its customer journey when one is available.</p>
 <div class="filters">
@@ -275,7 +277,7 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 
 </section>
 
-<section id="customer-journeys">
+<section id="customer-journeys" class="block">
 <h2>Customer journeys<span class="count" id="j-count">52</span></h2>
 <p class="sech">Each journey shows the 12 calendar months through the deal create month (create month is last and highlighted). Timelines open scrolled to that create month on the right; scroll left for earlier paid months. Visibility follows the period selection rules below (not every create-date match). Journeys for the selected period paginate at 10 per page (Previous / Next). Closed Won cards also show the close date in the header and callout; the paid-touch timeline still ends on create. Table metrics are deal-level and will not always match these company totals. Est. Spend sits top-right on each journey (Radar-style): round(impr/1000 x L30 non-Spotlight CPM) + round(clicks x L30 non-Spotlight CPC). Est. Spend / CPM logic is unchanged.</p>
 <p class="sech" id="j-rule">YTD journeys: top 20 companies by deal amount among open and Closed Won stages (includes POC, Discovery, and similar).</p>
@@ -289,7 +291,7 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 
 </section>
 
-<section id="campaign-performance">
+<section id="campaign-performance" class="block">
 <h2>Campaign performance<span class="count" id="cp-count">0</span></h2>
 <p class="sech">LinkedIn campaigns (Fibbler unit) that influenced pipeline or revenue in the selected period. Influenced pipeline follows Fibbler's definition (open + closed-lost). Influenced revenue is closed-won. Default list shows 10 influencing campaigns per page (Previous / Next); check Show all campaigns to see every campaign on one page. Expand a row for the top 10 companies by influenced revenue then pipeline on that campaign in-period. Campaign names are cleaned for display; ad-type and Remarketing/Awareness badges replace the raw format string. Est. Spend / CPM logic on journeys is unchanged.</p>
 <div class="cp-toolbar">
