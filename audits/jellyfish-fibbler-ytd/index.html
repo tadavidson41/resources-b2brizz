@@ -14,10 +14,15 @@
 body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 Roboto,Helvetica,Arial,sans-serif;font-weight:400}
 .wrap{max-width:1180px;margin:0 auto;padding:40px 24px 80px}
 .topnav{position:sticky;top:0;z-index:50;background:rgba(249,246,254,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd);margin:0 -8px 18px;padding:10px 8px}
-.topnav-inner{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.topnav-inner{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+.topnav-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.topnav-periods{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-left:auto}
+.topnav-periods .period-label{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--s2);font-weight:700;margin-right:2px}
+.topnav-periods .period-pill{padding:6px 11px;font-size:12px}
 .topnav a{display:inline-block;padding:8px 14px;border-radius:999px;border:1px solid var(--bd);background:var(--white);color:var(--tx);text-decoration:none;font-size:13px;font-weight:700}
 .topnav a:hover{border-color:var(--blue);color:var(--blue)}
 .topnav a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+@media(max-width:900px){.topnav-periods{margin-left:0;width:100%}}
 .period-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 18px;padding:0}
 .period-label{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--s3);font-weight:700;margin-right:4px}
 .period-pill{display:inline-block;padding:8px 14px;border-radius:999px;border:1px solid var(--bd);background:var(--white);color:var(--tx);font-size:13px;font-weight:700;cursor:pointer;font:inherit}
@@ -228,10 +233,19 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 <div class="wrap">
 <nav class="topnav" aria-label="Page sections">
 <div class="topnav-inner">
+<div class="topnav-links">
 <a href="#overview">Overview</a>
 <a href="#new-business">New Business Breakdown</a>
 <a href="#customer-journeys">Customer Journeys</a>
 <a href="#campaign-performance">Campaign performance</a>
+</div>
+<div class="topnav-periods" role="group" aria-label="Period filter">
+<span class="period-label">Period</span>
+<button type="button" class="period-pill active" data-period="ytd">YTD</button>
+<button type="button" class="period-pill" data-period="l3m">Last 3 months</button>
+<button type="button" class="period-pill" data-period="lfm">Last full month</button>
+<button type="button" class="period-pill" data-period="mtd">Month to date</button>
+</div>
 </div>
 </nav>
 <div class="period-bar" role="group" aria-label="Period filter">
