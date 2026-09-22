@@ -54,6 +54,7 @@ h2:after{content:"";display:block;width:56px;height:3px;background:#7319F2;borde
 .trend{max-width:100%;overflow-x:auto;overflow-y:visible;padding-bottom:8px}
 .vchart-wrap{min-width:560px;padding-top:4px;padding-bottom:12px;overflow:visible}
 .vchart-legend{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;margin:0 0 10px;font-size:12px;color:var(--s2);font-weight:600}
+.vchart-legend .leg-spend{font-size:11px;font-weight:500;color:var(--s3)}
 .vchart-legend .leg{display:inline-flex;align-items:center;gap:7px}
 .vchart-legend .swatch-bar{width:14px;height:10px;border-radius:2px;background:#C7A3FA;border:1px solid #7319F2}
 .vchart-legend .swatch-line{width:18px;height:0;border-top:2px solid #6BCB7A;position:relative;opacity:.9}
@@ -599,7 +600,7 @@ function renderTrendChart(elId, barLabel, months, values, dealLists, tipKind){
   '<div class="vchart-wrap">'+
    '<div class="vchart-legend">'+
     '<span class="leg"><span class="swatch-bar"></span>'+escHtml(barLabel)+'</span>'+
-    '<span class="leg"><span class="swatch-line"></span>Account LinkedIn spend</span>'+
+    '<span class="leg leg-spend"><span class="swatch-line"></span>LinkedIn Ads spend chart.</span>'+
    '</div>'+
    '<div class="vchart-hint">Hover a month for spend and deals</div>'+
    '<div class="vchart-plot">'+
