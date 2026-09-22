@@ -51,15 +51,38 @@ h2:after{content:"";display:block;width:56px;height:3px;background:#7319F2;borde
 .mcard .v{font-size:27px;font-weight:800;margin-top:6px;letter-spacing:-.6px;font-variant-numeric:tabular-nums}
 .mcard .n{font-size:11.5px;color:var(--s3);margin-top:4px}
 .box{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:18px}
-.trend{max-width:100%;overflow-x:auto}
-.vchart{display:flex;align-items:flex-end;gap:10px;min-height:260px;padding:8px 4px 0;min-width:560px}
-.vcol{flex:1;min-width:52px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px}
-.vtrack{width:100%;max-width:56px;height:200px;background:var(--white);border-radius:6px 6px 4px 4px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;border:1px solid var(--bd)}
+.trend{max-width:100%;overflow-x:auto;overflow-y:visible}
+.vchart-wrap{min-width:560px;padding-top:4px}
+.vchart-legend{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;margin:0 0 10px;font-size:12px;color:var(--s2);font-weight:600}
+.vchart-legend .leg{display:inline-flex;align-items:center;gap:7px}
+.vchart-legend .swatch-bar{width:14px;height:10px;border-radius:2px;background:#C7A3FA;border:1px solid #7319F2}
+.vchart-legend .swatch-line{width:18px;height:0;border-top:2.5px solid #0D062B;position:relative}
+.vchart-legend .swatch-line:after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:#0D062B;left:50%;top:-4.5px;margin-left:-3.5px}
+.vchart-hint{text-align:center;font-size:11.5px;color:var(--s3);margin:0 0 8px}
+.vchart-plot{position:relative}
+.vchart{display:flex;align-items:flex-end;gap:10px;min-height:260px;padding:8px 4px 0;position:relative;z-index:1}
+.spend-svg{position:absolute;left:0;top:8px;height:200px;width:100%;overflow:visible;pointer-events:none;z-index:2}
+.vcol{flex:1;min-width:52px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:8px;position:relative;cursor:default}
+.vcol:hover{z-index:5}
+.vtrack{width:100%;max-width:56px;height:200px;background:var(--white);border-radius:6px 6px 4px 4px;display:flex;flex-direction:column;justify-content:flex-end;overflow:visible;border:1px solid var(--bd);position:relative}
 .vbar{width:100%;border-radius:4px 4px 0 0;min-height:2px}
 .vval{font-size:11px;font-weight:700;font-variant-numeric:tabular-nums;text-align:center;line-height:1.2;color:var(--tx)}
 .vsub{font-weight:400;color:var(--s3);font-size:10px;display:block;margin-top:2px}
 .vlab{font-size:11.5px;color:var(--s2);text-align:center;line-height:1.25}
 .mtd{font-size:9.5px;color:var(--s3);display:block}
+.vtip{display:none;position:absolute;left:50%;bottom:calc(100% - 4px);transform:translateX(-50%);width:280px;max-width:70vw;background:#0D062B;color:#fff;border-radius:10px;padding:12px 14px;box-shadow:0 12px 28px rgba(13,6,43,.28);z-index:20;pointer-events:none;text-align:left}
+.vcol:hover .vtip{display:block}
+.vtip .t-title{font-size:13px;font-weight:800;margin:0 0 8px;letter-spacing:-.2px}
+.vtip .t-row{display:flex;justify-content:space-between;gap:10px;font-size:12px;margin:0 0 4px;color:#E3D1FC}
+.vtip .t-row b{color:#fff;font-weight:700;font-variant-numeric:tabular-nums}
+.vtip .t-div{height:1px;background:rgba(255,255,255,.18);margin:8px 0}
+.vtip .t-list{margin:0;padding:0;list-style:none;max-height:220px;overflow:hidden}
+.vtip .t-list li{display:flex;justify-content:space-between;gap:8px;font-size:11.5px;padding:3px 0;border-bottom:1px solid rgba(255,255,255,.08);line-height:1.3}
+.vtip .t-list li:last-child{border-bottom:none}
+.vtip .t-co{color:#fff;font-weight:600;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vtip .t-meta{color:#C7A3FA;font-variant-numeric:tabular-nums;white-space:nowrap;flex-shrink:0}
+.vtip .t-more{font-size:11px;color:#C7A3FA;margin-top:6px}
+.vtip .t-foot{font-size:10.5px;color:#9E9BAA;margin-top:6px;line-height:1.35}
 table{width:100%;border-collapse:collapse;margin-top:10px;background:var(--white);border:1px solid var(--bd);border-radius:8px;overflow:hidden}
 th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--s2);padding:11px 12px;border-bottom:1px solid var(--bd);background:var(--card);white-space:nowrap;font-weight:700}
 td{padding:11px 12px;border-bottom:1px solid #F3EAFD;font-size:13.5px;vertical-align:middle}
@@ -285,7 +308,7 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 
 <div id="rev-section">
 <h2>Influenced revenue by close month</h2>
-<div class="box trend" id="rev-chart"><div class="vchart"><div class="vcol"><div class="vval">$0</div><div class="vtrack"><div class="vbar" style="height:0.0%;background:#C7A3FA;"></div></div><div class="vlab">Jan &#x27;26</div></div><div class="vcol"><div class="vval">$0</div><div class="vtrack"><div class="vbar" style="height:0.0%;background:#C7A3FA;"></div></div><div class="vlab">Feb &#x27;26</div></div><div class="vcol"><div class="vval">$118,000<span class="vsub">won</span></div><div class="vtrack"><div class="vbar" style="height:30.3%;background:#C7A3FA;"></div></div><div class="vlab">Mar &#x27;26</div></div><div class="vcol"><div class="vval">$66,000<span class="vsub">won</span></div><div class="vtrack"><div class="vbar" style="height:16.9%;background:#C7A3FA;"></div></div><div class="vlab">Apr &#x27;26</div></div><div class="vcol"><div class="vval">$384,520<span class="vsub">won</span></div><div class="vtrack"><div class="vbar" style="height:98.7%;background:#C7A3FA;"></div></div><div class="vlab">May &#x27;26</div></div><div class="vcol"><div class="vval">$389,735<span class="vsub">won</span></div><div class="vtrack"><div class="vbar" style="height:100.0%;background:#C7A3FA;"></div></div><div class="vlab">Jun &#x27;26</div></div><div class="vcol"><div class="vval">$115,000<span class="vsub">won</span></div><div class="vtrack"><div class="vbar" style="height:29.5%;background:#C7A3FA;"></div></div><div class="vlab">Jul &#x27;26</div></div><div class="vcol"><div class="vval">$95,400<span class="vsub">won</span></div><div class="vtrack"><div class="vbar" style="height:24.5%;background:#C7A3FA;"></div></div><div class="vlab">Aug &#x27;26</div></div><div class="vcol"><div class="vval">$0</div><div class="vtrack"><div class="vbar" style="height:0.0%;background:#7319F2;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.35) 0 6px,transparent 6px 12px);"></div></div><div class="vlab">Sep &#x27;26<span class="mtd">partial</span></div></div></div></div>
+<div class="box trend" id="rev-chart"><div class="vchart"><div class="vcol"><div class="vval">$0</div><div class="vtrack"><div class="vbar" style="height:0.0%;background:#C7A3FA;"></div></div><div class="vlab">Jan &#x27;26</div></div><div class="vcol"><div class="vval">$0</div><div class="vtrack"><div class="vbar" style="height:0.0%;background:#C7A3FA;"></div></div><div class="vlab">Feb &#x27;26</div></div><div class="vcol"><div class="vval">$118,000</div><div class="vtrack"><div class="vbar" style="height:30.3%;background:#C7A3FA;"></div></div><div class="vlab">Mar &#x27;26</div></div><div class="vcol"><div class="vval">$66,000</div><div class="vtrack"><div class="vbar" style="height:16.9%;background:#C7A3FA;"></div></div><div class="vlab">Apr &#x27;26</div></div><div class="vcol"><div class="vval">$384,520</div><div class="vtrack"><div class="vbar" style="height:98.7%;background:#C7A3FA;"></div></div><div class="vlab">May &#x27;26</div></div><div class="vcol"><div class="vval">$389,735</div><div class="vtrack"><div class="vbar" style="height:100.0%;background:#C7A3FA;"></div></div><div class="vlab">Jun &#x27;26</div></div><div class="vcol"><div class="vval">$115,000</div><div class="vtrack"><div class="vbar" style="height:29.5%;background:#C7A3FA;"></div></div><div class="vlab">Jul &#x27;26</div></div><div class="vcol"><div class="vval">$95,400</div><div class="vtrack"><div class="vbar" style="height:24.5%;background:#C7A3FA;"></div></div><div class="vlab">Aug &#x27;26</div></div><div class="vcol"><div class="vval">$0</div><div class="vtrack"><div class="vbar" style="height:0.0%;background:#7319F2;background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.35) 0 6px,transparent 6px 12px);"></div></div><div class="vlab">Sep &#x27;26<span class="mtd">partial</span></div></div></div></div>
 <p class="sech-note" id="rev-sech">* Closed won revenue from the same 3+ click new-business cohort, by close month. September 2026 is partial (18 of 30 days).</p>
 </div>
 
@@ -487,62 +510,153 @@ function recomputeKPIs(){
  document.getElementById('nb-count').textContent=fmtN(nDeals);
 }
 
-function vbarCol(label,value,maxV,partial,tsub){
- var pct=maxV<=0?0:Math.min(100,(value/maxV)*100);
- var style=partial?HATCH:COMPLETE;
- var mtd=partial?'<span class="mtd">partial</span>':'';
- var sub=tsub?'<span class="vsub">'+tsub+'</span>':'';
- return '<div class="vcol"><div class="vval">'+money(value)+sub+'</div>'+
+function monthSpend(m){
+ var i=D.months.indexOf(m);
+ return i>=0?(D.monthlySpend[i]||0):0;
+}
+function dealTipList(deals, emptyLabel){
+ if(!deals.length) return '<div class="t-foot">'+escHtml(emptyLabel)+'</div>';
+ var sorted=deals.slice().sort(function(a,b){return (b.amount||0)-(a.amount||0);});
+ var show=sorted.slice(0,12);
+ var lis=show.map(function(d){
+  var meta=money(d.amount||0);
+  if(d.stage) meta+=' · '+d.stage;
+  return '<li><span class="t-co">'+escHtml(d.company||'Unknown')+'</span><span class="t-meta">'+escHtml(meta)+'</span></li>';
+ }).join('');
+ var more=sorted.length>show.length?'<div class="t-more">+'+fmtN(sorted.length-show.length)+' more</div>':'';
+ return '<ul class="t-list">'+lis+'</ul>'+more;
+}
+function buildMonthCol(opts){
+ var pct=opts.maxV<=0?0:Math.min(100,(opts.value/opts.maxV)*100);
+ var style=opts.partial?HATCH:COMPLETE;
+ var mtd=opts.partial?'<span class="mtd">partial</span>':'';
+ var tip=opts.tipHtml||'';
+ return '<div class="vcol" data-month="'+escHtml(opts.month)+'">'+
+  '<div class="vval">'+money(opts.value)+'</div>'+
   '<div class="vtrack"><div class="vbar" style="height:'+pct.toFixed(1)+'%;'+style+'"></div></div>'+
-  '<div class="vlab">'+label+mtd+'</div></div>';
+  '<div class="vlab">'+escHtml(opts.label)+mtd+'</div>'+
+  '<div class="vtip">'+tip+'</div></div>';
+}
+function layoutSpendLine(root, spends, maxSpend){
+ var svg=root.querySelector('.spend-svg');
+ var cols=root.querySelectorAll('.vcol');
+ if(!svg||!cols.length) return;
+ var plot=root.querySelector('.vchart-plot')||root;
+ var plotRect=plot.getBoundingClientRect();
+ if(plotRect.width<10) return;
+ var trackH=200;
+ var padTop=8;
+ svg.setAttribute('width', String(Math.round(plotRect.width)));
+ svg.setAttribute('height', String(trackH));
+ svg.style.top=padTop+'px';
+ svg.style.height=trackH+'px';
+ var pts=[];
+ cols.forEach(function(col,i){
+  var track=col.querySelector('.vtrack');
+  if(!track) return;
+  var tr=track.getBoundingClientRect();
+  var x=tr.left-plotRect.left+tr.width/2;
+  var sp=spends[i]||0;
+  var y=trackH-((maxSpend<=0)?0:(sp/maxSpend)*0.92*trackH);
+  pts.push({x:x,y:y,sp:sp});
+ });
+ if(pts.length<1){ svg.innerHTML=''; return; }
+ var line=pts.map(function(p,i){return (i?'L':'M')+p.x.toFixed(1)+','+p.y.toFixed(1);}).join(' ');
+ var dots=pts.map(function(p){
+  return '<circle cx="'+p.x.toFixed(1)+'" cy="'+p.y.toFixed(1)+'" r="4" fill="#0D062B" stroke="#fff" stroke-width="1.5"></circle>';
+ }).join('');
+ svg.innerHTML='<path d="'+line+'" fill="none" stroke="#0D062B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></path>'+dots;
+}
+function renderTrendChart(elId, barLabel, months, values, dealLists, tipKind){
+ var root=document.getElementById(elId);
+ if(!root) return;
+ var spends=months.map(monthSpend);
+ var maxV=Math.max.apply(null, values.concat([1]));
+ var maxSpend=Math.max.apply(null, spends.concat([1]));
+ var cols=months.map(function(m,i){
+  var partial=!!D.accountPartial[D.months.indexOf(m)];
+  var deals=dealLists[i]||[];
+  var lostNote=dealLists._lost && dealLists._lost[i]?dealLists._lost[i]:0;
+  var tipTitle=(D.monthLabel[m]||m);
+  var listLabel=tipKind==='rev'?'Closed Won this month':'Influenced deals in bar (open + Closed Won, by create)';
+  var empty=tipKind==='rev'?'No Closed Won closes this month.':'No open or Closed Won creates this month.';
+  var tip='<div class="t-title">'+escHtml(tipTitle)+'</div>'+
+   '<div class="t-row"><span>LinkedIn spend</span><b>'+money(spends[i])+'</b></div>'+
+   '<div class="t-row"><span>'+escHtml(barLabel)+'</span><b>'+money(values[i])+'</b></div>'+
+   '<div class="t-div"></div>'+
+   '<div class="t-row" style="margin-bottom:6px"><span>'+escHtml(listLabel)+'</span><b>'+fmtN(deals.length)+'</b></div>'+
+   dealTipList(deals, empty)+
+   (lostNote?'<div class="t-foot">Also '+fmtN(lostNote)+' Closed Lost / Disqualified creates this month (not in the bar).</div>':'');
+  return buildMonthCol({month:m,label:D.monthLabel[m]||m,value:values[i],maxV:maxV,partial:partial,tipHtml:tip});
+ }).join('');
+ root.innerHTML=
+  '<div class="vchart-wrap">'+
+   '<div class="vchart-legend">'+
+    '<span class="leg"><span class="swatch-bar"></span>'+escHtml(barLabel)+'</span>'+
+    '<span class="leg"><span class="swatch-line"></span>Account LinkedIn spend</span>'+
+   '</div>'+
+   '<div class="vchart-hint">Hover a month for spend and deals</div>'+
+   '<div class="vchart-plot">'+
+    '<svg class="spend-svg" aria-hidden="true"></svg>'+
+    '<div class="vchart">'+cols+'</div>'+
+   '</div>'+
+  '</div>';
+ root._spendSeries={spends:spends,maxSpend:maxSpend};
+ function paint(){ layoutSpendLine(root, root._spendSeries.spends, root._spendSeries.maxSpend); }
+ requestAnimationFrame(function(){ paint(); requestAnimationFrame(paint); });
+ if(!root._spendResize){
+  root._spendResize=true;
+  window.addEventListener('resize', function(){
+   if(root._spendSeries) layoutSpendLine(root, root._spendSeries.spends, root._spendSeries.maxSpend);
+  });
+ }
 }
 
 function rebuildPipeChart(){
- var p=PERIODS[cur];
  var ms=periodMonths();
- var openBy={},wonBy={};
- ms.forEach(function(m){openBy[m]=0;wonBy[m]=0;});
+ var openBy={},wonBy={},lostBy={},dealsBy={};
+ ms.forEach(function(m){openBy[m]=0;wonBy[m]=0;lostBy[m]=0;dealsBy[m]=[];});
  D.deals.forEach(function(d){
   if(!dealCreatedInPeriod(d)) return;
   var m=(d.created||'').slice(0,7);
   if(ms.indexOf(m)<0) return;
-  if(OPEN[d.stage]) openBy[m]+=(d.amount||0);
-  else if(WON[d.stage]) wonBy[m]+=(d.amount||0);
+  if(OPEN[d.stage]||WON[d.stage]){
+   if(OPEN[d.stage]) openBy[m]+=(d.amount||0);
+   else wonBy[m]+=(d.amount||0);
+   dealsBy[m].push(d);
+  } else if(LOST[d.stage]) {
+   lostBy[m]++;
+  }
  });
  var totals=ms.map(function(m){return openBy[m]+wonBy[m];});
- var maxV=Math.max.apply(null,totals.concat([1]));
- var cols=ms.map(function(m,i){
-  var t=totals[i];
-  var partial=!!D.accountPartial[D.months.indexOf(m)];
-  return vbarCol(D.monthLabel[m]||m,t,maxV,partial,'');
- });
+ var lists=ms.map(function(m){return dealsBy[m];});
+ lists._lost=ms.map(function(m){return lostBy[m];});
  var sech;
- if(cur==='lfm') sech='* Filtered 3+ click new business, by create month. August 2026 is a full month.';
- else if(cur==='mtd') sech='* Filtered 3+ click new business, by create month. September 2026 is partial (18 of 30 days).';
- else sech='* Filtered 3+ click new business, by create month. September 2026 is partial (18 of 30 days).';
+ if(cur==='lfm') sech='* Filtered 3+ click new business, by create month (open + Closed Won still in the bar). Bars = influenced pipe; line = account LinkedIn spend. Hover for spend and deals. August 2026 is a full month.';
+ else if(cur==='mtd') sech='* Filtered 3+ click new business, by create month (open + Closed Won still in the bar). Bars = influenced pipe; line = account LinkedIn spend. Hover for spend and deals. September 2026 is partial (18 of 30 days).';
+ else sech='* Filtered 3+ click new business, by create month (open + Closed Won still in the bar). Bars = influenced pipe; line = account LinkedIn spend. Hover for spend and deals. September 2026 is partial (18 of 30 days).';
  document.getElementById('pipe-sech').textContent=sech;
- document.getElementById('pipe-chart').innerHTML='<div class="vchart">'+cols.join('')+'</div>';
+ renderTrendChart('pipe-chart','Influenced pipeline',ms,totals,lists,'pipe');
 }
 
 function rebuildRevChart(){
  var ms=periodMonths();
- var by={}; ms.forEach(function(m){by[m]=0;});
+ var by={}; var dealsBy={};
+ ms.forEach(function(m){by[m]=0;dealsBy[m]=[];});
  D.deals.forEach(function(d){
   if(!dealClosedInPeriod(d)) return;
   var m=(d.closed||'').slice(0,7);
-  if(ms.indexOf(m)>=0) by[m]+=(d.amount||0);
+  if(ms.indexOf(m)<0) return;
+  by[m]+=(d.amount||0);
+  dealsBy[m].push(d);
  });
  var vals=ms.map(function(m){return by[m];});
- var maxV=Math.max.apply(null,vals.concat([1]));
- var cols=ms.map(function(m,i){
-  var partial=!!D.accountPartial[D.months.indexOf(m)];
-  return vbarCol(D.monthLabel[m]||m,vals[i],maxV,partial,'');
- });
+ var lists=ms.map(function(m){return dealsBy[m];});
  var sech;
- if(cur==='lfm') sech='* Closed won revenue from the same 3+ click new-business cohort, by close month. August 2026 is a full month.';
- else sech='* Closed won revenue from the same 3+ click new-business cohort, by close month. September 2026 is partial (18 of 30 days).';
+ if(cur==='lfm') sech='* Closed won revenue from the same 3+ click new-business cohort, by close month. Bars = influenced revenue; line = account LinkedIn spend. Hover for spend and deals that closed. August 2026 is a full month.';
+ else sech='* Closed won revenue from the same 3+ click new-business cohort, by close month. Bars = influenced revenue; line = account LinkedIn spend. Hover for spend and deals that closed. September 2026 is partial (18 of 30 days).';
  document.getElementById('rev-sech').textContent=sech;
- document.getElementById('rev-chart').innerHTML='<div class="vchart">'+cols.join('')+'</div>';
+ renderTrendChart('rev-chart','Influenced revenue',ms,vals,lists,'rev');
 }
 
 function rowInPeriod(r){
