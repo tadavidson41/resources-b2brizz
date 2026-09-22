@@ -51,13 +51,13 @@ h2:after{content:"";display:block;width:56px;height:3px;background:#7319F2;borde
 .mcard .v{font-size:27px;font-weight:800;margin-top:6px;letter-spacing:-.6px;font-variant-numeric:tabular-nums}
 .mcard .n{font-size:11.5px;color:var(--s3);margin-top:4px}
 .box{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:18px}
-.trend{max-width:100%;overflow-x:auto;overflow-y:visible}
-.vchart-wrap{min-width:560px;padding-top:4px}
+.trend{max-width:100%;overflow-x:auto;overflow-y:visible;padding-bottom:8px}
+.vchart-wrap{min-width:560px;padding-top:4px;padding-bottom:12px;overflow:visible}
 .vchart-legend{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;margin:0 0 10px;font-size:12px;color:var(--s2);font-weight:600}
 .vchart-legend .leg{display:inline-flex;align-items:center;gap:7px}
 .vchart-legend .swatch-bar{width:14px;height:10px;border-radius:2px;background:#C7A3FA;border:1px solid #7319F2}
-.vchart-legend .swatch-line{width:18px;height:0;border-top:2.5px solid #0D062B;position:relative}
-.vchart-legend .swatch-line:after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:#0D062B;left:50%;top:-4.5px;margin-left:-3.5px}
+.vchart-legend .swatch-line{width:18px;height:0;border-top:2px solid #6BCB7A;position:relative;opacity:.9}
+.vchart-legend .swatch-line:after{content:"";position:absolute;width:6px;height:6px;border-radius:50%;background:#6BCB7A;left:50%;top:-4px;margin-left:-3px;opacity:.95}
 .vchart-hint{text-align:center;font-size:11.5px;color:var(--s3);margin:0 0 8px}
 .vchart-plot{position:relative}
 .vchart{display:flex;align-items:flex-end;gap:10px;min-height:260px;padding:8px 4px 0;position:relative;z-index:1}
@@ -70,8 +70,11 @@ h2:after{content:"";display:block;width:56px;height:3px;background:#7319F2;borde
 .vsub{font-weight:400;color:var(--s3);font-size:10px;display:block;margin-top:2px}
 .vlab{font-size:11.5px;color:var(--s2);text-align:center;line-height:1.25}
 .mtd{font-size:9.5px;color:var(--s3);display:block}
-.vtip{display:none;position:absolute;left:50%;bottom:calc(100% - 4px);transform:translateX(-50%);width:280px;max-width:70vw;background:#0D062B;color:#fff;border-radius:10px;padding:12px 14px;box-shadow:0 12px 28px rgba(13,6,43,.28);z-index:20;pointer-events:none;text-align:left}
+.vtip{display:none;position:absolute;left:50%;top:calc(100% + 6px);transform:translateX(-50%);width:280px;max-width:70vw;background:#0D062B;color:#fff;border-radius:10px;padding:12px 14px;box-shadow:0 12px 28px rgba(13,6,43,.28);z-index:30;pointer-events:none;text-align:left}
 .vcol:hover .vtip{display:block}
+.vcol:hover{z-index:40}
+.trend{overflow:visible}
+.box.trend{overflow:visible}
 .vtip .t-title{font-size:13px;font-weight:800;margin:0 0 8px;letter-spacing:-.2px}
 .vtip .t-row{display:flex;justify-content:space-between;gap:10px;font-size:12px;margin:0 0 4px;color:#E3D1FC}
 .vtip .t-row b{color:#fff;font-weight:700;font-variant-numeric:tabular-nums}
@@ -550,6 +553,9 @@ function layoutSpendLine(root, spends, maxSpend){
  svg.setAttribute('height', String(trackH));
  svg.style.top=padTop+'px';
  svg.style.height=trackH+'px';
+ // Keep spend as a quiet baseline in the lower ~28% of the plot so bars/labels stay readable
+ var bandTop=trackH*0.72;
+ var bandH=trackH*0.22;
  var pts=[];
  cols.forEach(function(col,i){
   var track=col.querySelector('.vtrack');
@@ -557,15 +563,15 @@ function layoutSpendLine(root, spends, maxSpend){
   var tr=track.getBoundingClientRect();
   var x=tr.left-plotRect.left+tr.width/2;
   var sp=spends[i]||0;
-  var y=trackH-((maxSpend<=0)?0:(sp/maxSpend)*0.92*trackH);
+  var y=bandTop+bandH-((maxSpend<=0)?0:(sp/maxSpend)*bandH);
   pts.push({x:x,y:y,sp:sp});
  });
  if(pts.length<1){ svg.innerHTML=''; return; }
  var line=pts.map(function(p,i){return (i?'L':'M')+p.x.toFixed(1)+','+p.y.toFixed(1);}).join(' ');
  var dots=pts.map(function(p){
-  return '<circle cx="'+p.x.toFixed(1)+'" cy="'+p.y.toFixed(1)+'" r="4" fill="#0D062B" stroke="#fff" stroke-width="1.5"></circle>';
+  return '<circle cx="'+p.x.toFixed(1)+'" cy="'+p.y.toFixed(1)+'" r="3.5" fill="#6BCB7A" fill-opacity="0.85" stroke="#fff" stroke-width="1.25"></circle>';
  }).join('');
- svg.innerHTML='<path d="'+line+'" fill="none" stroke="#0D062B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"></path>'+dots;
+ svg.innerHTML='<path d="'+line+'" fill="none" stroke="#6BCB7A" stroke-opacity="0.75" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"></path>'+dots;
 }
 function renderTrendChart(elId, barLabel, months, values, dealLists, tipKind){
  var root=document.getElementById(elId);
