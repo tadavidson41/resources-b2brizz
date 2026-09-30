@@ -1,4 +1,12 @@
-# Netlify config for the B2B Rizz resources site
+# Netlify config for the B2B Rizz resources site.
+# There is no build command. Netlify publishes this directory as-is, so every
+# HTML file here is the deployed output. Netlify Forms detects forms from that
+# static HTML at deploy time (Site configuration > Forms > Form detection must
+# stay enabled, which is the default).
+#
+# tme-waitlist/index.html contains form name="waitlist" with data-netlify="true",
+# a hidden form-name field, and a honeypot. Do not move that form behind a
+# client-side render or a build step that drops it from the published HTML.
 [build]
   publish = "."
 
