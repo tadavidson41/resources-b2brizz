@@ -256,7 +256,7 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 <p class="lede" id="lede">September 1, 2026 to September 30, 2026 (full month). LinkedIn-sourced attribution. New Business deals created in September with 3+ paid clicks from the 2026 Warm Audience, Cold Audience and Foundry campaigns combined (Fibbler campaign-by-deal; Spotlight and older campaigns excluded; Expansion held out). Pipeline and table filter by create date.</p>
 
 <div class="cards">
-<div class="mcard"><div class="l">Ad spend</div><div class="v" id="kpi-spend">$13,132</div><div class="n" id="kpi-spend-n">2026 campaigns, Fibbler, Sep '26</div></div>
+<div class="mcard"><div class="l">Ad spend (LinkedIn)</div><div class="v" id="kpi-spend">$20,381</div><div class="n" id="kpi-spend-n">LinkedIn Campaign Manager, Sep '26, all campaigns excl. Spotlight</div></div>
 <div class="mcard"><div class="l">Influenced deals</div><div class="v" id="kpi-deals">2</div><div class="n" id="kpi-deals-n">1 open + 0 won + 1 lost in cohort</div></div>
 <div class="mcard"><div class="l">Influenced pipeline</div><div class="v" id="kpi-pipe">$1,000,000</div><div class="n">Open stages only</div></div>
 <div class="mcard"><div class="l">Influenced revenue</div><div class="v" id="kpi-rev">$0</div><div class="n">Closed won by close date in period</div></div>
@@ -302,8 +302,8 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 </div>
 
 <h2>Campaign breakdown by deal<span class="count" id="camp-count">1</span></h2>
-<p class="sech">Deals with a Fibbler campaign split whose create date falls in the selected period. Header totals are the sum of those campaign rows and may sit below the table&rsquo;s paid impr/clicks. Only the 2026 Warm Audience, Cold Audience and Foundry campaigns are shown. Thought-leadership / TL and single-image names are highlighted. Closed Lost and Disqualified are hidden by default.</p>
-<div class="camp-filters"><label><input type="checkbox" id="showCampLost" onchange="toggleCampLost(this.checked)"> Show Closed Lost &amp; Disqualified (<span id="camp-lost-n">1</span>)</label><span class="showing" id="camp-showing"></span></div>
+<p class="sech">Deals with a Fibbler campaign split whose create date falls in the selected period. Header totals are the sum of those campaign rows and may sit below the table&rsquo;s paid impr/clicks. Only the 2026 Warm Audience, Cold Audience and Foundry campaigns are shown. Thought-leadership / TL and single-image names are highlighted. Closed Lost and Disqualified are shown by default; untick the box to hide them.</p>
+<div class="camp-filters"><label><input type="checkbox" id="showCampLost" checked onchange="toggleCampLost(this.checked)"> Show Closed Lost &amp; Disqualified (<span id="camp-lost-n">1</span>)</label><span class="showing" id="camp-showing"></span></div>
 <details class="card" data-stage="Demo / Presentation" data-created="2026-09-01" data-month="2026-09"><summary><div class="sm-top"><span class="sm-co">Wells Fargo</span><span class="sm-nums"><b>361</b> <span class="u">impr</span> &middot; <b>3</b> <span class="u">clicks</span></span></div><div class="sm-sub"><span class="pill" style="background:#FFCCBC;color:#BF360C">Demo / Presentation</span><span class="pill mpill" style="background:#FFE4E6;color:#BE123C">Sep &#x27;26</span></div><span class="chev">&#8250;</span></summary><div class="tscroll"><table class="ctab"><thead><tr><th>Campaign</th><th class="c">Paid impr.</th><th class="c">Paid clicks</th></tr></thead><tbody><tr><td>Cold Audience | Target Accounts - Job Titles | Website Visits + Images | 08.26</td><td class="c num">361</td><td class="c num">3</td></tr></tbody></table></div></details><details class="card camp-lost" data-stage="Closed Lost" data-created="2026-09-21" data-month="2026-09"><summary><div class="sm-top"><span class="sm-co">Splunk</span><span class="sm-nums"><b>429</b> <span class="u">impr</span> &middot; <b>4</b> <span class="u">clicks</span></span></div><div class="sm-sub"><span class="pill" style="background:#CFCDD5;color:#3A3C55">Closed Lost</span><span class="pill mpill" style="background:#FFE4E6;color:#BE123C">Sep &#x27;26</span></div><span class="chev">&#8250;</span></summary><div class="tscroll"><table class="ctab"><thead><tr><th>Campaign</th><th class="c">Paid impr.</th><th class="c">Paid clicks</th></tr></thead><tbody><tr><td>Warm Audience | Remarketing | Website Visits + Images | 9.5.26</td><td class="c num">429</td><td class="c num">4</td></tr></tbody></table></div></details>
 
 </section>
@@ -326,9 +326,9 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 <section id="campaign-performance" class="block">
 <h2>Campaign performance<span class="count" id="cp-count">0</span></h2>
 <p class="sech">LinkedIn campaigns that influenced pipe or revenue in-period. Pipe = Fibbler open + closed-lost; revenue = closed-won. 10 per page (or Show all). Expand a row for top 10 companies by revenue, then pipe. Names cleaned; type and Remarketing/Awareness badges replace raw format.</p>
-<p class="sech only60"><b>Campaign rule:</b> only the 2026 Warm Audience, Cold Audience and Foundry campaigns are listed (Spotlight, Boost Posts, Website conversions and older campaigns are excluded). Spend, impressions and clicks are Fibbler September delivery. Pipe and deals credit a campaign for qualifying September deals where it had paid clicks (Fibbler campaign-by-deal). The Pipeline total is unique open pipeline across credited deals.</p>
+<p class="sech only60"><b>Campaign rule:</b> every campaign that delivered in September 2026 is listed except Spotlight Ads. Spend, impressions and clicks are LinkedIn Campaign Manager figures. Pipe and deals are credited only to the 2026 Warm Audience, Cold Audience and Foundry campaigns, for qualifying September deals where the campaign had paid clicks (Fibbler campaign-by-deal). Other campaigns show $0 pipe by rule even if they touched a deal. The Pipeline total is unique open pipeline across credited deals.</p>
 <div class="cp-toolbar">
-<label><input type="checkbox" id="cp-show-all"> Show all campaigns</label>
+<label><input type="checkbox" id="cp-show-all" checked> Show all campaigns</label>
 <span class="showing" id="cp-showing"></span>
 </div>
 <div class="cp-totals" id="cp-totals"></div>
@@ -349,18 +349,18 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 <ul>
 <li><b>Cohort.</b> New-business deals created in September 2026 with 3+ paid clicks from the 2026 Warm Audience, Cold Audience and Foundry campaigns combined, per Fibbler campaign-by-deal data. No day-window cut. Expansion held out.</li>
 <li><b>Create vs close.</b> Pipeline, deal table, journeys, and campaign-by-deal use <b>create date</b>. Influenced revenue uses <b>close date</b> (Closed Won only).</li>
-<li><b>Spend.</b> Overview spend is Fibbler September 2026 spend for these campaigns only ($13,132). LinkedIn Campaign Manager reports $15,979 for the same campaigns in September; Fibbler cost data lags for late-September campaigns. Account-wide September spend was $15,717 in Fibbler and $20,777 in LinkedIn.</li>
+<li><b>Spend.</b> Spend comes from LinkedIn Campaign Manager (account 508638915, Sep 1 to 30, 2026) because Fibbler cost data lags. Overview spend is $20,381 across all campaigns that delivered in September except Spotlight Ads. Of that, the Warm Audience, Cold Audience and Foundry campaigns spent $15,979. Account total including Spotlight ($396) was $20,777.</li>
 <li><b>Pipeline vs revenue.</b> Pipeline = open stages only. Revenue = Closed Won closed in-period.</li>
 <li><b>Full month.</b> September 2026 is a complete month (data as of Oct 2, 2026 ET).</li>
 <li><b>Journeys.</b> Cards show 12 months of paid activity ending on create, for every qualifying September company. Est. Spend uses 2026 non-Spotlight CPM/CPC (not booked spend). Spotlight excluded from the blend.</li>
-<li><b>Campaigns included.</b> Names containing Warm Audience, Cold Audience or Foundry and launched in 2026 (checked in LinkedIn account 508638915): Cold Audience Target Accounts Website Visits 08.26 (Sep 1), Warm Audience Remarketing 9.5.26 (Sep 8), Cold Audience Zero Paid Impr. 09.11.26 (Sep 11), Cold Audience Big 10 (Sep 18), Cold Audience Engagement + Images (Sep 19), [Foundry Launch] Website Visits (Sep 22). Warm Audience Awareness 9.25.26 and [Foundry Launch] Video Views started delivering Oct 1, so they have no September data. Spotlight is excluded.</li>
+<li><b>Deal-rule campaigns.</b> Deals qualify only on clicks from 2026 campaigns whose names contain Warm Audience, Cold Audience or Foundry (checked in LinkedIn account 508638915): Cold Audience Target Accounts Website Visits 08.26 (Sep 1), Warm Audience Remarketing 9.5.26 (Sep 8), Cold Audience Zero Paid Impr. 09.11.26 (Sep 11), Cold Audience Big 10 (Sep 18), Cold Audience Engagement + Images (Sep 19), [Foundry Launch] Website Visits (Sep 22). Warm Audience Awareness 9.25.26 and [Foundry Launch] Video Views started delivering Oct 1, so they have no September data. Campaign performance also lists Boost Post Website Visits Sep 22 (delivered in September) with no deal credit by rule.</li>
 <li><b>Clicks after deal creation.</b> Wells Fargo was created Sep 1, 2026 at 11:08 AM ET and the Cold Audience 08.26 campaign went live at 4:46 PM ET that day, so all 3 of its Wells Fargo clicks came after the deal was created. Splunk was created Sep 21 and Warm Audience Remarketing launched Sep 8; Fibbler does not date individual clicks, so its 4 clicks may be before or after creation.</li>
 <li><b>Campaign performance.</b> Mix and efficiency are campaign-level; pipe/rev can double-count across campaigns. Spotlight is out of ad-type charts. Expand a row for top companies on that campaign.</li>
 </ul>
 </div>
 </div>
 <script>
-window.JF_DATA={"months":["2026-09"],"monthLabel":{"2026-09":"Sep '26"},"accountPartial":[false],"monthlySpend":[13132],"windowStart":"2026-09-01","windowEnd":"2026-09-30","deals":[{"company":"Wells Fargo","dealName":"Wells Fargo - Inbound","created":"2026-09-01","closed":"2027-09-01","month":"2026-09","stage":"Demo / Presentation","amount":1000000,"impr":8868,"clicks":85,"in60":true,"clicks60":3,"impr60":361},{"company":"Splunk","dealName":"Splunk-","created":"2026-09-21","closed":"2026-09-30","month":"2026-09","stage":"Closed Lost","amount":250000,"impr":12103,"clicks":118,"in60":true,"clicks60":4,"impr60":429}],"journeyOrder":["Wells Fargo"],"journeys":{"Wells Fargo":{"created":"2026-09-01","closed":"2027-09-01","stage":"Demo / Presentation","amount":1000000,"slug":"wells-fargo"}},"journeysByPeriod":{"lfm":["Wells Fargo"]},"campaignPerfByPeriod":{"lfm":{"campaigns":[{"id":"871631906","name":"Cold Audience | Target Accounts - Job Titles | Website Visits + Images | 08.26","format":"IMAGE AD","impressions":59540,"clicks":100,"engagements":185,"pipeline":1000000,"revenue":0,"deals":1,"spend":6287,"weightedPipeline":0,"weightedRevenue":0,"influencing":true,"topCompanies":[{"company":"Wells Fargo","stage":"Demo / Presentation","pipeline":1000000,"revenue":0,"impressions":361,"clicks":3,"engagements":6,"matched":true}],"adType":"Image","isRemarketing":false},{"id":"875351356","name":"Warm Audience | Remarketing | Website Visits + Images | 9.5.26","format":"IMAGE AD","impressions":24837,"clicks":30,"engagements":81,"pipeline":0,"revenue":0,"deals":1,"spend":3198,"weightedPipeline":0,"weightedRevenue":0,"influencing":true,"topCompanies":[{"company":"Splunk","stage":"Closed Lost","pipeline":0,"revenue":0,"impressions":429,"clicks":4,"engagements":5,"matched":true}],"adType":"Remarketing","isRemarketing":true},{"id":"904339926","name":"Cold Audience | Big 10 Accounts - Job Titles | Website Visits + Images | 9.26","format":"IMAGE AD","impressions":17521,"clicks":63,"engagements":113,"pipeline":0,"revenue":0,"deals":0,"spend":1690,"weightedPipeline":0,"weightedRevenue":0,"influencing":false,"topCompanies":[],"adType":"Image","isRemarketing":false},{"id":"904448636","name":"Cold Audience | Target Accounts - Job Titles | Engagement + Images | 09.26","format":"IMAGE AD","impressions":13910,"clicks":38,"engagements":44,"pipeline":0,"revenue":0,"deals":0,"spend":859,"weightedPipeline":0,"weightedRevenue":0,"influencing":false,"topCompanies":[],"adType":"Image","isRemarketing":false},{"id":"886742336","name":"Cold Audience | Target Accounts [Zero Paid Impr.] - Job Titles | Website Visits + Images | 09.11.26","format":"IMAGE AD","impressions":5117,"clicks":0,"engagements":0,"pipeline":0,"revenue":0,"deals":0,"spend":810,"weightedPipeline":0,"weightedRevenue":0,"influencing":false,"topCompanies":[],"adType":"Image","isRemarketing":false},{"id":"904204446","name":"[Foundry Launch] Cold Audience | Target Accounts - Job Titles | Website Visits + Images | 09.22.26","format":"IMAGE AD","impressions":6554,"clicks":0,"engagements":3,"pipeline":0,"revenue":0,"deals":0,"spend":288,"weightedPipeline":0,"weightedRevenue":0,"influencing":false,"topCompanies":[],"adType":"Image","isRemarketing":false}],"totals":{"impressions":127479,"deliveredImpressions":127479,"clicks":231,"engagements":426,"spend":13132,"companiesReached":2459,"companiesEngaged":209,"weightedPipeline":1000000,"weightedRevenue":0,"uniqueInfluencedDeals":2},"months":["2026-09"],"nInfluencing":2,"nAll":6,"rule":"newcampaigns"}}};
+window.JF_DATA={"months":["2026-09"],"monthLabel":{"2026-09":"Sep '26"},"accountPartial":[false],"monthlySpend":[20381],"windowStart":"2026-09-01","windowEnd":"2026-09-30","deals":[{"company":"Wells Fargo","dealName":"Wells Fargo - Inbound","created":"2026-09-01","closed":"2027-09-01","month":"2026-09","stage":"Demo / Presentation","amount":1000000,"impr":8868,"clicks":85,"in60":true,"clicks60":3,"impr60":361},{"company":"Splunk","dealName":"Splunk-","created":"2026-09-21","closed":"2026-09-30","month":"2026-09","stage":"Closed Lost","amount":250000,"impr":12103,"clicks":118,"in60":true,"clicks60":4,"impr60":429}],"journeyOrder":["Wells Fargo"],"journeys":{"Wells Fargo":{"created":"2026-09-01","closed":"2027-09-01","stage":"Demo / Presentation","amount":1000000,"slug":"wells-fargo"}},"journeysByPeriod":{"lfm":["Wells Fargo"]},"campaignPerfByPeriod":{"lfm":{"campaigns":[{"id":"871631906","name":"Cold Audience | Target Accounts - Job Titles | Website Visits + Images | 08.26","format":"IMAGE AD","impressions":58892,"clicks":255,"engagements":0,"pipeline":1000000,"revenue":0,"deals":1,"spend":6912,"weightedPipeline":0,"weightedRevenue":0,"influencing":true,"topCompanies":[{"company":"Wells Fargo","stage":"Demo / Presentation","pipeline":1000000,"revenue":0,"impressions":361,"clicks":3,"engagements":6,"matched":true}],"adType":"Image","isRemarketing":false,"landingPageClicks":255,"conversions":2,"tim":true},{"id":"875351356","name":"Warm Audience | Remarketing | Website Visits + Images | 9.5.26","format":"IMAGE AD","impressions":25186,"clicks":104,"engagements":0,"pipeline":0,"revenue":0,"deals":1,"spend":3861,"weightedPipeline":0,"weightedRevenue":0,"influencing":true,"topCompanies":[{"company":"Splunk","stage":"Closed Lost","pipeline":0,"revenue":0,"impressions":429,"clicks":4,"engagements":5,"matched":true}],"adType":"Remarketing","isRemarketing":true,"landingPageClicks":104,"conversions":0,"tim":true},{"id":"904872626","name":"Boost Post Website Visits September 22, 2026 at 11:18 PM","format":"IMAGE AD","impressions":52028,"clicks":1386,"engagements":0,"pipeline":0,"revenue":0,"deals":0,"spend":4402,"weightedPipeline":0,"weightedRevenue":0,"influencing":false,"topCompanies":[],"adType":"Image","isRemarketing":false,"landingPageClicks":1386,"conversions":0,"tim":false},{"id":"904339926","name":"Cold Audience | Big 10 Accounts - Job Titles | Website Visits + Images | 9.26","format":"IMAGE AD","impressions":19441,"clicks":76,"engagements":0,"pipeline":0,"revenue":0,"deals":0,"spend":2304,"weightedPipeline":0,"weightedRevenue":0,"influencing":false,"topCompanies":[],"adType":"Image","isRemarketing":false,"landingPageClicks":76,"conversions":0,"tim":true},{"id":"904448636","name":"Cold Audience | Target Accounts - Job Titles | Engagement + Images | 09.26","format":"IMAGE AD","impressions":14487,"clicks":119,"engagements":0,"pipeline":0,"revenue":0,"deals":0,"spend":987,"weightedPipeline":0,"weightedRevenue":0,"influencing":false,"topCompanies":[],"adType":"Image","isRemarketing":false,"landingPageClicks":49,"conversions":0,"tim":true},{"id":"886742336","name":"Cold Audience | Target Accounts [Zero Paid Impr.] - Job Titles | Website Visits + Images | 09.11.26","format":"IMAGE AD","impressions":5043,"clicks":23,"engagements":0,"pipeline":0,"revenue":0,"deals":0,"spend":810,"weightedPipeline":0,"weightedRevenue":0,"influencing":false,"topCompanies":[],"adType":"Image","isRemarketing":false,"landingPageClicks":23,"conversions":0,"tim":true},{"id":"904204446","name":"[Foundry Launch] Cold Audience | Target Accounts - Job Titles | Website Visits + Images | 09.22.26","format":"IMAGE AD","impressions":11826,"clicks":50,"engagements":0,"pipeline":0,"revenue":0,"deals":0,"spend":1105,"weightedPipeline":0,"weightedRevenue":0,"influencing":false,"topCompanies":[],"adType":"Image","isRemarketing":false,"landingPageClicks":50,"conversions":0,"tim":true}],"totals":{"impressions":186903,"deliveredImpressions":186903,"clicks":2013,"engagements":0,"spend":20381,"companiesReached":2459,"companiesEngaged":209,"weightedPipeline":1000000,"weightedRevenue":0,"uniqueInfluencedDeals":2,"spendExact":20381.07,"timSpendExact":15978.91,"accountSpendExact":20776.65},"months":["2026-09"],"nInfluencing":2,"nAll":7,"rule":"newcampaigns"}}};
 
 (function(){
 var D=window.JF_DATA;
@@ -462,7 +462,7 @@ function recomputeKPIs(){
 
  var spend=spendForPeriod();
  var spendNote;
- spendNote="2026 campaigns, Fibbler, Sep '26";
+ spendNote="LinkedIn Campaign Manager, Sep '26, all campaigns excl. Spotlight";
 
  document.getElementById('kpi-spend').textContent=money(spend);
  document.getElementById('kpi-spend-n').textContent=spendNote;
@@ -699,21 +699,13 @@ function campaignIsRemarketing(c){
 }
 function campaignAccountBand(name){
  var n=String(name||'');
- if(/Competitive Takeout/i.test(n)) return 'Competitor';
- if(/\bCTV\b/i.test(n) && /remarketing/i.test(n)) return 'Remarketing';
- if(/\bCTV\b/i.test(n) && /Enterprise/i.test(n)) return 'Enterprise Owned / Unowned / Priority 1-2';
- if(/\bGartner\b/i.test(n) && /Enterprise/i.test(n)) return 'Enterprise Owned / Unowned / Priority 1-2';
- if(/ZERO Paid|Customers:|AWS\b|Vista Portcos|Catch-All/i.test(n))
-  return 'Other / Unknown';
- if(/Strategic\s*\(Owned\)|Strategic\s+Owned|Strategic\s*-\s*Tier\s*1-3/i.test(n))
-  return 'Strategic Owned';
- if(/Owned\s*&\s*Unowned\s*P1-2|Upmarket\+[^,]*,?\s*Owned\s*&\s*Unowned/i.test(n))
-  return 'Upmarket+ Owned & Unowned P1-2';
- if(/Upmarket/i.test(n) && (/Tier\s*1-3|Upmarket\s*3|Upmarket\+/i.test(n) || /Upmarket\s*,\s*Enterprise/i.test(n)))
-  return 'Upmarket / Tier 1-3';
- if(/Enterprise|Priority\s*1-2|\bENT\b/i.test(n))
-  return 'Enterprise Owned / Unowned / Priority 1-2';
- return 'Other / Unknown';
+ if(/Foundry/i.test(n)) return 'Foundry Launch (cold)';
+ if(/Remarketing/i.test(n)) return 'Warm remarketing';
+ if(/Big 10/i.test(n)) return 'Big 10 accounts (cold)';
+ if(/Zero Paid/i.test(n)) return 'Target accounts, zero paid impr. (cold)';
+ if(/Target Accounts/i.test(n)) return 'Target accounts (cold)';
+ if(/Boost Post/i.test(n)) return 'Boosted posts';
+ return 'Unclassified';
 }
 function summaryAdTypeKey(ad){
  if(ad.key==='document') return 'Document Ads';
@@ -765,15 +757,15 @@ function cpShareChartsHtml(items){
 function aggregateCampaignCuts(camps){
  var typeOrder=['Document Ads','Image Ads','Video Ads','Other'];
  var byType={}; var byRm={Remarketing:{n:0,pipe:0,rev:0,deals:0,spend:0},Awareness:{n:0,pipe:0,rev:0,deals:0,spend:0}};
- var bandOrder=['Strategic Owned','Upmarket+ Owned & Unowned P1-2','Upmarket / Tier 1-3','Enterprise Owned / Unowned / Priority 1-2','Remarketing','Competitor','Other / Unknown'];
+ var bandOrder=['Target accounts (cold)','Target accounts, zero paid impr. (cold)','Big 10 accounts (cold)','Foundry Launch (cold)','Warm remarketing','Boosted posts','Unclassified'];
  var bandShort={
-  'Strategic Owned':'Strategic Owned',
-  'Upmarket+ Owned & Unowned P1-2':'Upmarket+ P1-2',
-  'Upmarket / Tier 1-3':'Upmarket T1-3',
-  'Enterprise Owned / Unowned / Priority 1-2':'Enterprise',
-  'Remarketing':'Remarketing',
-  'Competitor':'Competitor',
-  'Other / Unknown':'Other'
+  'Target accounts (cold)':'Target accounts',
+  'Target accounts, zero paid impr. (cold)':'Zero paid impr.',
+  'Big 10 accounts (cold)':'Big 10',
+  'Foundry Launch (cold)':'Foundry Launch',
+  'Warm remarketing':'Warm remarketing',
+  'Boosted posts':'Boosted posts',
+  'Unclassified':'Unclassified'
  };
  var byBand={};
  typeOrder.forEach(function(k){ byType[k]={n:0,pipe:0,rev:0,deals:0,spend:0}; });
@@ -824,8 +816,8 @@ function renderCpSummary(camps){
   '<p class="cp-sum-intro">Influenced pipeline and revenue mix for all campaigns in this period (full set, not just the current page). Each block shows share of total pipeline and share of total revenue. Image Ads includes TLA / Image. Spotlight Ads are omitted from the ad-type mix (impression-heavy). Values can double-count across campaigns.</p>'+
   section('By ad type','Document, Image, and Video only. Spotlight excluded. Empty categories omitted.',typeItems)+
   section('Remarketing vs Awareness','Remarketing if the campaign name contains remarketing; otherwise Awareness.',rmItems)+
-  section('By account segment','Best-effort from campaign name. Short labels on the legend; full names in the footnote.',bandItems)+
-  '<p class="cp-sum-foot">Account segments (best-effort from campaign name): Strategic Owned; Upmarket+ Owned &amp; Unowned P1-2; Upmarket / Tier 1-3; Enterprise; Remarketing (CTV remarketing); Competitor (Competitive Takeout); Other / Unknown (AWS, Vista, Customers, ZERO Paid, and unclear names). CTV or Gartner lines that name Enterprise map to Enterprise. Numbers in parentheses are campaign counts. Spotlight stays in the campaign list and other breakdowns, but not in By ad type. Hover a share slice for the full label when the bar is too small to print text.</p>';
+  section('By audience segment','From campaign name. Short labels on the legend; full names in the footnote.',bandItems)+
+  '<p class="cp-sum-foot">Audience segments come from campaign names: Target accounts (cold, job titles); Zero paid impr. (cold target accounts, "Zero Paid Impr." audience); Big 10 accounts (cold); Foundry Launch (cold target accounts); Warm remarketing; Boosted posts. Numbers in parentheses are campaign counts. Spotlight Ads are not included. Hover a share slice for the full label when the bar is too small to print text.</p>';
 }
 function effPipePerDollar(it){
  var s=+(it.spend||0);
@@ -873,10 +865,10 @@ function renderCpEfficiency(camps){
  if(!el) return;
  var cuts=aggregateCampaignCuts(camps);
  el.innerHTML='<h3>Efficiency</h3>'+
-  '<p class="cp-eff-intro">Fibbler campaign spend vs influenced pipeline and revenue. Pipe and revenue can double-count across campaigns. Spotlight excluded from ad-type table only.</p>'+
+  '<p class="cp-eff-intro">LinkedIn Campaign Manager spend vs influenced pipeline and revenue (credit only to Warm Audience, Cold Audience and Foundry campaigns). Pipe and revenue can double-count across campaigns. Spotlight Ads are not included.</p>'+
   cpEffTableHtml('Efficiency by ad type', cuts.typeItems)+
   cpEffTableHtml('Efficiency by remarketing vs awareness', cuts.rmItems)+
-  cpEffTableHtml('Efficiency by account segment', cuts.bandItems);
+  cpEffTableHtml('Efficiency by audience segment', cuts.bandItems);
 }
 function cohortPipeRev(){
  var openPipe=0, wonRev=0;
