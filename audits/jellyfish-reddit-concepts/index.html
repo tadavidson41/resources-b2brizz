@@ -6,142 +6,103 @@
 <link rel="icon" href="/assets/favicon-32.png">
 <style>
 @font-face{font-family:'Satoshi';src:url('/assets/fonts/Satoshi-Variable.woff2') format('woff2');font-weight:300 900;font-display:swap}
-:root{--navy:#0D062B;--navy2:#160d3d;--card:#1a1046;--line:rgba(255,255,255,.10);--purple:#7319F2;--teal:#13E2BF;--lime:#CFEF09;--text:#F3F1FA;--muted:#B9B3D3}
+:root{--bg:#F7F7FA;--navy:#0D062B;--card:#FFFFFF;--line:#E3E1EC;--purple:#7319F2;--purple-soft:#F1E9FE;--text:#0D062B;--muted:#4A4466}
 *{box-sizing:border-box}
 html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-body{margin:0;background:var(--navy);color:var(--text);font-family:'Satoshi','Inter',system-ui,-apple-system,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1180px;margin:0 auto;padding:44px 28px 56px}
-header.top{border-bottom:1px solid var(--line);padding-bottom:26px;margin-bottom:8px;position:relative}
-header.top:before{content:"";position:absolute;inset:-44px -28px auto -28px;height:260px;background:radial-gradient(600px 220px at 15% 0%,rgba(115,25,242,.35),transparent 70%),radial-gradient(420px 200px at 90% 10%,rgba(19,226,191,.14),transparent 70%);z-index:-1}
-.eyebrow{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:13px;color:var(--muted);letter-spacing:.02em;margin-bottom:14px}
-.eyebrow b{color:var(--teal);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:12px}
-h1{font-size:clamp(28px,4.2vw,44px);line-height:1.1;margin:0 0 12px;font-weight:800;letter-spacing:-.02em}
-.intro{font-size:18px;color:var(--muted);margin:0;max-width:760px}
-.how{margin:18px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:10px}
-.how li{font-size:13.5px;color:var(--text);background:rgba(255,255,255,.05);border:1px solid var(--line);border-radius:999px;padding:6px 12px}
-.how li span{color:var(--teal);font-weight:700;margin-right:6px}
-section{padding:38px 0 6px}
-.sh{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:6px}
-.num{font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);background:var(--teal);border-radius:6px;padding:3px 9px}
-.s1 .num{background:var(--lime)}
-.s3 .num{background:#B78BFF}
-h2{font-size:26px;margin:0;font-weight:800;letter-spacing:-.01em}
-.ex{color:var(--muted);margin:4px 0 20px;font-size:15.5px;max-width:820px}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.card{margin:0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .15s, box-shadow .15s}
-.card.sel{border-color:var(--teal);box-shadow:0 0 0 2px rgba(19,226,191,.35)}
-.thumb{all:unset;cursor:zoom-in;display:block;aspect-ratio:1/1;background:#000}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Satoshi','Inter',system-ui,-apple-system,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1200px;margin:0 auto;padding:36px 32px 48px}
+h1{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:0;font-weight:800;letter-spacing:-.02em;color:var(--navy)}
+section{padding:34px 0 0}
+.sh{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.num{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);background:var(--purple-soft);border:1px solid #DCC8FC;border-radius:6px;padding:4px 10px}
+h2{font-size:28px;line-height:1.2;margin:0;font-weight:800;letter-spacing:-.015em;color:var(--navy)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{margin:0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(13,6,43,.05),0 6px 18px rgba(13,6,43,.07)}
+.thumb{all:unset;cursor:zoom-in;display:block;aspect-ratio:1/1;background:#0D062B;border-bottom:1px solid var(--line)}
 .thumb img{display:block;width:100%;height:100%;object-fit:cover}
-.thumb:focus-visible{outline:3px solid var(--teal);outline-offset:-3px}
-figcaption{padding:13px 15px 15px;display:flex;flex-direction:column;gap:6px;flex:1}
-.row{display:flex;gap:10px;align-items:center}
-.lab{flex:none;font-weight:800;font-size:13px;border-radius:6px;padding:2px 8px;color:var(--navy)}
-.lab-R{background:var(--lime)} .lab-A{background:var(--teal)} .lab-B{background:#B78BFF}
-.cap{font-weight:700;font-size:15.5px;line-height:1.3}
-.sub{margin:0;font-size:13.5px;color:var(--muted)}
-.pick{all:unset;cursor:pointer;margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:6px 11px 6px 9px;background:rgba(255,255,255,.04)}
-.pick:hover{border-color:rgba(19,226,191,.6)}
-.pick:focus-visible{outline:2px solid var(--teal)}
-.pick .box{width:15px;height:15px;border-radius:4px;border:1.5px solid var(--muted);display:inline-grid;place-items:center}
-.pick[aria-pressed=true]{background:rgba(19,226,191,.14);border-color:var(--teal)}
-.pick[aria-pressed=true] .box{background:var(--teal);border-color:var(--teal)}
-.pick[aria-pressed=true] .box:after{content:"";width:4px;height:8px;border:solid var(--navy);border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}
-.tray{position:sticky;bottom:14px;margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;background:rgba(26,16,70,.96);border:1px solid rgba(19,226,191,.45);border-radius:12px;padding:12px 16px;backdrop-filter:blur(6px);box-shadow:0 10px 30px rgba(0,0,0,.4)}
-.ponly{display:none;margin:14px 0 0;font-size:14px;color:var(--teal);font-weight:600}
-.tray .t{font-weight:700} .tray #picked{color:var(--teal);font-weight:700}
-.tray button{all:unset;cursor:pointer;margin-left:auto;background:var(--purple);color:#fff;font-weight:700;font-size:14px;border-radius:8px;padding:8px 14px}
-.tray button:focus-visible{outline:2px solid var(--teal)}
-footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
-.lb{position:fixed;inset:0;background:rgba(5,2,20,.92);display:none;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:24px;z-index:50;cursor:zoom-out}
+.thumb:focus-visible{outline:3px solid var(--purple);outline-offset:-3px}
+figcaption{padding:12px 16px 14px;display:flex;gap:11px;align-items:flex-start;flex:1}
+.lab{flex:none;font-weight:800;font-size:15px;line-height:1;border-radius:6px;padding:6px 9px;color:#fff;background:var(--navy)}
+.cap{font-weight:700;font-size:16.5px;line-height:1.35;color:var(--navy);padding-top:2px}
+.lb{position:fixed;inset:0;background:rgba(13,6,43,.88);display:none;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:24px;z-index:50;cursor:zoom-out;color:#fff}
 .lb.on{display:flex}
-.lb img{max-width:min(92vw,1200px);max-height:84vh;border-radius:10px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
-.lb p{margin:0;font-weight:700}
-.lb .x{position:absolute;top:14px;right:18px;font-size:30px;color:#fff;background:none;border:0;cursor:pointer;line-height:1}
-@media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr);gap:16px}}
-@media (max-width:560px){.wrap{padding:30px 16px 40px}.grid{grid-template-columns:1fr}.intro{font-size:16px}}
+.lb img{max-width:min(92vw,1200px);max-height:84vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.lb p{margin:0;font-weight:700;font-size:16px}
+.lb .x{position:absolute;top:14px;right:18px;font-size:32px;color:#fff;background:none;border:0;cursor:pointer;line-height:1}
+@media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr);gap:18px}}
+@media (max-width:560px){.wrap{padding:26px 16px 36px}.grid{grid-template-columns:1fr}h2{font-size:23px}section{padding-top:28px}}
 @media print{
- @page{size:A4;margin:0}
- body{background:var(--navy)}
- .wrap{max-width:none;padding:12mm 12mm 0}
- header.top:before{display:none}
- .tray,.pick,.lb,.how{display:none!important}
- .ponly{display:block!important}
- .grid{grid-template-columns:repeat(3,1fr)!important;gap:12px}
- section{padding-top:12mm;break-inside:auto}
- .s1{padding-top:22px}
- .card{break-inside:avoid}
- .sh,.ex{break-after:avoid}
- h1{font-size:32px}
- footer{margin-top:24px;padding-bottom:10mm}
+ @page{size:A4 portrait;margin:11mm 12mm}
+ body{background:#fff}
+ .wrap{max-width:none;padding:0}
+ .lb{display:none!important}
+ h1{font-size:26px}
+ section{padding-top:0}
+ .s1{padding-top:8mm}
  .s2,.s3{break-before:page}
+ .sh{margin-bottom:5mm;break-after:avoid}
+ h2{font-size:21px}
+ .grid{grid-template-columns:repeat(2,70mm)!important;justify-content:center;gap:4mm 8mm}
+ .s1 .grid{display:flex!important;flex-wrap:wrap;justify-content:center}
+ .s1 .card{width:84mm}
+ .card{break-inside:avoid;box-shadow:0 1px 4px rgba(13,6,43,.12);border-radius:10px}
+ figcaption{padding:8px 11px 9px;gap:8px}
+ .cap{font-size:13.5px;padding-top:1px} .lab{font-size:12.5px;padding:4px 7px}
 }
 </style></head>
 <body><div class="wrap">
-<header class="top">
-<div class="eyebrow"><b>Prepared by B2BRizz</b><span>October 2026</span><span>Client: Jellyfish</span></div>
 <h1>Jellyfish Reddit Remarketing: New Creative Concepts</h1>
-<p class="intro">Pick your favorites; we’ll launch the selected concepts as a test against the current top performers.</p>
-<ul class="how"><li><span>1</span>Review the current top ads for reference</li><li><span>2</span>Tap any image to enlarge</li><li><span>3</span>Select the concepts you like and send us the labels</li></ul>
-<p class="ponly">To choose, reply with the labels of the concepts you like (for example: A1, A3, B2, B5).</p>
-</header>
 
 <section class="s1"><div class="sh"><span class="num">Section 1</span><h2>Current top-performing ads (highest CTR on Reddit)</h2></div>
-<p class="ex">For reference: these three are the current best performers by click-through rate on Reddit, and the new concepts will be tested against them.</p>
 <div class="grid"><figure class="card" id="r1">
 <button class="thumb" type="button" data-full="img/current-1-token-usage.webp" data-cap="R1 · AI token usage dashboard" aria-label="Enlarge R1"><img src="img/current-1-token-usage.webp" alt="R1: AI token usage dashboard" width="1200" height="1200" loading="eager"></button>
-<figcaption><div class="row"><span class="lab lab-R">R1</span><span class="cap">AI token usage dashboard</span></div></figcaption></figure>
+<figcaption><span class="lab lab-R">R1</span><span class="cap">AI token usage dashboard</span></figcaption></figure>
 <figure class="card" id="r2">
 <button class="thumb" type="button" data-full="img/current-2-pr-throughput.webp" data-cap="R2 · AI impact on PR throughput" aria-label="Enlarge R2"><img src="img/current-2-pr-throughput.webp" alt="R2: AI impact on PR throughput" width="1200" height="1200" loading="eager"></button>
-<figcaption><div class="row"><span class="lab lab-R">R2</span><span class="cap">AI impact on PR throughput</span></div></figcaption></figure>
+<figcaption><span class="lab lab-R">R2</span><span class="cap">AI impact on PR throughput</span></figcaption></figure>
 <figure class="card" id="r3">
 <button class="thumb" type="button" data-full="img/current-3-manage-adoption.webp" data-cap="R3 · Manage Adoption dashboard" aria-label="Enlarge R3"><img src="img/current-3-manage-adoption.webp" alt="R3: Manage Adoption dashboard" width="1200" height="1200" loading="eager"></button>
-<figcaption><div class="row"><span class="lab lab-R">R3</span><span class="cap">Manage Adoption dashboard</span></div></figcaption></figure></div></section>
+<figcaption><span class="lab lab-R">R3</span><span class="cap">Manage Adoption dashboard</span></figcaption></figure></div></section>
 
 <section class="s2"><div class="sh"><span class="num">Section 2</span><h2>Product dashboard concepts</h2></div>
-<p class="ex">Real-looking Jellyfish product UI in dark mode, using only native in-product text, with a short white headline above the dashboard.</p>
 <div class="grid"><figure class="card" id="a1">
 <button class="thumb" type="button" data-full="img/a1-copilot-adoption.webp" data-cap="A1 · Engineer adoption by team" aria-label="Enlarge A1"><img src="img/a1-copilot-adoption.webp" alt="A1: Engineer adoption by team" width="1200" height="1200" loading="lazy"></button>
-<figcaption><div class="row"><span class="lab lab-A">A1</span><span class="cap">Engineer adoption by team</span></div><p class="sub">Headline: “Who’s actually using Copilot?”</p><button class="pick" type="button" data-id="A1" aria-pressed="false"><span class="box"></span><span class="pl">Select</span></button></figcaption></figure>
+<figcaption><span class="lab lab-A">A1</span><span class="cap">Engineer adoption by team</span></figcaption></figure>
 <figure class="card" id="a2">
 <button class="thumb" type="button" data-full="img/a2-shipping-faster.webp" data-cap="A2 · Cycle time: with vs. without AI" aria-label="Enlarge A2"><img src="img/a2-shipping-faster.webp" alt="A2: Cycle time: with vs. without AI" width="1200" height="1200" loading="lazy"></button>
-<figcaption><div class="row"><span class="lab lab-A">A2</span><span class="cap">Cycle time: with vs. without AI</span></div><p class="sub">Headline: “Is AI shipping code faster?”</p><button class="pick" type="button" data-id="A2" aria-pressed="false"><span class="box"></span><span class="pl">Select</span></button></figcaption></figure>
+<figcaption><span class="lab lab-A">A2</span><span class="cap">Cycle time: with vs. without AI</span></figcaption></figure>
 <figure class="card" id="a3">
 <button class="thumb" type="button" data-full="img/a3-ai-spend.webp" data-cap="A3 · AI spend by tool and team" aria-label="Enlarge A3"><img src="img/a3-ai-spend.webp" alt="A3: AI spend by tool and team" width="1200" height="1200" loading="lazy"></button>
-<figcaption><div class="row"><span class="lab lab-A">A3</span><span class="cap">AI spend by tool and team</span></div><p class="sub">Headline: “See where your AI spend goes”</p><button class="pick" type="button" data-id="A3" aria-pressed="false"><span class="box"></span><span class="pl">Select</span></button></figcaption></figure>
+<figcaption><span class="lab lab-A">A3</span><span class="cap">AI spend by tool and team</span></figcaption></figure>
 <figure class="card" id="a4">
 <button class="thumb" type="button" data-full="img/a4-pr-comparison.webp" data-cap="A4 · AI-assisted vs. unassisted PR throughput" aria-label="Enlarge A4"><img src="img/a4-pr-comparison.webp" alt="A4: AI-assisted vs. unassisted PR throughput" width="1200" height="1200" loading="lazy"></button>
-<figcaption><div class="row"><span class="lab lab-A">A4</span><span class="cap">AI-assisted vs. unassisted PR throughput</span></div><p class="sub">Headline: “AI-assisted PRs vs. the rest”</p><button class="pick" type="button" data-id="A4" aria-pressed="false"><span class="box"></span><span class="pl">Select</span></button></figcaption></figure>
+<figcaption><span class="lab lab-A">A4</span><span class="cap">AI-assisted vs. unassisted PR throughput</span></figcaption></figure>
 <figure class="card" id="a5">
 <button class="thumb" type="button" data-full="img/a5-tool-comparison.webp" data-cap="A5 · AI tool usage over time" aria-label="Enlarge A5"><img src="img/a5-tool-comparison.webp" alt="A5: AI tool usage over time" width="1200" height="1200" loading="lazy"></button>
-<figcaption><div class="row"><span class="lab lab-A">A5</span><span class="cap">AI tool usage over time</span></div><p class="sub">Headline: “Copilot vs. Cursor vs. Gemini”</p><button class="pick" type="button" data-id="A5" aria-pressed="false"><span class="box"></span><span class="pl">Select</span></button></figcaption></figure>
+<figcaption><span class="lab lab-A">A5</span><span class="cap">AI tool usage over time</span></figcaption></figure>
 <figure class="card" id="a6">
 <button class="thumb" type="button" data-full="img/a6-team-adoption.webp" data-cap="A6 · AI adoption by team" aria-label="Enlarge A6"><img src="img/a6-team-adoption.webp" alt="A6: AI adoption by team" width="1200" height="1200" loading="lazy"></button>
-<figcaption><div class="row"><span class="lab lab-A">A6</span><span class="cap">AI adoption by team</span></div><p class="sub">Headline: “Which teams are all-in on AI?”</p><button class="pick" type="button" data-id="A6" aria-pressed="false"><span class="box"></span><span class="pl">Select</span></button></figcaption></figure></div></section>
+<figcaption><span class="lab lab-A">A6</span><span class="cap">AI adoption by team</span></figcaption></figure></div></section>
 
 <section class="s3"><div class="sh"><span class="num">Section 3</span><h2>Native screenshot concepts</h2></div>
-<p class="ex">Feed-native screenshots (chat threads, code review, terminal, notes, whiteboard, spreadsheet) that show the buyer’s problem without naming any AI tools.</p>
 <div class="grid"><figure class="card" id="b1">
 <button class="thumb" type="button" data-full="img/b1-leadership-thread.webp" data-cap="B1 · Slack thread: “Is AI actually working?”" aria-label="Enlarge B1"><img src="img/b1-leadership-thread.webp" alt="B1: Slack thread: “Is AI actually working?”" width="1200" height="1200" loading="lazy"></button>
-<figcaption><div class="row"><span class="lab lab-B">B1</span><span class="cap">Slack thread: “Is AI actually working?”</span></div><p class="sub">Format: team chat thread</p><button class="pick" type="button" data-id="B1" aria-pressed="false"><span class="box"></span><span class="pl">Select</span></button></figcaption></figure>
+<figcaption><span class="lab lab-B">B1</span><span class="cap">Slack thread: “Is AI actually working?”</span></figcaption></figure>
 <figure class="card" id="b2">
 <button class="thumb" type="button" data-full="img/b2-pr-queue.webp" data-cap="B2 · PR review queue backing up" aria-label="Enlarge B2"><img src="img/b2-pr-queue.webp" alt="B2: PR review queue backing up" width="1200" height="1200" loading="lazy"></button>
-<figcaption><div class="row"><span class="lab lab-B">B2</span><span class="cap">PR review queue backing up</span></div><p class="sub">Format: code review queue</p><button class="pick" type="button" data-id="B2" aria-pressed="false"><span class="box"></span><span class="pl">Select</span></button></figcaption></figure>
+<figcaption><span class="lab lab-B">B2</span><span class="cap">PR review queue backing up</span></figcaption></figure>
 <figure class="card" id="b3">
 <button class="thumb" type="button" data-full="img/b3-roi-terminal.webp" data-cap="B3 · Homegrown AI ROI script failing" aria-label="Enlarge B3"><img src="img/b3-roi-terminal.webp" alt="B3: Homegrown AI ROI script failing" width="1200" height="1200" loading="lazy"></button>
-<figcaption><div class="row"><span class="lab lab-B">B3</span><span class="cap">Homegrown AI ROI script failing</span></div><p class="sub">Format: terminal output</p><button class="pick" type="button" data-id="B3" aria-pressed="false"><span class="box"></span><span class="pl">Select</span></button></figcaption></figure>
+<figcaption><span class="lab lab-B">B3</span><span class="cap">Homegrown AI ROI script failing</span></figcaption></figure>
 <figure class="card" id="b4">
 <button class="thumb" type="button" data-full="img/b4-cfo-notes.webp" data-cap="B4 · CFO’s Q4 questions on AI" aria-label="Enlarge B4"><img src="img/b4-cfo-notes.webp" alt="B4: CFO’s Q4 questions on AI" width="1200" height="1200" loading="lazy"></button>
-<figcaption><div class="row"><span class="lab lab-B">B4</span><span class="cap">CFO’s Q4 questions on AI</span></div><p class="sub">Format: phone notes</p><button class="pick" type="button" data-id="B4" aria-pressed="false"><span class="box"></span><span class="pl">Select</span></button></figcaption></figure>
+<figcaption><span class="lab lab-B">B4</span><span class="cap">CFO’s Q4 questions on AI</span></figcaption></figure>
 <figure class="card" id="b5">
 <button class="thumb" type="button" data-full="img/b5-roi-whiteboard.webp" data-cap="B5 · Whiteboard: how to measure AI ROI" aria-label="Enlarge B5"><img src="img/b5-roi-whiteboard.webp" alt="B5: Whiteboard: how to measure AI ROI" width="1200" height="1200" loading="lazy"></button>
-<figcaption><div class="row"><span class="lab lab-B">B5</span><span class="cap">Whiteboard: how to measure AI ROI</span></div><p class="sub">Format: whiteboard photo</p><button class="pick" type="button" data-id="B5" aria-pressed="false"><span class="box"></span><span class="pl">Select</span></button></figcaption></figure>
+<figcaption><span class="lab lab-B">B5</span><span class="cap">Whiteboard: how to measure AI ROI</span></figcaption></figure>
 <figure class="card" id="b6">
 <button class="thumb" type="button" data-full="img/b6-manual-tracking.webp" data-cap="B6 · Manual AI ROI spreadsheet, v7" aria-label="Enlarge B6"><img src="img/b6-manual-tracking.webp" alt="B6: Manual AI ROI spreadsheet, v7" width="1200" height="1200" loading="lazy"></button>
-<figcaption><div class="row"><span class="lab lab-B">B6</span><span class="cap">Manual AI ROI spreadsheet, v7</span></div><p class="sub">Format: spreadsheet</p><button class="pick" type="button" data-id="B6" aria-pressed="false"><span class="box"></span><span class="pl">Select</span></button></figcaption></figure></div></section>
-
-<div class="tray" aria-live="polite"><span class="t">Your picks:</span><span id="picked">None selected yet</span><button type="button" id="copy">Copy picks</button></div>
-
-<footer><span>Prepared by B2BRizz for Jellyfish · October 2026</span><span>All concepts are 1200×1200 for Reddit feed placements.</span></footer>
+<figcaption><span class="lab lab-B">B6</span><span class="cap">Manual AI ROI spreadsheet, v7</span></figcaption></figure></div></section>
 </div>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged ad"><button class="x" type="button" aria-label="Close">×</button><img alt=""><p></p></div>
 <script>
@@ -150,13 +111,6 @@ footer{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);color:v
  document.querySelectorAll('.thumb').forEach(function(b){b.addEventListener('click',function(){li.src=b.dataset.full;li.alt=b.dataset.cap;lp.textContent=b.dataset.cap;lb.classList.add('on');lb.querySelector('.x').focus();});});
  function close(){lb.classList.remove('on');}
  lb.addEventListener('click',close);document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
- var KEY='jf-reddit-picks',sel=[];try{sel=JSON.parse(localStorage.getItem(KEY)||'[]')}catch(e){}
- var out=document.getElementById('picked');
- function render(){document.querySelectorAll('.pick').forEach(function(p){var on=sel.indexOf(p.dataset.id)>-1;p.setAttribute('aria-pressed',on);p.querySelector('.pl').textContent=on?'Selected':'Select';p.closest('.card').classList.toggle('sel',on);});
-  var s=sel.slice().sort();out.textContent=s.length?s.join(', '):'None selected yet';try{localStorage.setItem(KEY,JSON.stringify(sel))}catch(e){}}
- document.querySelectorAll('.pick').forEach(function(p){p.addEventListener('click',function(){var i=sel.indexOf(p.dataset.id);if(i>-1)sel.splice(i,1);else sel.push(p.dataset.id);render();});});
- document.getElementById('copy').addEventListener('click',function(){var s=sel.slice().sort();var t='Jellyfish Reddit concepts, our picks: '+(s.length?s.join(', '):'(none)');var b=this;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).then(function(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy picks'},1600)},function(){window.prompt('Copy this:',t)});});
- render();
 })();
 </script>
 </body></html>
