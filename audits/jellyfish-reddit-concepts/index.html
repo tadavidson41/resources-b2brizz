@@ -6,109 +6,64 @@
 <link rel="icon" href="/assets/favicon-32.png">
 <style>
 @font-face{font-family:'Satoshi';src:url('/assets/fonts/Satoshi-Variable.woff2') format('woff2');font-weight:300 900;font-display:swap}
-:root{--bg:#F7F7FA;--navy:#0D062B;--card:#FFFFFF;--line:#E3E1EC;--purple:#7319F2;--purple-soft:#F1E9FE;--text:#0D062B;--muted:#4A4466}
-*{box-sizing:border-box}
-html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-body{margin:0;background:var(--bg);color:var(--text);font-family:'Satoshi','Inter',system-ui,-apple-system,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box;border-radius:0!important}
+html,body{background:#FFFFFF}
+body{margin:0;color:#0D062B;font-family:'Satoshi','Inter',system-ui,-apple-system,sans-serif;line-height:1.4;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1200px;margin:0 auto;padding:36px 32px 48px}
-h1{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:0;font-weight:800;letter-spacing:-.02em;color:var(--navy)}
-section{padding:34px 0 0}
-.sh{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
-.num{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--purple);background:var(--purple-soft);border:1px solid #DCC8FC;border-radius:6px;padding:4px 10px}
-h2{font-size:28px;line-height:1.2;margin:0;font-weight:800;letter-spacing:-.015em;color:var(--navy)}
+h1{font-size:clamp(26px,3.8vw,38px);line-height:1.15;margin:0 0 28px;font-weight:800;letter-spacing:-.02em}
+section+section{border-top:1px solid #D0D0D0;margin-top:36px;padding-top:32px}
+h2{font-size:24px;line-height:1.2;margin:0 0 18px;font-weight:800}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.card{margin:0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 1px 2px rgba(13,6,43,.05),0 6px 18px rgba(13,6,43,.07)}
-.thumb{all:unset;cursor:zoom-in;display:block;aspect-ratio:1/1;background:#0D062B;border-bottom:1px solid var(--line)}
-.thumb img{display:block;width:100%;height:100%;object-fit:cover}
-.thumb:focus-visible{outline:3px solid var(--purple);outline-offset:-3px}
-figcaption{padding:12px 16px 14px;display:flex;gap:11px;align-items:flex-start;flex:1}
-.lab{flex:none;font-weight:800;font-size:15px;line-height:1;border-radius:6px;padding:6px 9px;color:#fff;background:var(--navy)}
-.cap{font-weight:700;font-size:16.5px;line-height:1.35;color:var(--navy);padding-top:2px}
-.lb{position:fixed;inset:0;background:rgba(13,6,43,.88);display:none;align-items:center;justify-content:center;flex-direction:column;gap:12px;padding:24px;z-index:50;cursor:zoom-out;color:#fff}
+.card{margin:0}
+.thumb{all:unset;cursor:zoom-in;display:block;border:1px solid #E5E5E5;background:#FFFFFF;line-height:0}
+.thumb img{display:block;width:100%;height:auto;object-fit:contain}
+.thumb:focus-visible{outline:2px solid #0D062B;outline-offset:2px}
+figcaption{font-weight:800;font-size:15px;margin-top:8px}
+.lb{position:fixed;inset:0;background:rgba(13,6,43,.88);display:none;align-items:center;justify-content:center;flex-direction:column;gap:10px;padding:24px;z-index:50;cursor:zoom-out;color:#fff}
 .lb.on{display:flex}
-.lb img{max-width:min(92vw,1200px);max-height:84vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
-.lb p{margin:0;font-weight:700;font-size:16px}
+.lb img{max-width:min(92vw,1200px);max-height:86vh;object-fit:contain}
+.lb p{margin:0;font-weight:800}
 .lb .x{position:absolute;top:14px;right:18px;font-size:32px;color:#fff;background:none;border:0;cursor:pointer;line-height:1}
 @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr);gap:18px}}
-@media (max-width:560px){.wrap{padding:26px 16px 36px}.grid{grid-template-columns:1fr}h2{font-size:23px}section{padding-top:28px}}
+@media (max-width:560px){.wrap{padding:24px 16px 36px}.grid{grid-template-columns:1fr}h2{font-size:21px}}
 @media print{
  @page{size:A4 portrait;margin:11mm 12mm}
- body{background:#fff}
+ html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
  .wrap{max-width:none;padding:0}
  .lb{display:none!important}
- h1{font-size:26px}
- section{padding-top:0}
- .s1{padding-top:8mm}
- .s2,.s3{break-before:page}
- .sh{margin-bottom:5mm;break-after:avoid}
- h2{font-size:21px}
- .grid{grid-template-columns:repeat(2,70mm)!important;justify-content:center;gap:4mm 8mm}
- .s1 .grid{display:flex!important;flex-wrap:wrap;justify-content:center}
- .s1 .card{width:84mm}
- .card{break-inside:avoid;box-shadow:0 1px 4px rgba(13,6,43,.12);border-radius:10px}
- figcaption{padding:8px 11px 9px;gap:8px}
- .cap{font-size:13.5px;padding-top:1px} .lab{font-size:12.5px;padding:4px 7px}
+ h1{font-size:24px;margin-bottom:7mm}
+ section+section{break-before:page;margin-top:0;padding-top:6mm}
+ h2{font-size:20px;margin-bottom:5mm;break-after:avoid}
+ .grid{display:flex!important;flex-wrap:wrap;justify-content:center;gap:6mm 8mm}
+ .card{width:86mm;break-inside:avoid}
+ .s3 .grid{gap:5mm 8mm}
+ .s3 .card{width:71mm}
+ figcaption{font-size:12.5px;margin-top:2mm}
 }
 </style></head>
 <body><div class="wrap">
 <h1>Jellyfish Reddit Remarketing: New Creative Concepts</h1>
-
-<section class="s1"><div class="sh"><span class="num">Section 1</span><h2>Current top-performing ads (highest CTR on Reddit)</h2></div>
-<div class="grid"><figure class="card" id="r1">
-<button class="thumb" type="button" data-full="img/current-1-token-usage.webp" data-cap="R1 · AI token usage dashboard" aria-label="Enlarge R1"><img src="img/current-1-token-usage.webp" alt="R1: AI token usage dashboard" width="1200" height="1200" loading="eager"></button>
-<figcaption><span class="lab lab-R">R1</span><span class="cap">AI token usage dashboard</span></figcaption></figure>
-<figure class="card" id="r2">
-<button class="thumb" type="button" data-full="img/current-2-pr-throughput.webp" data-cap="R2 · AI impact on PR throughput" aria-label="Enlarge R2"><img src="img/current-2-pr-throughput.webp" alt="R2: AI impact on PR throughput" width="1200" height="1200" loading="eager"></button>
-<figcaption><span class="lab lab-R">R2</span><span class="cap">AI impact on PR throughput</span></figcaption></figure>
-<figure class="card" id="r3">
-<button class="thumb" type="button" data-full="img/current-3-manage-adoption.webp" data-cap="R3 · Manage Adoption dashboard" aria-label="Enlarge R3"><img src="img/current-3-manage-adoption.webp" alt="R3: Manage Adoption dashboard" width="1200" height="1200" loading="eager"></button>
-<figcaption><span class="lab lab-R">R3</span><span class="cap">Manage Adoption dashboard</span></figcaption></figure></div></section>
-
-<section class="s2"><div class="sh"><span class="num">Section 2</span><h2>Product dashboard concepts</h2></div>
-<div class="grid"><figure class="card" id="a1">
-<button class="thumb" type="button" data-full="img/a1-copilot-adoption.webp" data-cap="A1 · Engineer adoption by team" aria-label="Enlarge A1"><img src="img/a1-copilot-adoption.webp" alt="A1: Engineer adoption by team" width="1200" height="1200" loading="lazy"></button>
-<figcaption><span class="lab lab-A">A1</span><span class="cap">Engineer adoption by team</span></figcaption></figure>
-<figure class="card" id="a2">
-<button class="thumb" type="button" data-full="img/a2-shipping-faster.webp" data-cap="A2 · Cycle time: with vs. without AI" aria-label="Enlarge A2"><img src="img/a2-shipping-faster.webp" alt="A2: Cycle time: with vs. without AI" width="1200" height="1200" loading="lazy"></button>
-<figcaption><span class="lab lab-A">A2</span><span class="cap">Cycle time: with vs. without AI</span></figcaption></figure>
-<figure class="card" id="a3">
-<button class="thumb" type="button" data-full="img/a3-ai-spend.webp" data-cap="A3 · AI spend by tool and team" aria-label="Enlarge A3"><img src="img/a3-ai-spend.webp" alt="A3: AI spend by tool and team" width="1200" height="1200" loading="lazy"></button>
-<figcaption><span class="lab lab-A">A3</span><span class="cap">AI spend by tool and team</span></figcaption></figure>
-<figure class="card" id="a4">
-<button class="thumb" type="button" data-full="img/a4-pr-comparison.webp" data-cap="A4 · AI-assisted vs. unassisted PR throughput" aria-label="Enlarge A4"><img src="img/a4-pr-comparison.webp" alt="A4: AI-assisted vs. unassisted PR throughput" width="1200" height="1200" loading="lazy"></button>
-<figcaption><span class="lab lab-A">A4</span><span class="cap">AI-assisted vs. unassisted PR throughput</span></figcaption></figure>
-<figure class="card" id="a5">
-<button class="thumb" type="button" data-full="img/a5-tool-comparison.webp" data-cap="A5 · AI tool usage over time" aria-label="Enlarge A5"><img src="img/a5-tool-comparison.webp" alt="A5: AI tool usage over time" width="1200" height="1200" loading="lazy"></button>
-<figcaption><span class="lab lab-A">A5</span><span class="cap">AI tool usage over time</span></figcaption></figure>
-<figure class="card" id="a6">
-<button class="thumb" type="button" data-full="img/a6-team-adoption.webp" data-cap="A6 · AI adoption by team" aria-label="Enlarge A6"><img src="img/a6-team-adoption.webp" alt="A6: AI adoption by team" width="1200" height="1200" loading="lazy"></button>
-<figcaption><span class="lab lab-A">A6</span><span class="cap">AI adoption by team</span></figcaption></figure></div></section>
-
-<section class="s3"><div class="sh"><span class="num">Section 3</span><h2>Native screenshot concepts</h2></div>
-<div class="grid"><figure class="card" id="b1">
-<button class="thumb" type="button" data-full="img/b1-leadership-thread.webp" data-cap="B1 · Slack thread: “Is AI actually working?”" aria-label="Enlarge B1"><img src="img/b1-leadership-thread.webp" alt="B1: Slack thread: “Is AI actually working?”" width="1200" height="1200" loading="lazy"></button>
-<figcaption><span class="lab lab-B">B1</span><span class="cap">Slack thread: “Is AI actually working?”</span></figcaption></figure>
-<figure class="card" id="b2">
-<button class="thumb" type="button" data-full="img/b2-pr-queue.webp" data-cap="B2 · PR review queue backing up" aria-label="Enlarge B2"><img src="img/b2-pr-queue.webp" alt="B2: PR review queue backing up" width="1200" height="1200" loading="lazy"></button>
-<figcaption><span class="lab lab-B">B2</span><span class="cap">PR review queue backing up</span></figcaption></figure>
-<figure class="card" id="b3">
-<button class="thumb" type="button" data-full="img/b3-roi-terminal.webp" data-cap="B3 · Homegrown AI ROI script failing" aria-label="Enlarge B3"><img src="img/b3-roi-terminal.webp" alt="B3: Homegrown AI ROI script failing" width="1200" height="1200" loading="lazy"></button>
-<figcaption><span class="lab lab-B">B3</span><span class="cap">Homegrown AI ROI script failing</span></figcaption></figure>
-<figure class="card" id="b4">
-<button class="thumb" type="button" data-full="img/b4-cfo-notes.webp" data-cap="B4 · CFO’s Q4 questions on AI" aria-label="Enlarge B4"><img src="img/b4-cfo-notes.webp" alt="B4: CFO’s Q4 questions on AI" width="1200" height="1200" loading="lazy"></button>
-<figcaption><span class="lab lab-B">B4</span><span class="cap">CFO’s Q4 questions on AI</span></figcaption></figure>
-<figure class="card" id="b5">
-<button class="thumb" type="button" data-full="img/b5-roi-whiteboard.webp" data-cap="B5 · Whiteboard: how to measure AI ROI" aria-label="Enlarge B5"><img src="img/b5-roi-whiteboard.webp" alt="B5: Whiteboard: how to measure AI ROI" width="1200" height="1200" loading="lazy"></button>
-<figcaption><span class="lab lab-B">B5</span><span class="cap">Whiteboard: how to measure AI ROI</span></figcaption></figure>
-<figure class="card" id="b6">
-<button class="thumb" type="button" data-full="img/b6-manual-tracking.webp" data-cap="B6 · Manual AI ROI spreadsheet, v7" aria-label="Enlarge B6"><img src="img/b6-manual-tracking.webp" alt="B6: Manual AI ROI spreadsheet, v7" width="1200" height="1200" loading="lazy"></button>
-<figcaption><span class="lab lab-B">B6</span><span class="cap">Manual AI ROI spreadsheet, v7</span></figcaption></figure></div></section>
+<section class="s1"><h2>Current top-performing ads (highest CTR on Reddit)</h2>
+<div class="grid"><figure class="card"><button class="thumb" type="button" data-full="img/current-1-token-usage.webp" data-cap="" aria-label="Enlarge Current ad: AI token usage dashboard"><img src="img/current-1-token-usage.webp" alt="Current ad: AI token usage dashboard" width="1200" height="1200"></button></figure>
+<figure class="card"><button class="thumb" type="button" data-full="img/current-2-pr-throughput.webp" data-cap="" aria-label="Enlarge Current ad: AI impact on PR throughput"><img src="img/current-2-pr-throughput.webp" alt="Current ad: AI impact on PR throughput" width="1200" height="1200"></button></figure>
+<figure class="card"><button class="thumb" type="button" data-full="img/current-3-manage-adoption.webp" data-cap="" aria-label="Enlarge Current ad: Manage Adoption dashboard"><img src="img/current-3-manage-adoption.webp" alt="Current ad: Manage Adoption dashboard" width="1200" height="1200"></button></figure></div></section>
+<section class="s2"><h2>Product dashboard concepts</h2>
+<div class="grid"><figure class="card"><button class="thumb" type="button" data-full="img/a1-ai-spend.webp" data-cap="A1" aria-label="Enlarge A1"><img src="img/a1-ai-spend.webp" alt="A1: AI spend by tool and team" width="1200" height="1200"></button><figcaption>A1</figcaption></figure>
+<figure class="card"><button class="thumb" type="button" data-full="img/a2-pr-comparison.webp" data-cap="A2" aria-label="Enlarge A2"><img src="img/a2-pr-comparison.webp" alt="A2: AI-assisted vs. unassisted PR throughput" width="1200" height="1200"></button><figcaption>A2</figcaption></figure>
+<figure class="card"><button class="thumb" type="button" data-full="img/a3-tool-comparison.webp" data-cap="A3" aria-label="Enlarge A3"><img src="img/a3-tool-comparison.webp" alt="A3: AI tool usage over time" width="1200" height="1200"></button><figcaption>A3</figcaption></figure></div></section>
+<section class="s3"><h2>Native screenshot concepts</h2>
+<div class="grid"><figure class="card"><button class="thumb" type="button" data-full="img/b1-leadership-thread.webp" data-cap="B1" aria-label="Enlarge B1"><img src="img/b1-leadership-thread.webp" alt="B1: Slack thread" width="1200" height="1200"></button><figcaption>B1</figcaption></figure>
+<figure class="card"><button class="thumb" type="button" data-full="img/b2-pr-queue.webp" data-cap="B2" aria-label="Enlarge B2"><img src="img/b2-pr-queue.webp" alt="B2: PR review queue" width="1200" height="1200"></button><figcaption>B2</figcaption></figure>
+<figure class="card"><button class="thumb" type="button" data-full="img/b3-roi-terminal.webp" data-cap="B3" aria-label="Enlarge B3"><img src="img/b3-roi-terminal.webp" alt="B3: Terminal output" width="1200" height="1200"></button><figcaption>B3</figcaption></figure>
+<figure class="card"><button class="thumb" type="button" data-full="img/b4-cfo-notes.webp" data-cap="B4" aria-label="Enlarge B4"><img src="img/b4-cfo-notes.webp" alt="B4: Phone notes" width="1200" height="1200"></button><figcaption>B4</figcaption></figure>
+<figure class="card"><button class="thumb" type="button" data-full="img/b5-roi-whiteboard.webp" data-cap="B5" aria-label="Enlarge B5"><img src="img/b5-roi-whiteboard.webp" alt="B5: Whiteboard" width="1200" height="1200"></button><figcaption>B5</figcaption></figure>
+<figure class="card"><button class="thumb" type="button" data-full="img/b6-manual-tracking.webp" data-cap="B6" aria-label="Enlarge B6"><img src="img/b6-manual-tracking.webp" alt="B6: Spreadsheet" width="1200" height="1200"></button><figcaption>B6</figcaption></figure></div></section>
 </div>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged ad"><button class="x" type="button" aria-label="Close">×</button><img alt=""><p></p></div>
 <script>
 (function(){
  var lb=document.getElementById('lb'),li=lb.querySelector('img'),lp=lb.querySelector('p');
- document.querySelectorAll('.thumb').forEach(function(b){b.addEventListener('click',function(){li.src=b.dataset.full;li.alt=b.dataset.cap;lp.textContent=b.dataset.cap;lb.classList.add('on');lb.querySelector('.x').focus();});});
+ document.querySelectorAll('.thumb').forEach(function(b){b.addEventListener('click',function(){li.src=b.dataset.full;li.alt=b.getAttribute('aria-label');lp.textContent=b.dataset.cap;lb.classList.add('on');lb.querySelector('.x').focus();});});
  function close(){lb.classList.remove('on');}
  lb.addEventListener('click',close);document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 })();
