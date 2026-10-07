@@ -23,7 +23,8 @@ h2{font-size:44px;line-height:1.12;margin:0;font-weight:800;color:#0D062B;letter
 figcaption{font-weight:800;font-size:15px;margin-top:8px;text-align:center}
 .subh{font-size:24px;font-weight:800;color:#0D062B;text-align:center;margin:48px 0 22px;line-height:1.25}
 .card.has-desc{display:flex;flex-direction:column}
-.desc{flex:1;display:flex;align-items:flex-end;justify-content:center;margin:0 0 10px;font-size:14.5px;line-height:1.4;color:#4A4466;text-align:center}
+.has-desc figcaption{margin-top:8px}
+.desc{margin:12px 4px 0;font-size:17.5px;line-height:1.45;font-weight:400;color:#0D062B;text-align:center}
 .desc span{display:block;width:100%}
 .lb{position:fixed;inset:0;background:rgba(13,6,43,.88);display:none;align-items:center;justify-content:center;flex-direction:column;gap:10px;padding:24px;z-index:50;cursor:zoom-out;color:#fff}
 .lb.on{display:flex}
@@ -48,9 +49,11 @@ figcaption{font-weight:800;font-size:15px;margin-top:8px;text-align:center}
  .card{width:86mm;break-inside:avoid}
  .s2 .card{width:84mm}
  .subh{break-before:page;font-size:20px;margin:2mm 0 6mm}
- .s3 .grid{display:grid!important;grid-template-columns:repeat(2,63mm);justify-content:center;gap:4mm 10mm}
+ .s3 .grid{display:grid!important;grid-template-columns:repeat(2,88mm);justify-content:center;gap:4mm 6mm}
+ .s3 .thumb{width:57mm;margin:0 auto}
  .s3 .card{width:auto}
- .desc{font-size:10.5px;margin-bottom:2mm}
+ .desc{font-size:11pt;line-height:1.35;margin:2mm 0 0}
+ .s3 figcaption{margin-top:1.5mm}
  figcaption{font-size:12.5px;margin-top:2mm}
 }
 </style></head>
@@ -69,12 +72,12 @@ figcaption{font-weight:800;font-size:15px;margin-top:8px;text-align:center}
 <figure class="card"><button class="thumb" type="button" data-full="img/a5-maximize-impact.webp" data-cap="A5" aria-label="Enlarge A5"><img src="img/a5-maximize-impact.webp" alt="A5: Maximize Impact" width="1200" height="1200"></button><figcaption>A5</figcaption></figure>
 <figure class="card"><button class="thumb" type="button" data-full="img/a6-adoption-by-team.webp" data-cap="A6" aria-label="Enlarge A6"><img src="img/a6-adoption-by-team.webp" alt="A6: Adoption by Team" width="1200" height="1200"></button><figcaption>A6</figcaption></figure></div></section>
 <section class="s3"><div class="sh"><span class="n">3</span><h2>Native screenshot concepts</h2></div>
-<div class="grid"><figure class="card has-desc"><p class="desc"><span>A Slack thread where engineering leaders admit they can’t prove AI is working.</span></p><button class="thumb" type="button" data-full="img/b1-leadership-thread.webp" data-cap="B1" aria-label="Enlarge B1"><img src="img/b1-leadership-thread.webp" alt="B1: A Slack thread where engineering leaders admit they can’t prove AI is working." width="1200" height="1200"></button><figcaption>B1</figcaption></figure>
-<figure class="card has-desc"><p class="desc"><span>A pull request queue backing up because AI doubled PRs but review didn’t.</span></p><button class="thumb" type="button" data-full="img/b2-pr-queue.webp" data-cap="B2" aria-label="Enlarge B2"><img src="img/b2-pr-queue.webp" alt="B2: A pull request queue backing up because AI doubled PRs but review didn’t." width="1200" height="1200"></button><figcaption>B2</figcaption></figure>
-<figure class="card has-desc"><p class="desc"><span>A terminal script failing to calculate AI tool ROI from scattered data.</span></p><button class="thumb" type="button" data-full="img/b3-roi-terminal.webp" data-cap="B3" aria-label="Enlarge B3"><img src="img/b3-roi-terminal.webp" alt="B3: A terminal script failing to calculate AI tool ROI from scattered data." width="1200" height="1200"></button><figcaption>B3</figcaption></figure>
-<figure class="card has-desc"><p class="desc"><span>An iPhone note listing the CFO’s Q4 questions about AI.</span></p><button class="thumb" type="button" data-full="img/b4-cfo-notes.webp" data-cap="B4" aria-label="Enlarge B4"><img src="img/b4-cfo-notes.webp" alt="B4: An iPhone note listing the CFO’s Q4 questions about AI." width="1200" height="1200"></button><figcaption>B4</figcaption></figure>
-<figure class="card has-desc"><p class="desc"><span>A whiteboard sketch asking how to measure AI adoption, impact, and spend.</span></p><button class="thumb" type="button" data-full="img/b5-roi-whiteboard.webp" data-cap="B5" aria-label="Enlarge B5"><img src="img/b5-roi-whiteboard.webp" alt="B5: A whiteboard sketch asking how to measure AI adoption, impact, and spend." width="1200" height="1200"></button><figcaption>B5</figcaption></figure>
-<figure class="card has-desc"><p class="desc"><span>A manual spreadsheet, version 7, tracking AI tool ROI by team.</span></p><button class="thumb" type="button" data-full="img/b6-manual-tracking.webp" data-cap="B6" aria-label="Enlarge B6"><img src="img/b6-manual-tracking.webp" alt="B6: A manual spreadsheet, version 7, tracking AI tool ROI by team." width="1200" height="1200"></button><figcaption>B6</figcaption></figure></div></section>
+<div class="grid"><figure class="card has-desc"><button class="thumb" type="button" data-full="img/b1-leadership-thread.webp" data-cap="B1" aria-label="Enlarge B1"><img src="img/b1-leadership-thread.webp" alt="B1: A Slack thread where engineering leaders admit they can’t prove AI is working." width="1200" height="1200"></button><p class="desc"><span>A Slack thread where engineering leaders admit they can’t prove AI is working.</span></p><figcaption>B1</figcaption></figure>
+<figure class="card has-desc"><button class="thumb" type="button" data-full="img/b2-pr-queue.webp" data-cap="B2" aria-label="Enlarge B2"><img src="img/b2-pr-queue.webp" alt="B2: A pull request queue backing up because AI doubled PRs but review didn’t." width="1200" height="1200"></button><p class="desc"><span>A pull request queue backing up because AI doubled PRs but review didn’t.</span></p><figcaption>B2</figcaption></figure>
+<figure class="card has-desc"><button class="thumb" type="button" data-full="img/b3-roi-terminal.webp" data-cap="B3" aria-label="Enlarge B3"><img src="img/b3-roi-terminal.webp" alt="B3: A terminal script failing to calculate AI tool ROI from scattered data." width="1200" height="1200"></button><p class="desc"><span>A terminal script failing to calculate AI tool ROI from scattered data.</span></p><figcaption>B3</figcaption></figure>
+<figure class="card has-desc"><button class="thumb" type="button" data-full="img/b4-cfo-notes.webp" data-cap="B4" aria-label="Enlarge B4"><img src="img/b4-cfo-notes.webp" alt="B4: An iPhone note listing the CFO’s Q4 questions about AI." width="1200" height="1200"></button><p class="desc"><span>An iPhone note listing the CFO’s Q4 questions about AI.</span></p><figcaption>B4</figcaption></figure>
+<figure class="card has-desc"><button class="thumb" type="button" data-full="img/b5-roi-whiteboard.webp" data-cap="B5" aria-label="Enlarge B5"><img src="img/b5-roi-whiteboard.webp" alt="B5: A whiteboard sketch asking how to measure AI adoption, impact, and spend." width="1200" height="1200"></button><p class="desc"><span>A whiteboard sketch asking how to measure AI adoption, impact, and spend.</span></p><figcaption>B5</figcaption></figure>
+<figure class="card has-desc"><button class="thumb" type="button" data-full="img/b6-manual-tracking.webp" data-cap="B6" aria-label="Enlarge B6"><img src="img/b6-manual-tracking.webp" alt="B6: A manual spreadsheet, version 7, tracking AI tool ROI by team." width="1200" height="1200"></button><p class="desc"><span>A manual spreadsheet, version 7, tracking AI tool ROI by team.</span></p><figcaption>B6</figcaption></figure></div></section>
 </div>
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged ad"><button class="x" type="button" aria-label="Close">×</button><img alt=""><p></p></div>
 <script>
