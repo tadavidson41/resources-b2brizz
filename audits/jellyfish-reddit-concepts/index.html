@@ -10,7 +10,7 @@
 html,body{background:#FFFFFF}
 body{margin:0;color:#0D062B;font-family:'Satoshi','Inter',system-ui,-apple-system,sans-serif;line-height:1.4;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1200px;margin:0 auto;padding:36px 32px 48px}
-h1{font-size:clamp(24px,3.2vw,32px);line-height:1.15;margin:0 0 32px;text-align:center;font-weight:800;letter-spacing:-.02em}
+h1{font-size:clamp(30px,4.6vw,52px);line-height:1.15;margin:0 0 32px;text-align:center;text-wrap:balance;font-weight:800;letter-spacing:-.02em}
 section+section{margin-top:88px}
 .sh{border-top:6px solid #7319F2;background:#F3EDFF;padding:20px 24px;margin:0 0 28px;display:flex;align-items:center;justify-content:center;gap:22px;text-align:center}
 .sh .n{color:#7319F2;font-size:68px;font-weight:900;line-height:.9;flex:none}
@@ -35,15 +35,15 @@ figcaption{font-weight:800;font-size:15px;margin-top:8px;text-align:center}
  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
  .wrap{max-width:none;padding:0}
  .lb{display:none!important}
- h1{font-size:24px;margin-bottom:7mm}
+ h1{font-size:34px;margin-bottom:7mm}
  section+section{break-before:page;margin-top:0}
  .sh{padding:4mm 5mm;margin-bottom:6mm;break-after:avoid;gap:5mm}
  .sh .n{font-size:48px}
  h2{font-size:30px}
  .grid{display:flex!important;flex-wrap:wrap;justify-content:center;gap:6mm 8mm}
  .card{width:86mm;break-inside:avoid}
- .s3 .grid{gap:5mm 8mm}
- .s3 .card{width:66mm}
+ .s2 .grid,.s3 .grid{gap:5mm 8mm}
+ .s2 .card,.s3 .card{width:66mm}
  figcaption{font-size:12.5px;margin-top:2mm}
 }
 </style></head>
@@ -56,7 +56,10 @@ figcaption{font-weight:800;font-size:15px;margin-top:8px;text-align:center}
 <section class="s2"><div class="sh"><span class="n">2</span><h2>Product dashboard concepts</h2></div>
 <div class="grid"><figure class="card"><button class="thumb" type="button" data-full="img/a1-ai-spend.webp" data-cap="A1" aria-label="Enlarge A1"><img src="img/a1-ai-spend.webp" alt="A1: AI spend by tool and team" width="1200" height="1200"></button><figcaption>A1</figcaption></figure>
 <figure class="card"><button class="thumb" type="button" data-full="img/a2-pr-comparison.webp" data-cap="A2" aria-label="Enlarge A2"><img src="img/a2-pr-comparison.webp" alt="A2: AI-assisted vs. unassisted PR throughput" width="1200" height="1200"></button><figcaption>A2</figcaption></figure>
-<figure class="card"><button class="thumb" type="button" data-full="img/a3-tool-comparison.webp" data-cap="A3" aria-label="Enlarge A3"><img src="img/a3-tool-comparison.webp" alt="A3: AI tool usage over time" width="1200" height="1200"></button><figcaption>A3</figcaption></figure></div></section>
+<figure class="card"><button class="thumb" type="button" data-full="img/a3-tool-comparison.webp" data-cap="A3" aria-label="Enlarge A3"><img src="img/a3-tool-comparison.webp" alt="A3: AI tool usage over time" width="1200" height="1200"></button><figcaption>A3</figcaption></figure>
+<figure class="card"><button class="thumb" type="button" data-full="img/a4-usage-over-time.webp" data-cap="A4" aria-label="Enlarge A4"><img src="img/a4-usage-over-time.webp" alt="A4: Manage Adoption: usage over time" width="1200" height="1200"></button><figcaption>A4</figcaption></figure>
+<figure class="card"><button class="thumb" type="button" data-full="img/a5-maximize-impact.webp" data-cap="A5" aria-label="Enlarge A5"><img src="img/a5-maximize-impact.webp" alt="A5: Maximize Impact" width="1200" height="1200"></button><figcaption>A5</figcaption></figure>
+<figure class="card"><button class="thumb" type="button" data-full="img/a6-adoption-by-team.webp" data-cap="A6" aria-label="Enlarge A6"><img src="img/a6-adoption-by-team.webp" alt="A6: Adoption by Team" width="1200" height="1200"></button><figcaption>A6</figcaption></figure></div></section>
 <section class="s3"><div class="sh"><span class="n">3</span><h2>Native screenshot concepts</h2></div>
 <div class="grid"><figure class="card"><button class="thumb" type="button" data-full="img/b1-leadership-thread.webp" data-cap="B1" aria-label="Enlarge B1"><img src="img/b1-leadership-thread.webp" alt="B1: Slack thread" width="1200" height="1200"></button><figcaption>B1</figcaption></figure>
 <figure class="card"><button class="thumb" type="button" data-full="img/b2-pr-queue.webp" data-cap="B2" aria-label="Enlarge B2"><img src="img/b2-pr-queue.webp" alt="B2: PR review queue" width="1200" height="1200"></button><figcaption>B2</figcaption></figure>
