@@ -10,48 +10,54 @@
 html,body{background:#FFFFFF}
 body{margin:0;color:#0D062B;font-family:'Satoshi','Inter',system-ui,-apple-system,sans-serif;line-height:1.4;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1200px;margin:0 auto;padding:36px 32px 48px}
-h1{font-size:clamp(26px,3.8vw,38px);line-height:1.15;margin:0 0 28px;font-weight:800;letter-spacing:-.02em}
-section+section{border-top:1px solid #D0D0D0;margin-top:36px;padding-top:32px}
-h2{font-size:24px;line-height:1.2;margin:0 0 18px;font-weight:800}
+h1{font-size:clamp(24px,3.2vw,32px);line-height:1.15;margin:0 0 32px;text-align:center;font-weight:800;letter-spacing:-.02em}
+section+section{margin-top:88px}
+.sh{border-top:6px solid #7319F2;background:#F3EDFF;padding:20px 24px;margin:0 0 28px;display:flex;align-items:center;justify-content:center;gap:22px;text-align:center}
+.sh .n{color:#7319F2;font-size:68px;font-weight:900;line-height:.9;flex:none}
+h2{font-size:44px;line-height:1.12;margin:0;font-weight:800;color:#0D062B;letter-spacing:-.015em}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .card{margin:0}
 .thumb{all:unset;cursor:zoom-in;display:block;border:1px solid #E5E5E5;background:#FFFFFF;line-height:0}
 .thumb img{display:block;width:100%;height:auto;object-fit:contain}
 .thumb:focus-visible{outline:2px solid #0D062B;outline-offset:2px}
-figcaption{font-weight:800;font-size:15px;margin-top:8px}
+figcaption{font-weight:800;font-size:15px;margin-top:8px;text-align:center}
 .lb{position:fixed;inset:0;background:rgba(13,6,43,.88);display:none;align-items:center;justify-content:center;flex-direction:column;gap:10px;padding:24px;z-index:50;cursor:zoom-out;color:#fff}
 .lb.on{display:flex}
 .lb img{max-width:min(92vw,1200px);max-height:86vh;object-fit:contain}
 .lb p{margin:0;font-weight:800}
 .lb .x{position:absolute;top:14px;right:18px;font-size:32px;color:#fff;background:none;border:0;cursor:pointer;line-height:1}
 @media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr);gap:18px}}
-@media (max-width:560px){.wrap{padding:24px 16px 36px}.grid{grid-template-columns:1fr}h2{font-size:21px}}
+@media (max-width:900px){h2{font-size:36px}.sh .n{font-size:56px}}
+@media (max-width:700px){h2{font-size:30px}.sh .n{font-size:46px}.sh{padding:16px 18px;gap:14px}section+section{margin-top:64px}}
+@media (max-width:560px){.wrap{padding:24px 16px 36px}.grid{grid-template-columns:1fr}h2{font-size:24px}.sh .n{font-size:40px}}
 @media print{
  @page{size:A4 portrait;margin:11mm 12mm}
  html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
  .wrap{max-width:none;padding:0}
  .lb{display:none!important}
  h1{font-size:24px;margin-bottom:7mm}
- section+section{break-before:page;margin-top:0;padding-top:6mm}
- h2{font-size:20px;margin-bottom:5mm;break-after:avoid}
+ section+section{break-before:page;margin-top:0}
+ .sh{padding:4mm 5mm;margin-bottom:6mm;break-after:avoid;gap:5mm}
+ .sh .n{font-size:48px}
+ h2{font-size:30px}
  .grid{display:flex!important;flex-wrap:wrap;justify-content:center;gap:6mm 8mm}
  .card{width:86mm;break-inside:avoid}
  .s3 .grid{gap:5mm 8mm}
- .s3 .card{width:71mm}
+ .s3 .card{width:66mm}
  figcaption{font-size:12.5px;margin-top:2mm}
 }
 </style></head>
 <body><div class="wrap">
 <h1>Jellyfish Reddit Remarketing: New Creative Concepts</h1>
-<section class="s1"><h2>Current top-performing ads (highest CTR on Reddit)</h2>
+<section class="s1"><div class="sh"><span class="n">1</span><h2>Current top-performing ads (highest CTR)</h2></div>
 <div class="grid"><figure class="card"><button class="thumb" type="button" data-full="img/current-1-token-usage.webp" data-cap="" aria-label="Enlarge Current ad: AI token usage dashboard"><img src="img/current-1-token-usage.webp" alt="Current ad: AI token usage dashboard" width="1200" height="1200"></button></figure>
 <figure class="card"><button class="thumb" type="button" data-full="img/current-2-pr-throughput.webp" data-cap="" aria-label="Enlarge Current ad: AI impact on PR throughput"><img src="img/current-2-pr-throughput.webp" alt="Current ad: AI impact on PR throughput" width="1200" height="1200"></button></figure>
 <figure class="card"><button class="thumb" type="button" data-full="img/current-3-manage-adoption.webp" data-cap="" aria-label="Enlarge Current ad: Manage Adoption dashboard"><img src="img/current-3-manage-adoption.webp" alt="Current ad: Manage Adoption dashboard" width="1200" height="1200"></button></figure></div></section>
-<section class="s2"><h2>Product dashboard concepts</h2>
+<section class="s2"><div class="sh"><span class="n">2</span><h2>Product dashboard concepts</h2></div>
 <div class="grid"><figure class="card"><button class="thumb" type="button" data-full="img/a1-ai-spend.webp" data-cap="A1" aria-label="Enlarge A1"><img src="img/a1-ai-spend.webp" alt="A1: AI spend by tool and team" width="1200" height="1200"></button><figcaption>A1</figcaption></figure>
 <figure class="card"><button class="thumb" type="button" data-full="img/a2-pr-comparison.webp" data-cap="A2" aria-label="Enlarge A2"><img src="img/a2-pr-comparison.webp" alt="A2: AI-assisted vs. unassisted PR throughput" width="1200" height="1200"></button><figcaption>A2</figcaption></figure>
 <figure class="card"><button class="thumb" type="button" data-full="img/a3-tool-comparison.webp" data-cap="A3" aria-label="Enlarge A3"><img src="img/a3-tool-comparison.webp" alt="A3: AI tool usage over time" width="1200" height="1200"></button><figcaption>A3</figcaption></figure></div></section>
-<section class="s3"><h2>Native screenshot concepts</h2>
+<section class="s3"><div class="sh"><span class="n">3</span><h2>Native screenshot concepts</h2></div>
 <div class="grid"><figure class="card"><button class="thumb" type="button" data-full="img/b1-leadership-thread.webp" data-cap="B1" aria-label="Enlarge B1"><img src="img/b1-leadership-thread.webp" alt="B1: Slack thread" width="1200" height="1200"></button><figcaption>B1</figcaption></figure>
 <figure class="card"><button class="thumb" type="button" data-full="img/b2-pr-queue.webp" data-cap="B2" aria-label="Enlarge B2"><img src="img/b2-pr-queue.webp" alt="B2: PR review queue" width="1200" height="1200"></button><figcaption>B2</figcaption></figure>
 <figure class="card"><button class="thumb" type="button" data-full="img/b3-roi-terminal.webp" data-cap="B3" aria-label="Enlarge B3"><img src="img/b3-roi-terminal.webp" alt="B3: Terminal output" width="1200" height="1200"></button><figcaption>B3</figcaption></figure>
