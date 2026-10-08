@@ -177,10 +177,13 @@ details[open] .chev{transform:rotate(90deg)}
 .cpb-title{display:flex;align-items:baseline;gap:10px;margin:0 0 10px}
 .cpb-t{font-family:"Recoleta",Georgia,serif;font-weight:800;font-size:19px;letter-spacing:-.3px;color:var(--tx)}
 .cpb-n{font-size:12px;color:var(--s3)}
-.cpb-stats{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:8px}
+.cpb-stats{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
 .cpb-m{background:var(--white);border:1px solid var(--bd);border-radius:8px;padding:10px 8px;text-align:center}
 .cpb-m .lbl{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--s3);font-weight:700}
 .cpb-m b{display:block;font-size:16.5px;font-weight:800;color:var(--tx);font-variant-numeric:tabular-nums;margin-top:3px;letter-spacing:-.3px}
+.cpb-m.cpb-green{background:#008563;border-color:#008563}
+.cpb-m.cpb-green .lbl{color:rgba(255,255,255,.9)}
+.cpb-m.cpb-green b{color:#fff}
 .cpb-toggle{margin-top:10px;background:none;border:none;padding:4px 0;font:inherit;font-size:12.5px;font-weight:700;color:var(--s2);cursor:pointer}
 .cpb-toggle:hover{color:var(--tx);text-decoration:underline}
 .cpb-toggle[aria-expanded="true"]{color:var(--tx)}
@@ -1083,7 +1086,7 @@ function renderBuckets(){
  var P=((D.buckets||{}).periods||{})[cur];
  if(!P){ root.innerHTML=''; return; }
  var order=['o2o','mm','strat'];
- function stat(l,v){ return '<div class="cpb-m"><span class="lbl">'+l+'</span><b>'+v+'</b></div>'; }
+ function stat(l,v,g){ return '<div class="cpb-m'+(g?' cpb-green':'')+'"><span class="lbl">'+l+'</span><b>'+v+'</b></div>'; }
  var rowsHtml=order.map(function(k){
   var b=P.buckets[k]; var w=PX?b.without:b['with'];
   var open=(cpbOpen===k);
@@ -1113,9 +1116,9 @@ function renderBuckets(){
   return '<div class="cpb-bucket" data-bucket="'+k+'">'+
    '<div class="cpb-title"><span class="cpb-t">'+escHtml(b.label)+'</span><span class="cpb-n">'+fmtN(b.nCampaigns)+' campaign'+(b.nCampaigns===1?'':'s')+'</span></div>'+
    '<div class="cpb-stats">'+
-    stat('Spend',money(b.spend))+stat('IMPR',fmtN(b.impressions))+stat('Clicks',fmtN(b.clicks))+
-    stat('Infl. pipeline',money(w.pipe))+stat('Infl. revenue',money(w.rev))+stat('Deals',fmtN(w.deals))+
-    stat('Revenue per $1',fmtRatio(b.spend>0?w.rev/b.spend:null))+stat('Cost per deal',(w.deals>0&&b.spend>0)?money(b.spend/w.deals):'-')+
+    stat('Spend',money(b.spend))+stat('Paid IMPR',fmtN(b.impressions))+stat('Paid clicks',fmtN(b.clicks))+
+    stat('Infl. pipeline',money(w.pipe),1)+stat('Infl. revenue',money(w.rev),1)+stat('Deals',fmtN(w.deals))+
+    stat('Revenue per $1',fmtRatio(b.spend>0?w.rev/b.spend:null))+
    '</div>'+
    '<button type="button" class="cpb-toggle" data-bucket="'+k+'" aria-expanded="'+open+'">'+(open?'Hide companies and deals ▴':'View companies and deals ▾')+'</button>'+
    panel+
