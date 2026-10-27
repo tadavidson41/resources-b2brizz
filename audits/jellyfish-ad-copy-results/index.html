@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>*{box-sizing:border-box}body{margin:0}img{max-width:100%}</style>
+<title>Jellyfish Ad Copy Results</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column; summary first, then ad group table, then full-width desktop ad previews */
+:root{
+  --bg:#f7f6fb; --surface:#ffffff; --ink:#0D062B; --ink-2:#4a4560; --muted:#7a7590;
+  --line:#e4e1ee; --accent:#5613B5; --accent-soft:#efe8fb;
+  --pos-bg:#e3f4e8; --pos-fg:#1d6b35; --neg-bg:#fbe4ea; --neg-fg:#a3254a;
+  --font-body:'Roboto',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  --font-mono:'Roboto Mono',ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f0b1e; --surface:#19142c; --ink:#f1eefa; --ink-2:#c3bdd8; --muted:#8f88aa;
+  --line:#2c2645; --accent:#b493f0; --accent-soft:#2a1f47;
+  --pos-bg:#173826; --pos-fg:#8fdcaa; --neg-bg:#45182a; --neg-fg:#f3a3bc; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f0b1e; --surface:#19142c; --ink:#f1eefa; --ink-2:#c3bdd8; --muted:#8f88aa;
+  --line:#2c2645; --accent:#b493f0; --accent-soft:#2a1f47;
+  --pos-bg:#173826; --pos-fg:#8fdcaa; --neg-bg:#45182a; --neg-fg:#f3a3bc; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6}
+.wrap{max-width:880px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:48px 72px;display:flex;flex-direction:column;gap:56px}
+header{display:flex;flex-direction:column;gap:10px}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:500}
+h1{font-size:34px;line-height:1.15;font-weight:700;margin:0;text-wrap:balance}
+h2{font-size:22px;line-height:1.25;font-weight:700;margin:0;text-wrap:balance}
+.lede{color:var(--ink-2);margin:0;max-width:65ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.chip{font-size:13px;background:var(--accent-soft);color:var(--accent);padding:4px 10px;border-radius:999px;font-weight:500}
+section{display:flex;flex-direction:column;gap:16px}
+.sub{color:var(--ink-2);margin:0;max-width:65ch;font-size:15px}
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+table{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;padding:14px 16px;border-bottom:1px solid var(--line);text-align:center;white-space:nowrap}
+td{padding:14px 16px;border-bottom:1px solid var(--line);text-align:center}
+tr:last-child td{border-bottom:0}
+th:first-child,td:first-child{text-align:left}
+.pill{display:inline-block;min-width:64px;padding:3px 10px;border-radius:6px;font-weight:700}
+.pos{background:var(--pos-bg);color:var(--pos-fg)}
+.neg{background:var(--neg-bg);color:var(--neg-fg)}
+.foot{font-size:13px;color:var(--muted);margin:0}
+.ads{display:flex;flex-direction:column;gap:48px}
+.adblock{display:flex;flex-direction:column;gap:12px}
+.adtitle{font-size:20px;font-weight:700;margin:0;color:var(--ink)}
+.range{font-size:13px;color:var(--muted);margin:0}
+/* Google ad mockup: fixed Google colors on a white card, same in both themes */
+.ad{background:#ffffff;border:1px solid #dadce0;border-radius:12px;padding:20px 24px 6px;font-family:Arial,Helvetica,sans-serif;color:#202124}
+.spo{font-size:14px;font-weight:700;color:#202124;margin:0 0 14px}
+.row{display:flex;align-items:center;gap:12px}
+.fav{width:28px;height:28px;border-radius:50%;border:1px solid #ecedef;background:#ffffff;flex-shrink:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.fav img{width:22px;height:22px}
+.nm{font-size:14px;color:#202124;margin:0;line-height:20px}
+.url{font-size:12px;color:#4d5156;margin:0;line-height:18px;word-break:break-word}
+.dots{color:#4d5156;font-size:15px;margin-left:6px}
+.h{font-size:20px;line-height:26px;color:#1a0dab;margin:10px 0 4px}
+.d{font-size:14px;line-height:22px;color:#4d5156;margin:0 0 12px}
+.sl{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid #dadce0;padding:12px 0}
+.sl p{margin:0}
+.slt{font-size:18px;color:#202124;line-height:24px}
+.sld{font-size:14px;color:#4d5156;line-height:20px}
+.chev{color:#5f6368;font-size:22px}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px 24px;margin-top:4px}
+.notes div{min-width:0}
+.nh{font-size:14px;font-weight:700;margin:0 0 4px;color:var(--ink)}
+.notes ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:14px;line-height:1.55}
+.ctr{font-family:var(--font-mono);font-size:13px;color:var(--accent);white-space:nowrap}
+.method{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px 24px}
+.method ul{margin:8px 0 0;padding-left:18px;color:var(--ink-2);font-size:14px}
+footer{font-size:13px;color:var(--muted)}
+@media (max-width:520px){h1{font-size:28px}.ad{padding:16px 16px 4px}.h{font-size:18px;line-height:24px}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="eyebrow">Google Ads · Responsive search ads</span>
+  <h1>New ad copy: click-through rate before and after</h1>
+  <p class="lede">The new responsive search ads went live on October 14, 2026. This page compares click-through rate before and after the change, then shows the strongest headline and description combination in each ad group.</p>
+  <div class="meta"><span class="chip">Before: Oct 1–13</span><span class="chip">After, non-brand: Oct 15–27</span><span class="chip">After, brand: Oct 21–27</span></div>
+</header>
+
+<section>
+  <h2>Overall CTR</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Segment</th><th>CTR before</th><th>CTR after</th><th>Change</th></tr></thead>
+    <tbody>
+      <tr><td>Brand</td><td>11.31%</td><td>16.61%</td><td><span class="pill pos">+47%</span></td></tr>
+      <tr><td>Non-brand</td><td>2.83%</td><td>3.34%</td><td><span class="pill pos">+18%</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="foot">Brand "after" starts October 21, once brand campaigns moved from broad to phrase match, so it reflects brand searches only.</p>
+</section>
+
+<section>
+  <h2>CTR by ad group</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>Campaign</th><th>Ad group</th><th>CTR before</th><th>CTR after</th><th>Change</th></tr></thead>
+    <tbody>
+      <tr><td>Branded</td><td>Branded_AlwaysOn</td><td>11.31%</td><td>16.61%</td><td><span class="pill pos">+47%</span></td></tr>
+      <tr><td>AI Impact (Alpha)</td><td>Copilot Dashboard</td><td>4.25%</td><td>6.68%</td><td><span class="pill pos">+57%</span></td></tr>
+      <tr><td>AI Impact (Alpha)</td><td>General AI Coding Tool Impact</td><td>3.06%</td><td>3.29%</td><td><span class="pill pos">+8%</span></td></tr>
+      <tr><td>AI Impact (Alpha)</td><td>Cursor*</td><td>3.40%</td><td>8.42%</td><td><span class="pill pos">+148%</span></td></tr>
+      <tr><td>AI Impact (Alpha)</td><td>Copilot Impact*</td><td>5.41%</td><td>3.77%</td><td><span class="pill neg">-30%</span></td></tr>
+      <tr><td>EMP</td><td>EMP - Product</td><td>1.94%</td><td>3.01%</td><td><span class="pill pos">+55%</span></td></tr>
+      <tr><td>EMP</td><td>Dev Productivity Insight - Product</td><td>2.58%</td><td>3.12%</td><td><span class="pill pos">+21%</span></td></tr>
+      <tr><td>DevEx</td><td>DevEx: Product</td><td>2.29%</td><td>3.21%</td><td><span class="pill pos">+41%</span></td></tr>
+      <tr><td>Competitive (Alpha)</td><td>DX*</td><td>1.43%</td><td>0.90%</td><td><span class="pill neg">-37%</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="foot">* Fewer than 15 clicks after the copy change (Cursor 8, Copilot Impact 2, DX 12). Treat as directional.</p>
+</section>
+
+<section>
+  <h2>Top-performing ad in each ad group</h2>
+  <p class="sub">Each preview combines the ad group's highest-CTR pinned headline 1, its two highest-CTR rotating headlines and its two highest-CTR descriptions. Only assets with at least 100 impressions are included.</p>
+  <div class="ads" id="ads"></div>
+</section>
+
+<section class="method">
+  <h2>How to read this</h2>
+  <ul>
+    <li>Google Ads does not report clicks for each full headline and description combination, so these previews are built from each asset's own CTR.</li>
+    <li>A click counts toward every asset shown in that ad, so asset CTRs point to what works but cannot be fully separated.</li>
+    <li>Headlines marked "keyword insertion" swap in the searcher's keyword; the text shown is the default.</li>
+    <li>Cursor and Copilot Impact are left out of the previews because no asset reached 100 impressions yet.</li>
+  </ul>
+</section>
+
+<footer>Prepared by Tim Davidson · Data from Google Ads account 303-699-3764 · Updated October 27, 2026</footer>
+</div>
+
+<script>
+const F="data:image/png;base64,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";
+const ads=[{"t": "Branded", "p": "", "h": ["Jellyfish Engineering Platform", "Built for the AI Era", "AI Spend, Tokens & Adoption"], "d": ["Benchmark AI usage, cost & capacity against 1,000+ engineering orgs. Take a tour.", "Top engineering orgs use Jellyfish to improve productivity and prove AI ROI."], "r": "Oct 21–27", "h1": [["Jellyfish Engineering Platform", 20.3], ["Jellyfish Official Site", 15.5]], "hh": [["Built for the AI Era", 23.7], ["AI Spend, Tokens & Adoption", 19.6]], "dd": [["Benchmark AI usage, cost & capacity against 1,000+ engineering orgs. Take a tour.", 19.7]]}, {"t": "Copilot Dashboard", "p": " › copilot › dashboard", "h": ["GitHub Copilot Dashboard", "Find Copilot Power Users", "Copilot Impact on Delivery"], "d": ["Quantify how Copilot impacts delivery, quality & productivity across the SDLC.", "Prove GitHub Copilot ROI to leadership with real delivery data. Take an interactive tour."], "r": "Oct 15–27", "h1": [["GitHub Copilot Dashboard", 7.3], ["Copilot Dashboard (keyword insertion)", 4.7]], "hh": [["Find Copilot Power Users", 10.0], ["Copilot Impact on Delivery", 8.1]], "dd": [["Quantify how Copilot impacts delivery, quality & productivity across the SDLC.", 9.1]]}, {"t": "General AI Coding Tool Impact", "p": " › ai-coding › impact", "h": ["AI Coding Tool Analytics", "AI Token Spend Dashboard", "Find Your AI Power Users"], "d": ["No tagging or process changes. Get AI impact insights within days. Take a product tour.", "Measure AI coding tool adoption, spend & productivity impact in one vendor-neutral view."], "r": "Oct 15–27", "h1": [["AI Coding Tool Analytics", 5.0], ["Multi-Tool AI Comparison", 3.1]], "hh": [["AI Token Spend Dashboard", 7.0], ["Find Your AI Power Users", 5.1]], "dd": [["No tagging or process changes. Get AI impact insights within days. Take a product tour.", 4.0]]}, {"t": "DevEx: Product", "p": " › developer › experience", "h": ["Jellyfish DevEx Platform", "Track Your DevEx Index Score", "Rated 4.5/5 by Eng Leaders"], "d": ["Find where developers lose time and why with research-backed surveys and system data.", "Launch validated surveys in minutes and act on AI-driven recommendations. Take a tour."], "r": "Oct 15–27", "h1": [["Jellyfish DevEx Platform", 3.5], ["Developer Experience Platform (keyword insertion)", 3.0]], "hh": [["Track Your DevEx Index Score", 7.4], ["Rated 4.5/5 by Eng Leaders", 5.5]], "dd": [["Find where developers lose time and why with research-backed surveys and system data.", 3.7]]}, {"t": "EMP - Product", "p": " › engineering › management", "h": ["Engineering Mgmt Platform", "Align Engineering to Business", "Help Teams Work Better"], "d": ["Keep projects on time and on budget with delivery management and team health insights.", "Connect the tools you already use with business context to see how teams spend time."], "r": "Oct 15–27", "h1": [["Engineering Mgmt Platform (keyword insertion)", 3.8], ["Engineering Intelligence Tool", 2.8]], "hh": [["Align Engineering to Business", 5.1], ["Help Teams Work Better", 4.4]], "dd": [["Keep projects on time and on budget with delivery management and team health insights.", 4.0]]}, {"t": "Dev Productivity Insight - Product", "p": " › developer › productivity", "h": ["Measure Developer Productivity", "See Where Pull Requests Stall", "Surveys Plus System Data"], "d": ["Pair research-backed dev surveys with delivery data to see where friction slows teams.", "Connect Git, Jira & the rest of your stack to find bottlenecks and help teams ship faster."], "r": "Oct 15–27", "h1": [["Measure Developer Productivity", 4.1], ["Dev Productivity Platform (keyword insertion)", 3.2]], "hh": [["See Where Pull Requests Stall", 4.6], ["Surveys Plus System Data", 3.8]], "dd": [["Pair research-backed dev surveys with delivery data to see where friction slows teams.", 3.6]]}, {"t": "DX", "p": " › dx-alternative", "h": ["Engineering Intelligence Tool", "SOC 1 Type II Certified", "Sentiment + Real System Data"], "d": ["Plan and deliver R&D in one platform: forecasting, capacity planning & SOC 1 Type II.", "Go beyond surveys. Blend developer sentiment with real system data for a complete view."], "r": "Oct 15–27", "h1": [["Engineering Intelligence Tool", 1.3], ["Dev Productivity + AI Impact", 0.5]], "hh": [["SOC 1 Type II Certified", 2.0], ["Sentiment + Real System Data", 1.3]], "dd": [["Plan and deliver R&D in one platform: forecasting, capacity planning & SOC 1 Type II.", 1.4]]}];
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const li=l=>'<ul>'+l.map(x=>`<li>${esc(x[0])} <span class="ctr">${x[1].toFixed(1)}% CTR</span></li>`).join('')+'</ul>';
+document.getElementById('ads').innerHTML=ads.map(a=>`<div class="adblock">
+<p class="adtitle">${esc(a.t)}</p>
+<div class="ad"><p class="spo">Sponsored</p><div class="row"><div class="fav"><img src="${F}" alt="Jellyfish logo"></div><div><p class="nm">Jellyfish</p><p class="url">https://www.jellyfish.co${esc(a.p)}<span class="dots">⋮</span></p></div></div>
+<p class="h">${a.h.map(esc).join(' - ')}</p><p class="d">${a.d.map(esc).join(' ')}</p>
+<div class="sl"><div><p class="slt">Get a Free Demo</p><p class="sld">Schedule a custom demo. Schedule a demo of Jellyfish today.</p></div><span class="chev">›</span></div></div>
+<p class="range">${esc(a.r)}</p>
+<div class="notes"><div><p class="nh">Top H1s</p>${li(a.h1)}</div><div><p class="nh">Top headlines (H2 and H3s)</p>${li(a.hh)}</div><div><p class="nh">Top description</p>${li(a.dd)}</div></div>
+</div>`).join('');
+</script>
+
+</body>
+</html>
