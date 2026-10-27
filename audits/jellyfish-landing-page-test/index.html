@@ -31,18 +31,18 @@ tr.total td{font-weight:700;background:var(--head)}
 <h1>Landing page change: conversion rate before vs after</h1>
 <p class="sub">Jellyfish Google Ads. New paid landing pages and new ad copy went live Oct 14, 2026. Before = Oct 2 to Oct 13 (12 days). After = Oct 15 to Oct 26 (12 days). Conversions = all conversion actions (Google Ads "All conv."): GA4 Demo Request Submission, Thank You Page Reached, Email Form Submission, GLOW Video Series Submission, plus Salesforce stage imports. One person can fire both a demo submission and a thank you page view, so counts can overlap.</p>
 <h2>Brand: three landing pages</h2>
-<p class="sub">Ad group Branded_AlwaysOn in all three brand campaigns. Phase 1 = /request-a-demo/ (Sep 25 to Oct 6, 12 days). Phase 2 = homepage (Oct 7 to Oct 13, 7 days, the full time it ran). Phase 3 = /request-a-demo-paid/ (Oct 15 to Oct 26, 12 days). % diff compares conversion rate to the previous phase.</p>
+<p class="sub">Ad group Branded_AlwaysOn in all three brand campaigns. Phase 1 = /request-a-demo/ (Sep 25 to Oct 6, 12 days). Phase 2 = homepage (Oct 7 to Oct 13, 7 days, the full time it ran). Phase 3 = /request-a-demo-paid/ (Oct 15 to Oct 26, 12 days). % diff compares CVR% to the previous phase.</p>
 <div class="scroll"><table>
 <thead>
 <tr><th rowspan="2">Brand</th><th class="grp" colspan="4">1. /request-a-demo/</th><th class="grp sep" colspan="5">2. Homepage</th><th class="grp sep" colspan="5">3. /request-a-demo-paid/</th></tr>
-<tr><th>Clicks</th><th>Spend</th><th>Conversions</th><th>Conv. rate</th><th class="sep">Clicks</th><th>Spend</th><th>Conversions</th><th>Conv. rate</th><th>% diff vs 1</th><th class="sep">Clicks</th><th>Spend</th><th>Conversions</th><th>Conv. rate</th><th>% diff vs 2</th></tr>
+<tr><th>Clicks</th><th>Spend</th><th>Conversions</th><th>CVR%</th><th class="sep">Clicks</th><th>Spend</th><th>Conversions</th><th>CVR%</th><th>% diff vs 1</th><th class="sep">Clicks</th><th>Spend</th><th>Conversions</th><th>CVR%</th><th>% diff vs 2</th></tr>
 </thead>
 <tbody>
 <tr class="total"><td>Brand</td><td>546</td><td>$5,688</td><td>8.5</td><td>1.56%</td><td class="sep">302</td><td>$2,414</td><td>4</td><td>1.32%</td><td><span class="pill down">-15%</span></td><td class="sep">1,057</td><td>$13,132</td><td>9.65</td><td>0.91%</td><td><span class="pill down">-31%</span></td></tr>
 </tbody></table></div>
 <p class="sub" style="margin-top:14px">Phase 3 split. The brand tests were buying broad match junk until Oct 20, then keywords moved to phrase match. The account was offline Oct 19 (pm) to Oct 21 (pm).</p>
 <div class="scroll"><table style="min-width:600px">
-<thead><tr><th>Phase 3 window</th><th>Clicks</th><th>Conversions</th><th>Conv. rate</th><th>Spend</th><th>Cost per conversion</th></tr></thead>
+<thead><tr><th>Phase 3 window</th><th>Clicks</th><th>Conversions</th><th>CVR%</th><th>Spend</th><th>Cost per conversion</th></tr></thead>
 <tbody>
 <tr><td>Oct 15 to 19 (tests live, broad match)</td><td>719</td><td>3.65</td><td>0.51%</td><td>$8,455</td><td>$2,316</td></tr>
 <tr><td>Oct 22 to 26 (after broad to phrase)</td><td>315</td><td>6</td><td>1.90%</td><td>$4,423</td><td>$737</td></tr>
@@ -51,8 +51,8 @@ tr.total td{font-weight:700;background:var(--head)}
 <h2>Non-brand: before vs after</h2>
 <div class="scroll"><table>
 <thead>
-<tr><th rowspan="2">Campaign</th><th rowspan="2">Ad group</th><th rowspan="2">Old landing page</th><th rowspan="2">New landing page</th><th class="grp" colspan="4">Before</th><th class="grp sep" colspan="4">After</th><th rowspan="2">Conv. rate % difference</th></tr>
-<tr><th>Clicks</th><th>Spend</th><th>Conversions</th><th>Conv. rate</th><th class="sep">Clicks</th><th>Spend</th><th>Conversions</th><th>Conv. rate</th></tr>
+<tr><th rowspan="2">Campaign</th><th rowspan="2">Ad group</th><th rowspan="2">Old landing page</th><th rowspan="2">New landing page</th><th class="grp" colspan="4">Before</th><th class="grp sep" colspan="4">After</th><th rowspan="2">CVR% difference</th></tr>
+<tr><th>Clicks</th><th>Spend</th><th>Conversions</th><th>CVR%</th><th class="sep">Clicks</th><th>Spend</th><th>Conversions</th><th>CVR%</th></tr>
 </thead>
 <tbody>
 <tr><td>AI Impact (Alpha)</td><td>General AI Coding Tool Impact</td><td class="lp">/platform/jellyfish-ai-impact-paid/</td><td class="lp">/platform/jellyfish-ai-impact-paid-2/</td><td>397</td><td>$5,440</td><td>4</td><td>1.01%</td><td class="sep">32</td><td>$302</td><td>0</td><td>0.00%</td><td><span class="pill down">-100%</span></td></tr>
@@ -67,7 +67,7 @@ tr.total td{font-weight:700;background:var(--head)}
 <tr class="total"><td>Non-brand total (changed ad groups)</td><td></td><td></td><td></td><td>982</td><td>$16,848</td><td>14</td><td>1.43%</td><td class="sep">300</td><td>$4,948</td><td>1.21</td><td>0.40%</td><td><span class="pill down">-72%</span></td></tr>
 </tbody></table></div>
 <div class="notes">
-Conv. rate % difference = relative change in conversion rate, after vs before. Green = conversion rate went up. Red = went down. Gray = 0% before and after.<br>
+CVR% difference = relative change in CVR%, after vs before. Green = CVR% went up. Red = went down. Gray = 0% before and after.<br>
 Oct 14 is excluded (partly old pages). The after window includes the Oct 19 to 21 billing outage and the Oct 15 to 19 broad match spike in the brand tests, and the same day the landing pages changed, new ad copy also went live, so these results reflect both. Small sample: read as directional.
 </div>
 </div></body></html>
