@@ -66,7 +66,7 @@ th:first-child,td:first-child{text-align:left}
 .slt{font-size:18px;color:#202124;line-height:24px}
 .sld{font-size:14px;color:#4d5156;line-height:20px}
 .chev{color:#5f6368;font-size:22px}
-.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px 24px;margin-top:4px}
+.notes{display:flex;flex-direction:column;gap:14px;margin-top:4px}
 .notes div{min-width:0}
 .nh{font-size:14px;font-weight:700;margin:0 0 4px;color:var(--ink)}
 .notes ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:14px;line-height:1.55}
@@ -82,44 +82,12 @@ footer{font-size:13px;color:var(--muted)}
 <div class="wrap">
 <header>
   <span class="eyebrow">Google Ads · Responsive search ads</span>
-  <h1>New ad copy: click-through rate before and after</h1>
-  <p class="lede">The new responsive search ads went live on October 14, 2026. This page compares click-through rate before and after the change, then shows the strongest headline and description combination in each ad group.</p>
-  <div class="meta"><span class="chip">Before: Oct 1–13</span><span class="chip">After, non-brand: Oct 15–27</span><span class="chip">After, brand: Oct 21–27</span></div>
+  <h1>Top-performing ad in each ad group</h1>
+  <p class="lede">The new responsive search ads went live on October 14, 2026. Each preview below shows the strongest headline and description combination in its ad group since the new copy launched.</p>
+  <div class="meta"><span class="chip">Non-brand: Oct 15–27</span><span class="chip">Brand: Oct 21–27</span></div>
 </header>
 
 <section>
-  <h2>Overall CTR</h2>
-  <div class="tbl"><table>
-    <thead><tr><th>Segment</th><th>CTR before</th><th>CTR after</th><th>Change</th></tr></thead>
-    <tbody>
-      <tr><td>Brand</td><td>11.31%</td><td>16.61%</td><td><span class="pill pos">+47%</span></td></tr>
-      <tr><td>Non-brand</td><td>2.83%</td><td>3.34%</td><td><span class="pill pos">+18%</span></td></tr>
-    </tbody>
-  </table></div>
-  <p class="foot">Brand "after" starts October 21, once brand campaigns moved from broad to phrase match, so it reflects brand searches only.</p>
-</section>
-
-<section>
-  <h2>CTR by ad group</h2>
-  <div class="tbl"><table>
-    <thead><tr><th>Campaign</th><th>Ad group</th><th>CTR before</th><th>CTR after</th><th>Change</th></tr></thead>
-    <tbody>
-      <tr><td>Branded</td><td>Branded_AlwaysOn</td><td>11.31%</td><td>16.61%</td><td><span class="pill pos">+47%</span></td></tr>
-      <tr><td>AI Impact (Alpha)</td><td>Copilot Dashboard</td><td>4.25%</td><td>6.68%</td><td><span class="pill pos">+57%</span></td></tr>
-      <tr><td>AI Impact (Alpha)</td><td>General AI Coding Tool Impact</td><td>3.06%</td><td>3.29%</td><td><span class="pill pos">+8%</span></td></tr>
-      <tr><td>AI Impact (Alpha)</td><td>Cursor*</td><td>3.40%</td><td>8.42%</td><td><span class="pill pos">+148%</span></td></tr>
-      <tr><td>AI Impact (Alpha)</td><td>Copilot Impact*</td><td>5.41%</td><td>3.77%</td><td><span class="pill neg">-30%</span></td></tr>
-      <tr><td>EMP</td><td>EMP - Product</td><td>1.94%</td><td>3.01%</td><td><span class="pill pos">+55%</span></td></tr>
-      <tr><td>EMP</td><td>Dev Productivity Insight - Product</td><td>2.58%</td><td>3.12%</td><td><span class="pill pos">+21%</span></td></tr>
-      <tr><td>DevEx</td><td>DevEx: Product</td><td>2.29%</td><td>3.21%</td><td><span class="pill pos">+41%</span></td></tr>
-      <tr><td>Competitive (Alpha)</td><td>DX*</td><td>1.43%</td><td>0.90%</td><td><span class="pill neg">-37%</span></td></tr>
-    </tbody>
-  </table></div>
-  <p class="foot">* Fewer than 15 clicks after the copy change (Cursor 8, Copilot Impact 2, DX 12). Treat as directional.</p>
-</section>
-
-<section>
-  <h2>Top-performing ad in each ad group</h2>
   <p class="sub">Each preview combines the ad group's highest-CTR pinned headline 1, its two highest-CTR rotating headlines and its two highest-CTR descriptions. Only assets with at least 100 impressions are included.</p>
   <div class="ads" id="ads"></div>
 </section>
@@ -148,7 +116,7 @@ document.getElementById('ads').innerHTML=ads.map(a=>`<div class="adblock">
 <p class="h">${a.h.map(esc).join(' - ')}</p><p class="d">${a.d.map(esc).join(' ')}</p>
 <div class="sl"><div><p class="slt">Get a Free Demo</p><p class="sld">Schedule a custom demo. Schedule a demo of Jellyfish today.</p></div><span class="chev">›</span></div></div>
 <p class="range">${esc(a.r)}</p>
-<div class="notes"><div><p class="nh">Top H1s</p>${li(a.h1)}</div><div><p class="nh">Top headlines (H2 and H3s)</p>${li(a.hh)}</div><div><p class="nh">Top description</p>${li(a.dd)}</div></div>
+<div class="notes"><div><p class="nh">Top H1s</p>${li(a.h1)}</div><div><p class="nh">Top headlines (H2 and H3s):</p>${li(a.hh)}</div><div><p class="nh">Top description:</p>${li(a.dd)}</div></div>
 </div>`).join('');
 </script>
 
