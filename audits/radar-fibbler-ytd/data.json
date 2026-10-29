@@ -4,7 +4,7 @@
   "ytd": 114718,
   "l3m": 31159,
   "lfm": 9803,
-  "mtd": 11702
+  "mtd": 21505
  },
  "openPipe": 1936400,
  "wonRev": 270375,
@@ -7482,6 +7482,13 @@
    "Wingstop"
   ],
   "mtd": [
+   "Home Depot",
+   "Ulta Beauty",
+   "J.Crew",
+   "U.S. Bank",
+   "Papa John's",
+   "Bank of America",
+   "Wingstop",
    "TD",
    "Chime",
    "Chewy",
@@ -13701,6 +13708,591 @@
   "mtd": {
    "campaigns": [
     {
+     "id": "841801654",
+     "name": "Reveal | Fraud/Risk/Product Job Titles | Views Objective - Video | 07.26",
+     "format": "VIDEO",
+     "impressions": 49298,
+     "clicks": 48,
+     "engagements": 111,
+     "pipeline": 372000,
+     "revenue": 0,
+     "deals": 14,
+     "spend": 2167,
+     "weightedPipeline": 149973,
+     "weightedRevenue": 18485,
+     "influencing": true,
+     "topCompanies": [
+      {
+       "company": "Home Depot",
+       "stage": "2 - Discovery",
+       "pipeline": 200000,
+       "revenue": 0,
+       "impressions": 475,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Ulta Beauty",
+       "stage": "2 - Discovery",
+       "pipeline": 172000,
+       "revenue": 0,
+       "impressions": 68,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "American Express",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 1041,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Netflix",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 646,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "ExxonMobil",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 283,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Chewy",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 128,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Chime",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 159,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "TD",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 1621,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Credit Karma",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 182,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Bank of America",
+       "stage": "0 - Qualification",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 671,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      }
+     ]
+    },
+    {
+     "id": "830363104",
+     "name": "Reveal | TAL Accounts + Fraud/Risk/Product Job Titles | Engagement - Image/Text | 07.26",
+     "format": "IMAGE AD",
+     "impressions": 45941,
+     "clicks": 499,
+     "engagements": 515,
+     "pipeline": 372000,
+     "revenue": 0,
+     "deals": 16,
+     "spend": 4465,
+     "weightedPipeline": 123493,
+     "weightedRevenue": 19224,
+     "influencing": true,
+     "topCompanies": [
+      {
+       "company": "Home Depot",
+       "stage": "2 - Discovery",
+       "pipeline": 200000,
+       "revenue": 0,
+       "impressions": 374,
+       "clicks": 5,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Ulta Beauty",
+       "stage": "2 - Discovery",
+       "pipeline": 172000,
+       "revenue": 0,
+       "impressions": 51,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Intuit",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 1237,
+       "clicks": 15,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Bank of America",
+       "stage": "0 - Qualification",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 623,
+       "clicks": 8,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Netflix",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 580,
+       "clicks": 3,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Chewy",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 193,
+       "clicks": 3,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "U.S. Bank",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 1126,
+       "clicks": 3,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "TD",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 948,
+       "clicks": 2,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "American Express",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 1134,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "ExxonMobil",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 410,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      }
+     ]
+    },
+    {
+     "id": "831945064",
+     "name": "Reveal | Remarketing | Seniority/Function | Engagement - Image/Text | 07.26",
+     "format": "IMAGE AD",
+     "impressions": 11737,
+     "clicks": 259,
+     "engagements": 284,
+     "pipeline": 372000,
+     "revenue": 0,
+     "deals": 12,
+     "spend": 2314,
+     "weightedPipeline": 69353,
+     "weightedRevenue": 0,
+     "influencing": true,
+     "topCompanies": [
+      {
+       "company": "Home Depot",
+       "stage": "2 - Discovery",
+       "pipeline": 200000,
+       "revenue": 0,
+       "impressions": 135,
+       "clicks": 9,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Ulta Beauty",
+       "stage": "2 - Discovery",
+       "pipeline": 172000,
+       "revenue": 0,
+       "impressions": 61,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Intuit",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 698,
+       "clicks": 19,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "TD",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 465,
+       "clicks": 3,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "American Express",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 400,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Netflix",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 171,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Chewy",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 151,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Chime",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 189,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Wingstop",
+       "stage": "0 - Qualification",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 72,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Credit Karma",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 109,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      }
+     ]
+    },
+    {
+     "id": "899746554",
+     "name": "Reveal Webinar | TAL Accounts + Fraud/Risk/Product Job Titles | Spotlight Ads | 9.9-9.23.26",
+     "format": "SPOTLIGHT",
+     "impressions": 49514,
+     "clicks": 27,
+     "engagements": 27,
+     "pipeline": 200000,
+     "revenue": 0,
+     "deals": 14,
+     "spend": 222,
+     "weightedPipeline": 0,
+     "weightedRevenue": 0,
+     "influencing": true,
+     "topCompanies": [
+      {
+       "company": "Home Depot",
+       "stage": "2 - Discovery",
+       "pipeline": 200000,
+       "revenue": 0,
+       "impressions": 210,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "American Express",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 736,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Netflix",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 514,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "ExxonMobil",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 61,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Assurant",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 64,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Chewy",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 100,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Chime",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 136,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "TD",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 810,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Credit Karma",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 142,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Hertz",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 51,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      }
+     ]
+    },
+    {
+     "id": "575923954",
+     "name": "Remarketing | Seniority/Function | Website Visits - Image Ads | 04.26",
+     "format": "IMAGE AD",
+     "impressions": 16436,
+     "clicks": 77,
+     "engagements": 128,
+     "pipeline": 34000,
+     "revenue": 0,
+     "deals": 11,
+     "spend": 591,
+     "weightedPipeline": 190715,
+     "weightedRevenue": 0,
+     "influencing": true,
+     "topCompanies": [
+      {
+       "company": "American Express",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 270,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Netflix",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 376,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Chewy",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 133,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "TD",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 625,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Wingstop",
+       "stage": "0 - Qualification",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 52,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Credit Karma",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 109,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Bank of America",
+       "stage": "0 - Qualification",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 83,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Intuit",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 778,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "U.S. Bank",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 78,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Revolut",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 143,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      }
+     ]
+    },
+    {
      "id": "901423824",
      "name": "Reveal Webinar | TAL Accounts + Fraud/Risk/Product Job Titles | Spotlight Ads | 10.5-10.14.26",
      "format": "SPOTLIGHT",
@@ -13709,7 +14301,7 @@
      "engagements": 22,
      "pipeline": 0,
      "revenue": 0,
-     "deals": 6,
+     "deals": 8,
      "spend": 259,
      "weightedPipeline": 0,
      "weightedRevenue": 0,
@@ -13774,76 +14366,19 @@
        "clicks": 0,
        "engagements": 0,
        "matched": true
-      }
-     ]
-    },
-    {
-     "id": "830363104",
-     "name": "Reveal | TAL Accounts + Fraud/Risk/Product Job Titles | Engagement - Image/Text | 07.26",
-     "format": "IMAGE AD",
-     "impressions": 21219,
-     "clicks": 272,
-     "engagements": 281,
-     "pipeline": 0,
-     "revenue": 0,
-     "deals": 7,
-     "spend": 2418,
-     "weightedPipeline": 22597,
-     "weightedRevenue": 0,
-     "influencing": false,
-     "topCompanies": [
-      {
-       "company": "Netflix",
-       "stage": "Closed Lost",
-       "pipeline": 0,
-       "revenue": 0,
-       "impressions": 580,
-       "clicks": 3,
-       "engagements": 0,
-       "matched": true
       },
       {
-       "company": "Chewy",
-       "stage": "1 - Sales Qualified",
+       "company": "Bank of America",
+       "stage": "0 - Qualification",
        "pipeline": 0,
        "revenue": 0,
-       "impressions": 193,
-       "clicks": 3,
-       "engagements": 0,
-       "matched": true
-      },
-      {
-       "company": "TD",
-       "stage": "1 - Sales Qualified",
-       "pipeline": 0,
-       "revenue": 0,
-       "impressions": 948,
-       "clicks": 2,
-       "engagements": 0,
-       "matched": true
-      },
-      {
-       "company": "American Express",
-       "stage": "1 - Sales Qualified",
-       "pipeline": 0,
-       "revenue": 0,
-       "impressions": 1134,
+       "impressions": 213,
        "clicks": 0,
        "engagements": 0,
        "matched": true
       },
       {
-       "company": "ExxonMobil",
-       "stage": "1 - Sales Qualified",
-       "pipeline": 0,
-       "revenue": 0,
-       "impressions": 410,
-       "clicks": 0,
-       "engagements": 0,
-       "matched": true
-      },
-      {
-       "company": "Assurant",
+       "company": "Intuit",
        "stage": "Closed Lost",
        "pipeline": 0,
        "revenue": 0,
@@ -13851,123 +14386,20 @@
        "clicks": 0,
        "engagements": 0,
        "matched": true
-      },
-      {
-       "company": "Chime",
-       "stage": "1 - Sales Qualified",
-       "pipeline": 0,
-       "revenue": 0,
-       "impressions": 259,
-       "clicks": 0,
-       "engagements": 0,
-       "matched": true
       }
      ]
-    },
-    {
-     "id": "841801654",
-     "name": "Reveal | Fraud/Risk/Product Job Titles | Views Objective - Video | 07.26",
-     "format": "VIDEO",
-     "impressions": 18541,
-     "clicks": 20,
-     "engagements": 54,
-     "pipeline": 0,
-     "revenue": 0,
-     "deals": 6,
-     "spend": 826,
-     "weightedPipeline": 0,
-     "weightedRevenue": 0,
-     "influencing": false,
-     "topCompanies": [
-      {
-       "company": "American Express",
-       "stage": "1 - Sales Qualified",
-       "pipeline": 0,
-       "revenue": 0,
-       "impressions": 1041,
-       "clicks": 0,
-       "engagements": 0,
-       "matched": true
-      },
-      {
-       "company": "Netflix",
-       "stage": "Closed Lost",
-       "pipeline": 0,
-       "revenue": 0,
-       "impressions": 646,
-       "clicks": 0,
-       "engagements": 0,
-       "matched": true
-      },
-      {
-       "company": "ExxonMobil",
-       "stage": "1 - Sales Qualified",
-       "pipeline": 0,
-       "revenue": 0,
-       "impressions": 283,
-       "clicks": 0,
-       "engagements": 0,
-       "matched": true
-      },
-      {
-       "company": "Chewy",
-       "stage": "1 - Sales Qualified",
-       "pipeline": 0,
-       "revenue": 0,
-       "impressions": 128,
-       "clicks": 0,
-       "engagements": 0,
-       "matched": true
-      },
-      {
-       "company": "Chime",
-       "stage": "1 - Sales Qualified",
-       "pipeline": 0,
-       "revenue": 0,
-       "impressions": 159,
-       "clicks": 0,
-       "engagements": 0,
-       "matched": true
-      },
-      {
-       "company": "TD",
-       "stage": "1 - Sales Qualified",
-       "pipeline": 0,
-       "revenue": 0,
-       "impressions": 1621,
-       "clicks": 0,
-       "engagements": 0,
-       "matched": true
-      }
-     ]
-    },
-    {
-     "id": "887603044",
-     "name": "Reveal | Gaming Accounts + Fraud/Risk/Product Job Titles | Engagement - Image/Text | 09/02/26",
-     "format": "IMAGE AD",
-     "impressions": 8969,
-     "clicks": 288,
-     "engagements": 299,
-     "pipeline": 0,
-     "revenue": 0,
-     "deals": 0,
-     "spend": 2013,
-     "weightedPipeline": 0,
-     "weightedRevenue": 0,
-     "influencing": false,
-     "topCompanies": []
     },
     {
      "id": "831847774",
      "name": "Reveal | Fingerprint Compete Accounts + Fraud/Risk/Product Job Titles | Engagement - Image/Text | 07.26",
      "format": "IMAGE AD",
-     "impressions": 8062,
-     "clicks": 63,
-     "engagements": 65,
+     "impressions": 21955,
+     "clicks": 175,
+     "engagements": 182,
      "pipeline": 0,
      "revenue": 0,
      "deals": 2,
-     "spend": 526,
+     "spend": 1487,
      "weightedPipeline": 0,
      "weightedRevenue": 0,
      "influencing": false,
@@ -13995,18 +14427,34 @@
      ]
     },
     {
-     "id": "575923954",
-     "name": "Remarketing | Seniority/Function | Website Visits - Image Ads | 04.26",
+     "id": "887603044",
+     "name": "Reveal | Gaming Accounts + Fraud/Risk/Product Job Titles | Engagement - Image/Text | 09/02/26",
      "format": "IMAGE AD",
-     "impressions": 6073,
-     "clicks": 33,
-     "engagements": 54,
+     "impressions": 18946,
+     "clicks": 427,
+     "engagements": 440,
      "pipeline": 0,
      "revenue": 0,
-     "deals": 4,
-     "spend": 249,
-     "weightedPipeline": 179334,
-     "weightedRevenue": 0,
+     "deals": 1,
+     "spend": 3285,
+     "weightedPipeline": 7037,
+     "weightedRevenue": 198899,
+     "influencing": false,
+     "topCompanies": []
+    },
+    {
+     "id": "887689434",
+     "name": "Reveal Webinar | TAL Accounts + Fraud/Risk/Product Job Titles | LGF - Event Ad | 9.9-9.23.26",
+     "format": "SPONSORED UPDATE EVENT",
+     "impressions": 9611,
+     "clicks": 48,
+     "engagements": 56,
+     "pipeline": 0,
+     "revenue": 0,
+     "deals": 7,
+     "spend": 840,
+     "weightedPipeline": 15249,
+     "weightedRevenue": 8873,
      "influencing": false,
      "topCompanies": [
       {
@@ -14014,7 +14462,7 @@
        "stage": "1 - Sales Qualified",
        "pipeline": 0,
        "revenue": 0,
-       "impressions": 270,
+       "impressions": 257,
        "clicks": 0,
        "engagements": 0,
        "matched": true
@@ -14022,6 +14470,16 @@
       {
        "company": "Netflix",
        "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 77,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "TD",
+       "stage": "1 - Sales Qualified",
        "pipeline": 0,
        "revenue": 0,
        "impressions": 376,
@@ -14030,74 +14488,27 @@
        "matched": true
       },
       {
-       "company": "Chewy",
-       "stage": "1 - Sales Qualified",
+       "company": "Bank of America",
+       "stage": "0 - Qualification",
        "pipeline": 0,
        "revenue": 0,
-       "impressions": 133,
+       "impressions": 178,
        "clicks": 0,
        "engagements": 0,
        "matched": true
       },
       {
-       "company": "TD",
-       "stage": "1 - Sales Qualified",
-       "pipeline": 0,
-       "revenue": 0,
-       "impressions": 625,
-       "clicks": 0,
-       "engagements": 0,
-       "matched": true
-      }
-     ]
-    },
-    {
-     "id": "831945064",
-     "name": "Reveal | Remarketing | Seniority/Function | Engagement - Image/Text | 07.26",
-     "format": "IMAGE AD",
-     "impressions": 5607,
-     "clicks": 106,
-     "engagements": 115,
-     "pipeline": 0,
-     "revenue": 0,
-     "deals": 5,
-     "spend": 1013,
-     "weightedPipeline": 0,
-     "weightedRevenue": 0,
-     "influencing": false,
-     "topCompanies": [
-      {
-       "company": "TD",
-       "stage": "1 - Sales Qualified",
-       "pipeline": 0,
-       "revenue": 0,
-       "impressions": 465,
-       "clicks": 3,
-       "engagements": 0,
-       "matched": true
-      },
-      {
-       "company": "American Express",
-       "stage": "1 - Sales Qualified",
-       "pipeline": 0,
-       "revenue": 0,
-       "impressions": 400,
-       "clicks": 0,
-       "engagements": 0,
-       "matched": true
-      },
-      {
-       "company": "Netflix",
+       "company": "Intuit",
        "stage": "Closed Lost",
        "pipeline": 0,
        "revenue": 0,
-       "impressions": 171,
+       "impressions": 126,
        "clicks": 0,
        "engagements": 0,
        "matched": true
       },
       {
-       "company": "Chewy",
+       "company": "U.S. Bank",
        "stage": "1 - Sales Qualified",
        "pipeline": 0,
        "revenue": 0,
@@ -14107,16 +14518,99 @@
        "matched": true
       },
       {
-       "company": "Chime",
-       "stage": "1 - Sales Qualified",
+       "company": "PNC",
+       "stage": "Closed Lost",
        "pipeline": 0,
        "revenue": 0,
-       "impressions": 189,
+       "impressions": 106,
        "clicks": 0,
        "engagements": 0,
        "matched": true
       }
      ]
+    },
+    {
+     "id": "893082454",
+     "name": "Reveal Webinar | TAL Accounts + Fraud/Risk/Product Job Titles | Engagement - TLA | 9.9-9.23.26",
+     "format": "IMAGE AD",
+     "impressions": 6378,
+     "clicks": 195,
+     "engagements": 195,
+     "pipeline": 0,
+     "revenue": 0,
+     "deals": 5,
+     "spend": 741,
+     "weightedPipeline": 10453,
+     "weightedRevenue": 0,
+     "influencing": false,
+     "topCompanies": [
+      {
+       "company": "TD",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 434,
+       "clicks": 9,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Bank of America",
+       "stage": "0 - Qualification",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 229,
+       "clicks": 8,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "PNC",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 110,
+       "clicks": 4,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "American Express",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 107,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "U.S. Bank",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 207,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      }
+     ]
+    },
+    {
+     "id": "899906884",
+     "name": "G2E TLAs | Gaming Accounts + Fraud/Risk/Product Job Titles | Engagement - Image/Text | 9.21 - 9.27",
+     "format": "IMAGE AD",
+     "impressions": 1542,
+     "clicks": 26,
+     "engagements": 26,
+     "pipeline": 0,
+     "revenue": 0,
+     "deals": 0,
+     "spend": 218,
+     "weightedPipeline": 1177,
+     "weightedRevenue": 33273,
+     "influencing": false,
+     "topCompanies": []
     },
     {
      "id": "901462824",
@@ -14127,7 +14621,7 @@
      "engagements": 3883,
      "pipeline": 0,
      "revenue": 0,
-     "deals": 6,
+     "deals": 8,
      "spend": 2500,
      "weightedPipeline": 0,
      "weightedRevenue": 0,
@@ -14192,6 +14686,26 @@
        "clicks": 0,
        "engagements": 0,
        "matched": true
+      },
+      {
+       "company": "Bank of America",
+       "stage": "0 - Qualification",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 0,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Intuit",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 0,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
       }
      ]
     },
@@ -14201,11 +14715,11 @@
      "format": "CONVERSATION AD",
      "impressions": 39,
      "clicks": 2,
-     "engagements": 304,
+     "engagements": 632,
      "pipeline": 0,
      "revenue": 0,
-     "deals": 4,
-     "spend": 372,
+     "deals": 9,
+     "spend": 891,
      "weightedPipeline": 0,
      "weightedRevenue": 0,
      "influencing": false,
@@ -14249,6 +14763,56 @@
        "clicks": 0,
        "engagements": 0,
        "matched": true
+      },
+      {
+       "company": "Hertz",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 0,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Bank of America",
+       "stage": "0 - Qualification",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 0,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "Intuit",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 0,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "SeatGeek",
+       "stage": "Closed Lost",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 0,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
+      },
+      {
+       "company": "U.S. Bank",
+       "stage": "1 - Sales Qualified",
+       "pipeline": 0,
+       "revenue": 0,
+       "impressions": 0,
+       "clicks": 0,
+       "engagements": 0,
+       "matched": true
       }
      ]
     },
@@ -14281,23 +14845,23 @@
     }
    ],
    "totals": {
-    "impressions": 137809,
-    "deliveredImpressions": 137809,
-    "clicks": 808,
-    "engagements": 5324,
-    "spend": 11720,
-    "companiesReached": 1337,
-    "companiesEngaged": 186,
-    "weightedPipeline": 201931,
-    "weightedRevenue": 0,
-    "uniqueInfluencedDeals": 11
+    "impressions": 300696,
+    "deliveredImpressions": 300696,
+    "clicks": 1807,
+    "engagements": 6748,
+    "spend": 21523,
+    "companiesReached": 2658,
+    "companiesEngaged": 222,
+    "weightedPipeline": 567450,
+    "weightedRevenue": 278754,
+    "uniqueInfluencedDeals": 32
    },
    "months": [
-    "2026-10",
+    "2026-09",
     "2026-10"
    ],
-   "nInfluencing": 0,
-   "nAll": 10
+   "nInfluencing": 5,
+   "nAll": 14
   }
  },
  "targetAccountFilter": {
