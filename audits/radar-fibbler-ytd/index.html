@@ -742,7 +742,7 @@ function applyJourneys(resetPage){
 window.jPrev=function(){ if(jPage>0){ jPage--; applyJourneys(false);} };
 window.jNext=function(){ jPage++; applyJourneys(false); };
 function applyChartVisibility(){
- var hide=(cur==='lfm');
+ var hide=(cur==='mtd'||cur==='lfm');
  var pipeSec=document.getElementById('pipe-section');
  var revSec=document.getElementById('rev-section');
  if(pipeSec) pipeSec.hidden=hide;
