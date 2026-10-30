@@ -83,8 +83,12 @@ function render(){
  $('ads').innerHTML=sc.filter(([k])=>p.ads[k]&&p.ads[k].some(r=>r.impr>0)).map(([k,l])=>{const rs=p.ads[k];const tt=rs.reduce((a,r)=>({spend:a.spend+r.spend,impr:a.impr+r.impr,lp:a.lp+r.lp,clicks:a.clicks+r.clicks}),{spend:0,impr:0,lp:0,clicks:0});
   const ctrs=rs.filter(r=>r.impr>0).map(r=>r.lp/r.impr).sort((a,b)=>b-a).slice(0,3);const cpls=rs.filter(r=>r.lp>0).map(r=>r.spend/r.lp).sort((a,b)=>a-b).slice(0,3);
   const row=(lab,m,cls)=>`<tr class="${cls||''}"><td>${lab}</td><td>${cls?'':(PV[lab]?`<img class="th" src="${PV[lab]}" alt="${lab}" onclick="$('lbi').src=this.src;$('lb').style.display='flex'">`:'<span class="np">No preview</span>')}</td>${metr(m,0)}<td>${num(m.clicks)}</td><td>${pct(m.clicks,m.impr)}</td></tr>`;
-  return `<h3><span>${l}</span></h3><div class="tw"><table class="h-lavt"><tr><th>Version</th><th>Preview</th>${HEAD(0)}<th>Clicks</th><th>CTR</th></tr>`+rs.map(r=>hl(row(r.label,r),r,ctrs,cpls)).join('')+row('Total',tt,'tot')+'</table></div>'}).join('');
+  const as=ASORT[k];const AV={label:r=>r.label,spend:r=>r.spend,impr:r=>r.impr,lp:r=>r.lp,cpl:r=>r.lp>0?r.spend/r.lp:null,lpctr:r=>r.impr>0?r.lp/r.impr:null,clicks:r=>r.clicks,ctr:r=>r.impr>0?r.clicks/r.impr:null};
+  let rr=rs.slice();if(as){const f=AV[as.c];rr.sort((a,b)=>{const x=f(a),y=f(b);if(x===null&&y===null)return 0;if(x===null)return 1;if(y===null)return -1;return (typeof x=='string'?x.localeCompare(y,undefined,{numeric:true}):x-y)*as.d})}
+  const ah=[['label','Version'],['pv','Preview'],['spend','Spend'],['impr','Impr.'],['lp','LP Clicks'],['cpl','Cost/LP'],['lpctr','LP CTR'],['clicks','Clicks'],['ctr','CTR']].map(([c,n])=>c=='pv'?`<th>${n}</th>`:`<th class="sortable" onclick="asrt('${k}','${c}')">${n}${as&&as.c==c?(as.d>0?' &#9650;':' &#9660;'):''}</th>`).join('');
+  return `<h3><span>${l}</span></h3><div class="tw"><table class="h-lavt"><tr>${ah}</tr>`+rr.map(r=>hl(row(r.label,r),r,ctrs,cpls)).join('')+row('Total',tt,'tot')+'</table></div>'}).join('');
 }
+const ASORT={};function asrt(k,c){const s=ASORT[k];ASORT[k]=(s&&s.c==c)?{c,d:-s.d}:{c,d:c=='label'?1:-1};render()}
 const pg={top:0,bot:0};const SORT={top:{k:'spend',d:-1},bot:null};
 function hl(html,r,ctrs,cpls){const c=r.impr>0?r.lp/r.impr:-1,l=r.lp>0?r.spend/r.lp:null;const tds=html.split('<td>');
  // cells: 0 lead,1 label,2 preview,3 spend,4 impr,5 lp,6 cpl,7 lpctr
