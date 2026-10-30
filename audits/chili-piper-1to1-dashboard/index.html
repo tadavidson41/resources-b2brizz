@@ -31,7 +31,7 @@ th:first-child,td:first-child{text-align:left;white-space:normal}
 th{font-size:13px;font-weight:700;color:#fff}
 .h-ind th{background:var(--ind)}.h-chili th{background:var(--chili)}.h-navy th{background:var(--ink)}.h-lavt th{background:#5b4fd6}
 tr:nth-child(even) td{background:#faf9fd}
-td.best{background:#d6f5df !important;color:#0f6b2f;font-weight:800}th.sortable{cursor:pointer;user-select:none}th.sortable:hover{text-decoration:underline}
+.best{background:#e6f4ea;color:#137333;font-weight:600;padding:2px 8px;border-radius:999px;display:inline-block}th.sortable{cursor:pointer;user-select:none}th.sortable:hover{text-decoration:underline}
 tr.tot td{font-weight:800;background:#fff4ee !important;border-top:2px solid var(--chili)}
 .st{display:inline-block;border-radius:999px;padding:3px 11px;font-size:12px;font-weight:800}
 .st.Active{background:#dff5e6;color:#13803a}.st.Paused{background:#ececf2;color:#4b4e5c}.st.small{background:var(--chili);color:#fff}.st.other{background:#f1f1f1;color:#888}
@@ -89,7 +89,7 @@ const pg={top:0,bot:0};const SORT={top:{k:'spend',d:-1},bot:null};
 function hl(html,r,ctrs,cpls){const c=r.impr>0?r.lp/r.impr:-1,l=r.lp>0?r.spend/r.lp:null;const tds=html.split('<td>');
  // cells: 0 lead,1 label,2 preview,3 spend,4 impr,5 lp,6 cpl,7 lpctr
  if(l!==null&&cpls.includes(l))tds[6]=tds[6].replace(/^/,'@@');if(ctrs.includes(c)&&r.impr>0)tds[7]=tds[7].replace(/^/,'@@');
- return tds.join('<td>').replace(/<td>@@/g,'<td class="best">')}
+ return tds.join('<td>').replace(/<td>@@([^<]*)<\/td>/g,'<td><span class="best">$1</span></td>')}
 function stcls(s){return s=='Active'?'Active':s=='Paused'?'Paused':s=='Audience too small'?'small':'other'}
 const COLS={top:[['name','Ad Set'],['status','Status'],['spend','Spend'],['impr','Impr.'],['lp','LP Clicks'],['cpl','Cost/LP'],['ctr','LP CTR']],
  bot:[['name','Ad Set'],['status','Status'],['obj','Campaign Obj.'],['bidv','Current bid'],['spend','Spend'],['impr','Impr.'],['lp','LP Clicks'],['cpl','Cost/LP'],['ctr','LP CTR']]};
