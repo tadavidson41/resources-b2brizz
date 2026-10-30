@@ -90,10 +90,10 @@ function render(){
 }
 const ASORT={};function asrt(k,c){const s=ASORT[k];ASORT[k]=(s&&s.c==c)?{c,d:-s.d}:{c,d:c=='label'?1:-1};render()}
 const pg={top:0,bot:0};const SORT={top:{k:'spend',d:-1},bot:null};
-function hl(html,r,ctrs,cpls){const c=r.impr>0?r.lp/r.impr:-1,l=r.lp>0?r.spend/r.lp:null;const tds=html.split('<td>');
- // cells: 0 lead,1 label,2 preview,3 spend,4 impr,5 lp,6 cpl,7 lpctr
- if(l!==null&&cpls.includes(l))tds[6]=tds[6].replace(/^/,'@@');if(ctrs.includes(c)&&r.impr>0)tds[7]=tds[7].replace(/^/,'@@');
- return tds.join('<td>').replace(/<td>@@([^<]*)<\/td>/g,'<td><span class="best">$1</span></td>')}
+function hl(html,r,ctrs,cpls){const c=r.impr>0?r.lp/r.impr:-1,l=r.lp>0?r.spend/r.lp:null;
+ // cell indexes: 0 label,1 preview,2 spend,3 impr,4 lp,5 cost/lp,6 lp ctr,7 clicks,8 ctr
+ const mark=new Set();if(l!==null&&cpls.includes(l))mark.add(5);if(r.impr>0&&ctrs.includes(c))mark.add(6);
+ let i=-1;return html.replace(/<td([^>]*)>([\s\S]*?)<\/td>/g,(m,at,inner)=>{i++;return mark.has(i)?`<td${at}><span class="best">${inner}</span></td>`:m})}
 function stcls(s){return s=='Active'?'Active':s=='Paused'?'Paused':s=='Audience too small'?'small':'other'}
 const COLS={top:[['name','Ad Set'],['status','Status'],['spend','Spend'],['impr','Impr.'],['lp','LP Clicks'],['cpl','Cost/LP'],['ctr','LP CTR']],
  bot:[['name','Ad Set'],['status','Status'],['obj','Campaign Obj.'],['bidv','Current bid'],['spend','Spend'],['impr','Impr.'],['lp','LP Clicks'],['cpl','Cost/LP'],['ctr','LP CTR']]};
