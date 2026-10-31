@@ -171,7 +171,7 @@ $('foot').innerHTML=`<b>How this was built.</b> Data: LinkedIn Ads API, daily ad
 const NAV=[['overview','Overview'],['trend-s','Daily Trend'],['fib-s','Fibbler Influence'],['att-s','Needs Attention'],['obj-s','Campaign Objective'],['targ-s','Targeting'],['top-s','Top 50'],['bot-s','Bottom 50'],['ads-s','Ad Performance'],['fat-s','Creative Fatigue']];
 $('jump').innerHTML=NAV.map(([i,l])=>`<a href="#${i}" data-t="${i}" onclick="event.preventDefault();jumpTo('${i}')">${l}</a>`).join('');
 function jumpTo(i){const el=$(i);const off=$('jump').closest('.sticky').offsetHeight+12;window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-off,behavior:'smooth'});history.replaceState(null,'','#'+i)}
-function spy(){const off=$('jump').closest('.sticky').offsetHeight+30;let cur=NAV[0][0];for(const [i] of NAV){const el=$(i);if(el&&el.getBoundingClientRect().top-off<=0)cur=i}if(window.innerHeight+window.scrollY>=document.body.scrollHeight-4){const f=$('fat-s');if(f&&f.getBoundingClientRect().top<window.innerHeight)cur='fat-s'}document.querySelectorAll('.jump a').forEach(a=>a.classList.toggle('cur',a.dataset.t==cur))}
+function spy(){const off=$('jump').closest('.sticky').offsetHeight+30;let cur=NAV[0][0];for(const [i] of NAV){const el=$(i);if(el&&el.getBoundingClientRect().top-off<=0)cur=i}if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4){const f=$('fat-s');if(f&&f.getBoundingClientRect().top<window.innerHeight)cur='fat-s'}document.querySelectorAll('.jump a').forEach(a=>a.classList.toggle('cur',a.dataset.t==cur))}
 window.addEventListener('scroll',spy,{passive:true});
-render();spy();
+render();(()=>{const z=document.createElement('div');z.id='endpad';z.style.height='calc(100vh - 160px)';document.body.appendChild(z)})();spy();
 </script></body></html>
