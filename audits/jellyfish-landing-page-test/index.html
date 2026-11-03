@@ -29,7 +29,7 @@ tr.total td{font-weight:700;background:var(--head)}
 </style></head>
 <body><div class="wrap">
 <h1>Landing page change: conversion rate before vs after</h1>
-<p class="sub">Jellyfish Google Ads. New paid landing pages and new ad copy went live Oct 14, 2026. Before = Oct 2 to Oct 13 (12 days). After = Oct 15 to Nov 3 (20 days, updated Nov 3). Brand conversions = all conversion actions (Google Ads "All conv."): GA4 Demo Request Submission, Thank You Page Reached, Email Form Submission, GLOW Video Series Submission, plus Salesforce stage imports. One person can fire both a demo submission and a thank you page view, so counts can overlap.</p>
+<p class="sub">Jellyfish Google Ads. New paid landing pages and new ad copy went live Oct 14, 2026. Before = Oct 2 to Oct 13 (12 days). After = Oct 15 to Nov 3 (20 days, updated Nov 3). Conversions = GA4 Demo Request Submission + GA4 Email Form Submission, for both brand and non-brand. Thank you page views are left out because they usually fire right after a demo submission, which would count the same person twice.</p>
 <h2>Brand: three landing pages</h2>
 <p class="sub">Ad group Branded_AlwaysOn in all three brand campaigns. Phase 1 = /request-a-demo/ (Sep 25 to Oct 6, 12 days). Phase 2 = homepage (Oct 7 to Oct 13, 7 days, the full time it ran). Phase 3 = /request-a-demo-paid/ (Oct 15 to Nov 3, 20 days). % diff compares CVR% to the previous phase.</p>
 <div class="scroll"><table>
@@ -38,14 +38,14 @@ tr.total td{font-weight:700;background:var(--head)}
 <tr><th>Clicks</th><th>Spend</th><th>Conversions</th><th>CVR%</th><th class="sep">Clicks</th><th>Spend</th><th>Conversions</th><th>CVR%</th><th>% diff vs 1</th><th class="sep">Clicks</th><th>Spend</th><th>Conversions</th><th>CVR%</th><th>% diff vs 2</th></tr>
 </thead>
 <tbody>
-<tr class="total"><td>Brand</td><td>546</td><td>$5,688</td><td>9</td><td>1.65%</td><td class="sep">302</td><td>$2,414</td><td>4</td><td>1.32%</td><td><span class="pill down">-20%</span></td><td class="sep">1,517</td><td>$17,681</td><td>14.32</td><td>0.94%</td><td><span class="pill down">-29%</span></td></tr>
+<tr class="total"><td>Brand</td><td>546</td><td>$5,688</td><td>8</td><td>1.47%</td><td class="sep">302</td><td>$2,414</td><td>3</td><td>0.99%</td><td><span class="pill down">-32%</span></td><td class="sep">1,517</td><td>$17,681</td><td>7</td><td>0.46%</td><td><span class="pill down">-54%</span></td></tr>
 </tbody></table></div>
 <p class="sub" style="margin-top:14px">Phase 3 split. The brand tests were buying broad match junk until Oct 20, then keywords moved to phrase match. The account was offline Oct 19 (pm) to Oct 21 (pm). The Maximize Clicks brand test was paused Oct 27.</p>
 <div class="scroll"><table style="min-width:600px">
 <thead><tr><th>Phase 3 window</th><th>Clicks</th><th>Conversions</th><th>CVR%</th><th>Spend</th><th>Cost per conversion</th></tr></thead>
 <tbody>
-<tr><td>Oct 15 to 19 (tests live, broad match)</td><td>719</td><td>3.65</td><td>0.51%</td><td>$8,455</td><td>$2,316</td></tr>
-<tr><td>Oct 22 to Nov 3 (after broad to phrase)</td><td>775</td><td>10.67</td><td>1.38%</td><td>$8,972</td><td>$841</td></tr>
+<tr><td>Oct 15 to 19 (tests live, broad match)</td><td>719</td><td>3</td><td>0.42%</td><td>$8,455</td><td>$2,818</td></tr>
+<tr><td>Oct 22 to Nov 3 (after broad to phrase)</td><td>775</td><td>4</td><td>0.52%</td><td>$8,972</td><td>$2,243</td></tr>
 </tbody></table></div>
 
 <h2>Non-brand: before vs after</h2>
