@@ -26,3 +26,12 @@
   for = "/assets/fonts/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Audit dashboards are private. They carry a noindex meta tag in every page, and
+# this HTTP header is the backstop in case a page ever ships without it. Do not
+# add a robots.txt Disallow for /audits/ - that would stop Google from crawling
+# the pages, which is the only way it can see the noindex and drop them.
+[[headers]]
+  for = "/audits/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive, nosnippet"
