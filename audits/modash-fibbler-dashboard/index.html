@@ -336,12 +336,13 @@ th,td{text-align:center} th:first-child,td:first-child{text-align:left}
 .empty{color:var(--s3);text-align:center;padding:18px;font-size:13px}
 #overview .cards{grid-template-columns:repeat(auto-fit,minmax(165px,1fr))}
 @media(max-width:900px){.fbar{top:0;position:relative}}
+#jt-pager[hidden]{display:none}
 </style>
 </head>
 <body>
 <div class="wrap">
 <nav class="topnav" aria-label="Page sections"><div class="topnav-inner"><div class="topnav-links">
-<a href="#overview">Overview</a><a href="#cohort">Deal Breakdown</a><a href="#campaign-breakdown">Campaigns by Deal</a><a href="#customer-journeys">Customer Journeys</a><a href="#campaign-performance">Campaign performance</a>
+<a href="#overview">Overview</a><a href="#cohort">Deal Breakdown</a><a href="#campaign-breakdown">Campaigns by Deal</a><a href="#customer-journeys">Customer Journeys</a><a href="#campaign-performance">Campaign performance</a><a href="#job-titles">Job titles</a>
 </div></div></nav>
 <div class="fbar" id="fbar" role="region" aria-label="Filters">
 <div class="fctl">
@@ -441,6 +442,15 @@ th,td{text-align:center} th:first-child,td:first-child{text-align:left}
 <div class="pager"><button type="button" id="cp-prev">Previous</button><span class="pg-info" id="cp-info"></span><button type="button" id="cp-next">Next</button></div>
 </section>
 
+<section id="job-titles" class="block">
+<h2>Job title demographics<span class="count" id="jt-count">0</span></h2>
+<p class="sech" id="jt-lead"></p>
+<p class="sech" id="jt-note"></p>
+<div class="tscroll"><table id="jt"><thead><tr>
+<th>Title</th><th>Impressions</th><th>Clicks</th><th>CTR</th>
+</tr></thead><tbody id="jt-body"></tbody></table></div>
+<div class="pager" id="jt-pager"><button type="button" id="jt-prev">Previous</button><span class="pg-info" id="jt-info"></span><button type="button" id="jt-next">Next</button><span class="showing" id="jt-showing"></span></div>
+</section>
 <div class="notes"><h3>Things to Know</h3><ul>
 <li><b>Influence.</b> A deal counts when paid LinkedIn activity before the deal reaches the selected threshold: 3+ paid clicks, 3+ paid engagements, or 50+ paid impressions. Every deal number on the page uses the same filters.</li>
 <li><b>Business type.</b> New business and Existing business are the deal type. A missing, blank, or "-" deal type counts as Existing business. A deal name containing "upsell" or "expansion" (any case) counts as Existing business even when the type says New business. A hyphen in a company name is not a missing type. All includes both types, and each deal is listed once.</li>
@@ -530,6 +540,7 @@ function render(){
  const fx=document.getElementById('fx-note');
  if(fx) fx.innerHTML='<b>Currency.</b> Ad spend is already in EUR and is not converted. Deal, pipeline, and revenue amounts are stored in USD and shown in EUR using the '+esc(FX.source)+' for '+esc(FX.dateLabel)+': 1 EUR = '+FX.usdPerEur+' USD. The same rate is used for every deal. This is a fixed-rate presentation, not the rate on each deal date. Money is rounded to the nearest euro. CPM, CPC, and spend per influenced deal use EUR spend only.';
  renderNB(FP);renderCB(FP);renderJ(FP);renderCP(FP,spend);
+ renderJT();
 }
 function renderNB(FP){
  const st=document.getElementById('fStage').value;
@@ -595,6 +606,50 @@ function renderCP(FP,spend){
  document.getElementById('cp-info').textContent=all?'All campaigns':'Page '+(cpPage+1)+' of '+pages;
  document.getElementById('cp-prev').disabled=all||cpPage===0;document.getElementById('cp-next').disabled=all||cpPage>=pages-1;
 }
+
+const JT={"groups":["Cold ads (Platform direct product promotions)","Cold Ads (Platform direct product promotions) | New April 2026","Cold Ads [Platform direct product promotions] June 2026"],"campaigns":44,"periods":{"ytd":{"start":"2026-01-01","end":"2026-11-05","rows":[["Marketing Manager",109866,584],["Marketing Specialist",91541,537],["Brand Manager",76379,318],["Marketing Director",57317,234],["Social Media Manager",56905,366],["Marketing Coordinator",55515,313],["Brand Specialist",44625,217],["Head of Marketing",43978,229],["Ecommerce Manager",43519,93],["Digital Marketing Specialist",42854,251],["Social Media Marketing Specialist",41189,269],["Senior Brand Manager",29561,100],["Digital Marketing Manager",28695,144],["Marketing Assistant",28499,163],["Chief Marketing Officer",25335,133],["Growth Specialist",24976,160],["Senior Marketing Manager",24427,107],["Head of Digital",21930,74],["Vice President Marketing",18936,92],["Marketing Executive",18186,151],["Global Marketing Specialist",17629,80],["Marketing Lead",17098,86],["Social Media Coordinator",15741,85],["Community Manager",15512,90],["Marketing Associate",14420,87],["Head of Brand",14354,75],["Media Specialist",13716,71],["Assistant Brand Manager Marketing",13248,60],["Trade Marketing Specialist",12864,78],["Manager of Marketing",12172,36],["Creative Specialist",11206,78],["Public Relations Specialist",11158,83],["Marketing Consultant",11157,85],["Assistant Merchandiser",10999,46],["Brand Director",10712,41],["Trade Marketing Manager",10664,26],["Ecommerce Specialist",10451,24],["Brand Lead",10195,45],["Senior Category Manager",9036,22],["Head of Growth",8971,37],["Associate Brand Manager",8936,38],["Senior Marketing Specialist",8712,41],["Ecommerce Coordinator",8573,20],["Media Manager",8260,37],["Senior Manager Ecommerce",8147,9],["Associate Marketing Manager",7988,26],["Creative Lead",7981,36],["Director of Brand Marketing",7981,35],["Marketing Communications Manager",7841,32],["Chief Revenue Officer",7602,33]],"ex":{"influencer":8,"content_creator":3,"generic_member":1},"allowed":{"impressions":2062681,"clicks":9696,"titles":3546},"empty":false},"l3m":{"start":"2026-08-01","end":"2026-10-31","rows":[["Brand Manager",16099,58],["Marketing Manager",13368,56],["Marketing Specialist",11306,53],["Social Media Manager",10506,57],["Brand Specialist",9499,43],["Marketing Director",7724,35],["Senior Brand Manager",7048,34],["Digital Marketing Specialist",6956,26],["Marketing Coordinator",6936,25],["Head of Marketing",6866,35],["Social Media Marketing Specialist",5944,34],["Growth Specialist",5333,26],["Digital Marketing Manager",4927,24],["Chief Marketing Officer",4566,25],["Assistant Brand Manager Marketing",4493,13],["Senior Marketing Manager",3932,24],["Vice President Marketing",3904,17],["Media Specialist",3700,15],["Marketing Lead",3434,13],["Global Marketing Specialist",3164,14],["Social Media Coordinator",3061,18],["Public Relations Specialist",2910,19],["Marketing Associate",2901,7],["Marketing Executive",2455,5],["Community Manager",2380,13],["Head of Brand",2264,12],["Trade Marketing Specialist",2180,7],["Head of Growth",2119,6],["Marketing Assistant",2114,9],["Associate Marketing Manager",2087,9],["Associate Brand Manager",2065,7],["Founder",2055,21],["Brand Director",2022,9],["Brand Lead",1999,10],["Manager of Marketing",1974,5],["Director of Brand Marketing",1946,8],["Trade Marketing Manager",1829,4],["Creative Specialist",1827,12],["Creative Strategist",1797,16],["Creative Lead",1730,8],["Public Relations Manager",1676,5],["Director of Growth",1629,10],["Communications Manager",1603,9],["Senior Category Manager",1600,5],["Marketing Strategist",1518,5],["Media Manager",1509,7],["Digital Coordinator",1453,11],["Co-Founder",1426,8],["Social Media Marketing Manager",1417,8],["Marketing Consultant",1415,6]],"ex":{"influencer":8,"content_creator":3,"generic_member":1},"allowed":{"impressions":386697,"clicks":1425,"titles":1905},"empty":false},"lfm":{"start":"2026-10-01","end":"2026-10-31","rows":[["Brand Manager",5434,17],["Marketing Manager",4913,27],["Social Media Manager",3951,16],["Marketing Specialist",3743,15],["Brand Specialist",3286,15],["Marketing Director",2925,13],["Head of Marketing",2537,16],["Digital Marketing Specialist",2525,11],["Senior Brand Manager",2525,9],["Marketing Coordinator",2246,10],["Social Media Marketing Specialist",2156,13],["Growth Specialist",1984,10],["Chief Marketing Officer",1974,9],["Digital Marketing Manager",1741,16],["Vice President Marketing",1380,8],["Senior Marketing Manager",1283,8],["Media Specialist",1215,3],["Public Relations Specialist",1123,7],["Global Marketing Specialist",1065,4],["Assistant Brand Manager Marketing",1040,5],["Social Media Coordinator",1016,0],["Founder",957,3],["Head of Brand",936,7],["Marketing Lead",936,4],["Marketing Associate",923,0],["Community Manager",902,0],["Head of Growth",868,4],["Brand Director",834,4],["Marketing Assistant",799,0],["Marketing Executive",789,0],["Creative Specialist",764,0],["Creative Strategist",732,3],["Associate Brand Manager",730,0],["Director of Brand Marketing",725,3],["Creative Lead",706,0],["Manager of Marketing",658,3],["Associate Marketing Manager",650,0],["Co-Founder",633,4],["Trade Marketing Specialist",628,0],["Public Relations Manager",623,0],["Communications Manager",596,0],["Director of Growth",575,0],["Marketing Strategist",572,0],["Chief Revenue Officer",568,3],["Social Media Marketing Manager",565,4],["Trade Marketing Manager",557,0],["Integrated Marketing Manager",543,4],["Digital Manager",538,3],["Digital Coordinator",536,7],["Senior Category Manager",520,0]],"ex":{"influencer":8,"content_creator":3,"generic_member":1},"allowed":{"impressions":136979,"clicks":395,"titles":1374},"empty":false},"mtd":{"start":"2026-11-01","end":"2026-11-05","rows":[],"ex":{},"allowed":null,"empty":true}}};
+let jtPage=0, jtPeriod=S.per;
+function jtDate(iso){const [y,m,d]=iso.split('-');return ML[+m-1]+' '+Number(d)+', '+y}
+function jtCtr(c,i){return i?(c/i*100).toFixed(2)+'%':'n/a'}
+function renderJT(){
+ if(S.per!==jtPeriod){jtPage=0;jtPeriod=S.per}
+ const P=JT.periods[S.per];
+ const rows=P.rows||[];
+ const pages=Math.max(1,Math.ceil(rows.length/15));
+ jtPage=Math.min(jtPage,pages-1);
+ const V=rows.slice(jtPage*15,jtPage*15+15);
+ const groups=JT.groups.join('; ');
+ document.getElementById('jt-count').textContent=rows.length;
+ document.getElementById('jt-lead').textContent='LinkedIn campaign-level job title demographics for '+JT.campaigns+' campaigns in three Direct Product Promotion groups: '+groups+'. Window: '+jtDate(P.start)+' to '+jtDate(P.end)+'. This table follows the time selector only. Influence and business type do not change it. These are not the titles of Fibbler-engaged accounts or people.';
+ let note='Titles containing influencer or content creator are excluded, and so is the exact title Member.';
+ const ex=P.ex||{};
+ const bits=[];
+ if(ex.influencer) bits.push(ex.influencer+' title'+(ex.influencer===1?'':'s')+' containing influencer');
+ if(ex.content_creator) bits.push(ex.content_creator+' title'+(ex.content_creator===1?'':'s')+' containing content creator');
+ if(ex.generic_member) bits.push(ex.generic_member+' generic Member title'+(ex.generic_member===1?'':'s'));
+ if(bits.length) note+=' Excluded in this window: '+bits.join(', ')+'.';
+ if(P.empty){
+  note+=' No reportable job title rows for this window. That is not proof of zero ad delivery.';
+ }else if(P.allowed){
+  const a=P.allowed;
+  note+=' Allowed titles in this window: '+n0(a.titles)+'. Their impressions are '+n0(a.impressions)+' and their clicks are '+n0(a.clicks)+' (CTR '+jtCtr(a.clicks,a.impressions)+'). The table lists the top 50 by impressions.';
+ }
+ document.getElementById('jt-note').textContent=note;
+ const body=document.getElementById('jt-body');
+ const pager=document.getElementById('jt-pager');
+ if(!rows.length){
+  body.innerHTML='<tr><td colspan="4" class="empty">No reportable job title rows for '+jtDate(P.start)+' to '+jtDate(P.end)+'. LinkedIn returned no demographic rows for this window. This is not proof of zero ad delivery.</td></tr>';
+  pager.hidden=true;
+  return;
+ }
+ pager.hidden=false;
+ body.innerHTML=V.map(r=>'<tr><td class="co">'+esc(r[0])+'</td><td class="num">'+n0(r[1])+'</td><td class="num">'+n0(r[2])+'</td><td class="num">'+jtCtr(r[2],r[1])+'</td></tr>').join('');
+ document.getElementById('jt-showing').textContent='Showing '+V.length+' of '+rows.length;
+ document.getElementById('jt-info').textContent='Page '+(jtPage+1)+' of '+pages;
+ document.getElementById('jt-prev').disabled=jtPage===0;
+ document.getElementById('jt-next').disabled=jtPage>=pages-1;
+}
+
 document.getElementById('fStage').innerHTML='<option value="">All stages</option>'+STO.map(s=>'<option>'+esc(s)+'</option>').join('');
 function applyFilters(){
  S.inf=document.getElementById('f-inf').value;
@@ -618,6 +673,7 @@ on('nb-all','change',render);on('nb-prev','click',()=>{nbPage--;render()});on('n
 on('cb-lost','change',()=>{cbPage=0;render()});on('cb-prev','click',()=>{cbPage--;render()});on('cb-next','click',()=>{cbPage++;render()});
 on('j-prev','click',()=>{jPage--;render()});on('j-next','click',()=>{jPage++;render()});
 on('cp-all','change',render);on('cp-prev','click',()=>{cpPage--;render()});on('cp-next','click',()=>{cpPage++;render()});
+on('jt-prev','click',()=>{jtPage--;renderJT()});on('jt-next','click',()=>{jtPage++;renderJT()});
 render();
 </script>
 </body>
