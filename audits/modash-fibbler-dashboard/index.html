@@ -349,7 +349,13 @@ th,td{text-align:center} th:first-child,td:first-child{text-align:left}
 #overview .cards{grid-template-columns:repeat(auto-fit,minmax(165px,1fr))}
 @media(max-width:900px){.fbar{top:0;position:relative}}
 #jt-pager[hidden]{display:none}
-#jt{min-width:1180px}
+#jt{width:100%;min-width:0;table-layout:fixed}
+#jt th,#jt td{padding:8px 6px}
+#jt th{white-space:normal;letter-spacing:.03em;line-height:1.25;vertical-align:bottom}
+#jt th:first-child,#jt td:first-child{width:24%}
+#jt td:first-child{overflow-wrap:break-word}
+#jt td.num{white-space:nowrap}
+@media(max-width:760px){#jt{min-width:740px;width:740px;table-layout:auto}}
 #month-charts[hidden]{display:none}
 </style>
 </head>
