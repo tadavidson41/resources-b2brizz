@@ -12,11 +12,11 @@
 
 
 body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400}
-h1,h2,h3,h4,.jco,.sm-co{font-family:"Mo Sans",Inter,"Helvetica Neue",Arial,sans-serif}
+h1,h2,h3,h4,.jco,.sm-co{font-family:Inter,"Helvetica Neue",Arial,sans-serif}
 .wrap{max-width:1180px;margin:0 auto;padding:40px 24px 80px}
-.topnav{position:sticky;top:0;z-index:50;background:rgba(248,249,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd);margin:0 -8px 18px;padding:10px 8px}
-.topnav-inner{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-.topnav-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.topnav{position:sticky;top:0;z-index:50;background:rgba(248,249,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd);margin:0 -8px 18px;padding:10px 8px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.topnav-inner{display:flex;gap:10px;align-items:center;justify-content:center;min-width:100%}
+.topnav-links{display:flex;gap:8px;flex-wrap:nowrap;align-items:center;justify-content:center;width:max-content;min-width:100%}
 .topnav-periods{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-left:auto}
 .topnav-periods .period-label{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--s2);font-weight:700;margin-right:2px}
 .topnav-periods .period-pill{padding:6px 11px;font-size:12px}
@@ -66,6 +66,8 @@ h2:after{content:"";display:block;width:56px;height:3px;background:#4353ff;borde
 .mcard .l{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--s2);font-weight:700}
 .mcard .v{font-size:27px;font-weight:800;margin-top:6px;letter-spacing:-.6px;font-variant-numeric:tabular-nums}
 .mcard .n{font-size:11.5px;color:var(--s3);margin-top:4px}
+.mcard.mcard-em{background:#008563;border-color:#008563;border-left-color:#006b50;color:#fff}
+.mcard.mcard-em .l,.mcard.mcard-em .v,.mcard.mcard-em .n{color:#fff}
 .box{background:var(--card);border:1px solid var(--bd);border-radius:8px;padding:18px}
 .trend{max-width:100%;overflow-x:auto}
 .vchart{display:flex;align-items:flex-end;gap:10px;min-height:260px;padding:8px 4px 0;min-width:560px}
@@ -187,7 +189,7 @@ details[open] .chev{transform:rotate(90deg)}
 .cpb-bucket{padding:14px 0 12px;border-top:1px solid var(--bd)}
 .cpb-bucket:first-of-type{border-top:none}
 .cpb-title{display:flex;align-items:baseline;gap:10px;margin:0 0 10px}
-.cpb-t{font-family:"Mo Sans",Inter,"Helvetica Neue",Arial,sans-serif;font-weight:800;font-size:19px;letter-spacing:-.3px;color:var(--tx)}
+.cpb-t{font-family:Inter,"Helvetica Neue",Arial,sans-serif;font-weight:800;font-size:19px;letter-spacing:-.3px;color:var(--tx)}
 .cpb-n{font-size:12px;color:var(--s3)}
 .cpb-stats{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px}
 .cpb-m{background:var(--white);border:1px solid var(--bd);border-radius:8px;padding:10px 8px;text-align:center}
@@ -319,8 +321,8 @@ th.sortable:focus-visible{outline:2px solid var(--blue);outline-offset:-2px}
 td.r,th.r{text-align:center}
 @media(max-width:720px){.fctl{flex:1 1 100%;align-items:stretch}.fbar select,.seg{width:100%}.seg{flex-wrap:wrap}.seg-opt{flex:1 1 auto}.seg-opt span{text-align:center;padding:8px 8px}}
 .ppill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:10.5px;font-weight:700;letter-spacing:.04em;margin-left:4px;vertical-align:1px}
-.pp-dpp{background:#d6daff;color:#0a1fff}.pp-api{background:#f0e2fc;color:#6b2fa3}.pp-other{background:#eee;color:#555}
-.st-won{background:#DCFCE7;color:#166534}.st-lost{background:#eeeef3;color:#555}.st-open{background:#ffe1f0;color:#a3195b}
+.pp-dpp{background:#d6daff;color:#0a1fff}.pp-api{background:#d6daff;color:#00053d}.pp-other{background:#eee;color:#555}
+.st-won{background:#DCFCE7;color:#166534}.st-lost{background:#eeeef3;color:#555}.st-open{background:#d6daff;color:#00053d}
 .lv{background:#fff1ea;color:#b23a0e}
 th,td{text-align:center} th:first-child,td:first-child{text-align:left}
 .eff table td,.eff table th{font-size:12.5px}
@@ -380,9 +382,8 @@ th,td{text-align:center} th:first-child,td:first-child{text-align:left}
 <div class="cards">
 <div class="mcard"><div class="l">Ad spend</div><div class="v" id="k-spend"></div><div class="n" id="k-spend-n"></div></div>
 <div class="mcard"><div class="l">Influenced deals</div><div class="v" id="k-deals"></div><div class="n" id="k-deals-n"></div></div>
-<div class="mcard"><div class="l">Pipeline created</div><div class="v" id="k-created"></div><div class="n">All stages, by create date (EUR)</div></div>
-<div class="mcard"><div class="l">Open pipeline</div><div class="v" id="k-pipe"></div><div class="n">Open stages only, by create date (EUR)</div></div>
-<div class="mcard"><div class="l">Influenced revenue</div><div class="v" id="k-rev"></div><div class="n">Closed Won by close date (EUR)</div></div>
+<div class="mcard mcard-em"><div class="l">Pipeline created</div><div class="v" id="k-created"></div><div class="n">All stages, by create date</div></div>
+<div class="mcard mcard-em"><div class="l">Influenced revenue</div><div class="v" id="k-rev"></div><div class="n">Closed Won by close date (EUR)</div></div>
 </div>
 <h2>Pipeline created by create month</h2>
 <div class="box trend" id="pipe-chart"></div>
@@ -528,7 +529,6 @@ function render(){
  document.getElementById('k-deals').textContent=n0(FP.length);
  document.getElementById('k-deals-n').textContent=open.length+' open + '+won.length+' won + '+lost.length+' lost in period';
  document.getElementById('k-created').textContent=money(created.reduce((a,d)=>a+d.amt,0));
- document.getElementById('k-pipe').textContent=money(open.reduce((a,d)=>a+d.amt,0));
  document.getElementById('k-rev').textContent=money(won.reduce((a,d)=>a+d.amt,0));
  vchart(document.getElementById('pipe-chart'),ms.map(m=>{const x=created.filter(d=>d.cr.slice(0,7)===m);return{m,v:dealEur(x.reduce((a,d)=>a+d.amt,0)),sub:x.length+' deals'}}),eur,'#4353ff');
  vchart(document.getElementById('rev-chart'),ms.map(m=>{const x=won.filter(d=>d.cl.slice(0,7)===m);return{m,v:dealEur(x.reduce((a,d)=>a+d.amt,0)),sub:x.length+' won'}}),eur,'#858fff');
@@ -592,11 +592,11 @@ function renderCP(FP,spend){
  const mc=(l,v,n)=>'<div class="mcard"><div class="l">'+l+'</div><div class="v">'+v+'</div><div class="n">'+n+'</div></div>';
  document.getElementById('cp-summary').innerHTML=mc('Spend',eur(T.s),L.length+' campaigns')+mc('Impressions',n0(T.i),'CPM '+(T.i?eur(T.s/T.i*1000):'n/a'))+mc('Clicks',n0(T.c),'CTR '+(T.i?pct(T.c/T.i):'n/a')+' · CPC '+(T.c?eur(T.s/T.c):'n/a'))+mc('Influenced deals',n0(ud.size),'Filtered deals touched by these campaigns');
  const F={};L.forEach(a=>{const k=a.f==='VIDEO'?'Video':a.f==='IMAGE AD'?'Single image':a.f;if(/spotlight/i.test(k))return;const f=F[k]||(F[k]={k,s:0,i:0,c:0,n:0,d:new Set()});f.s+=a.s;f.i+=a.i;f.c+=a.c;f.n++;(a.deals||[]).forEach(d=>f.d.add(d))});
- const FA=Object.values(F).sort((a,b)=>b.s-a.s),fs=FA.reduce((a,f)=>a+f.s,0),col=['#4353ff','#c08cf2','#ff521a','#ffa3d1','#00053d'];
+ const FA=Object.values(F).sort((a,b)=>b.s-a.s),fs=FA.reduce((a,f)=>a+f.s,0),col=['#4353ff','#858fff','#00053d','#0a1fff','#3D3855'];
  document.getElementById('cp-mix').innerHTML=fs?'<div class="mix">'+FA.map((f,i)=>'<div style="width:'+(f.s/fs*100).toFixed(1)+'%;background:'+col[i%5]+'">'+(f.s/fs>.08?Math.round(f.s/fs*100)+'%':'')+'</div>').join('')+'</div><div class="legend">'+FA.map((f,i)=>'<span><i style="background:'+col[i%5]+'"></i>'+f.k+' '+eur(f.s)+'</span>').join('')+'</div>':'<p class="empty">No spend in this period.</p>';
  const G={};L.forEach(a=>{const g=G[a.g]||(G[a.g]={k:a.g,s:0,i:0,c:0,n:0,d:new Set()});g.s+=a.s;g.i+=a.i;g.c+=a.c;g.n++;(a.deals||[]).forEach(d=>g.d.add(d))});
  const er=r=>'<tr><td>'+esc(r.k)+'</td><td>'+r.n+'</td><td>'+eur(r.s)+'</td><td>'+n0(r.i)+'</td><td>'+(r.i?pct(r.c/r.i):'n/a')+'</td><td>'+(r.i?eur(r.s/r.i*1000):'n/a')+'</td><td>'+(r.c?eur(r.s/r.c):'n/a')+'</td><td>'+r.d.size+'</td><td>'+(r.d.size?eur(r.s/r.d.size):'n/a')+'</td></tr>';
- const eh='<thead><tr><th>KEY</th><th>Campaigns</th><th>Spend</th><th>Impr.</th><th>CTR</th><th>CPM</th><th>CPC</th><th>Influenced deals</th><th>Spend per influenced deal</th></tr></thead>';
+ const eh='<thead><tr><th>KEY</th><th>Campaigns</th><th>Spend</th><th>Impr.</th><th>CTR</th><th>CPM</th><th>CPC</th><th>Influenced deals</th><th>Spend/Deal</th></tr></thead>';
  document.getElementById('cp-eff').innerHTML=L.length?'<table>'+eh.replace('KEY','Ad type')+'<tbody>'+FA.map(er).join('')+'</tbody></table><table>'+eh.replace('KEY','Campaign group')+'<tbody>'+Object.values(G).sort((a,b)=>b.s-a.s).map(er).join('')+'</tbody></table>':'';
  const all=document.getElementById('cp-all').checked,pages=Math.max(1,Math.ceil(L.length/15));cpPage=Math.min(cpPage,pages-1);
  const V=all?L:L.slice(cpPage*15,cpPage*15+15);
