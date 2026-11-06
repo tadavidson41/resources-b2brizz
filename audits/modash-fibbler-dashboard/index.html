@@ -540,7 +540,7 @@ function render(){
  document.getElementById('page-title').textContent=P[2]+' LinkedIn Ads Results';
  const infLong={clk:'3+ paid LinkedIn clicks',eng:'3+ paid LinkedIn engagements',impr:'50+ paid LinkedIn impressions'}[S.inf];
  const lvLabel=S.lv==='all'?'All business types':LVN[S.lv];
- document.getElementById('lede').textContent=P[3]+'. '+lvLabel+', deals with '+infLong+'. Pipeline uses the create date. Revenue uses the close date. Deal amounts are converted from USD to EUR. Ad spend is DPP spend in EUR.';
+ document.getElementById('lede').textContent=P[3]+'. '+lvLabel+', deals with '+infLong+'. Pipeline uses the create date. Revenue uses the close date.';
  const F=D.deals.filter(pass), FP=F.filter(inPer);
  const created=F.filter(d=>inW(d.cr)), won=F.filter(d=>isWon(d)&&inW(d.cl));
  const open=created.filter(isOpen), lost=created.filter(isLost);
