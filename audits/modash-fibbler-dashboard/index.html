@@ -83,9 +83,15 @@ h2:after{content:"";display:block;width:56px;height:3px;background:#FFA3D1;borde
 .lgline{display:inline-block;width:18px;height:3px;background:#141414;border-radius:2px;margin-right:6px;vertical-align:2px}
 .dgrid{display:grid;column-gap:8px;row-gap:6px;min-width:560px;align-items:end}
 .dval,.dlab{text-align:center;min-width:0}
-.dplot{grid-column:1 / -1;position:relative;height:200px}
-.dtracks{display:flex;height:100%;align-items:stretch}
-.dtracks .vtrack{flex:1 1 0;height:100%;max-width:none;margin:0 5px;position:relative;overflow:visible}
+.dplot{grid-column:1 / -1;position:relative;height:200px;display:flex;align-items:stretch;gap:8px}
+.yaxis{position:relative;flex:0 0 auto;height:100%}
+.ytick{position:absolute;right:0;transform:translateY(50%);font-size:11px;line-height:1;font-weight:700;color:#141414;font-variant-numeric:tabular-nums;white-space:nowrap}
+.dstage{position:relative;flex:1 1 auto;min-width:0;height:100%}
+.yline{position:absolute;left:0;right:0;height:0;border-top:1px solid rgba(20,20,20,.16);z-index:0;pointer-events:none}
+.dtracks{display:flex;height:100%;align-items:stretch;position:relative;z-index:1}
+.dtracks .vtrack{flex:1 1 0;height:100%;max-width:none;margin:0;position:relative;overflow:visible;align-items:center;background:transparent;border:none;border-radius:0}
+.dtracks .vbar{width:min(56px,72%);max-width:56px;min-height:0}
+.vline{z-index:2}
 .vline{position:absolute;left:0;right:0;top:0;bottom:0;width:100%;height:100%;pointer-events:none;overflow:visible}
 .sdot{position:absolute;left:50%;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:#141414;border:2px solid #fff;box-sizing:border-box;transform:translateY(50%);z-index:2}
 .sspend{font-size:10.5px;font-weight:700;color:#141414;text-align:center;line-height:1.2}
@@ -521,17 +527,32 @@ function dppSpend(c){return DPP.has(String(c.id))}
 function camps(){const ms=monthsIn(),A={};
  ms.forEach(m=>(D.cpm[m]||[]).forEach(c=>{if(!dppSpend(c))return;const a=A[c.id]||(A[c.id]={id:c.id,n:c.n,f:c.f,g:c.g,s:0,i:0,c:0,e:0,co:0});a.s+=c.s;a.i+=c.i;a.c+=c.c;a.e+=c.e;a.co=Math.max(a.co,c.co)}));
  return A}
+function niceMax(v){
+ if(!(v>0)) return 0;
+ const padded=v*1.15;
+ const pow=Math.pow(10,Math.floor(Math.log10(padded)));
+ const n=padded/pow;
+ const nice=n<=1?1:n<=2?2:n<=2.5?2.5:n<=5?5:10;
+ return nice*pow;
+}
 function dualChart(el,rows,barColor,barLabel){
- const bMax=Math.max(0,...rows.map(r=>r.v)), sMax=Math.max(0,...rows.map(r=>r.spend));
- const bmx=bMax||1, smx=sMax||1, n=Math.max(1,rows.length);
- const pts=rows.map((r,i)=>((i+0.5)/n*100).toFixed(2)+','+((1-r.spend/smx)*100).toFixed(2)).join(' ');
+ const dataMax=Math.max(0,...rows.map(r=>Math.max(r.v||0,r.spend||0)));
+ const scale=niceMax(dataMax);
+ const denom=scale||1;
+ const n=Math.max(1,rows.length);
+ const pct=v=>Math.max(0,v)/denom*100;
+ const pts=rows.map((r,i)=>((i+0.5)/n*100).toFixed(2)+','+(100-pct(r.spend)).toFixed(2)).join(' ');
  const vals=rows.map(r=>'<div class="dval"><div class="vval">'+eur(r.v)+(r.sub?'<span class="vsub">'+esc(r.sub)+'</span>':'')+'</div></div>').join('');
  const tracks=rows.map(r=>{
-  const tip=ml(r.m)+(r.m==='2026-11'?' partial month, 5 of 30 days.':'')+' '+barLabel+' '+eur(r.v)+'. DPP spend, three product promotion groups, '+eur(r.spend)+'. Bar scale and line scale are separate euros.';
-  return '<div class="vtrack"><div class="vbar" style="height:'+(r.v>0?(r.v/bmx*100).toFixed(1):'0')+'%;background:'+barColor+'"></div><span class="sdot" style="bottom:'+(r.spend/smx*100).toFixed(1)+'%" title="'+esc(tip)+'"></span></div>';
+  const tip=ml(r.m)+(r.m==='2026-11'?' partial month, 5 of 30 days.':'')+' '+barLabel+' '+eur(r.v)+'. DPP spend '+eur(r.spend)+'.';
+  const bh=r.v>0?pct(r.v).toFixed(1):'0';
+  return '<div class="vtrack" title="'+esc(tip)+'"><div class="vbar" style="height:'+bh+'%;'+(r.v>0?'min-height:2px;':'')+'background:'+barColor+'"></div><span class="sdot" style="bottom:'+pct(r.spend).toFixed(1)+'%"></span></div>';
  }).join('');
  const labs=rows.map(r=>'<div class="dlab"><div class="vlab">'+ml(r.m)+(r.m==='2026-11'?'<span class="mtd">MTD</span>':'')+'</div><div class="sspend">'+eur(r.spend)+'</div></div>').join('');
- el.innerHTML='<div class="vlegend"><span><i class="lgbar" style="background:'+barColor+'"></i>'+esc(barLabel)+', EUR. Bar scale 0 to '+eur(bMax)+'.</span><span><i class="lgline"></i>DPP spend, three product promotion groups, EUR. Separate line scale 0 to '+eur(sMax)+'. Same months. Does not change with influence or business type.</span></div><div class="dgrid" style="grid-template-columns:repeat('+n+',minmax(52px,1fr))">'+vals+'<div class="dplot" role="img" aria-label="'+esc(barLabel)+' bars and DPP spend for the three product promotion groups line by month"><div class="dtracks">'+tracks+'</div><svg class="vline" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline points="'+pts+'" fill="none" stroke="#141414" stroke-width="2.5" vector-effect="non-scaling-stroke" stroke-linejoin="round" stroke-linecap="round"/></svg></div>'+labs+'</div>';
+ const tickVals=scale>0?[0,1,2,3,4].map(i=>scale*i/4):[0];
+ const lines=tickVals.map(tv=>'<div class="yline" style="bottom:'+(scale?tv/scale*100:0)+'%"></div>').join('');
+ const tickLabs=tickVals.map(tv=>'<div class="ytick" style="bottom:'+(scale?tv/scale*100:0)+'%">'+eur(tv)+'</div>').join('');
+ el.innerHTML='<div class="vlegend"><span><i class="lgbar" style="background:'+barColor+'"></i>'+esc(barLabel)+'</span><span><i class="lgline"></i>DPP spend</span></div><div class="dgrid" style="grid-template-columns:repeat('+n+',minmax(52px,1fr))">'+vals+'<div class="dplot" role="img" aria-label="'+esc(barLabel)+' and DPP spend by month, euros 0 to '+esc(eur(scale))+'"><div class="yaxis">'+tickLabs+'</div><div class="dstage">'+lines+'<div class="dtracks">'+tracks+'</div><svg class="vline" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline points="'+pts+'" fill="none" stroke="#141414" stroke-width="2.5" vector-effect="non-scaling-stroke" stroke-linejoin="round" stroke-linecap="round"/></svg></div></div>'+labs+'</div>';
 }
 let nbSort={k:'stage',dir:1},nbPage=0,cbPage=0,jPage=0,cpPage=0;
 function syncControls(){
@@ -564,7 +585,7 @@ function render(){
  dualChart(document.getElementById('pipe-chart'),ms.map(m=>{const x=created.filter(d=>d.cr.slice(0,7)===m);return{m,v:dealEur(x.reduce((a,d)=>a+d.amt,0)),spend:spendRows(m),sub:x.length+' deals'}}),'#FFA3D1','Pipeline created');
  dualChart(document.getElementById('rev-chart'),ms.map(m=>{const x=won.filter(d=>d.cl.slice(0,7)===m);return{m,v:dealEur(x.reduce((a,d)=>a+d.amt,0)),spend:spendRows(m),sub:x.length+' won'}}),'#CAB8FF','Influenced revenue');
  const part=ms.includes('2026-11')?' November 2026 covers 5 of 30 days.':'';
- const spendLine=' The black line is DPP spend for the three product promotion groups in EUR for the three Direct Product Promotion groups, on its own scale. It is not influenced-only spend, and influence or business type does not change it.'+part;
+ const spendLine=' The line is DPP spend for the three product promotion groups, on the same euro scale as the bars. It is not influenced-only spend, and influence or business type does not change it.'+part;
  document.getElementById('pipe-note').textContent='* Bars: filtered deals by create month, in EUR.'+spendLine;
  document.getElementById('rev-note').textContent='* Bars: Closed Won from the same filtered deals, by close month, in EUR.'+spendLine;
  document.getElementById('month-charts').hidden=S.per==='lfm';
