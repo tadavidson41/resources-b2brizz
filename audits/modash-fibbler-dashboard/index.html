@@ -393,9 +393,9 @@ th,td{text-align:center} th:first-child,td:first-child{text-align:left}
 <div class="cards">
 <div class="mcard"><div class="l">Ad spend</div><div class="v" id="k-spend"></div><div class="n" id="k-spend-n"></div></div>
 <div class="mcard"><div class="l">Influenced deals</div><div class="v" id="k-deals"></div><div class="n" id="k-deals-n"></div></div>
+<div class="mcard"><div class="l">Cost per opp created</div><div class="v" id="k-cpo"></div><div class="n">Spend ÷ opportunities created, including those without amounts.</div></div>
 <div class="mcard mcard-em"><div class="l">Pipeline created</div><div class="v" id="k-created"></div><div class="n">All stages, by create date</div></div>
 <div class="mcard mcard-em"><div class="l">Influenced revenue</div><div class="v" id="k-rev"></div><div class="n">Closed Won by close date (EUR)</div></div>
-<div class="mcard"><div class="l">Cost per opp created</div><div class="v" id="k-cpo"></div><div class="n">Spend ÷ opportunities created, including those without amounts.</div></div>
 </div>
 <div id="month-charts">
 <h2>Pipeline created by create month</h2>
@@ -443,7 +443,7 @@ th,td{text-align:center} th:first-child,td:first-child{text-align:left}
 
 <section id="campaign-performance" class="block">
 <h2>Campaign performance<span class="count" id="cp-count">0</span></h2>
-<p class="sech">Every LinkedIn campaign in this snapshot that delivered in the period. Spend, impressions and clicks are Fibbler campaign totals (EUR). Influenced deals, pipeline and revenue come from the filtered deals each campaign touched, so a deal counts under every campaign that reached it. Pipeline and revenue are shown in EUR. 15 per page (or Show all).</p>
+<p class="sech">LinkedIn campaigns in the three Direct Product Promotion groups that delivered in the period. Spend, impressions and clicks are those groups only (EUR). Influenced deals, pipeline and revenue come from the filtered deals each campaign touched, so a deal counts under every campaign that reached it. Pipeline and revenue are shown in EUR. 15 per page (or Show all).</p>
 <div id="cp-summary" class="cards"></div>
 <h3 class="subh">Ad type mix (spend)</h3>
 <div id="cp-mix"></div>
@@ -468,10 +468,10 @@ th,td{text-align:center} th:first-child,td:first-child{text-align:left}
 <li><b>Business type.</b> New business and Existing business are the deal type. A missing, blank, or "-" deal type counts as Existing business. A deal name containing "upsell" or "expansion" (any case) counts as Existing business even when the type says New business. A hyphen in a company name is not a missing type. All includes both types, and each deal is listed once.</li>
 <li><b>Create vs close.</b> Pipeline, the deal table, campaign-by-deal cards, and journeys use the create date. Influenced revenue uses the close date (Closed Won only). A deal created last year and won this year counts as revenue in the period it closed.</li>
 <li><b>Pipeline.</b> Pipeline created includes every filtered deal created in the period, any stage. Open pipeline is deals that are not Closed Won or Closed Lost.</li>
-<li><b>Cost per opp created.</b> Each filtered opportunity created in the period is counted as a demo proxy, including deals with no amount. That equivalence is an assumption, not a verified demo event. The figure is full-account EUR spend divided by that count. A dash means no opportunities were created in the view.</li>
-<li id="fx-note"><b>Currency.</b> Ad spend is already in EUR and is not converted. Deal amounts are stored in USD and shown in EUR.</li>
+<li><b>Cost per opp created.</b> Each filtered opportunity created in the period is counted as a demo proxy, including deals with no amount. That equivalence is an assumption, not a verified demo event. The figure is DPP spend for the three product promotion groups divided by that count. It is not paid causal attribution. A dash means no opportunities were created in the view.</li>
+<li id="fx-note"><b>Currency.</b> Ad spend is DPP spend in EUR for the three product promotion groups and is not converted. Deal amounts are stored in USD and shown in EUR.</li>
 <li><b>Time frames.</b> YTD is Jan 1 to Nov 5, 2026. L3M is Aug 1 to Oct 31, 2026. LFM is October 2026. MTD is Nov 1 to Nov 5, 2026. November covers 5 of 30 days.</li>
-<li><b>Coverage.</b> Nov 5, 2026 snapshot for Fibbler Modash (cm3vweh7q008h8qqtv3e112i1) and LinkedIn ads account 510440948. All 58 campaigns in the extract are included. Spend sums those whole-euro rows (€164,662), which is €27 under Fibbler's same-day account total of €164,689. This file has 518 deals; Fibbler counted 519 influenced deals for Jan through Nov. Ten older campaigns appear on deal touchpoints and have no 2026 spend row. 79 deals have no campaign split.</li>
+<li><b>Coverage.</b> Nov 5, 2026 snapshot for Fibbler Modash (cm3vweh7q008h8qqtv3e112i1) and LinkedIn ads account 510440948. Spend uses the three Direct Product Promotion groups only (group IDs 691266574, 1011122604, and 1109801364; 44 campaigns). Their snapshot rows sum to €105,671 for Jan through Nov. Deal rows still include other campaigns. This file has 518 deals; Fibbler counted 519 influenced deals for Jan through Nov. Ten older campaigns appear on deal touchpoints and have no 2026 spend row. 79 deals have no campaign split.</li>
 <li><b>Ad type mix.</b> Spotlight ads are excluded. The account ran image and video ads in 2026.</li>
 </ul></div>
 </div>
@@ -510,8 +510,10 @@ function pass(d){
  return true}
 function inPer(d){return isWon(d)?inW(d.cl):inW(d.cr)}
 const dMonth=d=>(isWon(d)?d.cl:d.cr).slice(0,7);
+const DPP=new Set(["312596414","312609534","315001104","319272304","319280164","331432574","389511614","397633744","404527654","431640854","431850754","431987464","465690854","583420754","584421254","585220904","585713224","700312374","700612424","703011024","782201264","783400824","783901154","784301204","784304724","784400854","784701264","784701274","785103404","827501104","827904434","828604584","828904474","829804184","829804394","830403464","832021584","835803644","838700034","887230724","887742884","887902734","899851774","901377104"]);
+function dppSpend(c){return DPP.has(String(c.id))}
 function camps(){const ms=monthsIn(),A={};
- ms.forEach(m=>(D.cpm[m]||[]).forEach(c=>{const a=A[c.id]||(A[c.id]={id:c.id,n:c.n,f:c.f,g:c.g,s:0,i:0,c:0,e:0,co:0});a.s+=c.s;a.i+=c.i;a.c+=c.c;a.e+=c.e;a.co=Math.max(a.co,c.co)}));
+ ms.forEach(m=>(D.cpm[m]||[]).forEach(c=>{if(!dppSpend(c))return;const a=A[c.id]||(A[c.id]={id:c.id,n:c.n,f:c.f,g:c.g,s:0,i:0,c:0,e:0,co:0});a.s+=c.s;a.i+=c.i;a.c+=c.c;a.e+=c.e;a.co=Math.max(a.co,c.co)}));
  return A}
 function dualChart(el,rows,barColor,barLabel){
  const bMax=Math.max(0,...rows.map(r=>r.v)), sMax=Math.max(0,...rows.map(r=>r.spend));
@@ -519,11 +521,11 @@ function dualChart(el,rows,barColor,barLabel){
  const pts=rows.map((r,i)=>((i+0.5)/n*100).toFixed(2)+','+((1-r.spend/smx)*100).toFixed(2)).join(' ');
  const vals=rows.map(r=>'<div class="dval"><div class="vval">'+eur(r.v)+(r.sub?'<span class="vsub">'+esc(r.sub)+'</span>':'')+'</div></div>').join('');
  const tracks=rows.map(r=>{
-  const tip=ml(r.m)+(r.m==='2026-11'?' partial month, 5 of 30 days.':'')+' '+barLabel+' '+eur(r.v)+'. Full-account ad spend '+eur(r.spend)+'. Bar scale and line scale are separate euros.';
+  const tip=ml(r.m)+(r.m==='2026-11'?' partial month, 5 of 30 days.':'')+' '+barLabel+' '+eur(r.v)+'. DPP spend, three product promotion groups, '+eur(r.spend)+'. Bar scale and line scale are separate euros.';
   return '<div class="vtrack"><div class="vbar" style="height:'+(r.v>0?(r.v/bmx*100).toFixed(1):'0')+'%;background:'+barColor+'"></div><span class="sdot" style="bottom:'+(r.spend/smx*100).toFixed(1)+'%" title="'+esc(tip)+'"></span></div>';
  }).join('');
  const labs=rows.map(r=>'<div class="dlab"><div class="vlab">'+ml(r.m)+(r.m==='2026-11'?'<span class="mtd">MTD</span>':'')+'</div><div class="sspend">'+eur(r.spend)+'</div></div>').join('');
- el.innerHTML='<div class="vlegend"><span><i class="lgbar" style="background:'+barColor+'"></i>'+esc(barLabel)+', EUR. Bar scale 0 to '+eur(bMax)+'.</span><span><i class="lgline"></i>Full-account ad spend, EUR. Separate line scale 0 to '+eur(sMax)+'. Same months. Does not change with influence or business type.</span></div><div class="dgrid" style="grid-template-columns:repeat('+n+',minmax(52px,1fr))">'+vals+'<div class="dplot" role="img" aria-label="'+esc(barLabel)+' bars and full-account ad spend line by month"><div class="dtracks">'+tracks+'</div><svg class="vline" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline points="'+pts+'" fill="none" stroke="#141414" stroke-width="2.5" vector-effect="non-scaling-stroke" stroke-linejoin="round" stroke-linecap="round"/></svg></div>'+labs+'</div>';
+ el.innerHTML='<div class="vlegend"><span><i class="lgbar" style="background:'+barColor+'"></i>'+esc(barLabel)+', EUR. Bar scale 0 to '+eur(bMax)+'.</span><span><i class="lgline"></i>DPP spend, three product promotion groups, EUR. Separate line scale 0 to '+eur(sMax)+'. Same months. Does not change with influence or business type.</span></div><div class="dgrid" style="grid-template-columns:repeat('+n+',minmax(52px,1fr))">'+vals+'<div class="dplot" role="img" aria-label="'+esc(barLabel)+' bars and DPP spend for the three product promotion groups line by month"><div class="dtracks">'+tracks+'</div><svg class="vline" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline points="'+pts+'" fill="none" stroke="#141414" stroke-width="2.5" vector-effect="non-scaling-stroke" stroke-linejoin="round" stroke-linecap="round"/></svg></div>'+labs+'</div>';
 }
 let nbSort={k:'stage',dir:1},nbPage=0,cbPage=0,jPage=0,cpPage=0;
 function syncControls(){
@@ -538,13 +540,13 @@ function render(){
  document.getElementById('page-title').textContent=P[2]+' LinkedIn Ads Results';
  const infLong={clk:'3+ paid LinkedIn clicks',eng:'3+ paid LinkedIn engagements',impr:'50+ paid LinkedIn impressions'}[S.inf];
  const lvLabel=S.lv==='all'?'All business types':LVN[S.lv];
- document.getElementById('lede').textContent=P[3]+'. '+lvLabel+', deals with '+infLong+'. Pipeline uses the create date. Revenue uses the close date. Deal amounts are converted from USD to EUR. Ad spend is already EUR.';
+ document.getElementById('lede').textContent=P[3]+'. '+lvLabel+', deals with '+infLong+'. Pipeline uses the create date. Revenue uses the close date. Deal amounts are converted from USD to EUR. Ad spend is DPP spend in EUR.';
  const F=D.deals.filter(pass), FP=F.filter(inPer);
  const created=F.filter(d=>inW(d.cr)), won=F.filter(d=>isWon(d)&&inW(d.cl));
  const open=created.filter(isOpen), lost=created.filter(isLost);
- let spend=0;const sm={};ms.forEach(m=>{sm[m]=0;(D.cpm[m]||[]).forEach(c=>{spend+=c.s;sm[m]+=c.s})});
+ let spend=0;const sm={};ms.forEach(m=>{sm[m]=0;(D.cpm[m]||[]).forEach(c=>{if(!dppSpend(c))return;spend+=c.s;sm[m]+=c.s})});
  document.getElementById('k-spend').textContent=eur(spend);
- document.getElementById('k-spend-n').textContent='Full-account spend, all campaigns here, '+ml(ms[0])+(ms.length>1?' to '+ml(ms[ms.length-1]):'')+(ms.includes('2026-11')?' (Nov MTD)':'');
+ document.getElementById('k-spend-n').textContent='DPP spend, three product promotion groups, '+ml(ms[0])+(ms.length>1?' to '+ml(ms[ms.length-1]):'')+(ms.includes('2026-11')?' (Nov MTD)':'');
  document.getElementById('k-deals').textContent=n0(FP.length);
  document.getElementById('k-deals-n').textContent=open.length+' open + '+won.length+' won + '+lost.length+' lost in period';
  document.getElementById('k-created').textContent=money(created.reduce((a,d)=>a+d.amt,0));
@@ -556,12 +558,12 @@ function render(){
  dualChart(document.getElementById('pipe-chart'),ms.map(m=>{const x=created.filter(d=>d.cr.slice(0,7)===m);return{m,v:dealEur(x.reduce((a,d)=>a+d.amt,0)),spend:spendRows(m),sub:x.length+' deals'}}),'#FFA3D1','Pipeline created');
  dualChart(document.getElementById('rev-chart'),ms.map(m=>{const x=won.filter(d=>d.cl.slice(0,7)===m);return{m,v:dealEur(x.reduce((a,d)=>a+d.amt,0)),spend:spendRows(m),sub:x.length+' won'}}),'#CAB8FF','Influenced revenue');
  const part=ms.includes('2026-11')?' November 2026 covers 5 of 30 days.':'';
- const spendLine=' The black line is full-account ad spend in EUR for every campaign in this snapshot, on its own scale. It is not influenced-only spend, and influence or business type does not change it.'+part;
+ const spendLine=' The black line is DPP spend for the three product promotion groups in EUR for the three Direct Product Promotion groups, on its own scale. It is not influenced-only spend, and influence or business type does not change it.'+part;
  document.getElementById('pipe-note').textContent='* Bars: filtered deals by create month, in EUR.'+spendLine;
  document.getElementById('rev-note').textContent='* Bars: Closed Won from the same filtered deals, by close month, in EUR.'+spendLine;
  document.getElementById('month-charts').hidden=S.per==='lfm';
  const fx=document.getElementById('fx-note');
- if(fx) fx.innerHTML='<b>Currency.</b> Ad spend is already in EUR and is not converted. Deal, pipeline, and revenue amounts are stored in USD and shown in EUR using the '+esc(FX.source)+' for '+esc(FX.dateLabel)+': 1 EUR = '+FX.usdPerEur+' USD. The same rate is used for every deal. This is a fixed-rate presentation, not the rate on each deal date. Money is rounded to the nearest euro. CPM, CPC, and spend per influenced deal use EUR spend only.';
+ if(fx) fx.innerHTML='<b>Currency.</b> Ad spend is DPP spend in EUR for the three product promotion groups and is not converted. Deal, pipeline, and revenue amounts are stored in USD and shown in EUR using the '+esc(FX.source)+' for '+esc(FX.dateLabel)+': 1 EUR = '+FX.usdPerEur+' USD. The same rate is used for every deal. This is a fixed-rate presentation, not the rate on each deal date. Money is rounded to the nearest euro. CPM, CPC, and spend per influenced deal use EUR spend only.';
  renderNB(FP);renderCB(FP);renderJ(FP);renderCP(FP,spend);
  renderJT();
 }
@@ -592,10 +594,10 @@ function renderCB(FP){
  document.getElementById('cb-info').textContent='Page '+(cbPage+1)+' of '+pages;
  document.getElementById('cb-prev').disabled=cbPage===0;document.getElementById('cb-next').disabled=cbPage>=pages-1;
 }
-function ytdCPM(){let s=0,i=0;D.months.forEach(m=>(D.cpm[m]||[]).forEach(c=>{s+=c.s;i+=c.i}));return i?s/i*1000:0}
+function ytdCPM(){let s=0,i=0;D.months.forEach(m=>(D.cpm[m]||[]).forEach(c=>{if(!dppSpend(c))return;s+=c.s;i+=c.i}));return i?s/i*1000:0}
 function renderJ(FP){
  const cpm=ytdCPM();
- document.getElementById('j-cpm').textContent='Est. Spend: paid impressions / 1,000 x '+eur(cpm)+' CPM. The CPM is the 2026 YTD blended CPM for every campaign in this snapshot ('+eur(cpm)+'). It is an estimate, not booked spend.';
+ document.getElementById('j-cpm').textContent='Est. Spend: paid impressions / 1,000 x '+eur(cpm)+' CPM. The CPM is the 2026 YTD blended CPM for the three Direct Product Promotion groups ('+eur(cpm)+'). It is an estimate, not booked spend.';
  const R=FP.filter(d=>!isLost(d)).sort((a,b)=>b.amt-a.amt);
  const pages=Math.max(1,Math.ceil(R.length/15));jPage=Math.min(jPage,pages-1);
  const V=R.slice(jPage*15,jPage*15+15);
