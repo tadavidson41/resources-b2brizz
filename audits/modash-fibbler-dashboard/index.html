@@ -395,6 +395,7 @@ th,td{text-align:center} th:first-child,td:first-child{text-align:left}
 <div class="mcard"><div class="l">Influenced deals</div><div class="v" id="k-deals"></div><div class="n" id="k-deals-n"></div></div>
 <div class="mcard mcard-em"><div class="l">Pipeline created</div><div class="v" id="k-created"></div><div class="n">All stages, by create date</div></div>
 <div class="mcard mcard-em"><div class="l">Influenced revenue</div><div class="v" id="k-rev"></div><div class="n">Closed Won by close date (EUR)</div></div>
+<div class="mcard"><div class="l">Cost per opp created</div><div class="v" id="k-cpo"></div><div class="n">Spend ÷ opportunities created, including those without amounts.</div></div>
 </div>
 <div id="month-charts">
 <h2>Pipeline created by create month</h2>
@@ -467,6 +468,7 @@ th,td{text-align:center} th:first-child,td:first-child{text-align:left}
 <li><b>Business type.</b> New business and Existing business are the deal type. A missing, blank, or "-" deal type counts as Existing business. A deal name containing "upsell" or "expansion" (any case) counts as Existing business even when the type says New business. A hyphen in a company name is not a missing type. All includes both types, and each deal is listed once.</li>
 <li><b>Create vs close.</b> Pipeline, the deal table, campaign-by-deal cards, and journeys use the create date. Influenced revenue uses the close date (Closed Won only). A deal created last year and won this year counts as revenue in the period it closed.</li>
 <li><b>Pipeline.</b> Pipeline created includes every filtered deal created in the period, any stage. Open pipeline is deals that are not Closed Won or Closed Lost.</li>
+<li><b>Cost per opp created.</b> Each filtered opportunity created in the period is counted as a demo proxy, including deals with no amount. That equivalence is an assumption, not a verified demo event. The figure is full-account EUR spend divided by that count. A dash means no opportunities were created in the view.</li>
 <li id="fx-note"><b>Currency.</b> Ad spend is already in EUR and is not converted. Deal amounts are stored in USD and shown in EUR.</li>
 <li><b>Time frames.</b> YTD is Jan 1 to Nov 5, 2026. L3M is Aug 1 to Oct 31, 2026. LFM is October 2026. MTD is Nov 1 to Nov 5, 2026. November covers 5 of 30 days.</li>
 <li><b>Coverage.</b> Nov 5, 2026 snapshot for Fibbler Modash (cm3vweh7q008h8qqtv3e112i1) and LinkedIn ads account 510440948. All 58 campaigns in the extract are included. Spend sums those whole-euro rows (€164,662), which is €27 under Fibbler's same-day account total of €164,689. This file has 518 deals; Fibbler counted 519 influenced deals for Jan through Nov. Ten older campaigns appear on deal touchpoints and have no 2026 spend row. 79 deals have no campaign split.</li>
@@ -547,6 +549,9 @@ function render(){
  document.getElementById('k-deals-n').textContent=open.length+' open + '+won.length+' won + '+lost.length+' lost in period';
  document.getElementById('k-created').textContent=money(created.reduce((a,d)=>a+d.amt,0));
  document.getElementById('k-rev').textContent=money(won.reduce((a,d)=>a+d.amt,0));
+ const cpo=document.getElementById('k-cpo');
+ if(created.length){cpo.textContent=eur(spend/created.length);cpo.removeAttribute('title');}
+ else{cpo.textContent='\u2014';cpo.title='Unavailable';}
  const spendRows=m=>sm[m]||0;
  dualChart(document.getElementById('pipe-chart'),ms.map(m=>{const x=created.filter(d=>d.cr.slice(0,7)===m);return{m,v:dealEur(x.reduce((a,d)=>a+d.amt,0)),spend:spendRows(m),sub:x.length+' deals'}}),'#FFA3D1','Pipeline created');
  dualChart(document.getElementById('rev-chart'),ms.map(m=>{const x=won.filter(d=>d.cl.slice(0,7)===m);return{m,v:dealEur(x.reduce((a,d)=>a+d.amt,0)),spend:spendRows(m),sub:x.length+' won'}}),'#CAB8FF','Influenced revenue');
