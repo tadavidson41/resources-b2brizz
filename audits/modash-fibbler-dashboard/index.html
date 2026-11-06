@@ -350,6 +350,7 @@ th,td{text-align:center} th:first-child,td:first-child{text-align:left}
 @media(max-width:900px){.fbar{top:0;position:relative}}
 #jt-pager[hidden]{display:none}
 #jt{min-width:1180px}
+#month-charts[hidden]{display:none}
 </style>
 </head>
 <body>
@@ -395,12 +396,14 @@ th,td{text-align:center} th:first-child,td:first-child{text-align:left}
 <div class="mcard mcard-em"><div class="l">Pipeline created</div><div class="v" id="k-created"></div><div class="n">All stages, by create date</div></div>
 <div class="mcard mcard-em"><div class="l">Influenced revenue</div><div class="v" id="k-rev"></div><div class="n">Closed Won by close date (EUR)</div></div>
 </div>
+<div id="month-charts">
 <h2>Pipeline created by create month</h2>
 <div class="box trend" id="pipe-chart"></div>
 <p class="sech-note" id="pipe-note"></p>
 <h2>Influenced revenue by close month</h2>
 <div class="box trend" id="rev-chart"></div>
 <p class="sech-note" id="rev-note"></p>
+</div>
 </section>
 
 <section id="cohort" class="block">
@@ -539,7 +542,7 @@ function render(){
  const open=created.filter(isOpen), lost=created.filter(isLost);
  let spend=0;const sm={};ms.forEach(m=>{sm[m]=0;(D.cpm[m]||[]).forEach(c=>{spend+=c.s;sm[m]+=c.s})});
  document.getElementById('k-spend').textContent=eur(spend);
- document.getElementById('k-spend-n').textContent='Full-account spend, all campaigns in this snapshot, '+ml(ms[0])+(ms.length>1?' to '+ml(ms[ms.length-1]):'')+(ms.includes('2026-11')?' (Nov MTD)':'');
+ document.getElementById('k-spend-n').textContent='Full-account spend, all campaigns here, '+ml(ms[0])+(ms.length>1?' to '+ml(ms[ms.length-1]):'')+(ms.includes('2026-11')?' (Nov MTD)':'');
  document.getElementById('k-deals').textContent=n0(FP.length);
  document.getElementById('k-deals-n').textContent=open.length+' open + '+won.length+' won + '+lost.length+' lost in period';
  document.getElementById('k-created').textContent=money(created.reduce((a,d)=>a+d.amt,0));
@@ -551,6 +554,7 @@ function render(){
  const spendLine=' The black line is full-account ad spend in EUR for every campaign in this snapshot, on its own scale. It is not influenced-only spend, and influence or business type does not change it.'+part;
  document.getElementById('pipe-note').textContent='* Bars: filtered deals by create month, in EUR.'+spendLine;
  document.getElementById('rev-note').textContent='* Bars: Closed Won from the same filtered deals, by close month, in EUR.'+spendLine;
+ document.getElementById('month-charts').hidden=S.per==='lfm';
  const fx=document.getElementById('fx-note');
  if(fx) fx.innerHTML='<b>Currency.</b> Ad spend is already in EUR and is not converted. Deal, pipeline, and revenue amounts are stored in USD and shown in EUR using the '+esc(FX.source)+' for '+esc(FX.dateLabel)+': 1 EUR = '+FX.usdPerEur+' USD. The same rate is used for every deal. This is a fixed-rate presentation, not the rate on each deal date. Money is rounded to the nearest euro. CPM, CPC, and spend per influenced deal use EUR spend only.';
  renderNB(FP);renderCB(FP);renderJ(FP);renderCP(FP,spend);
