@@ -370,11 +370,14 @@ th,td{text-align:center} th:first-child,td:first-child{text-align:left}
 @media(max-width:760px){#jt{min-width:740px;width:740px;table-layout:auto}}
 #month-charts[hidden]{display:none}
 
-.deal-roles{margin:0 20px 20px;padding:18px 20px;background:#f7f3ff;border-radius:10px}
-.deal-roles h3{font-size:14px;margin:0 0 10px}
-.deal-role-list{margin:0 0 12px;padding-left:22px}
-.deal-role-list li{padding:3px 0}
-.deal-roles .sm-meta{display:block;margin:0;font-size:12px}
+#nb .deal-roles{margin-top:5px;font-weight:400;white-space:normal}
+#nb .deal-roles > summary{display:inline-block;padding:0;color:#6845b1;font-size:11.5px;font-weight:500;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+#nb .deal-roles > summary::after{content:' ▾';display:inline-block;margin-left:3px;text-decoration:none}
+#nb .deal-roles[open] > summary::after{content:' ▴'}
+#nb .deal-role-content{margin-top:10px;padding:12px 14px;background:#f7f3ff;border-radius:8px;min-width:220px;max-width:300px}
+#nb .deal-role-list{margin:0 0 10px;padding-left:18px;font-size:12px}
+#nb .deal-role-list li{padding:3px 0}
+#nb .deal-roles .sm-meta{display:block;margin:0;font-size:11px;line-height:1.5;white-space:normal}
 </style>
 </head>
 <body>
@@ -615,7 +618,7 @@ function renderNB(FP){
  const all=document.getElementById('nb-all').checked,pages=Math.max(1,Math.ceil(R.length/15));nbPage=Math.min(nbPage,pages-1);
  const V=all?R:R.slice(nbPage*15,nbPage*15+15);
  document.getElementById('nb-count').textContent=FP.length;
- document.getElementById('nb-body').innerHTML=V.length?V.map(d=>'<tr data-name="'+esc(d.name)+'" data-level="'+levelOf(d)+'" class="'+(isLost(d)?'lost-row':'')+'"><td class="co">'+esc(d.name)+'</td><td><span class="pill lv">'+LVN[levelOf(d)]+'</span></td><td>'+ml(dMonth(d))+'</td><td><span class="pill '+stCls(d)+'">'+esc(d.stage)+'</span></td><td class="num">'+(d.amt?money(d.amt):'<span class="noamt">No amount</span>')+'</td><td class="num">'+n0(d.impr)+'</td><td class="num">'+n0(d.clk)+'</td><td class="num">'+n0(d.eng)+'</td><td class="num">'+(d.dtc??'')+'</td></tr>').join(''):'<tr><td colspan="9" class="empty">No deals match these filters in this period.</td></tr>';
+ document.getElementById('nb-body').innerHTML=V.length?V.map(d=>'<tr data-name="'+esc(d.name)+'" data-level="'+levelOf(d)+'" class="'+(isLost(d)?'lost-row':'')+'"><td class="co">'+esc(d.name)+renderDealRoles(d)+'</td><td><span class="pill lv">'+LVN[levelOf(d)]+'</span></td><td>'+ml(dMonth(d))+'</td><td><span class="pill '+stCls(d)+'">'+esc(d.stage)+'</span></td><td class="num">'+(d.amt?money(d.amt):'<span class="noamt">No amount</span>')+'</td><td class="num">'+n0(d.impr)+'</td><td class="num">'+n0(d.clk)+'</td><td class="num">'+n0(d.eng)+'</td><td class="num">'+(d.dtc??'')+'</td></tr>').join(''):'<tr><td colspan="9" class="empty">No deals match these filters in this period.</td></tr>';
  document.getElementById('nb-showing').textContent='Showing '+V.length+' of '+R.length;
  document.getElementById('nb-info').textContent=all?'All rows':'Page '+(nbPage+1)+' of '+pages;
  document.getElementById('nb-prev').disabled=all||nbPage===0;document.getElementById('nb-next').disabled=all||nbPage>=pages-1;
@@ -629,10 +632,10 @@ function renderDealRoles(deal) {
  const content = titles.length
   ? '<ol class="deal-role-list">' + titles.map(title => '<li>' + esc(title) + '</li>').join('') + '</ol>'
   : '<p class="sm-meta">Insufficient campaign demographic data to rank job titles.</p>';
- return '<section class="deal-roles" aria-label="Possible job titles"><h3>Top five job titles based on campaign activity</h3>'
+ return '<details class="deal-roles"><summary>Influenced Job Titles</summary><div class="deal-role-content">'
   + content + '<p class="sm-meta">Estimated from campaign demographics before the deal’s create month.'
   + (titles.length ? ' Campaign coverage: ' + roles.coverage + '% of reported company impressions.' : '')
-  + '</p></section>';
+  + '</p></div></details>';
 }
 
 function renderCB(FP){
@@ -642,7 +645,7 @@ function renderCB(FP){
  const V=R.slice(cbPage*15,cbPage*15+15);
  document.getElementById('cb-count').textContent=R.length;
  document.getElementById('cb-list').innerHTML=V.length?V.map(d=>{const ti=d.camps.reduce((a,c)=>a+c.i,0),tc=d.camps.reduce((a,c)=>a+c.c,0);
-  return '<details class="card" data-name="'+esc(d.name)+'" data-level="'+levelOf(d)+'"><summary><div class="sm-top"><span class="sm-co">'+esc(d.name)+'</span><span class="sm-nums"><b>'+n0(ti)+'</b> <span class="u">impr</span> &middot; <b>'+n0(tc)+'</b> <span class="u">clicks</span> &middot; <b>'+d.camps.length+'</b> <span class="u">campaigns</span></span></div><div class="sm-sub"><span class="pill '+stCls(d)+'">'+esc(d.stage)+'</span><span class="pill lv">'+LVN[levelOf(d)]+'</span><span class="sm-meta">'+(d.amt?money(d.amt):'No amount')+' &middot; created '+d.cr+(isWon(d)?' &middot; closed '+d.cl:'')+'</span></div><span class="chev">&#8250;</span></summary><div class="tscroll"><table class="ctab"><thead><tr><th>Campaign</th><th>Impr.</th><th>Clicks</th><th>Eng.</th></tr></thead><tbody>'+d.camps.map(c=>'<tr><td>'+esc(c.n)+'</td><td class="num">'+n0(c.i)+'</td><td class="num">'+n0(c.c)+'</td><td class="num">'+n0(c.e)+'</td></tr>').join('')+'</tbody></table></div>'+renderDealRoles(d)+'</details>'}).join(''):'<p class="empty">No deals match these filters in this period.</p>';
+  return '<details class="card" data-name="'+esc(d.name)+'" data-level="'+levelOf(d)+'"><summary><div class="sm-top"><span class="sm-co">'+esc(d.name)+'</span><span class="sm-nums"><b>'+n0(ti)+'</b> <span class="u">impr</span> &middot; <b>'+n0(tc)+'</b> <span class="u">clicks</span> &middot; <b>'+d.camps.length+'</b> <span class="u">campaigns</span></span></div><div class="sm-sub"><span class="pill '+stCls(d)+'">'+esc(d.stage)+'</span><span class="pill lv">'+LVN[levelOf(d)]+'</span><span class="sm-meta">'+(d.amt?money(d.amt):'No amount')+' &middot; created '+d.cr+(isWon(d)?' &middot; closed '+d.cl:'')+'</span></div><span class="chev">&#8250;</span></summary><div class="tscroll"><table class="ctab"><thead><tr><th>Campaign</th><th>Impr.</th><th>Clicks</th><th>Eng.</th></tr></thead><tbody>'+d.camps.map(c=>'<tr><td>'+esc(c.n)+'</td><td class="num">'+n0(c.i)+'</td><td class="num">'+n0(c.c)+'</td><td class="num">'+n0(c.e)+'</td></tr>').join('')+'</tbody></table></div>'+'</details>'}).join(''):'<p class="empty">No deals match these filters in this period.</p>';
  document.getElementById('cb-showing').textContent='Showing '+V.length+' of '+R.length;
  document.getElementById('cb-info').textContent='Page '+(cbPage+1)+' of '+pages;
  document.getElementById('cb-prev').disabled=cbPage===0;document.getElementById('cb-next').disabled=cbPage>=pages-1;
