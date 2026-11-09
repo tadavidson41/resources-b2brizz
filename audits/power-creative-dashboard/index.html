@@ -46,7 +46,7 @@ h3{font-size:22px;font-weight:800;margin:0}
 .kpi .l{font-size:12.5px;color:var(--mut);font-weight:600}
 .kpi .v{font-size:30px;font-weight:800;line-height:1.05;margin:4px 0 3px}
 .kpi .c{font-size:12px;color:var(--mut)}.kpi .pr{font-size:11.5px;color:var(--mut2)}
-.good{color:var(--gr);font-weight:700}.bad{color:var(--rd);font-weight:700}
+.good{background:#E3F3E8;color:#2E6B45;font-weight:700;border-radius:6px;padding:1px 6px;white-space:nowrap;display:inline-block}.bad{color:var(--rd);font-weight:700}
 .tbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 10px}.tbar .sp{flex:1}
 .btn2{border:1px solid var(--bd);background:#fff;border-radius:8px;padding:6px 11px;cursor:pointer;font-size:12.5px;white-space:nowrap}
 .btn2:hover{border-color:var(--pu);color:var(--pu)}
@@ -56,7 +56,7 @@ h3{font-size:22px;font-weight:800;margin:0}
 .tw{overflow:auto;border:1px solid var(--bd);border-radius:10px;background:#fff}
 table{border-collapse:separate;border-spacing:0;width:100%;font-size:13px}
 th{position:sticky;top:0;background:var(--bg);z-index:2;text-align:left;font-weight:700;color:var(--mut);font-size:12px;padding:9px 10px;border-bottom:1px solid var(--bd);white-space:nowrap}
-th.s{cursor:pointer}th.s:hover{color:var(--pu)}th.n,td.n{text-align:right}
+th.s{cursor:pointer}th.s:hover{color:var(--pu)}th.n,td.n{text-align:right;white-space:nowrap}
 th.grp{text-align:center;background:var(--lav2);color:var(--eb);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;border-left:1px solid #fff}
 th.bl,td.bl{border-left:1px solid var(--bd)}
 td{padding:8px 10px;border-bottom:1px solid var(--bd2);vertical-align:middle}
@@ -78,8 +78,8 @@ tr.kid .thumb{width:84px;height:84px}
 .p-g{background:var(--grb);color:var(--gr)}.p-a{background:var(--amb);color:var(--am)}.p-n{background:#efefef;color:var(--mut)}.p-p{background:var(--lav2);color:var(--eb)}
 .tag{display:inline-block;border-radius:5px;padding:1px 6px;font-size:10.5px;font-weight:700;margin-left:6px;vertical-align:1px;background:var(--sky);color:var(--ink)}
 .tag.ent{background:var(--lav2);color:var(--eb)}.tag.grw{background:var(--grn)}.tag.rt{background:var(--pink)}
-.gv{color:var(--gr);font-weight:700}.rv{color:var(--rd);font-weight:700}
-.gv::after{content:" \2713";font-size:11px}.rv::after{content:" !";font-size:11px}
+.gv{background:#E3F3E8;color:#2E6B45;font-weight:700;border-radius:6px;padding:3px 8px;white-space:nowrap;display:inline-block;line-height:1.2}.rv{color:var(--rd);font-weight:700;white-space:nowrap}
+.rv::after{content:" !";font-size:11px}
 .legend{font-size:12px;color:var(--mut);display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:8px}
 .sub-h{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:26px 0 10px}
 .sub-h .desc{color:var(--mut);font-size:12.5px;margin-top:3px}
@@ -159,10 +159,10 @@ function themeTable(tid,sk){const p=D.periods[P];const cs=scopeC(sk);const F=D.F
   rows.push({key:th,label:D.TH[th].n,desc:D.TH[th].d,cs:arr,kids,...t})});
  const s=SORT[tid]||{c:'spend',d:-1};const sorter=(a,b)=>cmpv(AV[s.c](a),AV[s.c](b))*s.d;rows.sort(sorter);rows.forEach(r=>r.kids.sort(sorter));
  const T=tot(cs);const minS=0.05*T.spend;const elig=rows.filter(r=>r.spend>=minS&&r.impr>0);
- const cpls=elig.filter(r=>r.lp>0).map(r=>r.spend/r.lp).sort((a,b)=>a-b);const ctrs=elig.map(r=>r.lp/r.impr).sort((a,b)=>b-a);
+ const cpls=elig.filter(r=>r.lp>0).map(r=>r.spend/r.lp).sort((a,b)=>a-b);const ctrs=elig.map(r=>r.lp/r.impr).sort((a,b)=>b-a);const actrs=elig.map(r=>r.clicks/r.impr).sort((a,b)=>b-a);
  const cl=(r,v,arr,t)=>{if(v===null||!(r.spend>=minS))return t;if(arr.slice(0,3).includes(v))return `<span class="gv" title="Among the 3 best themes in this table (themes with 5%+ of spend)">${t}</span>`;if(arr.length>5&&arr.slice(-3).includes(v))return `<span class="rv" title="Among the 3 worst themes in this table (themes with 5%+ of spend)">${t}</span>`;return t};
  const o=OPEN[tid]||new Set();
- const met=(r,top)=>{const c=r.impr>0?r.lp/r.impr:null,cc=r.lp>0?r.spend/r.lp:null;return `<td class="n bl">${usd(r.spend)}</td><td class="n">${num(r.impr)}</td><td class="n">${num(r.lp)}</td><td class="n">${top?cl(r,cc,cpls,cpl(r.spend,r.lp)):cpl(r.spend,r.lp)}</td><td class="n">${top?cl(r,c,ctrs,pct(r.lp,r.impr)):pct(r.lp,r.impr)}</td><td class="n">${num(r.clicks)}</td><td class="n">${pct(r.clicks,r.impr)}</td>`};
+ const met=(r,top)=>{const c=r.impr>0?r.lp/r.impr:null,cc=r.lp>0?r.spend/r.lp:null;return `<td class="n bl">${usd(r.spend)}</td><td class="n">${num(r.impr)}</td><td class="n">${num(r.lp)}</td><td class="n">${top?cl(r,cc,cpls,cpl(r.spend,r.lp)):cpl(r.spend,r.lp)}</td><td class="n">${top?cl(r,c,ctrs,pct(r.lp,r.impr)):pct(r.lp,r.impr)}</td><td class="n">${num(r.clicks)}</td><td class="n">${top&&r.impr>0?cl(r,r.clicks/r.impr,actrs,pct(r.clicks,r.impr)):pct(r.clicks,r.impr)}</td>`};
  const body=rows.map(r=>{const op=o.has(r.key);const topN=r.kids.slice().sort((a,b)=>b.spend-a.spend).find(k=>D.NM[k.name]&&D.NM[k.name].pv);
   const h=`<tr class="th${op?' open':''}" onclick="tog('${tid}','${r.key}')" tabindex="0" onkeydown="if(event.key=='Enter')tog('${tid}','${r.key}')"><td>${topN?pvImg(topN.name):'<div class="nopv">No preview</div>'}</td><td class="lab"><span class="vlab">${esc(r.label)}</span><div class="vdesc">${esc(r.desc)}</div><div class="vdesc"><b>${r.kids.length}</b> ad ${r.kids.length==1?'concept':'concepts'}, click to ${op?'collapse':'expand'}${topN?'. Preview: top spender':''}</div></td>${met(r,1)}<td class="bl">${stPill(r.cs)}</td><td class="bl">${fatPill(F.t[r.key])}</td></tr>`;
   const k=op?r.kids.map(x=>{const pr=pretty(x.name);return `<tr class="kid"><td>${pvImg(x.name)}</td><td><span class="vlab">${esc(pr.t)}</span>${pr.v?`<span class="tag">${esc(pr.v)}</span>`:''}<div class="vdesc">${esc(D.NM[x.name].desc)}</div><div class="rawn">${esc(x.name)}</div></td>${met(x,0)}<td class="bl">${stPill(x.cs)}</td><td class="bl">${fatPill(F.n[x.name])}</td></tr>`}).join(''):'';
@@ -174,7 +174,7 @@ function themeTable(tid,sk){const p=D.periods[P];const cs=scopeC(sk);const F=D.F
  <div class="tw"><table id="${tid}"><thead><tr><th class="grp" colspan="2" style="border-left:0">Creative</th><th class="grp" colspan="7">Performance, ${esc(p.label)} (${rngT(p.start,p.end)})</th><th class="grp">Current delivery</th><th class="grp">Fatigue</th></tr>
  <tr><th>Preview</th><th class="s" onclick="srt('${tid}','label')">Theme / ad${s.c=='label'?(s.d>0?' &#9650;':' &#9660;'):''}</th>${sh('spend','Spend')}${sh('impr','Impr.')}${sh('lp','LP clicks')}${sh('cpl','Cost/LP')}${sh('lpctr','LP CTR')}${sh('clicks','Clicks')}${sh('ctr','CTR')}<th class="bl">Status now</th><th class="bl">Fixed 14-day windows</th></tr></thead>
  <tbody>${body}<tr class="tot"><td></td><td>Total</td>${met({...T},0)}<td class="bl">${stPill(cs)}</td><td class="bl">${fatPill(F.tot)}</td></tr></tbody></table></div>
- <div class="legend"><span class="gv">Green check</span><span>= among the 3 lowest Cost/LP or highest LP CTR themes.</span><span class="rv">Red !</span><span>= among the 3 worst. Only themes with 5%+ of the table's spend are flagged.</span></div>`}
+ <div class="legend"><span class="gv">Green</span><span>= among the 3 lowest Cost/LP or highest LP CTR or CTR themes.</span><span class="rv">Red !</span><span>= among the 3 worst. Only themes with 5%+ of the table's spend are flagged.</span></div>`}
 // summary table for industries / sub-industries
 function sumTable(kind){const p=D.periods[P];const list=kind=='i'?INDS.map(x=>[x,x]):SUBS.map(([s,i])=>[s,i]);
  const all=tot(D.C);const rows=list.map(([k,i])=>{const cs=scopeC(kind+':'+k);const t=tot(cs);const tiers=[...new Set(cs.map(c=>CM[c.camp].tier))];return {k,i,cs,tiers,...t}});
