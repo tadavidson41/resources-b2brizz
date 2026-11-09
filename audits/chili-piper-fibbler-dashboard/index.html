@@ -14,6 +14,7 @@
 *{box-sizing:border-box}
 @font-face{font-family:"Recoleta";src:url("fonts/Recoleta-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
 @font-face{font-family:"Inter";src:url("fonts/Inter-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"InterText";src:url("fonts/Inter-Variable.woff2") format("woff2");font-weight:100 900;font-display:swap}
 body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 "Calibre",Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400}
 h1,h2,h3,h4,.jco,.sm-co{font-family:"Recoleta",Georgia,serif}
 .wrap{max-width:1180px;margin:0 auto;padding:40px 24px 80px}
@@ -54,9 +55,9 @@ section.block > h2:first-child{margin-top:0}
 
 .hero{text-align:center;margin:0 0 8px}
 .brand{display:flex;align-items:center;justify-content:center;gap:14px}
-.brand .logo{height:40px;width:auto;min-width:100px;display:block;margin:0 auto}
+.brand .logo{height:34px;width:auto;display:block;margin:0 auto}
 .ctx{text-transform:uppercase;letter-spacing:.13em;font-size:11px;color:var(--s3);font-weight:700;margin-top:10px;text-align:center}
-h1{font-size:31px;margin:16px auto 8px;letter-spacing:-.6px;font-weight:800;text-align:center}
+h1{font-size:38.75px;margin:16px auto 8px;letter-spacing:-.6px;font-weight:800;text-align:center}
 .lede{color:var(--s2);font-size:14px;max-width:820px;margin:0 auto 18px;text-align:center;line-height:1.5}
 .sech-note{color:var(--s2);font-size:12.5px;margin:12px auto 0;text-align:center;max-width:720px;line-height:1.45}
 h2{font-size:34px;line-height:1.2;margin:36px 0 14px;letter-spacing:-.6px;font-weight:800;text-align:center;padding-bottom:12px;position:relative}
@@ -309,9 +310,7 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 .cp-eff .muted{color:var(--s3);font-weight:600}
 .what-changed{background:#fff;border:1px solid #e9e6e1;border-left:3px solid #ff5721;border-radius:10px;padding:14px 18px;margin:18px 0 4px;font-size:14px;line-height:1.55;color:var(--tx)}
 .what-changed .wc-h{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--s2);font-weight:800;margin-bottom:4px}
-.what-changed p{margin:0}
-.mcard .spark{margin-top:8px;height:30px}
-.mcard .spark svg{width:100%;height:30px;display:block}
+.what-changed p{margin:0;font-family:"InterText","Inter",system-ui,sans-serif;font-weight:400}
 .info-wrap{position:relative;display:inline-block;vertical-align:1px;margin-left:6px}
 .info-wrap .info-i{width:18px;height:18px;min-width:18px;border-radius:50%;border:1px solid #c9c0b2;background:#fff;color:var(--s2);font:italic 700 11px/16px Georgia,serif;padding:0;cursor:pointer;text-align:center}
 .info-wrap .info-i:hover,.info-wrap.open .info-i{border-color:#ff5721;color:#ff5721}
@@ -401,7 +400,7 @@ table.oc-t tr.eff-zero td{color:#a3a3b2}
 .cp-eff .effbar-v{position:relative;z-index:1}
 .cp-eff-foot{font-size:11.5px;color:var(--s3);margin:8px 2px 0;line-height:1.45;text-align:left}
 
-@media(max-width:720px){.wrap{padding:24px 14px 60px}h1{font-size:24px}}
+@media(max-width:720px){.wrap{padding:24px 14px 60px}h1{font-size:30px}}
 </style>
 <style id="logo-css">.lg-10x-genomics{background-image:url(data:image/webp;base64,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)}
 .lg-2u{background-image:url(data:image/webp;base64,UklGRl4FAABXRUJQVlA4WAoAAAAQAAAAJwAAJwAAQUxQSNYBAAABkKtt2yFJ7/f32kzNzEZq4wSMM5hrUk+0TK3hQTBfOx3bqv9/36Crq7r2CCJiAlDYAVhzqazt38DIyNDn9yUnlwFmSG0OOFL5Q0mnvlbtAVwaA3bVTkuMAvMYIkkdzzfCkjngYa/kg5IyeOnvTYNL4LDmpeSp1PTSI4MVcFjfKh9U1BCpcSUsxmxNqyKqyIzUZM4AWM690pyKz0gVyAFwuCevwpTEGMYp+JkbcHDYN0ImyI9L6PVjo5m5BnlJFONIFWQcvWpgODhFSqQyJLu2AU/klblXKVb/U5CYUWDb8stRUPbU9NEn8v+BvB40K/wPQXVdSsosWicSZUj9U0JmIU0koLKdmyiULfW3U8wjswlqbVbIS8oi1T+VT5OekrzuXfIhK0nUyO7VvxQyY2D7SlTKZ+dVChyepsRsPLu2waxWXmJxSFKiVw3MYXsfg8gUjJFEyuvnRjM43JenMgx+9hQcYM691FwWc6pADgDMFjYrYrEYqdac5cFhfbN8KE6QaheZId6w6IXkmY6RJssAQ2EHPOyVQmASBi99OwczJDVgV+20pCgwjyGS1FmzATmkNAccqfoyJUmkJE19rdwGOKR3AJadLHn/aUwa+/S+5OQywBkKA1ZQOCBiAwAAcBMAnQEqKAAoAD5RIItEI6IhFx39mDgFBLYATplvXgPAPxe/IDrKeAeUniAIW+2btIeI90gPMB+lf6d+8B/M/UB5MHWI/qB7AH7AemL7H/7O/td7Rlyr5XM+yrqeIDSszJP+Z9s3tu+h/YF/UbfZP1GE0/DBq8Q5wvGlcPwa4B//azPUdYbnaZcsIU9NzoiDB08PiM6wFgmoT2GmT00wCSrS1gAA/u6cT3VZamsZtQ+HT6JX69sKC/uRk2tOkTrsbpW6pIZfHpDyms6LX0Lvsgpsfh03fytvJvFcybxOHS//NFf8d4aB3sM+DbrHdS++DCU63Hf/kPL5cz8+eiqNgaWCVSd96iyNsJ/0Stzv/iVqy5FL25YbS01I0w5/lX//3pDs979T3A2yPKoXn3r5/+3+vSK6D8fp7Frrv39KqqpNgKR3Ft0/735rnmQcID/bwdGd7rwhQEfo42f8N9yiL4Y/BnnK2atcLw99FOiRXiaA/iBA4KaKxGbimJ3yL626I0iHgmsyESQW4nRpLCxde8f/ln+OloMv7oOR7faEJeYGyHKs6SbAMLmyVxmAmEc+DlZuu9WODWtqgukqLrigZnrHy21kPFeT9S8fJUMVf1BiPQPqLNBSct4ckdsxvLhDPZqOzEVA/9sd+lW8CuUeItS3eC1QiMKNOM3/mPbObBPdxTBz0XqLd3ND17tpzDvbrWxmffC11Wt74NOPH9jZOEB7ojM3fiMVpUJ6l2f6Ckqa7g4b6iz6x8fTfGiIJzrqj4ivfi2yp2nb3suQO9yH3xPZHuZkq+X2xw7pn/1cFwjxWEvQV+Zy/tkqYABgTHdzs94P1MHu8XezqvdVaOw+EyjYFI9QFTC/2qKeUfipsO4Sy9F5LuWjhcsjGcG5UCBgPjce/TJky3H7vMv83Xy7p78pxIMJQcYCAyY52qOt9zw3YstDjuJXUjYo3+MCf5jBLz4QuDhROHsUeH/NUP4lRsmnDJPR/QLiu/LkvkzVjL/GpdeXgWriTeEdib/iWhlBRz/XMlTcLspihTylQPbaQoBHHt3hA3bz7+QQkOp687VcoeB35bK4Uj/GFcYrtg9kXGVFvTXjziYZ9sMKXlvLkb6Ml5N17cIL/0lXxSeoMeaX9QDB26LdkqULTBL2VvOwAAA=)}
@@ -633,7 +632,7 @@ table.oc-t tr.eff-zero td{color:#a3a3b2}
 </div>
 </nav>
 <div class="hero">
-<div class="brand"><img src="data:image/png;base64,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" alt="Chili Piper" class="logo" width="180" height="40" /></div>
+<div class="brand"><img src="chili-piper-logo-horizontal-orange.svg" alt="Chili Piper" class="logo" width="157" height="34" /></div>
 <div class="ctx">LinkedIn Ads &middot; Fibbler Attribution</div>
 </div>
 <section id="overview" class="block">
@@ -644,11 +643,11 @@ table.oc-t tr.eff-zero td{color:#a3a3b2}
 <div class="ov-block ov-in">
 <div class="ov-head"><span class="dot" id="ov-dot" style="background:var(--chili)"></span><h3 id="ov-title">With partnership deals</h3></div>
 <div class="cards">
-<div class="mcard"><div class="l">Ad spend</div><div class="v" id="kpi-spend">$293,413</div><div class="cmp" id="kpi-spend-c"></div><div class="spark" id="kpi-spend-s"></div></div>
-<div class="mcard"><div class="l">Influenced deals</div><div class="v" id="kpi-deals">282</div><div class="cmp" id="kpi-deals-c"></div><div class="spark" id="kpi-deals-s"></div></div>
-<div class="mcard"><div class="l">Cost per opp</div><div class="v" id="kpi-cpo">-</div><div class="cmp" id="kpi-cpo-c"></div><div class="spark" id="kpi-cpo-s"></div></div>
-<div class="mcard"><div class="l">Influenced pipeline</div><div class="v" id="kpi-pipe">$1,288,295</div><div class="cmp" id="kpi-pipe-c"></div><div class="spark" id="kpi-pipe-s"></div></div>
-<div class="mcard"><div class="l">Influenced revenue</div><div class="v" id="kpi-rev">$3,281,384</div><div class="cmp" id="kpi-rev-c"></div><div class="spark" id="kpi-rev-s"></div></div>
+<div class="mcard"><div class="l">Ad spend</div><div class="v" id="kpi-spend">$293,413</div><div class="cmp" id="kpi-spend-c"></div></div>
+<div class="mcard"><div class="l">Influenced deals</div><div class="v" id="kpi-deals">282</div><div class="cmp" id="kpi-deals-c"></div></div>
+<div class="mcard"><div class="l">Cost per opp</div><div class="v" id="kpi-cpo">-</div><div class="cmp" id="kpi-cpo-c"></div></div>
+<div class="mcard"><div class="l">Influenced pipeline</div><div class="v" id="kpi-pipe">$1,288,295</div><div class="cmp" id="kpi-pipe-c"></div></div>
+<div class="mcard"><div class="l">Influenced revenue</div><div class="v" id="kpi-rev">$3,281,384</div><div class="cmp" id="kpi-rev-c"></div></div>
 </div>
 </div>
 
@@ -757,7 +756,7 @@ table.oc-t tr.eff-zero td{color:#a3a3b2}
 <li><b>Spend.</b> All spend is LinkedIn account spend in-window (Nov is MTD), split by campaign from LinkedIn's own delivery data. Campaign rows, buckets, and the overview KPI therefore reconcile to the same LinkedIn total. YTD account spend $293,413.</li>
 <li><b>Cost per opp.</b> Period account ad spend divided by influenced opportunities created in the period (any stage, same 3+ paid click cohort; New Business combined per company, Upsell and Cross-sell counted per deal, renewals excluded). Without partnerships divides the same spend by non-partner opportunities created.</li>
 <li><b>Period comparison.</b> Last full month compares to the month before, Last 3 months to the 3 months before, and Month to date to the same days of the prior month (deals, pipeline, and revenue only; daily spend for the prior month is not on file, so Ad spend and Cost per opp show no comparison in Month to date). YTD has no comparison because prior-year deal data is not in this pull. Prior-period deals use their current stage. Green is favorable, red unfavorable, grey neutral (spend).</li>
-<li><b>Sparklines and What changed.</b> Card sparklines show each month Jan to the current month with the same rules as the cards (the current period's months are highlighted; the partial month is dashed). What changed is generated from the same numbers: the two biggest movers vs the prior period, the buckets with the most bucket pipeline, and buckets with spend but $0 bucket pipeline. YTD has no comparison.</li>
+<li><b>What changed.</b> What changed is generated from the same numbers: the two biggest movers vs the prior period, the buckets with the most bucket pipeline, and buckets with spend but $0 bucket pipeline. YTD has no comparison.</li>
 <li><b>Deal outcomes.</b> Win rate by motion and click depth use cohort deals that closed won or lost in the period by close date; win rate = won / (won + lost). Time to opp uses Fibbler's days from the first recorded LinkedIn ad impression to opp create (and to close for wins), from the deal pull on file; LinkedIn data in Fibbler starts in December 2024, so older first touches are capped there. The Dreamdata 212 to 281 day figure is an external benchmark measured to revenue, not opp creation.</li>
 <li><b>Shared links.</b> The address bar keeps the period, partnerships switch, deal table filters and sort, campaign breakdown filters, open bucket, campaign list toggle, and journey view, so a copied link opens the same view.</li>
 <li><b>Pipeline vs revenue.</b> Open pipeline = any stage that is not Closed Won or Closed Lost (Demo highlighted yellow). Revenue = Closed Won closed in-period.</li>
@@ -1563,7 +1562,6 @@ function setPeriod(id,push){
  applyCampBreakdown();
  applyJourneys();
  applyCampaignPerf();
- renderSparks();
  renderWhatChanged();
  renderOutcomes();
  syncURL();
@@ -1699,7 +1697,7 @@ window.jumpTo=function(row){
 };
 window.addEventListener('resize',function(){ scrollAllJourneysEnd(); });
 
-// ===== Nov 9 additions: sparklines, what changed, popovers, URL state, quadrant, heatmap, outcomes =====
+// ===== Nov 9 additions: what changed, popovers, URL state, quadrant, heatmap, outcomes =====
 var READY=false, JVIEW='heat';
 var MON_FULL=['January','February','March','April','May','June','July','August','September','October','November','December'];
 var MON_ABBR=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -1713,41 +1711,6 @@ function monthWin(m){ var we=PERIODS.ytd.end; var y=+m.slice(0,4),mo=+m.slice(5,
 function fmtPct(x){ return Math.round(Math.abs(x))+'%'; }
 function joinList(a){ if(a.length<=1) return a.join(''); if(a.length===2) return a[0]+' and '+a[1]; return a.slice(0,-1).join(', ')+' and '+a[a.length-1]; }
 function infoJs(detail){ return '<span class="info-wrap"><button type="button" class="info-i" aria-expanded="false" aria-label="More detail">i</button><span class="info-pop" role="tooltip">'+detail+'</span></span>'; }
-
-// ---- 1. sparklines
-function sparkSvg(vals,hl,partial,fmt,labs){
- var W=200,H=36,pad=4,n=vals.length;
- var nums=vals.filter(function(v){return v!=null;});
- if(!nums.length) return '';
- var mx=Math.max.apply(null,nums), mn=Math.min.apply(null,nums.concat([0]));
- if(mx===mn) mx=mn+1;
- var step=n>1?(W-2*pad)/(n-1):0;
- function X(i){return pad+i*step;} function Y(v){return H-pad-(v-mn)/(mx-mn)*(H-2*pad);}
- var out='', i;
- hl.forEach(function(on,k){ if(on){ var x0=Math.max(0,X(k)-step/2), x1=Math.min(W,X(k)+step/2); out+='<rect x="'+x0.toFixed(1)+'" y="0" width="'+(x1-x0).toFixed(1)+'" height="'+H+'" fill="rgba(255,87,33,0.09)"/>'; }});
- for(i=1;i<n;i++){
-  if(vals[i-1]==null||vals[i]==null) continue;
-  var d='M'+X(i-1).toFixed(1)+' '+Y(vals[i-1]).toFixed(1)+'L'+X(i).toFixed(1)+' '+Y(vals[i]).toFixed(1);
-  var dash=partial[i]?' stroke-dasharray="3 2"':'';
-  var hot=hl[i]&&hl[i-1];
-  out+='<path d="'+d+'" stroke="'+(hot?'#ff5721':'#bdb6ac')+'" stroke-width="'+(hot?2:1.4)+'" fill="none" stroke-linecap="round"'+dash+'/>';
- }
- vals.forEach(function(v,k){ if(v!=null && hl[k]) out+='<circle cx="'+X(k).toFixed(1)+'" cy="'+Y(v).toFixed(1)+'" r="2.4" fill="#ff5721"/>'; });
- var tip=vals.map(function(v,k){ return labs[k]+(partial[k]?' (partial)':'')+': '+(v==null?'n/a':fmt(v)); }).join('\n');
- return '<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Monthly trend"><title>'+escHtml(tip)+'</title>'+out+'</svg>';
-}
-function renderSparks(){
- var ms=D.months, pm=periodMonths();
- var S={spend:[],deals:[],cpo:[],pipe:[],rev:[]};
- ms.forEach(function(m){ var w=monthWin(m); var r=kpiWindow(w.start,w.end,true);
-  S.spend.push(r.spend); S.deals.push(r.nDeals); S.cpo.push(r.cpo); S.pipe.push(r.openPipe); S.rev.push(r.wonRev); });
- var hl=ms.map(function(m){return pm.indexOf(m)>=0;});
- var part=ms.map(function(m,i){return !!D.accountPartial[i];});
- var labs=ms.map(function(m){return D.monthLabel[m]||ymLabel(m);});
- [['spend',money],['deals',fmtN],['cpo',money],['pipe',money],['rev',money]].forEach(function(k){
-  var el=document.getElementById('kpi-'+k[0]+'-s'); if(el) el.innerHTML=sparkSvg(S[k[0]],hl,part,k[1],labs);
- });
-}
 
 // ---- 2. what changed
 function bucketRows(){
