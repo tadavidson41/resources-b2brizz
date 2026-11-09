@@ -18,16 +18,6 @@
 body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 "Calibre",Inter,"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400}
 h1,h2,h3,h4,.jco,.sm-co{font-family:"Recoleta",Georgia,serif}
 .wrap{max-width:1180px;margin:0 auto;padding:40px 24px 80px}
-.topnav{position:sticky;top:0;z-index:50;background:rgba(252,250,248,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd);margin:0 -8px 18px;padding:10px 8px}
-.topnav-inner{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-.topnav-links{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
-.topnav-periods{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-left:auto}
-.topnav-periods .period-label{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--s2);font-weight:700;margin-right:2px}
-.topnav-periods .period-pill{padding:6px 11px;font-size:12px}
-.topnav a{display:inline-block;padding:8px 14px;border-radius:999px;border:1px solid var(--bd);background:var(--white);color:var(--tx);text-decoration:none;font-size:13px;font-weight:700}
-.topnav a:hover{border-color:var(--blue);color:var(--blue)}
-.topnav a:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
-@media(max-width:900px){.topnav-periods{margin-left:0;width:100%}}
 .period-bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 18px;padding:0}
 .period-label{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--s3);font-weight:700;margin-right:4px}
 .period-pill{display:inline-block;padding:8px 14px;border-radius:999px;border:1px solid var(--bd);background:var(--white);color:var(--tx);font-size:13px;font-weight:700;cursor:pointer;font:inherit}
@@ -41,7 +31,7 @@ h1,h2,h3,h4,.jco,.sm-co{font-family:"Recoleta",Georgia,serif}
 .pt-btn.active{background:var(--navy);color:#fff}
 .pt-note{font-size:12px;color:var(--s2);text-align:center;margin:6px 0 0}
 .period-pill:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
-section[id]{scroll-margin-top:88px}
+section[id],[id].block{scroll-margin-top:calc(var(--navh,53px) + 14px)}
 section.block{position:relative;padding:34px 32px 40px;margin:0;border:1px solid #e2dcd2;border-radius:18px;box-shadow:0 1px 3px rgba(19,22,36,.05);background:#fff}
 section.block + section.block{margin-top:64px}
 section.block + section.block:before{content:"";position:absolute;left:4%;right:4%;top:-34px;height:3px;border-radius:3px;background:#c9c0b2}
@@ -322,18 +312,30 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 .sech-short{font-size:13.5px}
 .dc-badge{display:inline-block;margin-left:8px;padding:2px 8px;border-radius:6px;background:#ECEBF0;color:#5a5a6e;font-family:"Inter",system-ui,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:3px}
 .sm-deal{display:inline-block;margin-left:8px;font-family:"Inter",system-ui,sans-serif;font-size:12px;font-weight:600;color:var(--s2)}
-section.block{scroll-margin-top:96px}
-.topnav .pt-lab{margin-left:8px}
-.topnav .pt-btn{font-size:12px}
-@media(max-width:600px){
- .topnav{padding:8px 8px}
- .topnav-inner{flex-direction:column;align-items:stretch;gap:6px}
- .topnav-links,.topnav-periods{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-left:0;width:100%;-webkit-overflow-scrolling:touch}
- .topnav-links::-webkit-scrollbar,.topnav-periods::-webkit-scrollbar{display:none}
- .topnav a{padding:5px 10px;font-size:12px;white-space:nowrap}
- .topnav .period-pill,.topnav .period-label,.topnav .pt-seg{white-space:nowrap;flex:none}
- section.block{scroll-margin-top:110px}
+/* slim sticky nav (option 1) */
+.topnav{position:sticky;top:0;z-index:100;background:#fcfaf8;border-bottom:1px solid var(--bd);width:100%}
+.topnav .slim-inner{max-width:1180px;margin:0 auto;padding:0 24px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.topnav .tabs{display:flex;gap:4px;align-items:center;height:100%;min-width:0}
+.topnav a.tab{display:flex;align-items:center;height:100%;padding:0 12px;border:0;border-radius:0;background:transparent;font:700 13px/1 Inter,system-ui,sans-serif;color:var(--s2);text-decoration:none;position:relative;white-space:nowrap}
+.topnav a.tab:hover{color:var(--tx);border:0}
+.topnav a.tab.active{color:var(--tx)}
+.topnav a.tab.active::after{content:"";position:absolute;left:10px;right:10px;bottom:0;height:3px;background:#ff5721;border-radius:3px 3px 0 0}
+.topnav a.tab:focus-visible{outline:2px solid #ff5721;outline-offset:-2px}
+.topnav .filters{display:flex;align-items:center;gap:10px;flex:none}
+.topnav .flab{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--s3);margin-right:2px}
+.topnav .seg{display:inline-flex;border:1px solid var(--bd);border-radius:999px;background:#fff;padding:2px}
+.topnav .seg button{border:0;background:transparent;padding:6px 11px;border-radius:999px;font:700 12px/1 Inter,system-ui,sans-serif;color:var(--s2);cursor:pointer;white-space:nowrap}
+.topnav .seg button:hover{color:var(--tx)}
+.topnav .seg button.active{background:#ff5721;color:#fff}
+.topnav .seg button:focus-visible{outline:2px solid #ff5721;outline-offset:1px}
+@media(max-width:980px){.topnav .slim-inner{padding:0 14px;gap:10px}.topnav a.tab{padding:0 9px}}
+@media(max-width:860px){
+ .topnav .slim-inner{flex-wrap:wrap;height:auto;padding:0 12px 8px;row-gap:6px}
+ .topnav .tabs{width:100%;height:44px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+ .topnav .tabs::-webkit-scrollbar{display:none}
+ .topnav .filters{width:100%;flex-wrap:wrap;gap:6px 8px}
 }
+@media(max-width:520px){.topnav a.tab{padding:0 8px;font-size:12.5px}.topnav .filters{flex-wrap:nowrap;justify-content:space-between}.topnav .seg button{padding:6px 9px}.topnav .flab{display:none}}
 .jv-toggle{display:inline-flex;border:1px solid var(--bd);border-radius:8px;background:#fff;padding:2px;margin:0 0 12px}
 .jv-toggle .jv-btn{border:none;background:none;font-size:12px;font-weight:700;padding:5px 12px;border-radius:6px;cursor:pointer;color:var(--s2)}
 .jv-toggle .jv-btn.active{background:#ff5721;color:#fff}
@@ -605,26 +607,24 @@ table.oc-t tr.eff-zero td{color:#a3a3b2}
 .lg-pharosiq{background-image:url(data:image/webp;base64,UklGRpAFAABXRUJQVlA4WAoAAAAQAAAAJwAAJwAAQUxQSOkBAAABkCvbtmlbY619fZ8R2XbozEZm24hs27ZfZL+XMrJt23vNOYKzdf4gIiYAkU2GQUSbgaStBVCsfpeJ86eO7la/OABrEvGAIgP2PGHo0219cgAvnjEoNecVSZVAJflwfFFYE8MA3Z+S4itD1RfyRhsYE8miwE7SKWOKI1dmwEawKHmGIkzQCQ/mwoZYU+Iq/zNhn4cLWBNk7BH6TNznDtiADEyizzT6HAQPgDUNfjpJh7iPlYwFLE7TMa2OG2HhodF/Zao6p8mo/q4B65m19AOoylTVOPQ5Dxko9poSFF80SPRWPtCMytiqAZQgKusCi9VFUg1RYUTR0cBxRouqGsFxB7wriUV2PIeCNylxJJFLKHAjGZU4F5F3LV6qkpQYuESXRFzHY8ChGKoJrQWmarSEhUOBJtT0qdYECj6kxFBN0ShOr+aaDMynHyNYNAonIsOi2i/RJKKqvillDCw20aXHcSo8wNoy7ynpcLxdzDMALNrTpUHd/+bwkOphLv3E1HEiLAJNhllDX5MRx3nIMEEwFstIl4A6cjosIhqL4T+oLo4j3/eBZ6LAGNQ4Rqo4USVVxQnp9leENYjpAR0PM1CEgftbAB7iWwvUnnzh3mch5dON4+MqA9YiUQ8ASjRs2bVrywYFABgPUQEAVlA4IIADAADwEwCdASooACgAPlEijUUjoiETlkg4BQS2AE6Zdn8b0T8RvyA6mbfLu1+xXLImG7Afzn23dp7xEOkB5gP2Z9Xn+zep70AP106xD0APLI/VX4Hv29/dD2c///dgK7L+95xXFhtIU/yupc5N30N7AH8b/pX+/4GP9YA0MuaLQQfO3R8EpS7AwswtRbGdDNOf7olskuDeW7NK4XMoNGio87kRxr+NE9UEdAAA/voYQLoBbJHwhbpTZgVEOED71dh4uoWNmKZDeql9kPDzuDt0RPRzYch+Z/Rq+oS3/n7vKFJ8M1phA7leKamofTumpF/5VbA/B2Zru4Ld2YlEvQKfc5ilZyvgs4wsX5eLyfnhXwi26db5hTO/Ekv4KY7hZgxUiX4ZPwJjiLFvm1cdSDOK02Dn1f7I/rmDeFKl64LK3H/36AP/+Uz84zOcbaZ+yt204wvF4oRlBNtBassV8ZzPIbbjsb8nOOMDwkDdmgqtwa6BjuRR5kt/2CNkC1kPKs1yW7zKiFaj4wANjoQ/O7rnuOdbRUGR1M1niw3bgKUr+oa72mODhQia2O74kELYd1MBNnkpywiiQNzVXM/6D0LZVzxx75oqq117oM1amIXxZIP82xvFiFZwoR5b2+aKdPiF1SON9U5pnfyR6HmJGUjjp7Islgt2q+nxdCQFNSqTuOwcz73HmZSkG+P/Y6VwM/b5ztTx7EM3j6+WzZHDRSdfGPHrjwb6nT6M20YcFfTvDFx36KR63P0AYGx9YUe2u+l4J7JSVGY+VtbJipztTUSsfMj9p71+ZLlc11BfgJi08xXAd93em7bpUanjpZ/xr7mibpH3gYtpYAgRnvHIt91fDfOpqj9Tdc//oojn3mcYq37KV2XHyhsOKWGkgh7dNwt0GOa5h0/lBPFx1D1F4bki8i+o+5COlKWncsgt9zzeTtXpq63HIZMD/Hlg8P5FbBgxEgsY64kO7jxiYrDrCuDusKnx0xI5hpLIaC5XTEBbDvp09h6HcfyqNakKdmoJENC0SdqaklcMpugP8e2f08LDo9poJJ5lTzTwPbr4Ict4MS0ZG1Cesp1saWYfmbiPfY9ep8cKNfRtt9jejRxsq4iTkQeuZLxoj1QuDDF/DpPOWYop7LLOYS1ewHYNbOA/WiYXpzCdpVLM/wwapvxFvFQ75z5UKCBGVR4pp8pgx/eJtQAAAA==)}</style>
 </head>
 <body>
-<div class="wrap">
 <nav class="topnav" aria-label="Page sections">
-<div class="topnav-inner">
-<div class="topnav-links">
-<a href="#overview">Overview</a>
-<a href="#cohort">Deal Breakdown</a>
-<a href="#outcomes">Outcomes</a>
-<a href="#customer-journeys">Customer Journeys</a>
-<a href="#campaign-performance">Campaign performance</a>
+<div class="slim-inner">
+<div class="tabs">
+<a class="tab active" href="#overview">Overview</a>
+<a class="tab" href="#cohort">Deal Breakdown</a>
+<a class="tab" href="#outcomes">Outcomes</a>
+<a class="tab" href="#customer-journeys">Customer Journeys</a>
+<a class="tab" href="#campaign-performance">Campaign performance</a>
 </div>
-<div class="topnav-periods" role="group" aria-label="Time frame">
-<span class="period-label">Time Frame:</span>
-<button type="button" class="period-pill active" data-period="ytd">YTD</button>
-<button type="button" class="period-pill" data-period="l3m">Last 3 months</button>
-<button type="button" class="period-pill" data-period="lfm">Last full month</button>
-<button type="button" class="period-pill" data-period="mtd">Month to date</button>
-<span class="period-label pt-lab">Partnerships:</span><span class="pt-seg"><button type="button" class="pt-btn active" data-px="0">With</button><button type="button" class="pt-btn" data-px="1">Without</button></span>
+<div class="filters">
+<span class="flab">Time</span>
+<span class="seg" role="group" aria-label="Time frame"><button type="button" class="period-pill active" data-period="ytd" title="Year to date">YTD</button><button type="button" class="period-pill" data-period="l3m" title="Last 3 months">L3M</button><button type="button" class="period-pill" data-period="lfm" title="Last full month">LFM</button><button type="button" class="period-pill" data-period="mtd" title="Month to date">MTD</button></span>
+<span class="flab">Partners</span>
+<span class="seg" role="group" aria-label="Partnership deals"><button type="button" class="pt-btn active" data-px="0" title="With partnership deals">With</button><button type="button" class="pt-btn" data-px="1" title="Without partnership deals">Without</button></span>
 </div>
 </div>
 </nav>
+<div class="wrap">
 <div class="hero">
 <div class="brand"><img src="chili-piper-logo-horizontal-orange.svg" alt="Chili Piper" class="logo" width="157" height="34" /></div>
 <div class="ctx">LinkedIn Ads &middot; Fibbler Attribution</div>
@@ -1581,6 +1581,24 @@ document.querySelectorAll('.topnav a[href^="#"]').forEach(function(a){
 document.querySelectorAll('.period-pill').forEach(function(b){
  b.addEventListener('click',function(){ setPeriod(b.dataset.period); });
 });
+// ---- slim nav: offset + scrollspy
+var NAV_IDS=['overview','cohort','outcomes','customer-journeys','campaign-performance'];
+function navH(){ var n=document.querySelector('.topnav'); return n?n.getBoundingClientRect().height:0; }
+function setNavH(){ document.documentElement.style.setProperty('--navh',Math.ceil(navH())+'px'); }
+var spyTick=false;
+function spy(){
+ spyTick=false;
+ var h=navH()+24, act=NAV_IDS[0];
+ NAV_IDS.forEach(function(id){ var el=document.getElementById(id); if(el && el.offsetParent!==null && el.getBoundingClientRect().top<=h) act=id; });
+ if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4) act=NAV_IDS[NAV_IDS.length-1];
+ document.querySelectorAll('.topnav a.tab').forEach(function(a){ var on=a.getAttribute('href')==='#'+act; a.classList.toggle('active',on); if(on) a.setAttribute('aria-current','true'); else a.removeAttribute('aria-current'); });
+ var at=document.querySelector('.topnav a.tab.active'), tb=document.querySelector('.topnav .tabs');
+ if(at && tb && tb.scrollWidth>tb.clientWidth){ var l=at.offsetLeft-tb.offsetLeft, r=l+at.offsetWidth; if(l<tb.scrollLeft||r>tb.scrollLeft+tb.clientWidth) tb.scrollLeft=Math.max(0,l-24); }
+}
+window.addEventListener('scroll',function(){ if(!spyTick){ spyTick=true; requestAnimationFrame(spy); } },{passive:true});
+window.addEventListener('resize',function(){ setNavH(); spy(); });
+setNavH(); spy();
+
 function setPX(on,push){
  PX=!!on;
  document.querySelectorAll('.pt-btn').forEach(function(b){ b.classList.toggle('active',(b.dataset.px==='1')===PX); });
