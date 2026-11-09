@@ -83,9 +83,11 @@ h2:after{content:"";display:block;width:56px;height:3px;background:#ff5721;borde
 .vsub{font-weight:400;color:var(--s3);font-size:10px;display:block;margin-top:2px}
 .vlab{font-size:11.5px;color:var(--s2);text-align:center;line-height:1.25}
 .mtd{font-size:9.5px;color:var(--s3);display:block}
-table{width:100%;border-collapse:collapse;margin-top:10px;background:var(--white);border:1px solid var(--bd);border-radius:8px;overflow:hidden}
-th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--s2);padding:11px 12px;border-bottom:1px solid var(--bd);background:var(--card);white-space:nowrap;font-weight:700}
-td{padding:11px 12px;border-bottom:1px solid #f4f4f0;font-size:13.5px;vertical-align:middle}
+table{width:100%;border-collapse:separate;border-spacing:0;margin-top:10px;background:var(--white);border:1px solid #e9e6e1;border-radius:8px;overflow:hidden}
+th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:#131624;padding:11px 12px;border-bottom:1px solid #e2ded7;background:#f3f1ee;white-space:nowrap;font-weight:700}
+thead tr:first-child th:first-child{border-top-left-radius:7px}thead tr:first-child th:last-child{border-top-right-radius:7px}
+td{padding:11px 12px;border-bottom:1px solid #e9e6e1;font-size:13.5px;vertical-align:middle}
+tbody tr{transition:background .12s}tbody tr:hover{background:#faf8f5}
 tr:last-child td{border-bottom:none}
 .c{text-align:center} .r{text-align:right}
 .tscroll{overflow-x:auto}
@@ -212,7 +214,7 @@ details[open] .chev{transform:rotate(90deg)}
 .cpb-panel-h label{font-size:12.5px;color:var(--s2)}
 .cpb-panel table{width:100%;border-collapse:collapse;font-size:12.5px}
 .cpb-panel th{font-size:10px}
-.cpb-panel td{padding:9px 10px;border-bottom:1px solid var(--bd);vertical-align:top}
+.cpb-panel td{padding:9px 10px;border-bottom:1px solid #e9e6e1;vertical-align:top}
 .cpb-panel td.c,.cpb-panel th.c{text-align:center}
 .cpb-panel td.r,.cpb-panel th.r{text-align:right}
 .cpb-deal{font-size:11.5px;color:var(--s3);margin-top:2px}
