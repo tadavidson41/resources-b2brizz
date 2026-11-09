@@ -889,7 +889,7 @@ function setCmp(id,curV,prV,dir,pr,fmt){
  } else {
   var pct=(curV-prV)/Math.abs(prV)*100;
   var arrow=pct>0?'&#8593; ':(pct<0?'&#8595; ':'');
-  txt=arrow+Math.abs(pct).toFixed(2)+'% '+pr.label;
+  txt=arrow+Math.round(Math.abs(pct))+'% '+pr.label;
   if(dir===0||pct===0) cls='neu'; else cls=((pct>0)===(dir>0))?'fav':'unf';
  }
  el.innerHTML='<span class="'+cls+'">'+txt+'</span><span class="pr">Prior: '+fmt(prV)+'</span>';
@@ -1215,7 +1215,7 @@ function cpShareBlock(title, items, valueKey, colors, darkTextOn){
   var pct=total>0?(v/total)*100:0;
   var col=colors[i%colors.length];
   var shortLab=escHtml(it.label);
-  var tip=shortLab+' · '+moneyShort(v)+' · '+pct.toFixed(1)+'%'+(it.n!=null?(' · '+it.n+' campaigns'):'');
+  var tip=shortLab+' · '+moneyShort(v)+' · '+Math.round(pct)+'%'+(it.n!=null?(' · '+it.n+' campaigns'):'');
   tip=tip.replace(/"/g,'&quot;');
   var show=pct>=14? (Math.round(pct)+'%') : '';
   var dark=darkTextOn[col]?' dark':'';
@@ -1710,7 +1710,7 @@ function monthRange(a,b){ var out=[]; var y=+a.slice(0,4), m=+a.slice(5,7); var 
 function monthsBetween(a,b){ return (+b.slice(0,4)-+a.slice(0,4))*12+(+b.slice(5,7)-+a.slice(5,7)); }
 function monthWin(m){ var we=PERIODS.ytd.end; var y=+m.slice(0,4),mo=+m.slice(5,7);
  var e=(m===we.slice(0,7))?we:(m+'-'+String(new Date(y,mo,0).getDate()).padStart(2,'0')); return {start:m+'-01',end:e}; }
-function fmtPct(x){ return Math.abs(x).toFixed(2)+'%'; }
+function fmtPct(x){ return Math.round(Math.abs(x))+'%'; }
 function joinList(a){ if(a.length<=1) return a.join(''); if(a.length===2) return a[0]+' and '+a[1]; return a.slice(0,-1).join(', ')+' and '+a[a.length-1]; }
 function infoJs(detail){ return '<span class="info-wrap"><button type="button" class="info-i" aria-expanded="false" aria-label="More detail">i</button><span class="info-pop" role="tooltip">'+detail+'</span></span>'; }
 
@@ -1925,7 +1925,7 @@ function closedInPeriodIdx(){
  D.deals.forEach(function(d,i){ if(!incP(d.partner)) return; if((d.stage==='Closed Won'||d.stage==='Closed Lost') && inRange(d.closed,p.start,p.end)) out.push(i); });
  return out;
 }
-function wr(w,l){ return (w+l)>0?((w/(w+l))*100).toFixed(2)+'%':'-'; }
+function wr(w,l){ return (w+l)>0?Math.round((w/(w+l))*100)+'%':'-'; }
 function median(a){ if(!a.length) return null; var s=a.slice().sort(function(x,y){return x-y;}), n=s.length; return n%2?s[(n-1)/2]:(s[n/2-1]+s[n/2])/2; }
 function renderMotion(){
  var el=document.getElementById('oc-motion'); if(!el) return;
@@ -1957,7 +1957,7 @@ function renderClickDepth(){
   var won=d.stage==='Closed Won';
   if(won){ b.w++; if(nb) b.nw++; else b.ew++; } else { b.l++; if(nb) b.nl++; else b.el++; } });
  var bars=B.map(function(b){ var n=b.w+b.l, r=n?b.w/n*100:0;
-  return '<div class="cd-row"><span class="cd-lab">'+b.lab+' clicks</span><span class="cd-track"><span class="cd-fill" style="width:'+r.toFixed(2)+'%"></span></span><span class="cd-val">'+(n?r.toFixed(2)+'%':'-')+' <span class="oc-n">('+b.w+' of '+n+')</span></span></div>'; }).join('');
+  return '<div class="cd-row"><span class="cd-lab">'+b.lab+' clicks</span><span class="cd-track"><span class="cd-fill" style="width:'+r.toFixed(2)+'%"></span></span><span class="cd-val">'+(n?Math.round(r)+'%':'-')+' <span class="oc-n">('+b.w+' of '+n+')</span></span></div>'; }).join('');
  var t='<div class="tscroll"><table class="oc-t"><thead><tr><th>Paid clicks</th><th>Won</th><th>Lost</th><th>Win rate</th><th>New Business win rate</th><th>Upsell / Cross-sell win rate</th></tr></thead><tbody>'+
   B.map(function(b){ return '<tr'+((b.w+b.l)?'':' class="eff-zero"')+'><td>'+b.lab+'</td><td>'+b.w+'</td><td>'+b.l+'</td><td>'+wr(b.w,b.l)+'</td><td>'+wr(b.nw,b.nl)+' <span class="oc-n">('+(b.nw+b.nl)+')</span></td><td>'+wr(b.ew,b.el)+' <span class="oc-n">('+(b.ew+b.el)+')</span></td></tr>'; }).join('')+
   '</tbody></table></div>';
