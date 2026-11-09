@@ -62,6 +62,9 @@ tr.kid .thumb{width:72px;height:72px}
 .p-g{background:var(--grb);color:var(--gr)}.p-n{background:#efefef;color:var(--mut)}.p-p{background:var(--lav2);color:var(--eb)}.p-a{background:var(--amb);color:var(--am)}
 .tag{display:inline-block;border-radius:5px;padding:1px 6px;font-size:10.5px;font-weight:700;margin-left:6px;vertical-align:1px}
 .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:0;border:1px solid rgba(43,42,41,.25)}
+.va{font-size:11px;font-weight:600;margin-top:2px;white-space:nowrap}.va.bt{color:#2E6B45}.va.wr{color:var(--rd)}.va.at{color:var(--mut2)}
+tr.avg td{background:var(--lav3);border-bottom:2px solid var(--lav);font-weight:700}
+.ttag{background:#fff;color:var(--eb);border:1px solid var(--lav);margin-left:0;margin-top:3px}
 .gv{background:#E3F3E8;color:#2E6B45;font-weight:700;border-radius:6px;padding:3px 8px;white-space:nowrap;display:inline-block;line-height:1.2}
 .note{font-size:12px;color:var(--mut);margin-top:8px}
 .empty{border:1px dashed var(--bd);border-radius:10px;padding:18px;text-align:center;color:var(--mut);background:#fff}
@@ -130,20 +133,28 @@ let SORT={c:'spend',d:-1};const OPEN=new Set();
 function srt(c){SORT=(SORT.c==c)?{c,d:-SORT.d}:{c,d:(c=='label'||c=='cpl')?1:-1};render()}
 function tog(k){OPEN.has(k)?OPEN.delete(k):OPEN.add(k);render()}
 function pv(name){const m=D.NM[name];if(!m||!m.pv)return '<div class="nopv">No preview</div>';return `<img class="thumb" loading="lazy" src="${m.pv}" alt="" onclick="event.stopPropagation();lbOpen(this.src,'${esc(name).replace(/'/g,'&#39;')}')">`}
-function table(cs){const p=D.periods[P];const byT={};cs.forEach(c=>{(byT[c.th]=byT[c.th]||[]).push(c)});
- const rows=[];Object.entries(byT).forEach(([th,arr])=>{const t=tot(arr);if(!(t.impr>0||t.spend>0))return;const byN={};arr.forEach(c=>{(byN[c.name]=byN[c.name]||[]).push(c)});
-  const kids=Object.entries(byN).map(([n,a])=>({label:pretty(n).t,name:n,cs:a,...tot(a)})).filter(r=>r.impr>0||r.spend>0);rows.push({key:th,label:D.TH[th].n,cs:arr,kids,...t})});
+function vsAvg(k,v,a){if(v===null||v===undefined||a===null||!(a>0))return '';const r=(v-a)/a*100;if(Math.abs(r)<5)return '<div class="va at">at avg</div>';const better=k=='cpl'?r<0:r>0;return `<div class="va ${better?'bt':'wr'}">${r>0?'+':'-'}${Math.abs(r).toFixed(0)}% vs avg</div>`}
+function table(cs){const p=D.periods[P];const AD=SUB!='All';const T=tot(cs);
+ const A={cpl:T.lp>0?T.spend/T.lp:null,lpctr:T.impr>0?T.lp/T.impr:null,ctr:T.impr>0?T.clicks/T.impr:null,dwell:T.dwell};
+ const sorter=(a,b)=>cmpv(AV[SORT.c](a),AV[SORT.c](b))*SORT.d;
+ const byName=arr=>{const byN={};arr.forEach(c=>{(byN[c.name]=byN[c.name]||[]).push(c)});return Object.entries(byN).map(([n,a])=>({label:pretty(n).t,name:n,cs:a,th:a[0].th,...tot(a)})).filter(r=>r.impr>0||r.spend>0)};
+ let rows=[];
+ if(AD){rows=byName(cs)}else{const byT={};cs.forEach(c=>{(byT[c.th]=byT[c.th]||[]).push(c)});
+  Object.entries(byT).forEach(([th,arr])=>{const t=tot(arr);if(!(t.impr>0||t.spend>0))return;rows.push({key:th,label:D.TH[th].n,cs:arr,kids:byName(arr),...t})})}
  if(!rows.length)return `<div class="empty">No delivery in this period.</div>`;
- const sorter=(a,b)=>cmpv(AV[SORT.c](a),AV[SORT.c](b))*SORT.d;rows.sort(sorter);rows.forEach(r=>r.kids.sort(sorter));
- const T=tot(cs);const WT=winners(rows);
- const met=(r,W)=>`<td class="n">${usd(r.spend)}</td><td class="n">${num(r.impr)}</td><td class="n">${num(r.lp)}</td><td class="n">${W?hl(W,r,'cpl',cpl(r.spend,r.lp)):cpl(r.spend,r.lp)}</td><td class="n">${W?hl(W,r,'lpctr',pct(r.lp,r.impr)):pct(r.lp,r.impr)}</td><td class="n">${num(r.clicks)}</td><td class="n">${W?hl(W,r,'ctr',pct(r.clicks,r.impr)):pct(r.clicks,r.impr)}</td><td class="n">${W?hl(W,r,'dwell',dwf(r.dwell)):dwf(r.dwell)}</td>`;
- const body=rows.map(r=>{const op=OPEN.has(r.key);const top=r.kids.slice().sort((a,b)=>b.spend-a.spend).find(k=>D.NM[k.name]&&D.NM[k.name].pv);
-  return `<tr class="th${op?' open':''}" onclick="tog('${r.key}')"><td>${top?pv(top.name):'<div class="nopv">No preview</div>'}</td><td><span class="vlab">${esc(r.label)}</span><div class="vdesc">${r.kids.length} ${r.kids.length==1?'ad':'ads'}</div></td>${met(r,WT)}<td>${stPill(r.cs)}</td></tr>`+
-  (op?(()=>{const WK=winners(r.kids);return r.kids.map(x=>{const q=pretty(x.name);return `<tr class="kid"><td>${pv(x.name)}</td><td><span class="vlab">${esc(q.t)}</span>${tagH(tagFor(x.name,x.cs))}<div class="vdesc">${esc(D.NM[x.name].desc)}</div></td>${met(x,WK)}<td>${stPill(x.cs)}</td></tr>`}).join('')})():'')}).join('');
+ rows.sort(sorter);if(!AD)rows.forEach(r=>r.kids.sort(sorter));const WT=winners(rows);
+ const cell=(W,r,k,txt,ok)=>{const v=AV[k](r);const shown=W?hl(W,r,k,txt):txt;return `<td class="n">${shown}${ok?vsAvg(k,v,A[k]):''}</td>`};
+ const met=(r,W,cmp)=>{const hasI=r.impr>0;return `<td class="n">${usd(r.spend)}</td><td class="n">${num(r.impr)}</td><td class="n">${num(r.lp)}</td>${cell(W,r,'cpl',r.lp>0?usd(r.spend/r.lp):'-',cmp&&r.lp>0)}${cell(W,r,'lpctr',pct(r.lp,r.impr),cmp&&hasI)}<td class="n">${num(r.clicks)}</td>${cell(W,r,'ctr',pct(r.clicks,r.impr),cmp&&hasI)}${cell(W,r,'dwell',dwf(r.dwell),cmp&&r.dwell!=null)}`};
+ const thTag=th=>`<span class="tag ttag">${esc(D.TH[th].n)}</span>`;
+ const adRow=(x,W,cls)=>{const q=pretty(x.name);return `<tr class="${cls}"><td>${pv(x.name)}</td><td><span class="vlab">${esc(q.t)}</span>${tagH(tagFor(x.name,x.cs))}${AD?'<br>'+thTag(x.th):''}<div class="vdesc">${esc(D.NM[x.name].desc)}</div></td>${met(x,W,1)}<td>${stPill(x.cs)}</td></tr>`};
+ const body=AD?rows.map(x=>adRow(x,WT,'ad')).join(''):rows.map(r=>{const op=OPEN.has(r.key);const top=r.kids.slice().sort((a,b)=>b.spend-a.spend).find(k=>D.NM[k.name]&&D.NM[k.name].pv);
+  return `<tr class="th${op?' open':''}" onclick="tog('${r.key}')"><td>${top?pv(top.name):'<div class="nopv">No preview</div>'}</td><td><span class="vlab">${esc(r.label)}</span><div class="vdesc">${r.kids.length} ${r.kids.length==1?'ad':'ads'}</div></td>${met(r,WT,1)}<td>${stPill(r.cs)}</td></tr>`+
+  (op?(()=>{const WK=winners(r.kids);return r.kids.map(x=>adRow(x,WK,'kid')).join('')})():'')}).join('');
+ const avgRow=`<tr class="avg"><td></td><td><span class="vlab">Average</span><div class="vdesc">This view, weighted</div></td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n">${A.cpl!=null?usd(A.cpl):'-'}</td><td class="n">${A.lpctr!=null?(100*A.lpctr).toFixed(2)+'%':'-'}</td><td class="n"></td><td class="n">${A.ctr!=null?(100*A.ctr).toFixed(2)+'%':'-'}</td><td class="n">${dwf(A.dwell)}</td><td></td></tr>`;
  const sh=(c,n)=>`<th class="s n" onclick="srt('${c}')">${n}${SORT.c==c?(SORT.d>0?' &#9650;':' &#9660;'):''}</th>`;
- return `<div class="tw"><table id="tt"><thead><tr><th>Preview</th><th class="s" onclick="srt('label')">Theme / ad</th>${sh('spend','Spend')}${sh('impr','Impr.')}${sh('lp','LP clicks')}${sh('cpl','Cost/LP')}${sh('lpctr','LP CTR')}${sh('clicks','Clicks')}${sh('ctr','CTR')}${sh('dwell','Dwell time')}<th>Status now</th></tr></thead>
- <tbody>${body}<tr class="tot"><td></td><td>Total</td>${met(T,null)}<td>${stPill(cs)}</td></tr></tbody></table></div>
- <div class="note">Click a theme to see its ads. <span class="gv">Green</span> = top 3, among rows at or above average spend. Dwell time = LinkedIn average dwell time, impression-weighted for themes.</div>`}
+ return `<div class="tw"><table id="tt" data-mode="${AD?'ad':'theme'}"><thead><tr><th>Preview</th><th class="s" onclick="srt('label')">${AD?'Ad':'Theme / ad'}</th>${sh('spend','Spend')}${sh('impr','Impr.')}${sh('lp','LP clicks')}${sh('cpl','Cost/LP')}${sh('lpctr','LP CTR')}${sh('clicks','Clicks')}${sh('ctr','CTR')}${sh('dwell','Dwell time')}<th>Status now</th></tr></thead>
+ <tbody>${avgRow}${body}<tr class="tot"><td></td><td>Total</td>${met(T,null,0)}<td>${stPill(cs)}</td></tr></tbody></table></div>
+ <div class="note">${AD?'':'Click a theme to see its ads. '}<span class="gv">Green</span> = top 3, among rows at or above average spend. "vs avg" compares each row with the Average row. Dwell time = LinkedIn average dwell time, impression-weighted.</div>`}
 function fatigue(){const F=D.FAT[scopeKey()]||{n:{}};const w=D.meta.fwin;
  const rs=Object.entries(F.n).filter(([n,v])=>v.drop!=null&&v.drop>=20).map(([n,v])=>({n,...v})).sort((a,b)=>b.drop-a.drop);
  $('fatigue').innerHTML=`<div class="sh"><h2>Creative fatigue</h2><span class="sc">${esc(scopeLabel())}</span></div>
@@ -155,7 +166,7 @@ function render(){const p=D.periods[P];const cs=scopeC();
  $('inds').innerHTML=INDS.map(k=>`<button class="${k==IND?'on':''}" onclick="setI('${k}')">${dotH(k)}${k}</button>`).join('');
  const sl=SUBS[IND];$('subs').style.display=sl?'':'none';
  $('subs').innerHTML=sl?[['All','All '+IND]].concat(sl).map(([k,l])=>`<button class="${k==SUB?'on':''}" onclick="setS('${k}')">${k=='All'?'':dotH(SUBT[k])}${esc(l.split(' / ')[0])}</button>`).join(''):'';
- $('themes').innerHTML=`<div class="sh"><h2>Creative performance by theme</h2><span class="sc">${esc(scopeLabel())}, ${esc(p.label.toLowerCase())}</span></div>${kpis(cs)}${table(cs)}`;
+ $('themes').innerHTML=`<div class="sh"><h2>${SUB!='All'?'Creative Performance by Ad':'Creative performance by theme'}</h2><span class="sc">${esc(scopeLabel())}, ${esc(p.label.toLowerCase())}</span></div>${kpis(cs)}${table(cs)}`;
  fatigue()}
 $('thru').textContent=fmtD(D.meta.through);$('asof').textContent=D.meta.asof;
 $('foot').innerHTML=`<li>LinkedIn Ads account 509859857, creative-level data. Live = ad set Active and serving (11 sub-industry ad sets plus retargeting). Paused ads in live ad sets count for the days they ran.</li>
