@@ -60,7 +60,8 @@ tr.kid .thumb{width:72px;height:72px}
 .pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:2px 9px;font-size:12px;font-weight:600;white-space:nowrap}
 .pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
 .p-g{background:var(--grb);color:var(--gr)}.p-n{background:#efefef;color:var(--mut)}.p-p{background:var(--lav2);color:var(--eb)}.p-a{background:var(--amb);color:var(--am)}
-.tag{display:inline-block;border-radius:5px;padding:1px 6px;font-size:10.5px;font-weight:700;margin-left:6px;vertical-align:1px;background:#CDF8FF}
+.tag{display:inline-block;border-radius:5px;padding:1px 6px;font-size:10.5px;font-weight:700;margin-left:6px;vertical-align:1px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:0;border:1px solid rgba(43,42,41,.25)}
 .gv{background:#E3F3E8;color:#2E6B45;font-weight:700;border-radius:6px;padding:3px 8px;white-space:nowrap;display:inline-block;line-height:1.2}
 .note{font-size:12px;color:var(--mut);margin-top:8px}
 .empty{border:1px dashed var(--bd);border-radius:10px;padding:18px;text-align:center;color:var(--mut);background:#fff}
@@ -93,6 +94,11 @@ const TCODE={FDBV:'Food & Bev',BEAU:'Beauty',SUPP:'Supplements','SUPP-HHYG-BABY-
 function pretty(n){if(n=='Unnamed post')return {t:n,v:''};let s=n.replace(/_?V\d+S\d+C\d+H\d+$/,'').replace(/C\d+H\d+$/,'');let v='';
  const m=s.match(/_(FDBV|BEAU|SUPP-HHYG-BABY-PET|SUPP|FSH|LIF|B2B|CPG)$/)||s.match(/-(LIF|FDBV|BEAU|B2B)$/);if(m){v=TCODE[m[1]];s=s.slice(0,m.index)}
  s=s.replace(/^(OMEGA|WWTRA|WWTWA|STATS|SP|BULLETS|MEMES|WUWOU|TSTM)_/,'').replace(/^RT-/,'').replace(/[-_]+/g,' ').replace(/\s+V\d+$/,'').trim();return {t:s,v}}
+const TAGC={'Beauty':['#FFBAFB','#2B2A29'],'Food & Bev':['#FFCFA3','#2B2A29'],'Supplements':['#CDF8FF','#2B2A29'],'CPG':['#E8E6E1','#2B2A29'],'Fashion':['#D5D2FF','#2B2A29'],'Lifestyle':['#E3FF43','#2B2A29'],'B2B':['#7756FF','#FFFFFF'],'Retargeting':['#2B2A29','#FFFFFF']};
+const SUBT={'Beauty':'Beauty','Food & Bev':'Food & Bev','Supplements / Hygiene / Baby / Pet':'Supplements','Apparel / Jewelry & Accessories':'Fashion','Electronics / Fitness / Sporting / Outdoor / Home':'Lifestyle','SaaS / Mid-market B2B':'B2B','All industries':'Retargeting'};
+function tagH(v){if(!v)return '';const c=TAGC[v]||['#efefef','#2B2A29'];return `<span class="tag" data-tag="${esc(v)}" style="background:${c[0]};color:${c[1]}">${esc(v)}</span>`}
+function tagFor(name,cs){const v=pretty(name).v;if(v)return v;const s=[...new Set(cs.map(c=>c.sub))];return s.length==1?SUBT[s[0]]:''}
+const dotH=v=>TAGC[v]?`<span class="dot" style="background:${TAGC[v][0]}"></span>`:'';
 const CM=D.CM;D.C.forEach(c=>{c.ind=CM[c.camp].ind;c.sub=CM[c.camp].sub});
 const INDS=['All','CPG','Fashion','Lifestyle','B2B','Retargeting'];
 const SUBS={CPG:[['Beauty','Beauty'],['Food & Bev','Food & Bev'],['Supplements / Hygiene / Baby / Pet','Supplements / Hygiene / Baby / Pet']]};
@@ -133,7 +139,7 @@ function table(cs){const p=D.periods[P];const byT={};cs.forEach(c=>{(byT[c.th]=b
  const met=(r,W)=>`<td class="n">${usd(r.spend)}</td><td class="n">${num(r.impr)}</td><td class="n">${num(r.lp)}</td><td class="n">${W?hl(W,r,'cpl',cpl(r.spend,r.lp)):cpl(r.spend,r.lp)}</td><td class="n">${W?hl(W,r,'lpctr',pct(r.lp,r.impr)):pct(r.lp,r.impr)}</td><td class="n">${num(r.clicks)}</td><td class="n">${W?hl(W,r,'ctr',pct(r.clicks,r.impr)):pct(r.clicks,r.impr)}</td><td class="n">${W?hl(W,r,'dwell',dwf(r.dwell)):dwf(r.dwell)}</td>`;
  const body=rows.map(r=>{const op=OPEN.has(r.key);const top=r.kids.slice().sort((a,b)=>b.spend-a.spend).find(k=>D.NM[k.name]&&D.NM[k.name].pv);
   return `<tr class="th${op?' open':''}" onclick="tog('${r.key}')"><td>${top?pv(top.name):'<div class="nopv">No preview</div>'}</td><td><span class="vlab">${esc(r.label)}</span><div class="vdesc">${r.kids.length} ${r.kids.length==1?'ad':'ads'}</div></td>${met(r,WT)}<td>${stPill(r.cs)}</td></tr>`+
-  (op?(()=>{const WK=winners(r.kids);return r.kids.map(x=>{const q=pretty(x.name);return `<tr class="kid"><td>${pv(x.name)}</td><td><span class="vlab">${esc(q.t)}</span>${q.v?`<span class="tag">${esc(q.v)}</span>`:''}<div class="vdesc">${esc(D.NM[x.name].desc)}</div></td>${met(x,WK)}<td>${stPill(x.cs)}</td></tr>`}).join('')})():'')}).join('');
+  (op?(()=>{const WK=winners(r.kids);return r.kids.map(x=>{const q=pretty(x.name);return `<tr class="kid"><td>${pv(x.name)}</td><td><span class="vlab">${esc(q.t)}</span>${tagH(tagFor(x.name,x.cs))}<div class="vdesc">${esc(D.NM[x.name].desc)}</div></td>${met(x,WK)}<td>${stPill(x.cs)}</td></tr>`}).join('')})():'')}).join('');
  const sh=(c,n)=>`<th class="s n" onclick="srt('${c}')">${n}${SORT.c==c?(SORT.d>0?' &#9650;':' &#9660;'):''}</th>`;
  return `<div class="tw"><table id="tt"><thead><tr><th>Preview</th><th class="s" onclick="srt('label')">Theme / ad</th>${sh('spend','Spend')}${sh('impr','Impr.')}${sh('lp','LP clicks')}${sh('cpl','Cost/LP')}${sh('lpctr','LP CTR')}${sh('clicks','Clicks')}${sh('ctr','CTR')}${sh('dwell','Dwell time')}<th>Status now</th></tr></thead>
  <tbody>${body}<tr class="tot"><td></td><td>Total</td>${met(T,null)}<td>${stPill(cs)}</td></tr></tbody></table></div>
@@ -142,13 +148,13 @@ function fatigue(){const F=D.FAT[scopeKey()]||{n:{}};const w=D.meta.fwin;
  const rs=Object.entries(F.n).filter(([n,v])=>v.drop!=null&&v.drop>=20).map(([n,v])=>({n,...v})).sort((a,b)=>b.drop-a.drop);
  $('fatigue').innerHTML=`<div class="sh"><h2>Creative fatigue</h2><span class="sc">${esc(scopeLabel())}</span></div>
  <div class="note" style="margin:0 0 12px">CTR in the last 14 days (${sd(w[0])} to ${fmtD(w[1])}) vs each ad's first 14 days. Flagged at a 30%+ drop, watch at 20 to 30%. Needs 1,000+ impressions in both windows. Fixed windows, not tied to the period.</div>
- ${rs.length?`<div class="tw"><table><thead><tr><th>Preview</th><th>Ad</th><th>Status</th><th class="n">CTR, first 14 days</th><th class="n">CTR, last 14 days</th><th class="n">Change</th><th class="n">Impr., first 14 days</th><th class="n">Impr., last 14 days</th></tr></thead><tbody>${rs.map(r=>{const q=pretty(r.n);return `<tr><td>${pv(r.n)}</td><td><span class="vlab">${esc(q.t)}</span>${q.v?`<span class="tag">${esc(q.v)}</span>`:''}<div class="vdesc">First delivery ${fmtD(r.first)}</div></td><td>${r.drop>=30?'<span class="pill p-a">Flagged</span>':'<span class="pill p-n">Watch</span>'}</td><td class="n">${r.ctr1.toFixed(2)}%</td><td class="n">${r.ctr2.toFixed(2)}%</td><td class="n"><span class="dn">&#8595; ${r.drop.toFixed(1)}%</span></td><td class="n">${num(r.i1)}</td><td class="n">${num(r.i2)}</td></tr>`}).join('')}</tbody></table></div>`:'<div class="empty">No ads flagged or near the threshold for this filter.</div>'}`}
+ ${rs.length?`<div class="tw"><table><thead><tr><th>Preview</th><th>Ad</th><th>Status</th><th class="n">CTR, first 14 days</th><th class="n">CTR, last 14 days</th><th class="n">Change</th><th class="n">Impr., first 14 days</th><th class="n">Impr., last 14 days</th></tr></thead><tbody>${rs.map(r=>{const q=pretty(r.n);return `<tr><td>${pv(r.n)}</td><td><span class="vlab">${esc(q.t)}</span>${tagH(tagFor(r.n,D.C.filter(c=>c.name==r.n)))}<div class="vdesc">First delivery ${fmtD(r.first)}</div></td><td>${r.drop>=30?'<span class="pill p-a">Flagged</span>':'<span class="pill p-n">Watch</span>'}</td><td class="n">${r.ctr1.toFixed(2)}%</td><td class="n">${r.ctr2.toFixed(2)}%</td><td class="n"><span class="dn">&#8595; ${r.drop.toFixed(1)}%</span></td><td class="n">${num(r.i1)}</td><td class="n">${num(r.i2)}</td></tr>`}).join('')}</tbody></table></div>`:'<div class="empty">No ads flagged or near the threshold for this filter.</div>'}`}
 function render(){const p=D.periods[P];const cs=scopeC();
  $('pills').innerHTML=ORDER.map(k=>`<button class="${k==P?'on':''}" onclick="setP('${k}')">${D.periods[k].label}</button>`).join('');
  $('range').textContent=`${sd(p.start)} to ${fmtD(p.end)} vs ${sd(p.prior.start)} to ${fmtD(p.prior.end)}`;
- $('inds').innerHTML=INDS.map(k=>`<button class="${k==IND?'on':''}" onclick="setI('${k}')">${k}</button>`).join('');
+ $('inds').innerHTML=INDS.map(k=>`<button class="${k==IND?'on':''}" onclick="setI('${k}')">${dotH(k)}${k}</button>`).join('');
  const sl=SUBS[IND];$('subs').style.display=sl?'':'none';
- $('subs').innerHTML=sl?[['All','All '+IND]].concat(sl).map(([k,l])=>`<button class="${k==SUB?'on':''}" onclick="setS('${k}')">${esc(l.split(' / ')[0])}</button>`).join(''):'';
+ $('subs').innerHTML=sl?[['All','All '+IND]].concat(sl).map(([k,l])=>`<button class="${k==SUB?'on':''}" onclick="setS('${k}')">${k=='All'?'':dotH(SUBT[k])}${esc(l.split(' / ')[0])}</button>`).join(''):'';
  $('themes').innerHTML=`<div class="sh"><h2>Creative performance by theme</h2><span class="sc">${esc(scopeLabel())}, ${esc(p.label.toLowerCase())}</span></div>${kpis(cs)}${table(cs)}`;
  fatigue()}
 $('thru').textContent=fmtD(D.meta.through);$('asof').textContent=D.meta.asof;
