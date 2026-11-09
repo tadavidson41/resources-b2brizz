@@ -380,6 +380,56 @@ th,td{text-align:center} th:first-child,td:first-child{text-align:left}
 #nb .deal-roles .sm-meta{display:block;margin:0;font-size:11px;line-height:1.5;white-space:normal}
 .chart-empty{text-align:center;color:var(--s3);font-size:15px;margin:10px 0 30px}
 .box[hidden],.sech-note[hidden],.chart-empty[hidden]{display:none!important}
+/* PD skin: visual styling carried over from the first PD build (commit 6edc06d). */
+:root{--blue:#7756FF;--lblue:#AFAAF9;--navy:#2B2A29;--bg:#F5F5F5;--card:#F5F5F5;--bd:#DCDCDC;--tx:#2B2A29;--s2:#525252;--s3:#8a8a9a;--white:#FFFFFF}
+body{background:#F5F5F5;color:#2B2A29;font-family:"Helvetica Neue",Arial,sans-serif}
+h1,h2,h3,h4,.jco,.sm-co,.mcard .v,.topnav a,.ctx,.count,.flab{font-family:"Darker Grotesque","Helvetica Neue",Arial,sans-serif}
+.topnav{background:rgba(245,245,245,.94);border-bottom:1px solid #DCDCDC}
+.topnav a{border:1px solid #DCDCDC;background:#fff;color:#2B2A29;font-weight:700}
+.topnav a:hover{border-color:#7756FF;color:#7756FF}
+.fbar{background:rgba(245,245,245,.96);border:1px solid #DCDCDC;border-radius:12px}
+.fbar select{border-color:#DCDCDC}
+.fbar select:hover{border-color:#7756FF}
+.fbar select:focus-visible{outline:2px solid #7756FF}
+.flab{font-size:12px;color:#525252}
+.hero .logo,.brand .logo{height:40px;width:auto;max-height:none}
+section.block{padding:34px 32px 40px;border:1px solid #D9D9D9;border-radius:18px;box-shadow:0 1px 3px rgba(43,42,41,.05);background:#fff;--card:#F5F5F5}
+section.block + section.block{margin-top:64px}
+section.block + section.block:before{background:#AFAAF9}
+#cohort,#customer-journeys,#job-titles{background:#F1F0FE;--card:#FFFFFF}
+h1{font-weight:800;letter-spacing:-.01em}
+section.block h2{font-size:34px;line-height:1.2;letter-spacing:-.6px;font-weight:800;text-align:center;padding-bottom:12px}
+#overview #month-charts h2{font-size:26px}
+h2:after,h3.subh:after,.notes h3:after{background:#7756FF}
+.count{background:#7756FF;color:#fff}
+.mcard,.mcard.mcard-em{background:var(--card);border:1px solid #DCDCDC;border-left:3px solid #7756FF;border-radius:8px;color:#2B2A29}
+.mcard.mcard-em .l,.mcard .l{color:#525252}
+.mcard.mcard-em .v,.mcard .v{color:#2B2A29;font-weight:800;font-size:30px}
+.mcard.mcard-em .n,.mcard .n{color:#8a8a9a}
+.box{background:var(--card);border:1px solid #DCDCDC;border-radius:8px}
+table{background:#fff;border:1px solid #DCDCDC;border-radius:8px;overflow:hidden}
+th{background:var(--card);color:#525252;border-bottom:1px solid #DCDCDC}
+th.sortable.act{color:#7756FF}
+th.sortable:focus-visible{outline-color:#7756FF}
+.ctab th{background:#F5F5F5}
+.pill.st-won,.st-won{background:#D7FEB4;color:#2B2A29}
+.pill.st-lost,.st-lost{background:#eeeeee;color:#525252}
+.pill.st-open,.st-open{background:#D5D2FF;color:#4900FF}
+details.card{background:#fff;border:1px solid #DCDCDC;border-radius:8px}
+details.card[open]{border-color:#AFAAF9}
+.jcard{background:var(--card);border:1px solid #DCDCDC;border-radius:14px}
+.jcost{background:#fff;border:1px solid #DCDCDC}
+.mc{background:#fff;border:1px solid #DCDCDC}
+.mc-hl{border:2px solid #7756FF;background:#D5D2FF}
+.node{background:#AFAAF9;border:3px solid #7756FF}
+.node-hl{background:#7756FF;border-color:#4900FF;color:#fff}
+.callout{background:#D5D2FF;border:1px solid #7756FF;color:#2B2A29}
+.notes{background:#fff;border:1px solid #D9D9D9;border-left:3px solid #7756FF;border-radius:18px;padding:24px 28px;margin-top:64px;color:#525252}
+.pager button:hover:not(:disabled),button:hover{border-color:#7756FF;color:#7756FF}
+.deal-roles > summary{color:#7756FF}
+.deal-role-content{background:#F1F0FE}
+.chart-empty{color:#525252}
+
 </style>
 </head>
 <body>
