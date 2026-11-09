@@ -378,6 +378,8 @@ th,td{text-align:center} th:first-child,td:first-child{text-align:left}
 #nb .deal-role-list{margin:0 0 10px;padding-left:18px;font-size:12px}
 #nb .deal-role-list li{padding:3px 0}
 #nb .deal-roles .sm-meta{display:block;margin:0;font-size:11px;line-height:1.5;white-space:normal}
+.chart-empty{text-align:center;color:var(--s3);font-size:15px;margin:10px 0 30px}
+.box[hidden],.sech-note[hidden],.chart-empty[hidden]{display:none!important}
 </style>
 </head>
 <body>
@@ -594,8 +596,17 @@ function render(){
  document.getElementById('pipe-note').textContent='* Bars: filtered deals by create month, in USD.'+spendLine;
  document.getElementById('rev-note').textContent='* Bars: Closed Won from the same filtered deals, by close month, in USD.'+spendLine;
  document.getElementById('month-charts').hidden=S.per==='lfm';
+ const zp=!created.some(d=>d.amt>0&&ms.includes(d.cr.slice(0,7))), zr=!won.some(d=>d.amt>0&&ms.includes(d.cl.slice(0,7)));
+ chartEmpty('pipe',zp,'No influenced pipeline created in this period.');
+ chartEmpty('rev',zr,'No influenced revenue closed in this period.');
  renderNB(FP);renderCB(FP);renderJ(FP);renderCP(FP,spend);
  renderJT();
+}
+function chartEmpty(k,z,msg){
+ const box=document.getElementById(k+'-chart'),note=document.getElementById(k+'-note');
+ let em=document.getElementById(k+'-empty');
+ if(!em){em=document.createElement('p');em.id=k+'-empty';em.className='chart-empty';box.parentNode.insertBefore(em,box)}
+ em.textContent=msg;em.hidden=!z;box.hidden=z;note.hidden=z;
 }
 function renderNB(FP){
  const st=document.getElementById('fStage').value;
