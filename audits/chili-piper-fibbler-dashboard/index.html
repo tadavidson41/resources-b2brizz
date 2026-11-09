@@ -547,11 +547,11 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 <div class="ov-block ov-in">
 <div class="ov-head"><span class="dot" id="ov-dot" style="background:var(--chili)"></span><h3 id="ov-title">With partnership deals</h3></div>
 <div class="cards">
-<div class="mcard"><div class="l">Ad spend</div><div class="v" id="kpi-spend">$293,413</div><div class="cmp" id="kpi-spend-c"></div><div class="n" id="kpi-spend-n">LinkedIn, account, Jan '26 to Nov '26 MTD</div></div>
-<div class="mcard"><div class="l">Influenced deals</div><div class="v" id="kpi-deals">282</div><div class="cmp" id="kpi-deals-c"></div><div class="n" id="kpi-deals-n">58 open + 109 won + 115 lost in period</div></div>
-<div class="mcard"><div class="l">Influenced pipeline</div><div class="v" id="kpi-pipe">$1,288,295</div><div class="cmp" id="kpi-pipe-c"></div><div class="n">Open stages only</div></div>
-<div class="mcard"><div class="l">Influenced revenue</div><div class="v" id="kpi-rev">$3,281,384</div><div class="cmp" id="kpi-rev-c"></div><div class="n">Closed won by close date in period</div></div>
-<div class="mcard"><div class="l">Cost per opp</div><div class="v" id="kpi-cpo">-</div><div class="cmp" id="kpi-cpo-c"></div><div class="n">Spend / opportunities created</div></div>
+<div class="mcard"><div class="l">Ad spend</div><div class="v" id="kpi-spend">$293,413</div><div class="cmp" id="kpi-spend-c"></div></div>
+<div class="mcard"><div class="l">Influenced deals</div><div class="v" id="kpi-deals">282</div><div class="cmp" id="kpi-deals-c"></div></div>
+<div class="mcard"><div class="l">Influenced pipeline</div><div class="v" id="kpi-pipe">$1,288,295</div><div class="cmp" id="kpi-pipe-c"></div></div>
+<div class="mcard"><div class="l">Influenced revenue</div><div class="v" id="kpi-rev">$3,281,384</div><div class="cmp" id="kpi-rev-c"></div></div>
+<div class="mcard"><div class="l">Cost per opp</div><div class="v" id="kpi-cpo">-</div><div class="cmp" id="kpi-cpo-c"></div></div>
 </div>
 </div>
 
@@ -818,9 +818,9 @@ function recomputeKPIs(){
  var spendNote=PERIODS[cur].spendNote;
 
  document.getElementById('kpi-spend').textContent=money(spend);
- document.getElementById('kpi-spend-n').textContent=spendNote;
+ var _e=document.getElementById('kpi-spend-n'); if(_e) _e.textContent=spendNote;
  document.getElementById('kpi-deals').textContent=fmtN(nDeals);
- document.getElementById('kpi-deals-n').textContent=nOpen+' open + '+nWon+' won + '+nLost+' lost in period';
+ var _e=document.getElementById('kpi-deals-n'); if(_e) _e.textContent=nOpen+' open + '+nWon+' won + '+nLost+' lost in period';
  document.getElementById('kpi-pipe').textContent=money(openPipe);
  document.getElementById('kpi-rev').textContent=money(wonRev);
  var curM=kpiWindow(p.start,p.end,true);
