@@ -518,7 +518,7 @@ table.oc-t tr.eff-zero td{color:#a3a3b2}
 <div class="mcard"><div class="l">Ad spend</div><div class="v" id="kpi-spend">$153,182</div><div class="cmp" id="kpi-spend-c"></div></div>
 <div class="mcard"><div class="l">Influenced deals</div><div class="v" id="kpi-deals">375</div><div class="cmp" id="kpi-deals-c"></div></div>
 <div class="mcard"><div class="l">Cost per opp</div><div class="v" id="kpi-cpo">-</div><div class="cmp" id="kpi-cpo-c"></div></div>
-<div class="mcard"><div class="l">Influenced pipeline</div><div class="v" id="kpi-pipe">$13,455,650</div><div class="cmp" id="kpi-pipe-c"></div></div>
+<div class="mcard"><div class="l">Influenced pipeline<span class="info-wrap"><button type="button" class="info-i" aria-expanded="false" aria-label="More detail">i</button><span class="info-pop" role="tooltip">Open stages only. Closed lost and disqualified opps count as $0 here, but keep their real amount in the influenced deals table and Deal outcomes.</span></span></div><div class="v" id="kpi-pipe">$13,455,650</div><div class="cmp" id="kpi-pipe-c"></div></div>
 <div class="mcard"><div class="l">Influenced revenue</div><div class="v" id="kpi-rev">$1,216,655</div><div class="cmp" id="kpi-rev-c"></div></div>
 </div>
 </div>
@@ -628,7 +628,7 @@ table.oc-t tr.eff-zero td{color:#a3a3b2}
 <li><b>Influence.</b> A deal counts when paid LinkedIn activity before the deal reaches the selected threshold: 3+ paid clicks (default), 3+ paid engagements, or 100+ paid impressions. Jan to Jul engagements and impressions come from the Fibbler raw pull behind the Sep 4 dashboard (the published page only listed 3+ click deals, but that pull includes those fields). The toggle applies to the KPIs, cost per opp, pipeline and revenue charts, deal table, campaign breakdown and journeys.</li>
 <li><b>Cohort.</b> New business opportunities only (Salesforce opp name contains " - New"). Renewals and expansion are excluded.</li>
 <li><b>Create vs close.</b> Pipeline, the deal table and journeys use create date. Revenue uses close date (Closed Won only).</li>
-<li><b>Pipeline.</b> Open stages only. Closed Lost and Disqualified count as influenced deals but add no pipeline.</li>
+<li><b>Pipeline.</b> Open stages only. Closed lost and disqualified opps count as $0 in influenced pipeline (cards, comparisons, What changed, the monthly chart and campaign group tables) but still count as influenced deals and in cost per opp, and keep their real amount in the deal table and Deal outcomes.</li>
 <li><b>Spend.</b> January to July ad spend is Fibbler account LinkedIn spend ($100,814). LinkedIn Ads (account 506678050) and Zen ABM put that same stretch about $2,309 higher, mostly in March, May and June. August onward spend is from Zen ABM. Cost per opp is period spend divided by influenced opportunities created in the period.</li>
 <li><b>Comparisons.</b> Last full month compares with the month before. Month to date compares with the same days last month. Last 3 months compares with the prior 3 months (May to July, Fibbler-sourced). YTD has no prior-year comparison.</li>
 <li><b>Partial month.</b> November 2026 is partial (Zen ABM data as of Nov 9; 9 of 30 days).</li>
