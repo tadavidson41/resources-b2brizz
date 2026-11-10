@@ -320,31 +320,29 @@ details.cp-row[open] summary .chev{transform:rotate(90deg)}
 .sech-short{font-size:13.5px}
 .dc-badge{display:inline-block;margin-left:8px;padding:2px 8px;border-radius:6px;background:#ECEBF0;color:#5a5a6e;font-family:"Roobert",system-ui,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;vertical-align:3px}
 .sm-deal{display:inline-block;margin-left:8px;font-family:"Roobert",system-ui,sans-serif;font-size:12px;font-weight:600;color:var(--s2)}
-/* slim sticky nav: tabs on the first row, influence + time filters on a second row so they never overlap */
-.topnav{position:sticky;top:0;z-index:100;background:#FAF9FD;border-bottom:1px solid var(--bd);width:100%}
-.topnav .slim-inner{max-width:1180px;margin:0 auto;padding:0 24px 8px;min-height:52px;display:flex;align-items:center;justify-content:space-between;gap:0 18px;flex-wrap:wrap}
-.topnav .tabs{display:flex;gap:4px;align-items:center;height:52px;min-width:0;flex:1 1 auto}
+/* slim sticky nav */
+.topnav{position:sticky;top:0;left:0;right:0;z-index:100;background:#FAF9FD;border-bottom:1px solid var(--bd);width:100%;box-shadow:none}
+.topnav .slim-inner{max-width:1180px;margin:0 auto;padding:0 24px;height:52px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.topnav .tabs{display:flex;gap:4px;align-items:center;height:100%;min-width:0}
 .topnav a.tab{display:flex;align-items:center;height:100%;padding:0 12px;border:0;border-radius:0;background:transparent;font:700 13px/1 "Roobert",system-ui,sans-serif;color:var(--s2);text-decoration:none;position:relative;white-space:nowrap}
 .topnav a.tab:hover{color:var(--tx);border:0}
 .topnav a.tab.active{color:var(--tx)}
 .topnav a.tab.active::after{content:"";position:absolute;left:10px;right:10px;bottom:0;height:3px;background:#7319F2;border-radius:3px 3px 0 0}
 .topnav a.tab:focus-visible{outline:2px solid #7319F2;outline-offset:-2px}
-.topnav .filters{display:flex;align-items:center;gap:14px;flex:none;width:100%;justify-content:flex-end;padding:2px 0 2px}
-.topnav .filters .seg + .flab{margin-left:4px}
+.topnav .filters{display:flex;align-items:center;gap:10px;flex:none}
 .topnav .flab{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--s3);margin-right:2px}
 .topnav .seg{display:inline-flex;border:1px solid var(--bd);border-radius:999px;background:#fff;padding:2px}
 .topnav .seg button{border:0;background:transparent;padding:6px 11px;border-radius:999px;font:700 12px/1 "Roobert",system-ui,sans-serif;color:var(--s2);cursor:pointer;white-space:nowrap}
 .topnav .seg button:hover{color:var(--tx)}
 .topnav .seg button.active{background:#7319F2;color:#fff}
 .topnav .seg button:focus-visible{outline:2px solid #7319F2;outline-offset:1px}
-@media(max-width:980px){.topnav .slim-inner{padding:0 14px;gap:10px}.topnav a.tab{padding:0 9px}}
-@media(max-width:860px){
- .topnav .slim-inner{padding:0 12px 8px;row-gap:6px}
+@media(max-width:1200px){
+ .topnav .slim-inner{flex-wrap:wrap;height:auto;padding:0 12px 8px;row-gap:6px}
  .topnav .tabs{width:100%;height:44px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
  .topnav .tabs::-webkit-scrollbar{display:none}
- .topnav .filters{flex-wrap:wrap;gap:6px 8px;justify-content:flex-start}
+ .topnav .filters{width:100%;flex-wrap:wrap;gap:6px 8px}
 }
-@media(max-width:520px){.topnav a.tab{padding:0 8px;font-size:12.5px}.topnav .filters{flex-wrap:nowrap;justify-content:space-between}.topnav .seg button{padding:6px 9px}.topnav .flab{display:none}}
+@media(max-width:520px){.topnav a.tab{padding:0 8px;font-size:12.5px}.topnav .filters{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.topnav .filters::-webkit-scrollbar{display:none}.topnav .seg button{padding:6px 9px}.topnav .flab{display:none}}
 .jv-toggle{display:inline-flex;border:1px solid var(--bd);border-radius:8px;background:#fff;padding:2px;margin:0 0 12px}
 .jv-toggle .jv-btn{border:none;background:none;font-size:12px;font-weight:700;padding:5px 12px;border-radius:6px;cursor:pointer;color:var(--s2)}
 .jv-toggle .jv-btn.active{background:#7319F2;color:#fff}
@@ -491,7 +489,7 @@ table.oc-t tr.eff-zero td{color:#a3a3b2}
 </div>
 <div class="filters">
 <span class="flab">Influence</span>
-<span class="seg" role="group" aria-label="Influence definition"><button type="button" class="inf-pill active" data-inf="clk" aria-pressed="true" title="New business deals with 3+ paid LinkedIn clicks before create">3+ paid clicks</button><button type="button" class="inf-pill" data-inf="eng" aria-pressed="false" title="New business deals with 3+ paid LinkedIn engagements before create">3+ paid engagements</button><button type="button" class="inf-pill" data-inf="impr" aria-pressed="false" title="New business deals with 100+ paid LinkedIn impressions before create">100+ impressions</button></span>
+<span class="seg" role="group" aria-label="Influence definition"><button type="button" class="inf-pill active" data-inf="clk" aria-pressed="true" title="3+ paid clicks">3+ clicks</button><button type="button" class="inf-pill" data-inf="eng" aria-pressed="false" title="3+ paid engagements">3+ engagements</button><button type="button" class="inf-pill" data-inf="impr" aria-pressed="false" title="100+ impressions">100+ impr</button></span>
 <span class="flab">Time</span>
 <span class="seg" role="group" aria-label="Time frame"><button type="button" class="period-pill active" data-period="ytd" title="Year to date">YTD</button><button type="button" class="period-pill" data-period="l3m" title="Last 3 months">L3M</button><button type="button" class="period-pill" data-period="lfm" title="Last full month">LFM</button><button type="button" class="period-pill" data-period="mtd" title="Month to date">MTD</button></span>
 </div>
