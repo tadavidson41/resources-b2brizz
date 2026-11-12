@@ -219,7 +219,7 @@ function overview(p){const t=p.total,pr=p.prior;const cp=t.lp>0?t.spend/t.lp:0,c
  trend(p);}
 function review(issue){AL.attention.f={issue};AL.attention.q='';PRE='attention';VIEW='adset';go('accounts','list')}
 function openList(pre,view){PRE=pre;VIEW=view||'adset';go('accounts','list')}
-const VDESC={'V4 (new)':'New 1-to-1 template. Launched Nov 4','V3 (new)':'New 1-to-1 template. Replaced V1 Oct 26 to 28','V1 (new)':'New 1-to-1 template. Replaced by V3 Oct 26 to 28','V2 (new)':'New 1-to-1 template. Paused on live ad sets Oct 30','V10 Billboard':'Purple city billboard creative','Legacy (Aug 2025 to Feb 2026)':'Old V1 to V15, older 1-to-1 template'};
+const VDESC={'V4 (new)':'New 1-to-1 template. V4 swap Nov 4, on 100 ad sets in the older groups','V3 (new)':'New 1-to-1 template. Replaced V1 Oct 26','V1 (new)':'New 1-to-1 template. Replaced by V3 Oct 26','V2 (new)':'New 1-to-1 template. Paused on live ad sets Oct 30','V10 Billboard':'Purple city billboard creative','Legacy (Aug 2025 to Feb 2026)':'Old V1 to V15, older 1-to-1 template'};
 const LEGL='Legacy (Aug 2025 to Feb 2026)';
 let NOURL=false;
 function vS(l){const ex=NOURL;if(l==LEGL){let a=0,b=0;Object.entries(D.vstat).forEach(([k,v])=>{if(k.startsWith('Old V')){const x=ex?v.url:v.all;a+=x[0];b+=x[1]}});return [a,b]}const v=D.vstat[l];return v?(ex?v.url:v.all):[0,0]}
