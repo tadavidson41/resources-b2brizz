@@ -139,8 +139,14 @@ function kpis(cs){const t=tot(cs),q=tot(cs,1);const r=(a,b)=>b>0?a/b:null;const 
  return `<div class="kpis">${kcard('CTR',pct(t.clicks,t.impr),r(t.clicks,t.impr),r(q.clicks,q.impr),0,f2)}${kcard('LP CTR',pct(t.lp,t.impr),r(t.lp,t.impr),r(q.lp,q.impr),0,f2)}${kcard('Cost per LP click',cpl(t.spend,t.lp),r(t.spend,t.lp),r(q.spend,q.lp),1,usd)}</div>`}
 const AV={label:r=>r.label,spend:r=>r.spend,impr:r=>r.impr,lp:r=>r.lp,cpl:r=>r.lp>0?r.spend/r.lp:null,lpctr:r=>r.impr>0?r.lp/r.impr:null,clicks:r=>r.clicks,ctr:r=>r.impr>0?r.clicks/r.impr:null,dwell:r=>r.dwell};
 const dwf=v=>v==null?'-':v.toFixed(1)+'s';
-function winners(list){if(!list.length)return {};const avg=list.reduce((a,r)=>a+r.spend,0)/list.length;const el=list.filter(r=>r.spend>=avg&&r.impr>0);const W={};
- [['cpl',-1],['lpctr',1],['ctr',1],['dwell',1]].forEach(([k,dir])=>{const vs=el.map(r=>AV[k](r)).filter(v=>v!==null&&(dir<0?v>0:v>=0));const best=vs.slice().sort((a,b)=>(b-a)*dir).slice(0,3);const worst=vs.slice().sort((a,b)=>(a-b)*dir).filter(v=>!best.includes(v)).slice(0,3);W[k]={best,worst,el:new Set(el)}});return W}
+function pillN(n){if(n<=1)return{b:0,w:0};if(n===2)return{b:1,w:1};if(n===3)return{b:2,w:1};return{b:3,w:Math.min(3,n-3)}}
+function winners(list){if(!list.length)return {};const W={};
+ [['cpl',-1],['lpctr',1],['ctr',1],['dwell',1]].forEach(([k,dir])=>{
+  const el=list.filter(r=>{const v=AV[k](r);if(v===null)return false;if(k==='cpl')return r.lp>0&&v>0;if(k==='lpctr'||k==='ctr')return r.impr>0;return true});
+  const {b,w}=pillN(el.length);const vs=el.map(r=>AV[k](r));
+  const best=vs.slice().sort((a,c)=>(c-a)*dir).slice(0,b);
+  const worst=vs.slice().sort((a,c)=>(a-c)*dir).filter(v=>!best.includes(v)).slice(0,w);
+  W[k]={best,worst,el:new Set(el)}});return W}
 function hl(W,r,k,txt){const w=W[k];if(!w||!w.el.has(r))return txt;const v=AV[k](r);if(v===null)return txt;const i=w.best.indexOf(v);if(i>=0){w.best.splice(i,1,NaN);return `<span class="gv">${txt}</span>`}const j=w.worst.indexOf(v);if(j>=0){w.worst.splice(j,1,NaN);return `<span class="bv">${txt}</span>`}return txt}
 function cmpv(a,b){if(a===null&&b===null)return 0;if(a===null)return 1;if(b===null)return -1;return typeof a=='string'?a.localeCompare(b):a-b}
 let SORT={c:'spend',d:-1};const OPEN=new Set();
@@ -168,7 +174,7 @@ function table(cs){const p=D.periods[P];const AD=SUB!='All'||IND=='Retargeting';
  const sh=(c,n)=>`<th class="s n" onclick="srt('${c}')">${n}${SORT.c==c?(SORT.d>0?' &#9650;':' &#9660;'):''}</th>`;
  return `<div class="tw"><table id="tt" data-mode="${AD?'ad':'theme'}"><thead><tr><th>Preview</th><th class="s" onclick="srt('label')">${AD?'Ad':'Theme / ad'}</th>${sh('spend','Spend')}${sh('impr','Impr.')}${sh('lp','LP clicks')}${sh('cpl','Cost/LP')}${sh('lpctr','LP CTR')}${sh('clicks','Clicks')}${sh('ctr','CTR')}${sh('dwell','Dwell time')}<th>Status now</th></tr></thead>
  <tbody>${AD?avgRow:''}${body}<tr class="tot"><td></td><td>Total</td>${met(T,null,0)}<td>${stPill(cs)}</td></tr></tbody></table></div>
- <div class="note">${AD?'':'Click a theme to see its ads. '}<span class="gv">Green</span> = best 3 and <span class="bv">pink</span> = worst 3, among rows at or above average spend. Cost/LP is lower-is-better; LP CTR, CTR and dwell time are higher-is-better.${AD?' "vs avg" compares each ad with the Average row.':''} Dwell time = LinkedIn average dwell time, impression-weighted.</div>`}
+ <div class="note">${AD?'':'Click a theme to see its ads. '}<span class="gv">Green</span> = best 3 and <span class="bv">red</span> = worst 3, among rows where the metric is meaningful (Cost/LP needs at least one LP click; CTR and LP CTR need at least one impression). Cost/LP is lower-is-better; LP CTR, CTR and dwell time are higher-is-better. On short lists, red is only applied to rows that are not already green.${AD?' "vs avg" compares each ad with the Average row.':''} Dwell time = LinkedIn average dwell time, impression-weighted.</div>`}
 function fatigue(){const F=D.FAT[scopeKey()]||{n:{}};const w=D.meta.fwin;
  const rs=Object.entries(F.n).filter(([n,v])=>v.drop!=null&&v.drop>=20).map(([n,v])=>({n,...v})).sort((a,b)=>b.drop-a.drop);
  $('fatigue').innerHTML=`<div class="sh"><h2>Creative fatigue</h2><span class="sc">${esc(scopeLabel())}</span></div>
