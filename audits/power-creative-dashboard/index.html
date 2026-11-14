@@ -84,6 +84,12 @@ tr.fat-chart td{background:#FAFAFF;padding:10px 14px 16px;border-bottom:1px soli
 .chart svg{display:block}
 .legend{font-size:12px;color:var(--mut);display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:6px}
 .legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.mtip{display:none;position:fixed;z-index:80;width:340px;max-height:360px;overflow:auto;background:#2B2A29;color:#fff;font-size:12px;line-height:1.45;padding:10px 12px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.18);text-align:left;pointer-events:none}
+.mtip .mh{font-weight:700;margin-bottom:6px}
+.mtip .ml{margin:0 0 5px}
+.mtip .ml i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:1px}
+.chart{position:relative}
+
 .i{display:inline-flex;align-items:center;justify-content:center;margin-left:6px;width:16px;height:16px;border-radius:50%;background:var(--lav2);color:var(--eb);font-size:11px;font-weight:700;cursor:help;position:relative;font-style:normal;vertical-align:6px}
 .i .tip{display:none;position:absolute;left:50%;top:22px;transform:translateX(-50%);width:340px;background:var(--ink);color:#fff;font-weight:400;font-size:12px;line-height:1.45;padding:9px 11px;border-radius:8px;z-index:40;text-align:left}
 .i:hover .tip,.i:focus .tip{display:block}
@@ -198,72 +204,85 @@ function mkFull(d,items){const order=['launched','paused','adset_paused','remove
  return lines.join('\n')}
 function chartPack(){const ch=D.CHART||{start:'',end:'',s:{}};if(ch.s[scopeKey()])return ch.s[scopeKey()];const base=(ch.s.all||{d:[]}).d;return {d:base.map(r=>[r[0],0,null,null]),m:[],ms:[]}}
 const MC={lp:'#7756FF',ctr:'#4900FF',cpl:'#2B2A29'};
-function counts(items){const L=new Set(),P=new Set();(items||[]).forEach(it=>{(it.a==='launched'?L:P).add(it.n)});return {n:L.size,p:P.size}}
 function rangeText(d0,d1){if(!d0||!d1||d0===d1)return '';const a=new Date(d0+'T12:00:00'),b=new Date(d1+'T12:00:00');const mo=t=>t.toLocaleDateString('en-US',{month:'short'});if(mo(a)===mo(b))return mo(a)+' '+a.getDate()+'-'+b.getDate();return sd(d0)+'\u2013'+sd(d1)}
-function badgeW(s){return Math.ceil(14+String(s).length*7)}
-function weekKey(iso){const d=new Date(iso+'T12:00:00');const off=(d.getDay()+6)%7;d.setDate(d.getDate()-off);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
 function daysApart(a,b){return Math.abs((new Date(a+'T12:00:00')-new Date(b+'T12:00:00'))/86400000)}
-function badgeSegs(n,p,rng){const segs=[];if(rng)segs.push({t:rng,fill:'#F1F0FE',stroke:'#D5D2FF',ink:'#2B2A29'});if(n&&p){segs.push({t:n+' new',fill:'#E3F3E8',stroke:'#C5E4CC',ink:'#2E6B45'});segs.push({t:p+' paused',fill:'#fdebe9',stroke:'#f0c9c6',ink:'#b8261b'})}else if(n)segs.push({t:n+' new ad'+(n===1?'':'s'),fill:'#E3F3E8',stroke:'#C5E4CC',ink:'#2E6B45'});else if(p)segs.push({t:p+' ad'+(p===1?'':'s')+' paused',fill:'#fdebe9',stroke:'#f0c9c6',ink:'#b8261b'});const ws=segs.map(s=>badgeW(s.t));const w=ws.reduce((a,b)=>a+b,0)+Math.max(0,segs.length-1)*3;return {segs,ws,w}}
-function mergeFull(days){return days.map(e=>mkFull(e.d,e.items)).join('\n\n')}
-function msSegs(items,rng){const launched=items.filter(it=>it.t==='new_adset'||it.t==='new_campaign');const paused=items.filter(it=>it.t==='adset_paused');const bits=[];const named=!rng&&(launched.length+paused.length)===1;if(named){if(launched[0]&&launched[0].t==='new_campaign')bits.push('New campaign: '+launched[0].short);else if(launched[0])bits.push('New ad set: '+launched[0].short);else bits.push('Ad set paused: '+paused[0].short)}else{if(launched.length)bits.push(launched.length+' new ad set'+(launched.length===1?'':'s'));if(paused.length)bits.push(paused.length+' ad set'+(paused.length===1?'':'s')+' paused')}const t=(rng?rng+': ':'')+bits.join(', ');const segs=t?[{t,fill:'#EDE8FF',stroke:'#7756FF',ink:'#4900FF'}]:[];const ws=segs.map(s=>badgeW(s.t));return {segs,ws,w:ws.reduce((a,b)=>a+b,0)}}
-function msFull(days){return days.map(e=>{const lines=[fmtD(e.d)];e.items.forEach(it=>{if(it.t==='new_campaign')lines.push('New campaign: '+(it.short||it.name)+(it.created?' (created '+fmtD(it.created)+')':''));else if(it.t==='new_adset'){let s='New ad set: '+(it.short||it.name);const bits=[];if(it.created)bits.push('created '+fmtD(it.created));if(it.run&&it.run!==it.created)bits.push('run start '+fmtD(it.run));if(it.first)bits.push('first delivery '+fmtD(it.first));if(it.obj)bits.push(String(it.obj).replace(/_/g,' ').toLowerCase());if(bits.length)s+=' ('+bits.join(', ')+')';lines.push(s)}else if(it.t==='adset_paused')lines.push('Ad set paused or ended: '+(it.short||it.name)+(it.last?' (last delivery '+fmtD(it.last)+')':''))});return lines.join('\n')}).join('\n\n')}
-function layoutAll(adEv,msEv,L,R,W){
- const key=g=>g.kind+':'+g.days.map(e=>e.d).join(',');
- const placeX=(mid,w)=>{let bx=mid-w/2;if(bx<L)bx=L;if(bx+w>W-R)bx=W-R-w;return bx};
- const makeAd=days=>{days=days.slice().sort((a,b)=>a.d.localeCompare(b.d));const n=new Set(),p=new Set();days.forEach(e=>e.items.forEach(it=>{(it.a==='launched'?n:p).add(it.n)}));const d0=days[0].d,d1=days[days.length-1].d;const rng=days.length>1?rangeText(d0,d1):'';const se=badgeSegs(n.size,p.size,rng);const mid=days.reduce((s,e)=>s+e.x0,0)/days.length;return {kind:'ad',days,n:n.size,p:p.size,rng,se,w:se.w,mid,bx:placeX(mid,se.w),x0s:days.map(e=>e.x0),full:mergeFull(days),wk:weekKey(d0)}};
- const makeMs=days=>{days=days.slice().sort((a,b)=>a.d.localeCompare(b.d));const items=[];days.forEach(e=>e.items.forEach(it=>items.push(it)));const d0=days[0].d,d1=days[days.length-1].d;const rng=days.length>1?rangeText(d0,d1):'';const se=msSegs(items,rng);const mid=days.reduce((s,e)=>s+e.x0,0)/days.length;return {kind:'ms',days,se,w:se.w,mid,bx:placeX(mid,se.w),x0s:days.map(e=>e.x0),full:msFull(days),wk:weekKey(d0)}};
- const make=g=>g.kind==='ms'?makeMs(g.days):makeAd(g.days);
- const tryPlace=groups=>{const lanes=[[],[],[],[],[]];let ok=true;const out=groups.map(g=>{if(!g.se.segs.length)return {...g,lane:-1};const maxL=L,maxR=W-R-g.w;const cands=[];for(let s=0;s<=240;s+=6){const left=Math.max(maxL,g.bx-s),right=Math.min(maxR,g.bx+s);cands.push(left);if(right!==left)cands.push(right)}let lane=-1,bx=g.bx;for(const cand of cands){for(let k=0;k<lanes.length;k++){const hit=lanes[k].some(([l,r])=>!(cand+g.w+4<=l||cand-4>=r));if(!hit){lane=k;bx=cand;lanes[k].push([bx,bx+g.w]);break}}if(lane>=0)break}if(lane<0)ok=false;return {...g,lane,bx}});return {ok,out}};
- let groups=adEv.map(e=>makeAd([e])).concat(msEv.map(e=>makeMs([e])));
- let placed=tryPlace(groups);
- let guard=0;
- const skip=new Set();
- while(!placed.ok&&guard++<24){const u=placed.out.find(g=>g.lane<0&&!skip.has(key(g)));if(!u)break;
-  const others=groups.filter(g=>key(g)!==key(u)&&g.kind===u.kind);
-  const same=others.filter(g=>g.wk===u.wk||g.days.some(e=>u.days.some(f=>daysApart(e.d,f.d)<=6))).sort((a,b)=>Math.abs(a.mid-u.mid)-Math.abs(b.mid-u.mid));
-  if(!same.length){skip.add(key(u));continue}
-  const tgt=same[0];
-  groups=groups.filter(g=>key(g)!==key(u)&&key(g)!==key(tgt)).concat([make({kind:u.kind,days:tgt.days.concat(u.days)})]);
-  placed=tryPlace(groups)}
- return placed.out}
-function tpanel(d,key,fmt,col,type,H,o,CHG,MS){const W=1180,L=64,R=20,T=o.top?110:14,B=o.xl?30:10;const n=d.length;const vals=d.map(r=>r[key]);const S=nice(1.1*Math.max(.0001,...vals.filter(v=>v!=null)));
+const MST={ms:{fill:'#EDE8FF',stroke:'#7756FF',ink:'#4900FF',dots:['#7756FF'],line:'#7756FF',dash:''},new:{fill:'#E3F3E8',stroke:'#C5E4CC',ink:'#2E6B45',dots:['#2E6B45'],line:'#2E6B45',dash:'3 4'},paused:{fill:'#fdebe9',stroke:'#f0c9c6',ink:'#b8261b',dots:['#b8261b'],line:'#b8261b',dash:'3 4'},both:{fill:'#F4F4F2',stroke:'#DDDDDA',ink:'#2B2A29',dots:['#2E6B45','#b8261b'],line:'#2B2A29',dash:'3 4'}};
+let MTIPS={},MTIPN=0;
+function tipId(html){const id='m'+(++MTIPN);MTIPS[id]=html;return id}
+function showMtip(ev,id){let tip=$('mtip');if(!tip){tip=document.createElement('div');tip.id='mtip';tip.className='mtip';document.body.appendChild(tip)}tip.innerHTML=MTIPS[id]||'';tip.style.display='block';const r=(ev.currentTarget||ev.target).getBoundingClientRect();const w=tip.offsetWidth||340,h=tip.offsetHeight||120;let left=r.left+r.width/2-w/2;left=Math.max(8,Math.min(left,window.innerWidth-w-8));let top=r.bottom+8;if(top+h>window.innerHeight-8)top=Math.max(8,r.top-h-8);tip.style.left=left+'px';tip.style.top=top+'px'}
+function hideMtip(){const tip=$('mtip');if(tip)tip.style.display='none'}
+function markTipHtml(days){const d0=days[0].d,d1=days[days.length-1].d,multi=d0!==d1;const head=multi?rangeText(d0,d1):fmtD(d0);const buckets={camp:[],adset:[],adsetp:[],ads:[],adsp:[]};const add=(k,name,d)=>{const s=name+(multi?' ('+sd(d)+')':'');if(s&&!buckets[k].includes(s))buckets[k].push(s)};days.forEach(e=>{(e.ms||[]).forEach(it=>{if(it.t==='new_campaign')add('camp',it.short||it.name,e.d);else if(it.t==='new_adset')add('adset',it.short||it.name,e.d);else if(it.t==='adset_paused')add('adsetp',it.short||it.name,e.d)}); (e.ads||[]).forEach(it=>{const nm=pretty(it.n).t||it.n;if(it.a==='launched')add('ads',nm,e.d);else add('adsp',nm,e.d)})});const labs=[['camp','New campaigns'],['adset','New ad sets'],['adsetp','Ad sets paused'],['ads','New ads'],['adsp','Ads paused']];let h=`<div class="mh">${esc(head)}</div>`;labs.forEach(([k,l])=>{if(buckets[k].length)h+=`<div class="ml"><b>${l}:</b> ${esc(buckets[k].join(', '))}</div>`});return h}
+function markKind(days){if(days.some(e=>(e.ms||[]).length))return 'ms';const hasN=days.some(e=>(e.ads||[]).some(it=>it.a==='launched'));const hasP=days.some(e=>(e.ads||[]).some(it=>it.a!=='launched'));return hasN&&hasP?'both':hasP?'paused':'new'}
+function layoutMarks(events,L,R,W){events=events.slice().sort((a,b)=>a.d.localeCompare(b.d));if(!events.length)return [];
+ const make=days=>{days=days.slice().sort((a,b)=>a.d.localeCompare(b.d));const d0=days[0].d,d1=days[days.length-1].d;const label=d0===d1?sd(d0):rangeText(d0,d1);const kind=markKind(days);const nd=kind==='both'?2:1;const w=Math.ceil(12+nd*9+String(label).length*6.4+10);const mid=days.reduce((s,e)=>s+e.x0,0)/days.length;let bx=mid-w/2;if(bx<L)bx=L;if(bx+w>W-R)bx=W-R-w;return {days,kind,label,w,mid,bx,x0s:days.map(e=>e.x0),html:markTipHtml(days)}};
+ let raw=[];events.forEach(e=>{const last=raw[raw.length-1];if(last&&daysApart(last[last.length-1].d,e.d)<=3)last.push(e);else raw.push([e])});
+ let groups=raw.map(make);
+ let guard=0;while(guard++<24){let hit=-1;for(let i=0;i<groups.length-1;i++){if(!(groups[i].bx+groups[i].w+6<=groups[i+1].bx)&&daysApart(groups[i].days[groups[i].days.length-1].d,groups[i+1].days[0].d)<=3){hit=i;break}}if(hit<0)break;groups=groups.slice(0,hit).concat([make(groups[hit].days.concat(groups[hit+1].days))],groups.slice(hit+2))}
+ for(let i=1;i<groups.length;i++){const minBx=groups[i-1].bx+groups[i-1].w+6;if(groups[i].bx<minBx){groups[i].bx=minBx;if(groups[i].bx+groups[i].w>W-R){groups[i].bx=W-R-groups[i].w;for(let j=i;j>=1;j--){if(groups[j-1].bx+groups[j-1].w+6<=groups[j].bx)break;groups[j-1].bx=Math.max(L,groups[j].bx-groups[j-1].w-6)}}}}
+ return groups}
+function tpanel(d,key,fmt,col,H,o){const W=1180,L=64,R=20,T=o.marks?42:14,B=o.xl?30:10;const n=d.length;const vals=d.map(r=>r[key]);const S=nice(1.1*Math.max(.0001,...vals.filter(v=>v!=null)));
  const bw=(W-L-R)/n;const x=i=>L+bw*i+bw/2;const y=v=>T+(H-T-B)*(1-v/S);let g='';
  for(let k=0;k<=4;k++){const yy=T+(H-T-B)*k/4;g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#ECECEC"/>`+TX(L-8,yy+4,fmt(S*(1-k/4)),{a:'end'})}
  const tip=(r)=>`${fmtD(r[0])}: ${o.name} ${r[key]==null?'n/a':fmt(r[key])}`;
  const pts=d.map((r,i)=>r[key]==null?null:[x(i),y(r[key])]).filter(Boolean);
  let line='';
- if(pts.length){const segs=[];let cur=[];pts.forEach((p,i,a)=>{cur.push(p);const nxt=pts[i+1];const broken=nxt&&Math.abs(nxt[0]-p[0])>bw*1.6;if(!nxt||broken){segs.push(cur);cur=[]}});
+ if(pts.length){const segs=[];let cur=[];pts.forEach((p,i)=>{cur.push(p);const nxt=pts[i+1];const broken=nxt&&Math.abs(nxt[0]-p[0])>bw*1.6;if(!nxt||broken){segs.push(cur);cur=[]}});
   line=segs.map(s=>s.length===1?'':`<polyline fill="none" stroke="${col}" stroke-width="2.2" stroke-dasharray="6 4" points="${s.map(p=>p.join(',')).join(' ')}"/>`).join('')}
  const body=line+d.map((r,i)=>r[key]==null?'':`<circle cx="${x(i)}" cy="${y(r[key])}" r="3" fill="${col}"><title>${esc(tip(r))}</title></circle>`).join('');
- const idx=s=>d.findIndex(r=>r[0]==s);
- const ev=[],ms=[];(CHG||[]).forEach(([a,items])=>{const i=idx(a);if(i<0)return;ev.push({d:a,items,x0:x(i)})});(MS||[]).forEach(([a,items])=>{const i=idx(a);if(i<0)return;ms.push({d:a,items,x0:x(i)})});
- const placed=o.top?layoutAll(ev,ms,L,R,W):[];
  let mk='';
- placed.forEach(p=>{const purple=p.kind==='ms';(p.x0s||(p.days||[]).map(e=>e.x0)).forEach(x0=>{const ly=p.lane>=0?12+p.lane*18:T;const y0=p.lane>=0?ly+6:T;
-  mk+=purple?`<line x1="${x0}" x2="${x0}" y1="${y0}" y2="${H-B}" stroke="#7756FF" stroke-width="1.6" opacity=".75"><title>${esc(p.full).replace(/\n/g,'&#10;')}</title></line>`:`<line x1="${x0}" x2="${x0}" y1="${y0}" y2="${H-B}" stroke="#2B2A29" stroke-width="1" stroke-dasharray="3 4" opacity=".45"><title>${esc(p.full).replace(/\n/g,'&#10;')}</title></line>`});
-  if(p.lane>=0&&p.se.segs.length){const ly=12+p.lane*18;let bx=p.bx;const title=`<title>${esc(p.full).replace(/\n/g,'&#10;')}</title>`;
-   mk+=`<g>${title}`;p.se.segs.forEach((s,i)=>{const w=p.se.ws[i];mk+=`<rect x="${bx}" y="${ly-9}" width="${w}" height="15" rx="7" fill="${s.fill}" stroke="${s.stroke}"/><text x="${bx+w/2}" y="${ly+3}" font-size="10" font-weight="700" fill="${s.ink}" text-anchor="middle">${esc(s.t)}</text>`;bx+=w+3});mk+='</g>'}});
+ if(o.marks&&o.marks.length){const idx=s=>d.findIndex(r=>r[0]==s);const ev=[];o.marks.forEach(e=>{const i=idx(e.d);if(i<0)return;ev.push({...e,x0:x(i)})});
+  const placed=layoutMarks(ev,L,R,W);const ly=18;
+  placed.forEach(p=>{const st=MST[p.kind];const id=tipId(p.html);const evs=`onmouseenter="showMtip(event,'${id}')" onmouseleave="hideMtip()"`;
+   mk+=`<g ${evs} style="cursor:pointer">`;
+   (p.x0s||[]).forEach(x0=>{mk+=`<line x1="${x0}" x2="${x0}" y1="${ly+7}" y2="${H-B}" stroke="${st.line}" stroke-width="${p.kind==='ms'?1.6:1}" ${st.dash?`stroke-dasharray="${st.dash}"`:''} opacity=".7"/>`});
+   mk+=`<rect x="${p.bx}" y="${ly-9}" width="${p.w}" height="16" rx="8" fill="${st.fill}" stroke="${st.stroke}"/>`;
+   let dx=p.bx+8;st.dots.forEach(c=>{mk+=`<circle cx="${dx}" cy="${ly}" r="3.2" fill="${c}"/>`;dx+=9});
+   mk+=`<text x="${dx+2}" y="${ly+3.5}" font-size="10" font-weight="700" fill="${st.ink}">${esc(p.label)}</text></g>`})}
  const step=Math.ceil(n/12);const lab=o.xl?d.map((r,i)=>i%step==0||i==n-1?TX(x(i),H-B+18,sd(r[0]),{a:'middle'}):'').join(''):'';
  return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${esc(o.name)} by day">${g}${mk}${body}${lab}</svg>`}
+function firstBase(d,key){for(let i=0;i<d.length;i++){const v=d[i][key];if(v!=null&&v>0)return v}return null}
+function niceRange(lo,hi){if(!(hi>lo)){lo-=10;hi+=10}const step=nice((hi-lo)/4)||1;const y0=Math.floor(lo/step)*step,y1=Math.ceil(hi/step)*step;return {y0,y1,step}}
+function allPanel(d,H){const W=1180,L=64,R=20,T=18,B=30;const n=d.length;const keys=['lp','ctr','cpl'];const base={};keys.forEach(k=>base[k]=firstBase(d,k));
+ const idxOf=(r,k)=>r[k]==null||!base[k]?null:100*r[k]/base[k];
+ const ys=d.flatMap(r=>keys.map(k=>idxOf(r,k)).filter(v=>v!=null));
+ const lo=ys.length?Math.min(...ys):80,hi=ys.length?Math.max(...ys):120;const pad=(hi-lo)*0.12||10;const {y0,y1}=niceRange(lo-pad,hi+pad);
+ const bw=(W-L-R)/n;const x=i=>L+bw*i+bw/2;const y=v=>T+(H-T-B)*(1-(v-y0)/(y1-y0));
+ let g='';const ticks=4;for(let k=0;k<=ticks;k++){const v=y0+(y1-y0)*k/ticks,yy=y(v);g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#ECECEC"/>`+TX(L-8,yy+4,String(Math.round(v)),{a:'end'})}
+ if(y0<100&&100<y1)g+=`<line x1="${L}" x2="${W-R}" y1="${y(100)}" y2="${y(100)}" stroke="#BDBDBD" stroke-dasharray="3 4"/>`+TX(L-8,y(100)+4,'100',{a:'end',c:'#6B6B6B'});
+ g+=TX(L,12,'Index',{fs:10,c:'#8A8A8A'});
+ const fmt={lp:v=>num(v),ctr:v=>(100*v).toFixed(2)+'%',cpl:v=>usd(v)};
+ const names={lp:'Rolling LP clicks',ctr:'Rolling LP CTR',cpl:'Rolling Cost/LP'};
+ let body='';
+ keys.forEach(k=>{const pts=d.map((r,i)=>{const v=idxOf(r,k);return v==null?null:[x(i),y(v)]});
+  const segs=[];let cur=[];pts.forEach((p,i)=>{if(!p){if(cur.length){segs.push(cur);cur=[]}return}cur.push(p);const nxt=pts[i+1];if(!nxt||(nxt&&Math.abs(nxt[0]-p[0])>bw*1.6)){segs.push(cur);cur=[]}});
+  body+=segs.map(s=>s.length===1?'':`<polyline fill="none" stroke="${MC[k]}" stroke-width="2.2" points="${s.map(p=>p.join(',')).join(' ')}"/>`).join('');
+  body+=d.map((r,i)=>{const v=idxOf(r,k);return v==null?'':`<circle cx="${x(i)}" cy="${y(v)}" r="3" fill="${MC[k]}"/>`}).join('')});
+ MTIPS={};MTIPN=0;
+ const hits=d.map((r,i)=>{const id=tipId(`<div class="mh">${esc(fmtD(r[0]))}</div>`+keys.map(k=>`<div class="ml"><i style="background:${MC[k]}"></i><b>${names[k]}:</b> ${r[k]==null?'n/a':fmt[k](r[k])}</div>`).join(''));return `<rect x="${x(i)-bw/2}" y="${T}" width="${bw}" height="${H-T-B}" fill="transparent" style="cursor:crosshair" onmouseenter="showMtip(event,'${id}')" onmouseleave="hideMtip()"/>`}).join('');
+ const step=Math.ceil(n/12);const lab=d.map((r,i)=>i%step==0||i==n-1?TX(x(i),H-B+18,sd(r[0]),{a:'middle'}):'').join('');
+ return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Rolling LP clicks, LP CTR, and Cost/LP, indexed to 100">${g}${body}${lab}${hits}</svg>`}
 function dailyChart(){const ch=D.CHART||{start:'',end:'',s:{}};const pack=chartPack();
- const MET={lp:['lp',v=>v==null?'n/a':num(v),MC.lp,'7-day rolling LP clicks'],ctr:['ctr',v=>v==null?'n/a':(100*v).toFixed(2)+'%',MC.ctr,'7-day rolling LP CTR'],cpl:['cpl',v=>v==null?'n/a':usd(v),MC.cpl,'7-day rolling Cost/LP click']};
+ const MET={lp:['lp',v=>v==null?'n/a':num(v),MC.lp,'Rolling LP clicks'],ctr:['ctr',v=>v==null?'n/a':(100*v).toFixed(2)+'%',MC.ctr,'Rolling LP CTR'],cpl:['cpl',v=>v==null?'n/a':usd(v),MC.cpl,'Rolling Cost/LP']};
  const dd=pack.d.map(r=>({0:r[0],lp:r[1],ctr:r[2],cpl:r[3]==null?null:r[3]}));
- const CHG=(pack.m||[]).map(([d,items])=>[d,items]);
- const MS=(pack.ms||[]).map(([d,items])=>[d,items]);
- const one=(m,H,o)=>`<div style="font-size:12px;font-weight:600;color:var(--ink);margin:4px 0 0 4px"><i style="display:inline-block;width:10px;height:10px;border-radius:3px;background:${m[2]};margin-right:6px"></i>${m[3]}</div>`+tpanel(dd,m[0],m[1],m[2],'dash',H,{name:m[3],...o},CHG,MS);
- const inner=!dd.length?`<div class="empty">No delivery in the last 60 days for this filter.</div>`:(DMODE==='all'?one(MET.lp,190,{top:1})+one(MET.ctr,130,{})+one(MET.cpl,160,{xl:1}):one(MET[DMODE]||MET.lp,300,{top:1,xl:1}));
- const tip='Dashed vertical markers are creative changes in the current filter: an ad is marked launched on its first day with delivery, and marked paused or removed on its last day with delivery only if the ad is now paused or removed, or its ad set is no longer live. Solid purple markers are major milestones in the same filter: a new ad set is marked on its first day with delivery, and an ad set is marked paused or ended on its last day with delivery if it is no longer live. A new campaign (campaign group) would be marked if one launched in this window; none did. Objective and daily budget change history is not available from the LinkedIn API, so those are not marked. 7-day rolling LP clicks = LP clicks in the last 7 days. 7-day rolling LP CTR = LP clicks in the last 7 days divided by impressions in the last 7 days. 7-day rolling Cost/LP click = spend in the last 7 days divided by LP clicks in the last 7 days, shown in whole dollars. The chart always shows the last 60 days and follows the segment and industry filters, not the period pills. Hover a point or marker for values.';
- const pills=[['lp','7-day rolling LP clicks'],['ctr','7-day rolling LP CTR'],['cpl','7-day rolling Cost/LP click'],['all','All three']].map(([k,l])=>`<button class="${k==DMODE?'on':''}" onclick="setD('${k}')">${l}</button>`).join('');
+ MTIPS={};MTIPN=0;
+ const byD={};(pack.m||[]).forEach(([d,items])=>{(byD[d]=byD[d]||{d,ads:[],ms:[]}).ads.push(...items)});(pack.ms||[]).forEach(([d,items])=>{(byD[d]=byD[d]||{d,ads:[],ms:[]}).ms.push(...items)});
+ const MARKS=Object.keys(byD).sort().map(d=>byD[d]);
+ const one=(m,H,o)=>`<div style="font-size:12px;font-weight:600;color:var(--ink);margin:4px 0 0 4px"><i style="display:inline-block;width:10px;height:10px;border-radius:3px;background:${m[2]};margin-right:6px"></i>${m[3]}</div>`+tpanel(dd,m[0],m[1],m[2],H,{name:m[3],marks:MARKS,...o});
+ const inner=!dd.length?`<div class="empty">No delivery in the last 60 days for this filter.</div>`:(DMODE==='all'?allPanel(dd,320):one(MET[DMODE]||MET.lp,300,{xl:1}));
+ const tip='Single-metric views mark creative changes and milestones in the current filter. An ad is marked new on its first day with delivery, and marked paused on its last day with delivery only if the ad is now paused or removed, or its ad set is no longer live. A new ad set is marked on its first day with delivery, and an ad set is marked paused or ended on its last day with delivery if it is no longer live. A new campaign (campaign group) would be marked if one launched in this window; none did. Objective and daily budget change history is not available from the LinkedIn API, so those are not marked. All three plots the three rolling metrics on one chart, each indexed to 100 at the start of the window; hover for actual values. Rolling metrics use a 7-day window. The chart always shows the last 60 days and follows the segment and industry filters, not the period pills.';
+ const pills=[['lp','Rolling LP clicks'],['ctr','Rolling LP CTR'],['cpl','Rolling Cost/LP'],['all','All three']].map(([k,l])=>`<button class="${k==DMODE?'on':''}" onclick="setD('${k}')">${l}</button>`).join('');
  const vis=DMODE==='all'?['lp','ctr','cpl']:[DMODE];
  const metLeg=vis.map(k=>`<span><i style="background:${MET[k][2]}"></i>${MET[k][3]}</span>`).join('');
- const markLeg=`<span><i style="background:#2E6B45;border-radius:50%"></i>New ads launched</span><span><i style="background:#b8261b;border-radius:50%"></i>Ads paused</span><span><i style="background:#7756FF;border-radius:50%"></i>Milestone</span><span>Hover a line for names</span>`;
- return `<div class="daily" id="daily"><div class="ch"><div><h2>Daily performance ${info(tip)}</h2><div class="desc">${sd(ch.start)} to ${fmtD(ch.end)} (last 60 days). Follows the segment and industry filters, not the period pills.</div></div><div class="seg sm" id="dmode">${pills}</div></div><div class="chart" id="trend">${inner}</div><div class="legend">${metLeg}${markLeg}<span>Rolling metric has no value until a 7-day window exists.</span></div></div>`}
+ const markLeg=DMODE==='all'?'':`<span><i style="background:#2E6B45;border-radius:50%"></i>New ads launched</span><span><i style="background:#b8261b;border-radius:50%"></i>Ads paused</span><span><i style="background:#7756FF;border-radius:50%"></i>Milestone</span><span>Hover a marker for what changed</span>`;
+ const idxNote=DMODE==='all'?'<span>Each line is indexed to 100 at the start of the window. Hover for actual values.</span>':'';
+ const rollNote='<span>Rolling metrics use a 7-day window.</span>';
+ return `<div class="daily" id="daily"><div class="ch"><div><h2>Daily performance ${info(tip)}</h2><div class="desc">${sd(ch.start)} to ${fmtD(ch.end)} (last 60 days). Follows the segment and industry filters, not the period pills.</div></div><div class="seg sm" id="dmode">${pills}</div></div><div class="chart" id="trend">${inner}</div><div class="legend">${metLeg}${markLeg}${idxNote}${rollNote}</div></div>`}
 function fatSeries(name){const days=((D.CHART.s||{}).all||{d:[]}).d.map(r=>r[0]);const arr=(D.ROLL||{})[name]||[];return days.map((d,i)=>({0:d,ctr:arr[i]==null?null:arr[i]}))}
 function fatChart(name){const dd=fatSeries(name);const ch=D.CHART||{};const has=dd.some(r=>r.ctr!=null);
  if(!has)return `<div class="empty">No 7-day rolling CTR window in the last 60 days for this ad.</div>`;
  const fmt=v=>v==null?'n/a':(100*v).toFixed(2)+'%';
- return `<div class="note" style="margin:0 0 8px">7-day rolling CTR (clicks / impressions), ${sd(ch.start)} to ${fmtD(ch.end)}. Gaps are days before a 7-day window exists, or with no impressions in that window. Click the row again to collapse.</div>`+tpanel(dd,'ctr',fmt,MC.ctr,'dash',200,{name:'7-day rolling CTR',xl:1},[])}
-function render(){const p=D.periods[P];const cs=scopeC();
+ return `<div class="note" style="margin:0 0 8px">7-day rolling CTR (clicks / impressions), ${sd(ch.start)} to ${fmtD(ch.end)}. Gaps are days before a 7-day window exists, or with no impressions in that window. Click the row again to collapse.</div>`+tpanel(dd,'ctr',fmt,MC.ctr,200,{name:'7-day rolling CTR',xl:1})}
+function render(){if(typeof hideMtip==='function')hideMtip();const p=D.periods[P];const cs=scopeC();
  $('pills').innerHTML=ORDER.map(k=>`<button class="${k==P?'on':''}" onclick="setP('${k}')">${D.periods[k].label}</button>`).join('');
  $('range').textContent=`${sd(p.start)} to ${fmtD(p.end)} vs ${sd(p.prior.start)} to ${fmtD(p.prior.end)}`;
  $('segs').innerHTML=[['All','All'],['ENT','ENT'],['GRW','GRW']].map(([k,l])=>`<button class="${k==SEG?'on':''}" onclick="setG('${k}')" title="${k=='All'?'Enterprise, Growth and Retargeting':SEGT[k]+' ad sets only'}">${l}</button>`).join('');
@@ -276,6 +295,6 @@ $('nlive').textContent=D.meta.live_camps;$('nhist').textContent=D.meta.hist_camp
 $('foot').innerHTML=`<li>LinkedIn Ads account 509859857, creative-level data. The tables include ads from live ad sets and from paused or completed ad sets that delivered in the selected period. Live = the ad is Active and serving in a live ad set. Status now reflects the ad's current status, not whether it ran in the period.</li>
 <li>Theme = concept code at the start of the ad name (OMEGA, WWTRA, WWTWA, STATS, SP, BULLETS, RT). Ads without a code are grouped by headline. The Retargeting view and sub-industry views list each ad on its own row.</li>
 <li>Cost/LP = spend / landing page clicks. LP CTR = LP clicks / impressions. CTR = clicks / impressions. Prior = previous equal-length period (month to date: same days last month). Retargeting prior periods include the earlier retargeting ad set (01.28.26) and any older retargeting ads that delivered then.</li>
-<li>The Daily performance chart always covers the last 60 days ending ${fmtD(D.meta.through)}, and uses six days before that so the first chart day has a full 7-day window. It follows the segment and industry filters, not the period pills. 7-day rolling LP clicks = LP clicks in the last 7 days. 7-day rolling LP CTR = LP clicks in the last 7 days / impressions in the last 7 days. 7-day rolling Cost/LP click = spend in the last 7 days / LP clicks in the last 7 days, in whole dollars. A launch marker is the ad's first day with delivery. A pause or removed marker is the ad's last day with delivery, and only if the ad is now paused or removed, or its ad set is no longer live. LinkedIn does not provide the exact pause time, so those markers use last delivery, not a pause timestamp. Same-day changes are grouped on one marker. If an ad was created on a different day than it first delivered, the created date (ET) is in the hover.</li>`;
+<li>The Daily performance chart always covers the last 60 days ending ${fmtD(D.meta.through)}, and uses six days before that so the first chart day has a full 7-day window. It follows the segment and industry filters, not the period pills. Rolling metrics use a 7-day window: Rolling LP clicks = LP clicks in the last 7 days, Rolling LP CTR = LP clicks in the last 7 days / impressions in the last 7 days, and Rolling Cost/LP = spend in the last 7 days / LP clicks in the last 7 days, in whole dollars. All three plots those lines on one chart, each indexed to 100 at the start of the window; hover for actual values. There are no change or milestone markers on All three. On single-metric views, a compact marker is the ad's or ad set's first day with delivery for a launch, or last day with delivery for a pause (only if the ad is now paused or removed, or the ad set is no longer live). LinkedIn does not provide the exact pause time or objective/budget change history, so those are not invented. Nearby dates are merged when needed so labels never overlap. Hover a marker for the names of what changed.</li>`;
 render();
 </script></body></html>
