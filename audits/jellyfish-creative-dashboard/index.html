@@ -48,8 +48,13 @@ section.block{background:#fff;border:1px solid #D9D9D9;border-radius:18px;paddin
 .kpi .l{font-size:12.5px;color:var(--mut);font-weight:600}
 .kpi .v{font-size:30px;font-weight:800;line-height:1.05;margin:6px 0 4px}
 .kpi .c{font-size:12.5px;color:var(--mut)}
+
+
 .up{color:#2E6B45;background:#E3F3E8;border-radius:6px;padding:1px 6px;font-weight:700;white-space:nowrap}
 .dn{color:var(--rd);background:var(--rdb);border-radius:6px;padding:1px 6px;font-weight:700;white-space:nowrap}
+
+.gv{background:#E3F3E8;color:#2E6B45;font-weight:700;border-radius:6px;padding:3px 8px;white-space:nowrap;display:inline-block;line-height:1.2}
+.bv{background:#fdebe9;color:#b8261b;font-weight:700;border-radius:6px;padding:3px 8px;white-space:nowrap;display:inline-block;line-height:1.2}
 .wl{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 @media(max-width:900px){.wl{grid-template-columns:1fr}}
 .wl h3{margin:0 0 10px;font-size:16px;font-weight:800}
@@ -209,6 +214,36 @@ function wDwell(rows,prior){
 function lpCell(r){return r.link==='no'?'n/a (no link)':num(r.lp)}
 function cplCell(r){return r.link==='no'?'n/a (no link)':cpl(r.spend,r.lp)}
 function linkPill(r){return r.link==='no'?'<span class="linkpill no">No link</span>':(r.link==='has'&&r.typ==='tla'?'<span class="linkpill has">Has link</span>':'')}
+function rankable(r){
+  if(!r||r.link==='no'||!(r.lp>0))return false;
+  if(r.typ==='spotlight'&&!spotlightOnly())return false;
+  return true;
+}
+function pillN(n){if(n<=1)return{b:0,w:0};if(n===2)return{b:1,w:1};if(n===3)return{b:2,w:1};return{b:3,w:Math.min(3,n-3)}}
+function rankSet(list){
+  if(!list||!list.length)return {};
+  const W={};
+  [['cpl',-1],['lpctr',1]].forEach(([k,dir])=>{
+    const el=list.filter(r=>rankable(r)&&AV[k](r)!==null);
+    const {b,w}=pillN(el.length);
+    const vs=el.map(r=>AV[k](r));
+    const best=vs.slice().sort((a,c)=>(c-a)*dir).slice(0,b);
+    const worst=vs.slice().sort((a,c)=>(a-c)*dir).filter(v=>!best.includes(v)).slice(0,w);
+    W[k]={best,worst,el:new Set(el)};
+  });
+  return W;
+}
+function hl(W,r,k,txt){
+  const w=W&&W[k];
+  if(!w||!w.el.has(r))return txt;
+  const v=AV[k](r);
+  if(v===null)return txt;
+  const i=w.best.indexOf(v);
+  if(i>=0){w.best.splice(i,1,NaN);return `<span class="gv">${txt}</span>`}
+  const j=w.worst.indexOf(v);
+  if(j>=0){w.worst.splice(j,1,NaN);return `<span class="bv">${txt}</span>`}
+  return txt;
+}
 function setType(k,on){
   if(k==='all'){TYPES.all=true;TYPE_KEYS.forEach(x=>TYPES[x]=true)}
   else if(TYPES.all){TYPES.all=false;TYPE_KEYS.forEach(x=>TYPES[x]=false);TYPES[k]=true}
@@ -410,24 +445,25 @@ function chart(ads){
     ${rows.length?`<div class="chart">${ranked.map(row).join('')}${rest.map(row).join('')}</div>`:'<div class="empty">No delivery in this filter.</div>'}
     <div class="note">Bar length is cost per LP click. Themes with spend but no landing page clicks show as n/a and sit at the bottom.</div>`;
 }
-function metricCells(r){
+function metricCells(r,W){
   const ch=r.link==='no'?{txt:'n/a'}:cplChg(r);
+  const lpctrTxt=r.link==='no'?'n/a (no link)':pct2(r.lp,r.impr);
   return `<td class="n">${usd(r.spend)}</td>
       <td class="n">${num(r.impr)}</td>
       <td class="n">${num(r.clicks||0)}</td>
       <td class="n">${pct2(r.clicks||0,r.impr)}</td>
       <td class="n">${dwellf(r.dwell)}</td>
       <td class="n">${lpCell(r)}</td>
-      <td class="n">${cplCell(r)}</td>
-      <td class="n">${r.link==='no'?'n/a (no link)':pct2(r.lp,r.impr)}</td>
+      <td class="n">${W?hl(W,r,'cpl',cplCell(r)):cplCell(r)}</td>
+      <td class="n">${W?hl(W,r,'lpctr',lpctrTxt):lpctrTxt}</td>
       <td class="n">${ch.txt}</td>`;
 }
-function adRows(list,sorter){
+function adRows(list,sorter,W){
   return list.slice().sort(sorter).map(r=>{
     return `<tr>
       <td>${pv(r.key,r.label,r.vid)}</td>
       <td class="aname" onclick="lbOpen('${esc(r.key)}')"><span class="vlab">${esc(r.label)}</span>${marks(r.cs)}${linkPill(r)}</td>
-      ${metricCells(r)}
+      ${metricCells(r,W)}
     </tr>`;
   }).join('');
 }
@@ -436,7 +472,7 @@ function adsTable(ads){
   const sorter=(a,b)=>cmpv(AV[SORT.c](a),AV[SORT.c](b))*SORT.d;
   let body='';
   if(GROUP==='none'){
-    body=adRows(ads,sorter);
+    body=adRows(ads,sorter,rankSet(ads));
   }else{
     const bucket={};
     ads.forEach(r=>{
@@ -460,7 +496,7 @@ function adsTable(ads){
     body=groups.map(g=>{
       return `<tr class="grp"><td></td><td>${esc(g.lab)}<div class="vdesc">${g.rows.length} ${g.rows.length===1?'ad':'ads'}</div></td>
         ${metricCells(g)}</tr>`
-        +adRows(g.rows,sorter);
+        +adRows(g.rows,sorter,rankSet(g.rows));
     }).join('');
   }
   T.clicks=ads.reduce((s,r)=>s+r.clicks,0);
@@ -480,7 +516,8 @@ function adsTable(ads){
     </div>
     ${ads.length?`<div class="tw"><table><thead><tr><th>Preview</th><th class="s" onclick="srt('label')">Ad${SORT.c==='label'?(SORT.d>0?' &#9650;':' &#9660;'):''}</th>${sh('spend','Spend')}${sh('impr','Impr.')}${sh('clicks','Clicks')}${sh('ctr','CTR')}${sh('dwell','Dwell time')}${sh('lp','LP clicks')}${sh('cpl','Cost/LP')}${sh('lpctr','LP CTR')}${sh('chg','vs prior')}</tr></thead>
       <tbody>${body}<tr class="tot"><td></td><td>Total</td>${metricCells(T)}</tr></tbody></table></div>
-      <div class="note">Click a column header to sort. Click a preview or ad name for the creative, ad sets, and prior-period detail. "vs prior" is the change in cost per LP click versus the previous equal-length window. Lower is better. Clicks and CTR use LinkedIn clicks (not landing page clicks). Dwell time is LinkedIn averageDwellTime, in seconds. Ads with no dwell in the window show n/a. Ads with no link in the post show n/a (no link) for LP clicks, cost per LP click, and LP CTR.</div>`:'<div class="empty">No delivery in this filter.</div>'}`;
+      <div class="note">Click a column header to sort. Click a preview or ad name for the creative, ad sets, and prior-period detail. "vs prior" is the change in cost per LP click versus the previous equal-length window. Lower is better. Clicks and CTR use LinkedIn clicks (not landing page clicks). Dwell time is LinkedIn averageDwellTime, in seconds. Ads with no dwell in the window show n/a. Ads with no link in the post show n/a (no link) for LP clicks, cost per LP click, and LP CTR.</div>
+      <div class="note"><span class="gv">Green</span> = the 3 best and <span class="bv">red</span> = the 3 worst Cost per LP click and LP CTR, ranked within each group when Group by is on, or across the filtered list when it is None. Cost per LP is lower-is-better; LP CTR is higher-is-better. Ads with no link, no landing page clicks, or Spotlight ads (unless only Spotlight is selected) are left out of the ranking. On short lists, red is only applied to rows that are not already green.</div>`:'<div class="empty">No delivery in this filter.</div>'}`;
 }
 function videoTable(ads){
   const vids=ads.filter(r=>r.vid);
@@ -527,6 +564,7 @@ $('foot').innerHTML=`
 <li>Cold vs warm: an ad set is warm if its name includes remarketing, retargeting, website retargeting, or customers, or if its include targeting uses LinkedIn dynamicSegments (website, lead form, company page, or engager retargeting). Everything else is cold, including ABM list and job-title prospecting. The Spotlight ad set is named "Remarketing and Cold" but includes those retargeting segments, so it is counted as warm. Spend on that ad set cannot be split between the two audiences.</li>
 <li>Ad type filter: Image = company single image or article ads, plus event ads. Thought Leader = member-authored posts, whether static or video. Video = company-produced videos only. Document = gated document ads. Spotlight = Spotlight (company profile) ads. All includes every type. The filter applies to every section.</li>
 <li>Winners are the three ads with the lowest cost per LP click among ads with at least $100 spend and at least 1 landing page click. Losers are the highest cost per LP click, plus any ad with $250 or more in spend and no landing page clicks. Spotlight ads are left out of winners and losers whenever All, or any mix of types, is selected, because Spotlight is a different format. When only Spotlight is selected, Spotlight ads are ranked against each other. Ads with no link in the post are also left out of this comparison.</li>
+<li>In the ads table, Cost per LP click and LP CTR use the same highlight as the Power Digital dashboard: a soft green pill for the 3 best values and a soft red pill for the 3 worst, ranked within each group or across the filtered list. Spotlight ads, no-link ads, and ads with no landing page clicks are left out of that ranking.</li>
 <li>"vs prior" in the ads table is the change in cost per LP click versus the previous equal-length window. Lower is better. Cost/LP = spend / landing page clicks. LP CTR = LP clicks / impressions, shown to two decimals. Clicks is LinkedIn's clicks field (not landing page clicks). CTR = clicks / impressions, shown to two decimals. Dwell time is LinkedIn averageDwellTime, shown in seconds. When one row rolls up more than one creative, dwell is the impression-weighted average. Creatives with no dwell value in a window show n/a; that is not treated as zero.</li>
 <li>Video views follow LinkedIn's definition (2 or more continuous seconds, at least 50% on screen). Views at 75% is videoThirdQuartileCompletions. Completions (97%) is videoCompletions, which LinkedIn defines as watches to 97-100% of the video. There is no separate 97% metric. Completion rate = completions / impressions. CPV uses cents because it is often under $1.</li>
 <li>Previews are downloaded from the LinkedIn API and hosted next to this page, because LinkedIn media URLs expire. Some Thought Leader posts are text-only and have no image; those rows show a text card with the author, when we have one, and the first lines of the post. Click the card for the full post text, ad sets, and prior-period detail. Spotlight previews use the Jellyfish logo.</li>
