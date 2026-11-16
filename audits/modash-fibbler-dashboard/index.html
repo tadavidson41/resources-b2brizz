@@ -429,6 +429,47 @@ section.block{scroll-margin-top:calc(var(--navh, 52px) + 12px)}
  .topnav .filters{width:100%;flex-wrap:wrap;gap:6px 8px}
 }
 
+details.fold > summary{cursor:pointer;list-style:none}
+details.fold > summary::-webkit-details-marker{display:none}
+.fold-peek{display:block;margin-top:8px;font-size:13px;font-weight:500;letter-spacing:0;text-transform:none;color:#6b6b6b;line-height:1.45}
+details.fold[open] > summary .fold-peek{display:none}
+.fold-ctl{display:inline-block;margin-top:8px;font-size:12px;font-weight:700;letter-spacing:0;text-transform:none;color:#141414;border-bottom:1px solid #141414}
+.fold-ctl:before{content:"Show notes"}
+details.fold[open] > summary .fold-ctl:before{content:"Hide notes"}
+details.jnotes{margin:0 0 8px}
+.more-btn{display:block;margin:16px auto 0;padding:8px 16px;border-radius:999px;border:1px solid #CAB8FF;background:#fff;font:inherit;font-weight:700;color:#141414;cursor:pointer}
+.more-btn[hidden]{display:none}
+#pe-union{table-layout:fixed}
+#pe-union th,#pe-union td{white-space:normal;letter-spacing:.01em;line-height:1.25;padding:8px 5px;font-size:12px;vertical-align:bottom}
+#pe-union th:first-child,#pe-union td:first-child{width:22%;text-align:left}
+.adset-scroll{overflow-x:visible}
+.tt-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 16px}
+.tt-stats div{background:#fff;border:1px solid #CAB8FF;border-radius:10px;padding:12px 8px;text-align:center}
+.tt-stats span{display:block;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#6b6b6b}
+.tt-stats b{display:block;margin-top:6px;font-size:22px;color:#141414;letter-spacing:0;text-transform:none}
+.tt-hist{display:flex;gap:8px;align-items:flex-end;height:150px;margin-top:8px}
+.tt-col{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;min-width:0}
+.tt-bar{display:block;width:100%;background:#FFA3D1;border-radius:6px 6px 0 0}
+.tt-v{font-size:12px;font-weight:700;margin-bottom:4px}
+.tt-x{font-size:11px;color:#6b6b6b;text-align:center;margin-top:6px;line-height:1.2}
+.tt-xl{text-align:center;font-size:12px;color:#6b6b6b;margin:8px 0 0}
+.tt-bench{margin-top:12px;background:#FFF0F6;border:1px solid #FFA3D1;border-radius:10px;padding:10px 12px;font-size:12.5px;line-height:1.45;color:#141414}
+.tt-bench a{color:#141414;font-weight:700}
+.cd-bars{margin:8px 0 16px}
+.cd-row{display:grid;grid-template-columns:120px 1fr 150px;gap:10px;align-items:center;margin:8px 0;font-size:13px}
+.cd-track{display:block;height:14px;background:#F4F4F4;border-radius:999px;overflow:hidden}
+.cd-fill{display:block;height:100%;background:#FFA3D1}
+.cd-val{font-weight:700}
+.oc-n{color:#6b6b6b;font-weight:500}
+.cp-eff-foot{font-size:12px;color:#6b6b6b;margin:10px 0 0;line-height:1.45;text-align:left}
+@media(max-width:760px){
+ .adset-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+ #pe-union{min-width:980px;table-layout:auto}
+ #pe-union th:first-child,#pe-union td:first-child{position:sticky;left:0;z-index:1;background:#fff;min-width:180px;box-shadow:1px 0 0 #E6E6E6}
+ #pe-union thead th:first-child{background:#FEC6B2;z-index:2}
+ .tt-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .cd-row{grid-template-columns:88px 1fr 120px}
+}
 </style>
 </head>
 <body>
@@ -499,7 +540,7 @@ section.block{scroll-margin-top:calc(var(--navh, 52px) + 12px)}
 <div class="box trend" id="rev-chart"></div>
 <p class="sech-note" id="rev-note"></p>
 </div>
-<div class="notes"><h3>Things to Know</h3><ul><li><b>Toggle.</b> A deal meets a toggle (15+ paid impressions, 3+ paid clicks, or 3+ paid engagements) when its 12-month journey sum clears the bar; if that window is incomplete or missing, we use the higher of the journey floor and the Nov 5 snapshot total.</li><li><b>Campaign shares.</b> A deal can be credited to several campaigns, so campaign shares can add to more than 100%.</li><li><b>Journey months.</b> Monthly journey counts are calendar months through the create month, not a day-level 365-day or pre-create window. A missing month is not zero.</li><li><strong>Possible job titles.</strong> Estimated by weighting each campaign’s LinkedIn title impression shares by that company’s Fibbler campaign impressions. Title reports cover December 2024 through Nov 15, 2026, using only complete months before each opportunity’s create month. Company campaign totals are snapshot weights and may include later activity. Coverage is the share of company campaign impressions with matching title data. Rankings describe possible roles, with approximate and suppressed LinkedIn demographic counts. Influencer, content creator and exact Member titles are excluded. Rankings stay tied to the opportunity when the report’s period filter changes. LinkedIn job titles as of Nov 15, 2026. Deals are per Fibbler.</li>
+<details class="notes fold"><summary><h3>Things to Know</h3><span class="fold-peek">A deal meets a toggle (15+ paid impressions, 3+ paid clicks, or 3+ paid engagements) when its 12-month journey sum clears the bar.</span><span class="fold-ctl"></span></summary><ul><li><b>Toggle.</b> A deal meets a toggle (15+ paid impressions, 3+ paid clicks, or 3+ paid engagements) when its 12-month journey sum clears the bar; if that window is incomplete or missing, we use the higher of the journey floor and the Nov 5 snapshot total.</li><li><b>Campaign shares.</b> A deal can be credited to several campaigns, so campaign shares can add to more than 100%.</li><li><b>Journey months.</b> Monthly journey counts are calendar months through the create month, not a day-level 365-day or pre-create window. A missing month is not zero.</li><li><strong>Possible job titles.</strong> Estimated by weighting each campaign’s LinkedIn title impression shares by that company’s Fibbler campaign impressions. Title reports cover December 2024 through Nov 15, 2026, using only complete months before each opportunity’s create month. Company campaign totals are snapshot weights and may include later activity. Coverage is the share of company campaign impressions with matching title data. Rankings describe possible roles, with approximate and suppressed LinkedIn demographic counts. Influencer, content creator and exact Member titles are excluded. Rankings stay tied to the opportunity when the report’s period filter changes. LinkedIn job titles as of Nov 15, 2026. Deals are per Fibbler.</li>
 <li><b>Influence.</b> A deal counts when paid LinkedIn activity before the deal reaches the selected threshold: 3+ paid clicks, 3+ paid engagements, or 15+ paid impressions. Every deal number on the page uses the same filters.</li>
 <li><b>Business type.</b> New business and Existing business are the deal type. A missing, blank, or "-" deal type counts as Existing business. A deal name containing "upsell" or "expansion" (any case) counts as Existing business even when the type says New business. A hyphen in a company name is not a missing type. All includes both types, and each deal is listed once.</li>
 <li><b>Create vs close.</b> Pipeline, the deal table, campaign-by-deal cards, and journeys use the create date. Influenced revenue uses the close date (Closed Won only). A deal created last year and won this year counts as revenue in the period it closed.</li>
@@ -509,7 +550,7 @@ section.block{scroll-margin-top:calc(var(--navh, 52px) + 12px)}
 <li><b>Time frames.</b> YTD is Jan 1 to Nov 15, 2026. L3M is Aug 1 to Oct 31, 2026. LFM is October 2026. MTD is Nov 1 to Nov 15, 2026. November covers 15 of 30 days. LinkedIn spend and job titles are as of Nov 15, 2026. Deals are per Fibbler.</li>
 <li><b>Coverage.</b> LinkedIn spend and job titles are as of Nov 15, 2026. Deals are per Fibbler: the Nov 5 snapshot plus 2 deals found on Nov 15, 520 deals in total, for Fibbler Modash (cm3vweh7q008h8qqtv3e112i1) and LinkedIn ads account 510440948. Spend uses the three Direct Product Promotion groups only (group IDs 691266574, 1011122604, and 1109801364; 44 campaigns). Their rows sum to €111,846 for Jan 1 through Nov 15. Deal rows still include other campaigns. 79 deals have no campaign split.</li>
 <li><b>Ad type mix.</b> Spotlight ads are excluded. The account ran image and video ads in 2026.</li>
-</ul></div></section><section id="deals" class="block">
+</ul></details></section><section id="deals" class="block">
 <p class="eyebrow">Deals</p>
 <h2>Which deals did LinkedIn influence?</h2>
 <div class="subtabs" role="tablist"><button type="button" class="subtab active" role="tab" data-tab="cohort" aria-selected="true">Deal breakdown</button><button type="button" class="subtab" role="tab" data-tab="influenced-deals" aria-selected="false">Influenced deals</button><button type="button" class="subtab" role="tab" data-tab="deal-outcomes" aria-selected="false">Deal outcomes</button><button type="button" class="subtab" role="tab" data-tab="campaign-breakdown" aria-selected="false">Campaigns by deal</button></div><div class="subpanel" id="cohort" data-panel="cohort">
@@ -535,8 +576,8 @@ section.block{scroll-margin-top:calc(var(--navh, 52px) + 12px)}
 <div class="pager"><button type="button" id="id-prev">Previous</button><span class="pg-info" id="id-info"></span><button type="button" id="id-next">Next</button></div>
 </div><div class="subpanel" id="deal-outcomes" data-panel="deal-outcomes" hidden>
 <h2>Deal outcomes<span class="count" id="oc-count">0</span></h2>
-<p class="sech" id="oc-note"></p>
-<div class="fit-scroll"><table class="fit"><thead><tr><th>Paid clicks before create</th><th>Won</th><th>Won EUR</th><th>Lost</th><th>Lost EUR</th></tr></thead><tbody id="oc-body"></tbody></table></div>
+<p class="sech">Click depth for closed deals in the period.</p>
+<div id="oc-view"></div>
 </div><div class="subpanel" id="campaign-breakdown" data-panel="campaign-breakdown" hidden>
 <h2>Campaign breakdown by deal<span class="count" id="cb-count">0</span></h2>
 <p class="sech">Each card is a filtered deal with its Fibbler campaign split (paid impressions, clicks and engagements by LinkedIn campaign). 15 per page.</p>
@@ -546,11 +587,12 @@ section.block{scroll-margin-top:calc(var(--navh, 52px) + 12px)}
 </div></section><section id="campaigns" class="block">
 <p class="eyebrow">Campaigns</p>
 <h2>Which campaigns did the work?</h2>
-<div class="subtabs" role="tablist"><button type="button" class="subtab active" role="tab" data-tab="perf-efficiency" aria-selected="true">Performance and efficiency</button><button type="button" class="subtab" role="tab" data-tab="deal-campaigns" aria-selected="false">Campaign breakdown</button></div><div class="subpanel" id="perf-efficiency" data-panel="perf-efficiency"><h2>Performance and efficiency</h2>
+<div class="subtabs" role="tablist"><button type="button" class="subtab active" role="tab" data-tab="perf-efficiency" aria-selected="true">Ad set performance</button><button type="button" class="subtab" role="tab" data-tab="deal-campaigns" aria-selected="false">Campaign breakdown</button></div><div class="subpanel" id="perf-efficiency" data-panel="perf-efficiency"><h2>Ad set performance</h2>
 <p class="sech" id="ef-sum"></p>
-<div class="fit-scroll"><table class="fit" id="pe-union"><thead><tr>
-<th>Group</th><th>Campaigns</th><th>Spend</th><th>Impr.</th><th>CTR</th><th>CPM</th><th>CPC</th><th>Influenced deals</th><th>Spend/Deal</th><th>Pipeline</th><th>Pipeline share</th><th>Revenue</th><th>Revenue share</th><th>Created deals</th>
+<div class="adset-scroll"><table class="fit" id="pe-union"><thead><tr>
+<th>Ad set</th><th>Spend</th><th>Paid impr.</th><th>Paid clicks</th><th>Paid engagements</th><th>Influenced deals</th><th>Spend/deal</th><th>Pipeline</th><th>Pipeline share</th><th>Revenue</th><th>Revenue share</th><th>Created deals</th>
 </tr></thead><tbody id="pe-body"></tbody></table></div>
+<div class="pager"><button type="button" id="as-prev">Previous</button><span class="pg-info" id="as-info"></span><button type="button" id="as-next">Next</button></div>
 <div hidden id="ef-legacy">
 <h2>Campaign performance and efficiency<span class="count" id="ef-count">0</span></h2>
 
@@ -579,16 +621,15 @@ section.block{scroll-margin-top:calc(var(--navh, 52px) + 12px)}
 <h2>How do buyers get to an opportunity?</h2>
 <div class="subtabs" role="tablist"><button type="button" class="subtab active" role="tab" data-tab="customer-journeys" aria-selected="true">Customer journeys</button><button type="button" class="subtab" role="tab" data-tab="time-to-opp" aria-selected="false">Time to opp</button></div><div class="subpanel" id="customer-journeys" data-panel="customer-journeys">
 <h2>Customer journeys<span class="count" id="j-count">0</span></h2>
-<p class="sech">Open and Closed Won deals that match the filters, sorted by amount. Each card is the 12 calendar months through the month the deal was created. A month shows paid impressions, clicks, and engagements when Fibbler reported them. n/a means that month was not reported, not that it was zero. The highlighted month is the whole create month, not only the days before creation. This is not a 365-day attribution window. A Closed Won close is marked only when that date is on or after creation and falls in these 12 months. 15 per page.</p>
+<details class="fold jnotes"><summary><span class="fold-peek">Each card is the 12 calendar months through the month the deal was created. n/a means that month was not reported, not that it was zero.</span><span class="fold-ctl"></span></summary>
+<p class="sech">Open and Closed Won deals that match the filters, sorted by amount. Each card is the 12 calendar months through the month the deal was created. A month shows paid impressions, clicks, and engagements when Fibbler reported them. n/a means that month was not reported, not that it was zero. The highlighted month is the whole create month, not only the days before creation. This is not a 365-day attribution window. A Closed Won close is marked only when that date is on or after creation and falls in these 12 months.</p>
 <p class="sech" id="j-cpm"></p>
+</details>
 <div id="j-list"></div>
-<div class="pager"><button type="button" id="j-prev">Previous</button><span class="pg-info" id="j-info"></span><button type="button" id="j-next">Next</button></div>
+<button type="button" id="j-more" class="more-btn">Show next 10</button>
 </div><div class="subpanel" id="time-to-opp" data-panel="time-to-opp" hidden>
-<h2>Time to opp<span class="count" id="tt-count">0</span></h2>
-<p class="sech">Fibbler days from the first counted ad touch to opportunity create, from the Nov 5 snapshot field on each deal. This is not a day-level 365-day window.</p>
-<div class="tt-med">Median <b id="tt-med">n/a</b></div>
-<p class="sech" id="tt-miss"></p>
-<div id="tt-bars"></div>
+<h2>Time from first ad impression to opp</h2>
+<div id="tt-view"></div>
 </div></section><section id="job-titles" class="block">
 <p class="eyebrow">Job titles</p>
 
@@ -668,7 +709,7 @@ function dualChart(el,rows,barColor,barLabel){
  const tickLabs=tickVals.map(tv=>'<div class="ytick" style="bottom:'+(scale?tv/scale*100:0)+'%">'+eur(tv)+'</div>').join('');
  el.innerHTML='<div class="vlegend"><span><i class="lgbar" style="background:'+barColor+'"></i>'+esc(barLabel)+'</span><span><i class="lgline"></i>DPP spend</span></div><div class="dgrid" style="grid-template-columns:repeat('+n+',minmax(52px,1fr))">'+vals+'<div class="dplot" role="img" aria-label="'+esc(barLabel)+' and DPP spend by month, euros 0 to '+esc(eur(scale))+'"><div class="yaxis">'+tickLabs+'</div><div class="dstage">'+lines+'<div class="dtracks">'+tracks+'</div><svg class="vline" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polyline points="'+pts+'" fill="none" stroke="#141414" stroke-width="2.5" vector-effect="non-scaling-stroke" stroke-linejoin="round" stroke-linecap="round"/></svg></div></div>'+labs+'</div>';
 }
-let nbSort={k:'stage',dir:1},nbPage=0,cbPage=0,jPage=0,cpPage=0;
+let nbSort={k:'stage',dir:1},nbPage=0,cbPage=0,jPage=0,jShown=10,cpPage=0,asPage=0;
 function syncControls(){
  const inf=document.getElementById('f-inf'), per=document.getElementById('f-per');
  if(inf&&inf.value!==S.inf) inf.value=S.inf;
@@ -805,38 +846,46 @@ function renderEfficiency(created, won){
  document.getElementById('ef-prev').disabled=efPage===0;
  document.getElementById('ef-next').disabled=efPage>=pages-1;
 }
-function renderTime(FP){
- const vals=[]; let missing=0;
- FP.forEach(d=>{const n=TTO[keyOf(d.name,d.cr)]; if(n==null||n==='') missing++; else vals.push(Number(n))});
+function pctile(sorted,q){if(!sorted.length)return null; return sorted[Math.max(0,Math.ceil(q*sorted.length)-1)]}
+function renderTime(created, won){
+ const el=document.getElementById('tt-view'); if(!el) return;
+ const vals=[], missing=[];
+ created.forEach(d=>{const n=d.dtc; if(n==null||n==='') missing.push(d); else if(Number(n)>=0) vals.push(Number(n))});
  vals.sort((a,b)=>a-b);
- const mid=vals.length? (vals.length%2? vals[(vals.length-1)/2] : Math.round((vals[vals.length/2-1]+vals[vals.length/2])/2)) : null;
- const buckets=[[0,30,'0 to 30'],[31,90,'31 to 90'],[91,180,'91 to 180'],[181,365,'181 to 365'],[366,1e9,'366+']];
- const counts=buckets.map(b=>vals.filter(v=>v>=b[0]&&v<=b[1]).length);
- const max=Math.max(1,...counts);
- document.getElementById('tt-count').textContent=FP.length;
- document.getElementById('tt-med').textContent=mid==null?'n/a':n0(mid)+' days';
- document.getElementById('tt-miss').textContent=missing? missing+' deals have no Fibbler days-to-create figure. They are left out of the median, not counted as zero.':'';
- document.getElementById('tt-bars').innerHTML=buckets.map((b,i)=>'<div class="tt-row"><span>'+b[2]+'</span><span class="tt-track"><span style="width:'+(counts[i]/max*100)+'%"></span></span><b>'+counts[i]+'</b></div>').join('');
+ const wonDays=[];
+ won.forEach(d=>{const n=d.dtcl; if(n!=null&&n!==''&&Number(n)>=0) wonDays.push(Number(n))});
+ wonDays.sort((a,b)=>a-b);
+ const edges=[0,91,181,271,366,456,546];
+ const labs=['0 to 90','91 to 180','181 to 270','271 to 365','366 to 455','456 to 545','546+'];
+ const bins=labs.map(()=>0);
+ vals.forEach(v=>{let k=0; for(let j=edges.length-1;j>=0;j--){ if(v>=edges[j]){k=j;break} } bins[k]++});
+ const bmax=Math.max(1,...bins);
+ const med=pctile(vals,0.5), p25=pctile(vals,0.25), p75=pctile(vals,0.75), wonMed=pctile(wonDays,0.5);
+ const card=(l,v)=>'<div><span>'+l+'</span><b>'+v+'</b></div>';
+ const cards='<div class="tt-stats">'+card('Median, first impression to opp', med==null?'n/a':n0(med)+' days')+card('25th to 75th pct', (p25==null?'n/a':n0(p25)+' to '+n0(p75)))+card('Median, first impression to won', wonMed==null?'n/a':n0(wonMed)+' days')+card('Opps created', n0(vals.length))+'</div>';
+ const hist='<div class="tt-hist">'+bins.map((c,k)=>'<div class="tt-col" title="'+labs[k]+' days: '+c+' opps"><span class="tt-v">'+(c||'')+'</span><span class="tt-bar" style="height:'+(c/bmax*100).toFixed(1)+'%"></span><span class="tt-x">'+labs[k]+'</span></div>').join('')+'</div>';
+ const foot='<p class="cp-eff-foot">Fibbler days from the company first recorded LinkedIn ad impression to the opp create date, for opportunities created in the period'+(missing.length?' ('+missing.length+' with no days figure are left out, not counted as zero)':'')+'. Won uses days from first impression to close for Closed Won deals in the period ('+wonDays.length+'). Fibbler LinkedIn data starts in Dec 2024, so a first touch earlier than that is capped and the real gap is longer.</p>';
+ const bench='<div class="tt-bench"><b>External benchmark</b> (Dreamdata, LinkedIn Ads Benchmarks Report 2026): on average 212 to 281 days from a first LinkedIn ad signal to closed revenue (engagement 212, conversion 214, impression 281). Dreamdata measures averages to revenue across its customers; compare it with the first impression to won figure, not the opp figure. <a href="https://dreamdata.io/blog/announcing-linkedin-ads-benchmarks-report-2026" target="_blank" rel="noopener">Source</a></div>';
+ el.innerHTML=cards+hist+'<div class="tt-xl">Days from first ad impression to opp created</div>'+foot+bench;
 }
 function renderOutcomes(){
+ const el=document.getElementById('oc-view'); if(!el) return;
  const [a,b]=win();
  const inw=x=>x&&x>=a&&x<=b;
  const rows=D.deals.filter(pass).filter(d=>(isWon(d)||isLost(d))&&inw(d.cl));
- const bands=['0','1-2','3-9','10+'];
- const acc={};
- bands.forEach(k=>acc[k]={w:0,we:0,l:0,le:0});
- const inc={w:0,we:0,l:0,le:0};
- rows.forEach(d=>{
-  const o=OUT[keyOf(d.name,d.cr)];
-  const incomplete=!o||o.coverage!=='complete'||o.band==='incomplete_lookback';
-  const slot=incomplete?inc:(acc[o.band]||(acc[o.band]={w:0,we:0,l:0,le:0}));
-  const eurAmt=dealEur(d.amt||0);
-  if(isWon(d)){slot.w++; slot.we+=eurAmt} else {slot.l++; slot.le+=eurAmt}
- });
- const line=(label,s)=>'<tr><td class="co">'+label+'</td><td class="num">'+s.w+'</td><td class="num">'+eur(s.we)+'</td><td class="num">'+s.l+'</td><td class="num">'+eur(s.le)+'</td></tr>';
  document.getElementById('oc-count').textContent=rows.length;
- document.getElementById('oc-body').innerHTML=bands.map(k=>line(k+' paid clicks', acc[k])).join('')+line('Incomplete lookback', inc);
- document.getElementById('oc-note').textContent='Closed Won and Closed Lost deals with a close date in this period. Click bands use paid clicks in the 12 calendar months through the create month. Incomplete lookback is counted on its own row, not as zero clicks.';
+ const bands=[[3,5,'3 to 5'],[6,10,'6 to 10'],[11,25,'11 to 25'],[26,1e9,'26+']].map(x=>({lo:x[0],hi:x[1],lab:x[2],w:0,l:0,nw:0,nl:0,ew:0,el:0}));
+ rows.forEach(d=>{
+  const c=Number(d.clk)||0;
+  const band=bands.find(x=>c>=x.lo&&c<=x.hi);
+  if(!band) return;
+  const nb=levelOf(d)==='nb';
+  if(isWon(d)){band.w++; if(nb) band.nw++; else band.ew++} else {band.l++; if(nb) band.nl++; else band.el++}
+ });
+ const wr=(w,l)=> (w+l)?Math.round(w/(w+l)*100)+'%':'n/a';
+ const bars=bands.map(band=>{const n=band.w+band.l, r=n?band.w/n*100:0; return '<div class="cd-row"><span class="cd-lab">'+band.lab+' clicks</span><span class="cd-track"><span class="cd-fill" style="width:'+r.toFixed(2)+'%"></span></span><span class="cd-val">'+(n?Math.round(r)+'%':'n/a')+' <span class="oc-n">('+band.w+' of '+n+')</span></span></div>'}).join('');
+ const table='<div class="fit-scroll"><table class="fit oc-t"><thead><tr><th>Paid clicks</th><th>Won</th><th>Lost</th><th>Win rate</th><th>New business win rate</th><th>Existing business win rate</th></tr></thead><tbody>'+bands.map(band=>'<tr><td>'+band.lab+'</td><td class="num">'+band.w+'</td><td class="num">'+band.l+'</td><td class="num">'+wr(band.w,band.l)+'</td><td class="num">'+wr(band.nw,band.nl)+' <span class="oc-n">('+(band.nw+band.nl)+')</span></td><td class="num">'+wr(band.ew,band.el)+' <span class="oc-n">('+(band.ew+band.el)+')</span></td></tr>').join('')+'</tbody></table></div>';
+ el.innerHTML='<h3 class="subh">Click depth vs outcome</h3><div class="cd-bars">'+bars+'</div>'+table+'<p class="cp-eff-foot">Closed won and lost deals in the period by paid clicks. Counts in brackets are closed deals in that split. Deals with fewer than 3 paid clicks are not in these bands.</p>';
 }
 let idPage=0, dcPage=0, efPage=0;
 function renderExtras(F,FP,created,won,spend){
@@ -846,7 +895,7 @@ function renderExtras(F,FP,created,won,spend){
  renderInfluenced(FP);
  renderDealCampaigns(FP);
  renderEfficiency(created, won);
- renderTime(FP);
+ renderTime(created, won);
  renderOutcomes();
  renderGroupUnion(FP, created, won);
 }
@@ -975,15 +1024,15 @@ function journeyCard(d,cpm){
 }
 function renderJ(FP){
  const cpm=ytdCPM();
- document.getElementById('j-cpm').textContent='Est. Spend: paid impressions / 1,000 x '+eur(cpm)+' CPM. The CPM is the 2026 YTD blended CPM for the three Direct Product Promotion groups ('+eur(cpm)+'). It is an estimate, not booked spend.';
+ const note=document.getElementById('j-cpm');
+ if(note) note.textContent='Est. Spend: paid impressions / 1,000 x '+eur(cpm)+' CPM. The CPM is the 2026 YTD blended CPM for the three Direct Product Promotion groups ('+eur(cpm)+'). It is an estimate, not booked spend.';
  const R=FP.filter(d=>!isLost(d)).sort((a,b)=>b.amt-a.amt);
- const pages=Math.max(1,Math.ceil(R.length/15));jPage=Math.min(jPage,pages-1);
- const V=R.slice(jPage*15,jPage*15+15);
+ const V=R.slice(0, jShown);
  document.getElementById('j-count').textContent=R.length;
  document.getElementById('j-list').innerHTML=V.length?V.map(d=>journeyCard(d,cpm)).join(''):'<p class="empty">No open or Closed Won deals match these filters in this period.</p>';
  document.querySelectorAll('#j-list .jscroll').forEach(sc=>{sc.scrollLeft=sc.scrollWidth});
- document.getElementById('j-info').textContent='Page '+(jPage+1)+' of '+pages;
- document.getElementById('j-prev').disabled=jPage===0;document.getElementById('j-next').disabled=jPage>=pages-1;
+ const more=document.getElementById('j-more');
+ if(more){ more.hidden=jShown>=R.length; more.textContent='Show next 10'; }
 }
 function renderCP(FP,spend){
  const A=camps();
@@ -1046,7 +1095,7 @@ function applyFilters(){
  S.inf=document.getElementById('f-inf').value;
  S.lv=document.querySelector('input[name="biz"]:checked').value;
  S.per=document.getElementById('f-per').value;
- nbPage=cbPage=jPage=cpPage=idPage=dcPage=efPage=0;
+ nbPage=cbPage=jPage=cpPage=idPage=dcPage=efPage=asPage=0; jShown=10;
  render();
 }
 document.getElementById('f-inf').addEventListener('change',applyFilters);
@@ -1062,7 +1111,9 @@ const on=(id,ev,f)=>document.getElementById(id).addEventListener(ev,f);
 on('fStage','change',()=>{nbPage=0;render()});on('fReset','click',()=>{document.getElementById('fStage').value='';nbSort={k:'stage',dir:1};nbPage=0;render()});
 on('nb-all','change',render);on('nb-prev','click',()=>{nbPage--;render()});on('nb-next','click',()=>{nbPage++;render()});
 on('cb-lost','change',()=>{cbPage=0;render()});on('cb-prev','click',()=>{cbPage--;render()});on('cb-next','click',()=>{cbPage++;render()});
-on('j-prev','click',()=>{jPage--;render()});on('j-next','click',()=>{jPage++;render()});
+const jMore=document.getElementById('j-more'); if(jMore) jMore.addEventListener('click',()=>{jShown+=10;render()});
+const asPrev=document.getElementById('as-prev'); if(asPrev) asPrev.addEventListener('click',()=>{asPage--;render()});
+const asNext=document.getElementById('as-next'); if(asNext) asNext.addEventListener('click',()=>{asPage++;render()});
 on('cp-all','change',render);on('cp-prev','click',()=>{cpPage--;render()});on('cp-next','click',()=>{cpPage++;render()});
 on('jt-prev','click',()=>{jtPage--;renderJT()});on('jt-next','click',()=>{jtPage++;renderJT()});
 
@@ -1074,37 +1125,34 @@ function syncPills(){
 }
 function renderGroupUnion(FP, created, won){
  const A=camps();
- FP.forEach(d=>(d.camps||[]).forEach(c=>{const a=A[c.id]; if(!a) return; (a.deals=a.deals||[]).push(d)}));
- const L=Object.values(A).filter(a=>a.s>0||a.i>0);
- const G={};
- L.forEach(a=>{const g=G[a.g]||(G[a.g]={name:a.g,s:0,i:0,c:0,n:0,d:new Set()}); g.s+=a.s; g.i+=a.i; g.c+=a.c; g.n++; (a.deals||[]).forEach(d=>g.d.add(d)); G[a.g]=g});
- const campsE=CPE[S.per]||[];
- const pipeDeals=new Map(), revDeals=new Map();
- created.forEach(d=>(d.camps||[]).forEach(c=>{const id=String(c.id); if(!pipeDeals.has(id)) pipeDeals.set(id,[]); pipeDeals.get(id).push(d)}));
- won.forEach(d=>(d.camps||[]).forEach(c=>{const id=String(c.id); if(!revDeals.has(id)) revDeals.set(id,[]); revDeals.get(id).push(d)}));
+ FP.forEach(d=>(d.camps||[]).forEach(c=>{const a=A[String(c.id)]||A[c.id]; if(!a) return; (a._deals=a._deals||[]).push(d)}));
+ const createdKeys=new Set(created.map(d=>keyOf(d.name,d.cr)));
+ const wonKeys=new Set(won.map(d=>keyOf(d.name,d.cr)));
  const uniqPipe=created.reduce((s,d)=>s+dealEur(d.amt),0);
  const uniqRev=won.reduce((s,d)=>s+dealEur(d.amt),0);
- const E={};
- campsE.forEach(c=>{const g=E[c.g]||(E[c.g]={name:c.g,gid:c.gid,s:0,ids:[],pd:new Set(),rd:new Set(),pipe:0,rev:0}); g.s+=c.s; g.ids.push(c.id); E[c.g]=g});
- Object.values(E).forEach(g=>{
-  g.ids.forEach(id=>{
-   (pipeDeals.get(id)||[]).forEach(d=>{const k=keyOf(d.name,d.cr); if(g.pd.has(k)) return; g.pd.add(k); g.pipe+=dealEur(d.amt)});
-   (revDeals.get(id)||[]).forEach(d=>{const k=keyOf(d.name,d.cr); if(g.rd.has(k)) return; g.rd.add(k); g.rev+=dealEur(d.amt)});
-  });
+ let rows=Object.values(A).filter(a=>(a.s||0)>0||(a.i||0)>0||(a.c||0)>0||(a.e||0)>0).map(a=>{
+  const seen=new Set();
+  const deals=[];
+  (a._deals||[]).forEach(d=>{const k=keyOf(d.name,d.cr); if(seen.has(k)) return; seen.add(k); deals.push(d)});
+  const made=deals.filter(d=>createdKeys.has(keyOf(d.name,d.cr)));
+  const closed=deals.filter(d=>wonKeys.has(keyOf(d.name,d.cr)));
+  return {a, deals:deals.length, made:made.length, pipe:made.reduce((s,d)=>s+dealEur(d.amt),0), rev:closed.reduce((s,d)=>s+dealEur(d.amt),0)};
  });
- const names=[...new Set([...Object.keys(G), ...Object.keys(E)])];
- names.sort((a,b)=>((E[b]&&E[b].s)||(G[b]&&G[b].s)||0)-((E[a]&&E[a].s)||(G[a]&&G[a].s)||0));
+ rows.sort((x,y)=>y.deals-x.deals || y.pipe-x.pipe || y.a.s-x.a.s);
+ const pages=Math.max(1,Math.ceil(rows.length/15));
+ asPage=Math.min(Math.max(asPage,0),pages-1);
+ const V=rows.slice(asPage*15, asPage*15+15);
  const body=document.getElementById('pe-body');
  if(!body) return;
- body.innerHTML=names.length?names.map(name=>{
-  const g=G[name]||{s:0,i:0,c:0,n:0,d:new Set()};
-  const e=E[name]||{pipe:0,rev:0,pd:new Set()};
-  const ctr=g.i?pct(g.c/g.i):'n/a';
-  const cpm=g.i?eur(g.s/g.i*1000):'n/a';
-  const cpc=g.c?eur(g.s/g.c):'n/a';
-  const spd=g.d.size?eur(g.s/g.d.size):'n/a';
-  return '<tr><td class="co">'+esc(name)+'</td><td class="num">'+g.n+'</td><td class="num">'+eur(g.s||e.s||0)+'</td><td class="num">'+n0(g.i||0)+'</td><td class="num">'+ctr+'</td><td class="num">'+cpm+'</td><td class="num">'+cpc+'</td><td class="num">'+g.d.size+'</td><td class="num">'+spd+'</td><td class="num">'+eur(e.pipe||0)+'</td><td class="num">'+wholePct(e.pipe||0,uniqPipe)+'</td><td class="num">'+eur(e.rev||0)+'</td><td class="num">'+wholePct(e.rev||0,uniqRev)+'</td><td class="num">'+e.pd.size+'</td></tr>';
- }).join(''):'<tr><td colspan="14" class="empty">No campaign groups in this period.</td></tr>';
+ body.innerHTML=V.length?V.map(x=>{
+  const spd=x.deals?eur(x.a.s/x.deals):'n/a';
+  return '<tr><td class="co">'+esc(x.a.n)+'<div class="hint">'+esc(x.a.g||'')+'</div></td><td class="num">'+eur(x.a.s)+'</td><td class="num">'+n0(x.a.i)+'</td><td class="num">'+n0(x.a.c)+'</td><td class="num">'+n0(x.a.e||0)+'</td><td class="num">'+x.deals+'</td><td class="num">'+spd+'</td><td class="num">'+eur(x.pipe)+'</td><td class="num">'+wholePct(x.pipe,uniqPipe)+'</td><td class="num">'+eur(x.rev)+'</td><td class="num">'+wholePct(x.rev,uniqRev)+'</td><td class="num">'+x.made+'</td></tr>';
+ }).join(''):'<tr><td colspan="12" class="empty">No ad sets with delivery in this period.</td></tr>';
+ const info=document.getElementById('as-info');
+ if(info) info.textContent='Page '+(asPage+1)+' of '+pages;
+ const prev=document.getElementById('as-prev'), next=document.getElementById('as-next');
+ if(prev) prev.disabled=asPage===0;
+ if(next) next.disabled=asPage>=pages-1;
 }
 function initShell(){
  document.querySelectorAll('#inf-seg button').forEach(b=>b.addEventListener('click',()=>{
