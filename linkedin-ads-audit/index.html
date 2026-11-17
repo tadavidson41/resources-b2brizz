@@ -70,7 +70,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .logos-row + .logos-row{margin-top:24px;}
 .logos-row img{height:26px;width:auto;}
 .logos-row img.ico{height:32px;}
-@media(min-width:761px){.logos-row.stagger{transform:translateX(30px);}}
+@media(max-width:1100px) and (min-width:761px){.logos-row{gap:22px 28px;}}
 
 /* included title + band */
 .incl-band{background:var(--rizz-navy);border-radius:20px;margin:44px 0 0;padding:34px 40px 38px;}
@@ -210,7 +210,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .aud-cta .cta-note{color:#9a9aad;font-size:13.5px;margin:18px 0 0;}
 .who{color:#cfc7bd;font-size:15.5px;line-height:1.55;margin:0 0 20px;max-width:520px;}
 .aud-hero .cta-note{color:#9a9aad;font-size:13.5px;margin:14px 0 0;}
-.logos-caption{text-align:center;font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#6a6a78;margin:0 0 18px;}
+.logos-caption{text-align:center;font-size:13.5px;font-weight:700;letter-spacing:.01em;color:#6a6a78;margin:0 0 18px;}
 .deliv{margin:16px 0 0;padding:0;list-style:none;}
 .deliv li{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;color:#4a4136;margin:0 0 8px;line-height:1.45;}
 .deliv li .ck{flex:0 0 auto;color:#28c840;font-weight:900;}
@@ -220,9 +220,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .proof{margin:36px 0 0;}
 .proof .cred{font-family:var(--font-sans);font-weight:800;color:#1c1c28;font-size:18px;margin:0 0 22px;text-align:center;line-height:1.4;}
 .quotes{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.quotes blockquote{margin:0;background:#fff;border:1px solid #e6e6ea;border-left:3px solid var(--sky-blue);border-radius:14px;padding:22px 24px;}
-.quotes blockquote p{margin:0 0 14px;color:#2a2a36;font-size:16.5px;line-height:1.55;}
-.quotes blockquote footer{color:#6a6a78;font-size:13.5px;font-weight:700;}
+.quotes blockquote{margin:0;background:#fff;border:1px solid #e6e6ea;border-left:3px solid var(--sky-blue);border-radius:14px;padding:22px 24px 20px;display:flex;flex-direction:column;}
+.quotes blockquote p{margin:0 0 16px;color:#2a2a36;font-size:16.5px;line-height:1.55;flex:1;}
+.quote-person{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:4px;}
+.quote-photo{position:relative;width:64px;height:64px;flex:0 0 auto;}
+.quote-photo-bg{display:block;position:absolute;inset:0;background:#efd2ba;border-radius:50%;}
+.quote-photo-clip{display:block;position:relative;width:64px;height:76px;margin-top:-12px;border-radius:0 0 32px 32px;overflow:hidden;}
+.quote-photo-clip img{position:absolute;bottom:0;left:50%;transform:translateX(-54%);height:100%;width:auto;max-width:none;object-fit:contain;object-position:bottom;}
+.quote-name{font-style:normal;font-weight:800;color:#1c1c28;font-size:15.5px;line-height:1.25;}
+.quote-role{font-style:normal;color:#6a6a78;font-size:13.5px;font-weight:500;margin-top:2px;}
 @media(max-width:700px){.quotes{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -474,21 +480,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
       100% satisfaction. 50+ audits, no one's asked for their money back.
     </p>
-    <p class="logos-caption">Companies I've run LinkedIn Ads for</p>
+    <p class="logos-caption">Companies I've run or audited LinkedIn Ads for</p>
     <div class="logos-row">
       <img src="/assets/logos/jellyfish.png" alt="Jellyfish">
       <img src="/assets/logos/chili-piper.png" alt="Chili Piper">
-      <img src="/assets/logos/superside.png" alt="Superside">
-      <img src="/assets/logos/idexx.png" alt="IDEXX">
-      <img src="/assets/logos/sprig.png" alt="Sprig">
-      <img src="/assets/logos/path-factory.png" alt="PathFactory">
-      <img src="/assets/logos/staffbase.png" alt="Staffbase">
-    </div>
-    <div class="logos-row stagger">
-      <img src="/assets/logos/validity.png" alt="Validity">
       <img src="/assets/logos/guru.png" alt="Guru">
+      <img src="/assets/logos/radar.png" alt="Radar">
+      <img src="/assets/logos/spiralyze.png" alt="Spiralyze">
+      <img src="/assets/logos/modash.png" alt="Modash">
+    </div>
+    <div class="logos-row">
+      <img src="/assets/logos/selector.png" alt="Selector">
+      <img src="/assets/logos/sprig.png" alt="Sprig">
+      <img src="/assets/logos/validity.png" alt="Validity">
+      <img src="/assets/logos/superside.png" alt="Superside">
+      <img src="/assets/logos/path-factory.png" alt="PathFactory">
+      <img src="/assets/logos/metadata-io.png" alt="metadata.io">
+    </div>
+    <div class="logos-row">
       <img src="/assets/logos/north-cloud.png" alt="North Cloud">
+      <img src="/assets/logos/idexx.png" alt="IDEXX">
       <img src="/assets/logos/marketer-hire.png" alt="MarketerHire">
+      <img src="/assets/logos/staffbase.png" alt="Staffbase">
       <img src="/assets/logos/shipbob.png" alt="ShipBob">
       <img src="/assets/logos/globality.png" alt="Globality">
     </div>
@@ -499,11 +512,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="quotes">
       <blockquote>
         <p>Tim is the only person I trust with LinkedIn ads. I've been burned by every other agency I've used. 6 in 6 years.</p>
-        <footer>Christina Gaspar, Marketing at PathFactory</footer>
+        <footer class="quote-person">
+          <div class="quote-photo">
+            <span class="quote-photo-bg"></span>
+            <span class="quote-photo-clip"><img src="/assets/testimonials/christina-gaspar.png" alt="Christina Gaspar"></span>
+          </div>
+          <div>
+            <div class="quote-name">Christina Gaspar</div>
+            <div class="quote-role">Marketing at PathFactory</div>
+          </div>
+        </footer>
       </blockquote>
       <blockquote>
         <p>Working with Tim was such a pleasure! He played a crucial role in building out our ABM strategy on LinkedIn and helping us to get integrated with 6Sense. Tim always had a new idea or creative solution to improve our campaigns. Highly recommend him!</p>
-        <footer>Cat Kortmann, Sr. Marketing Manager at Validity</footer>
+        <footer class="quote-person">
+          <div class="quote-photo">
+            <span class="quote-photo-bg"></span>
+            <span class="quote-photo-clip"><img src="/assets/testimonials/cat-kortmann.png" alt="Cat Kortmann"></span>
+          </div>
+          <div>
+            <div class="quote-name">Cat Kortmann</div>
+            <div class="quote-role">Sr. Marketing Manager at Validity</div>
+          </div>
+        </footer>
       </blockquote>
     </div>
   </section>
