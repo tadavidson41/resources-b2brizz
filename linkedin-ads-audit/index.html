@@ -66,11 +66,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .trust-line{display:flex;align-items:center;justify-content:center;gap:10px;color:#1c1c28;
   font-size:15.5px;font-weight:700;text-align:center;margin:0 0 26px;}
 .trust-line svg{width:18px;height:18px;stroke:#2e7d5b;flex:0 0 auto;}
-.logos-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:24px 40px;}
-.logos-row + .logos-row{margin-top:24px;}
-.logos-row img{height:26px;width:auto;}
-.logos-row img.ico{height:32px;}
-@media(max-width:1100px) and (min-width:761px){.logos-row{gap:22px 28px;}}
+.logos-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));justify-items:center;align-items:center;gap:22px 12px;}
+.logo-slot{width:100%;max-width:118px;height:28px;display:flex;align-items:center;justify-content:center;}
+.logo-slot img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;}
+@media(max-width:1120px){.logos-grid{grid-template-columns:repeat(4,minmax(0,118px));justify-content:center;gap:28px 40px;}}
 
 /* included title + band */
 .incl-band{background:var(--rizz-navy);border-radius:20px;margin:44px 0 0;padding:34px 40px 38px;}
@@ -99,8 +98,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .aud-hero{grid-template-columns:1fr;padding:34px 26px;}
   .aud-hero .aud-cta-row{flex-wrap:wrap;}
   .hero-viz{max-width:100%;justify-self:stretch;margin-top:8px;}
-  .logos-row img{height:21px;}
-  .logos-row{gap:20px 30px;}
+  .logos-grid{grid-template-columns:repeat(2,minmax(0,118px));justify-content:center;gap:22px 28px;}
+  .logo-slot{max-width:118px;height:28px;}
 }
 
 /* included checklist */
@@ -481,31 +480,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       100% satisfaction. 50+ audits, no one's asked for their money back.
     </p>
     <p class="logos-caption">Companies I've run or audited LinkedIn Ads for</p>
-    <div class="logos-row">
-      <img src="/assets/logos/jellyfish.png" alt="Jellyfish">
-      <img src="/assets/logos/chili-piper.png" alt="Chili Piper">
-      <img src="/assets/logos/guru.png" alt="Guru">
-      <img src="/assets/logos/radar.png" alt="Radar">
-      <img src="/assets/logos/spiralyze.png" alt="Spiralyze">
-      <img src="/assets/logos/modash.png" alt="Modash">
-    </div>
-    <div class="logos-row">
-      <img src="/assets/logos/selector.png" alt="Selector">
-      <img src="/assets/logos/sprig.png" alt="Sprig">
-      <img src="/assets/logos/validity.png" alt="Validity">
-      <img src="/assets/logos/superside.png" alt="Superside">
-      <img src="/assets/logos/path-factory.png" alt="PathFactory">
-      <img src="/assets/logos/metadata-io.png" alt="metadata.io">
-    </div>
-    <div class="logos-row">
-      <img src="/assets/logos/north-cloud.png" alt="North Cloud">
-      <img src="/assets/logos/idexx.png" alt="IDEXX">
-      <img src="/assets/logos/marketer-hire.png" alt="MarketerHire">
-      <img src="/assets/logos/staffbase.png" alt="Staffbase">
-      <img src="/assets/logos/shipbob.png" alt="ShipBob">
-      <img src="/assets/logos/globality.png" alt="Globality">
-    </div>
-  </section>
+    <div class="logos-grid">
+      <span class="logo-slot"><img src="/assets/logos/jellyfish.png" alt="Jellyfish"></span>
+      <span class="logo-slot"><img src="/assets/logos/chili-piper.png" alt="Chili Piper"></span>
+      <span class="logo-slot"><img src="/assets/logos/guru.png" alt="Guru"></span>
+      <span class="logo-slot"><img src="/assets/logos/radar.png" alt="Radar"></span>
+      <span class="logo-slot"><img src="/assets/logos/spiralyze.png" alt="Spiralyze"></span>
+      <span class="logo-slot"><img src="/assets/logos/modash.png" alt="Modash"></span>
+      <span class="logo-slot"><img src="/assets/logos/selector.png" alt="Selector"></span>
+      <span class="logo-slot"><img src="/assets/logos/sprig.png" alt="Sprig"></span>
+      <span class="logo-slot"><img src="/assets/logos/validity.png" alt="Validity"></span>
+      <span class="logo-slot"><img src="/assets/logos/superside.png" alt="Superside"></span>
+      <span class="logo-slot"><img src="/assets/logos/path-factory.png" alt="PathFactory"></span>
+      <span class="logo-slot"><img src="/assets/logos/north-cloud.png" alt="North Cloud"></span>
+      <span class="logo-slot"><img src="/assets/logos/idexx.png" alt="IDEXX"></span>
+      <span class="logo-slot"><img src="/assets/logos/marketer-hire.png" alt="MarketerHire"></span>
+      <span class="logo-slot"><img src="/assets/logos/staffbase.png" alt="Staffbase"></span>
+      <span class="logo-slot"><img src="/assets/logos/shipbob.png" alt="ShipBob"></span>
+    </div>  </section>
 
   <section class="proof">
     <p class="cred">Managed and scaled $15M+ a year Linkedin ads budgets</p>
