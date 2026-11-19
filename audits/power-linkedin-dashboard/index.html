@@ -57,7 +57,7 @@ td.n,td.st{text-align:center;white-space:nowrap}
 td.st .vdesc{max-width:none}
 td{padding:7px 6px;border-bottom:1px solid var(--bd2);vertical-align:middle}
 th.st,td.st{width:76px}
-td.nm,th.nm{width:168px}
+td.nm,th.nm{width:156px}
 td.nm .vlab,td.nm .vdesc{max-width:100%;overflow-wrap:anywhere;word-break:break-word;white-space:normal}
 a.cm{color:inherit;text-decoration:none}
 a.cm:hover,a.cm:focus-visible{text-decoration:underline;text-underline-offset:2px}
@@ -173,6 +173,7 @@ function pk(p){return p+'p'}
 function met(s,p){return (s.m&&s.m[p])||{spend:0,impr:0,lp:0,clicks:0,dwell:null,reach:null}}
 function cplOf(m){return (m.lp>0 && m.spend>0)?m.spend/m.lp:null}
 function cpmOf(m){return (m.impr>0 && m.spend>0)?m.spend/m.impr*1000:null}
+function cprOf(m){return (m.reach>0 && m.spend>0)?m.spend/m.reach:null}
 function lpctrOf(m){return (m.impr>0)?m.lp/m.impr:null}
 function penOf(s,m){return (s.aud>0 && m.reach!=null)?(m.reach/s.aud)*100:null}
 function tot(rows,p){
@@ -213,12 +214,13 @@ const AV={
   dwell:r=>met(r,P).dwell,
   pen:r=>penOf(r,met(r,P)),
   reach:r=>met(r,P).reach,
+  cpr:r=>cprOf(met(r,P)),
   spend:r=>met(r,P).spend||0
 };
 function pillN(n){if(n<=1)return{b:0,w:0};if(n===2)return{b:1,w:1};if(n===3)return{b:2,w:1};return{b:3,w:Math.min(3,n-3)}}
 function winners(list){if(!list.length)return {};const W={};
- [['cpl',-1],['cpm',-1],['lpctr',1],['dwell',1],['pen',1]].forEach(([k,dir])=>{
-  const el=list.filter(r=>{const v=AV[k](r);if(v===null)return false;if(k==='cpl')return met(r,P).lp>0&&v>0;if(k==='cpm')return met(r,P).impr>0&&v>0;if(k==='pen')return r.aud>0&&met(r,P).reach!=null;return met(r,P).impr>0});
+ [['cpl',-1],['cpm',-1],['cpr',-1],['lpctr',1],['dwell',1],['pen',1]].forEach(([k,dir])=>{
+  const el=list.filter(r=>{const v=AV[k](r);if(v===null)return false;if(k==='cpl')return met(r,P).lp>0&&v>0;if(k==='cpm')return met(r,P).impr>0&&v>0;if(k==='cpr')return met(r,P).reach>0&&v>0;if(k==='pen')return r.aud>0&&met(r,P).reach!=null;return met(r,P).impr>0});
   const {b,w}=pillN(el.length);const vs=el.map(r=>AV[k](r));
   const best=vs.slice().sort((a,c)=>(c-a)*dir).slice(0,b);
   const worst=vs.slice().sort((a,c)=>(a-c)*dir).filter(v=>!best.includes(v)).slice(0,w);
@@ -226,13 +228,14 @@ function winners(list){if(!list.length)return {};const W={};
 function hl(W,r,k,txt){const w=W[k];if(!w||!w.el.has(r))return txt;const v=AV[k](r);if(v===null)return txt;const i=w.best.indexOf(v);if(i>=0){w.best.splice(i,1,NaN);return `<span class="gv">${txt}</span>`}const j=w.worst.indexOf(v);if(j>=0){w.worst.splice(j,1,NaN);return `<span class="bv">${txt}</span>`}return txt}
 function cmpv(a,b){if(a===null&&b===null)return 0;if(a===null)return 1;if(b===null)return -1;return typeof a==='string'?a.localeCompare(b):a-b}
 let SORT={c:'cpl',d:1,vol:1};
-function srt(c){SORT=(SORT.c===c)?{c,d:-SORT.d,vol:SORT.vol}:{c,d:(c==='label'||c==='cpl'||c==='cpm'||c==='obj'||c==='status')?1:-1,vol:SORT.vol};render()}
+function srt(c){SORT=(SORT.c===c)?{c,d:-SORT.d,vol:SORT.vol}:{c,d:(c==='label'||c==='cpl'||c==='cpm'||c==='cpr'||c==='obj'||c==='status')?1:-1,vol:SORT.vol};render()}
 function th(c,label,cls,title){const on=SORT.c===c;const arw=on?(SORT.d>0?'▲':'▼'):'';return `<th class="s ${cls||''}${on?' act':''}" onclick="srt('${c}')" ${title?`title="${esc(title)}"`:''}>${label}<span class="arw" style="opacity:${on?1:.35};font-size:9px;margin-left:3px">${arw}</span></th>`}
 function st(r){return r.on?'<span class="sp-on">Active</span>':'<span class="sp-off">Paused</span>'}
 function statusMix(rows){const a=rows.filter(r=>r.on).length,p=rows.length-a;if(a&&!p)return '<span class="sp-on">Active</span>';if(!a&&p)return '<span class="sp-off">Paused</span>';return `<span class="sp-on">${a}</span> <span class="sp-off">${p}</span>`}
 const dwf=v=>v==null?'—':Number(v).toFixed(1)+'s';
 const fmtP=n=>n==null?'—':(Math.round(n)+'%');
 const fmtLPCTR=v=>v==null?'—':((100*v).toFixed(2)+'%');
+const usd2=v=>v==null?'—':('$'+Number(v).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}));
 function groupRows(rows){
   const byG={};
   rows.forEach(r=>{(byG[r.gid]||(byG[r.gid]=[])).push(r)});
@@ -250,9 +253,9 @@ function asCamp(g,grows){
 }
 function sortRows(list){
   const totSpend=list.reduce((s,r)=>s+(met(r,P).spend||0),0);
-  const ok=r=>{if(!totSpend||(met(r,P).spend||0)<totSpend*0.05||!(met(r,P).impr||0))return false;if(SORT.c==='cpl')return (met(r,P).lp||0)>0;return true};
+  const ok=r=>{if(!totSpend||(met(r,P).spend||0)<totSpend*0.05||!(met(r,P).impr||0))return false;if(SORT.c==='cpl')return (met(r,P).lp||0)>0;if(SORT.c==='cpr')return (met(r,P).reach||0)>0;return true};
   const byVol=(a,b)=>{
-    if(SORT.vol&&(SORT.c==='cpl'||SORT.c==='cpm')){const qa=ok(a),qb=ok(b);if(qa!==qb)return qa?-1:1}
+    if(SORT.vol&&(SORT.c==='cpl'||SORT.c==='cpm'||SORT.c==='cpr')){const qa=ok(a),qb=ok(b);if(qa!==qb)return qa?-1:1}
     const c=cmpv(AV[SORT.c](a),AV[SORT.c](b))*SORT.d;
     return c||((met(b,P).spend||0)-(met(a,P).spend||0));
   };
@@ -310,6 +313,7 @@ function table(){
     ${th('dwell','Dwell<br>time','n','Period average dwell time. Higher is better')}
     ${th('pen','Audience<br>penetration','n','Period reach ÷ current audience size, rounded to a whole percent. Higher is better')}
     ${th('reach','Reach','n','approximateMemberReach for the selected period')}
+    ${th('cpr','Cost per<br>reach','n','Period spend ÷ approximate member reach. Lower is better')}
   </tr></thead>`;
   let body='';
   list.forEach(r=>{
@@ -328,6 +332,7 @@ function table(){
       <td class="n">${hl(W,r,'dwell',dwf(m.dwell))}</td>
       <td class="n">${hl(W,r,'pen',fmtP(penOf(r,m)))}</td>
       <td class="n">${m.reach==null?'—':num(m.reach)}</td>
+      <td class="n">${hl(W,r,'cpr',usd2(cprOf(m)))}</td>
     </tr>`;
   });
   return `<div class="note" style="margin:0 0 12px">${list.length} ad set${list.length===1?'':'s'} in ${esc(scopeLabel())} (${live} Active, ${paused} Paused)</div><div class="tw"><table>${head}<tbody>${body}</tbody></table></div>`;
