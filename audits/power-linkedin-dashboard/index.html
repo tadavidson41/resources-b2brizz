@@ -164,6 +164,7 @@ function scoped(){
 function pk(p){return p+'p'}
 function met(s,p){return (s.m&&s.m[p])||{spend:0,impr:0,lp:0,clicks:0,dwell:null,reach:null}}
 function cplOf(m){return (m.lp>0 && m.spend>0)?m.spend/m.lp:null}
+function lpctrOf(m){return (m.impr>0)?m.lp/m.impr:null}
 function penOf(s,m){return (s.aud>0 && m.reach!=null)?(m.reach/s.aud)*100:null}
 function tot(rows,p){
   p=p||P;
@@ -197,6 +198,7 @@ const AV={
   budget:r=>r.budget==null?null:r.budget,
   biz:r=>r.biz==null?null:r.biz,
   lp:r=>met(r,P).lp||0,
+  lpctr:r=>lpctrOf(met(r,P)),
   cpl:r=>cplOf(met(r,P)),
   dwell:r=>met(r,P).dwell,
   pen:r=>penOf(r,met(r,P)),
@@ -205,7 +207,7 @@ const AV={
 };
 function pillN(n){if(n<=1)return{b:0,w:0};if(n===2)return{b:1,w:1};if(n===3)return{b:2,w:1};return{b:3,w:Math.min(3,n-3)}}
 function winners(list){if(!list.length)return {};const W={};
- [['cpl',-1],['dwell',1],['pen',1]].forEach(([k,dir])=>{
+ [['cpl',-1],['lpctr',1],['dwell',1],['pen',1]].forEach(([k,dir])=>{
   const el=list.filter(r=>{const v=AV[k](r);if(v===null)return false;if(k==='cpl')return met(r,P).lp>0&&v>0;if(k==='pen')return r.aud>0&&met(r,P).reach!=null;return met(r,P).impr>0});
   const {b,w}=pillN(el.length);const vs=el.map(r=>AV[k](r));
   const best=vs.slice().sort((a,c)=>(c-a)*dir).slice(0,b);
@@ -220,6 +222,7 @@ function st(r){return r.on?'<span class="sp-on">Active</span>':'<span class="sp-
 function statusMix(rows){const a=rows.filter(r=>r.on).length,p=rows.length-a;if(a&&!p)return '<span class="sp-on">Active</span>';if(!a&&p)return '<span class="sp-off">Paused</span>';return `<span class="sp-on">${a}</span> <span class="sp-off">${p}</span>`}
 const dwf=v=>v==null?'—':Number(v).toFixed(1)+'s';
 const fmtP=n=>n==null?'—':(Math.round(n)+'%');
+const fmtLPCTR=v=>v==null?'—':((100*v).toFixed(2)+'%');
 function groupRows(rows){
   const byG={};
   rows.forEach(r=>{(byG[r.gid]||(byG[r.gid]=[])).push(r)});
@@ -255,6 +258,7 @@ function table(){
       ${th('budget','Daily budget','n','Current daily budget, summed across ad sets in the campaign at pull time.')}
       ${th('biz','Last biz day spend','n','Spend on '+D.last_biz_day_label+'. LinkedIn reports in UTC days.')}
       ${th('lp','Landing page clicks','n')}
+      ${th('lpctr','LP CTR','n','Landing page clicks / impressions. Higher is better')}
       ${th('cpl','Cost / LP click','n','Lower is better')}
       ${th('dwell','Dwell time','n','Period average dwell time, impression-weighted. Higher is better')}
     </tr></thead>`;
@@ -267,6 +271,7 @@ function table(){
         <td class="n">${usd(r.budget)}</td>
         <td class="n">${usd(r.biz)}</td>
         <td class="n">${num(m.lp)}</td>
+        <td class="n">${hl(W,r,'lpctr',fmtLPCTR(lpctrOf(m)))}</td>
         <td class="n">${hl(W,r,'cpl',usd(cplOf(m)))}</td>
         <td class="n">${hl(W,r,'dwell',dwf(m.dwell))}</td>
       </tr>`;
@@ -283,6 +288,7 @@ function table(){
     ${th('budget','Daily budget','n','Current daily budget on the ad set at pull time.')}
     ${th('biz','Last biz day spend','n','Spend on '+D.last_biz_day_label+'. LinkedIn reports in UTC days.')}
     ${th('lp','Landing page clicks','n')}
+    ${th('lpctr','LP CTR','n','Landing page clicks / impressions. Higher is better')}
     ${th('cpl','Cost / LP click','n','Lower is better')}
     ${th('dwell','Dwell time','n','Period average dwell time. Higher is better')}
     ${th('pen','Audience penetration','n','Period reach ÷ current audience size, rounded to a whole percent. Higher is better')}
@@ -299,6 +305,7 @@ function table(){
       <td class="n">${usd(r.budget)}</td>
       <td class="n">${usd(r.biz)}</td>
       <td class="n">${num(m.lp)}</td>
+      <td class="n">${hl(W,r,'lpctr',fmtLPCTR(lpctrOf(m)))}</td>
       <td class="n">${hl(W,r,'cpl',usd(cplOf(m)))}</td>
       <td class="n">${hl(W,r,'dwell',dwf(m.dwell))}</td>
       <td class="n">${hl(W,r,'pen',fmtP(penOf(r,m)))}</td>
@@ -411,7 +418,7 @@ $('nhist').textContent=(D.meta&&D.meta.hist_camps!=null)?D.meta.hist_camps:'';
 $('thru').textContent=fmtD((D.meta&&D.meta.through)||D.asof);
 $('asof').textContent=(D.meta&&D.meta.asof)||D.asof_label;
 $('foot').innerHTML=`<li>LinkedIn Ads account 509859857. The All view lists campaigns (campaign groups). Choose ENT, GRW, or an industry to see ad set rows. Tables include live ad sets and paused or completed ad sets that delivered in the selected period. Status is the ad set's current status: Active (ACTIVE and serving) or Paused.</li>
-<li>Cost/LP = spend / landing page clicks, in whole dollars. Prior = previous equal-length period (month to date: same days last month). Period comparisons are whole percents. Dwell is the period average, shown to one decimal second. Audience size is current targeting from LinkedIn audienceCounts as of the pull, not a historical size for the period. Reach is approximate member reach for the selected period (not a sum of daily reach). Audience penetration = period reach ÷ current audience size, as a whole percent. Campaign-level reach, audience size, and penetration are not shown because those metrics are not de-duplicated across ad sets.</li>
+<li>Cost/LP = spend / landing page clicks, in whole dollars. LP CTR = landing page clicks / impressions, shown to two decimals. Prior = previous equal-length period (month to date: same days last month). Period comparisons are whole percents. Dwell is the period average, shown to one decimal second. Audience size is current targeting from LinkedIn audienceCounts as of the pull, not a historical size for the period. Reach is approximate member reach for the selected period (not a sum of daily reach). Audience penetration = period reach ÷ current audience size, as a whole percent. Campaign-level reach, audience size, and penetration are not shown because those metrics are not de-duplicated across ad sets.</li>
 <li>Companies reached counts unique companies with impressions in the period (MEMBER_COMPANY), unioned under the current filter when that pull exists. Combined segment+industry filters, and filtered views on Last 7 days, MTD, and Last 60 days, show a dash rather than a guessed unique count.</li>
 <li>The Daily performance chart always covers the last 60 days ending ${fmtD((D.meta&&D.meta.through)||D.asof)}, and uses six days before that so the first chart day has a full 7-day window. It follows the segment and industry filters, not the period pills. Rolling metrics use a 7-day window: Rolling LP clicks = LP clicks in the last 7 days, Rolling LP CTR = LP clicks in the last 7 days / impressions in the last 7 days, and Rolling Cost/LP = spend in the last 7 days / LP clicks in the last 7 days, in whole dollars. All three plots those lines on one chart, each indexed to 100 at the start of the window; hover for actual values. There are no change or milestone markers on All three. On single-metric views, a compact marker is an ad set's first day with delivery for a launch, or last day with delivery for a pause (only if the ad set is no longer live), or a new campaign (campaign group) if one launched in the window. LinkedIn does not provide objective or daily budget change history, so those are not marked. Nearby dates are merged when needed so labels never overlap. Hover a marker for the names of what changed.</li>
 <li>Last business day spend is spend on ${D.last_biz_day_label}. Daily budget and objective are current campaign-entity values at pull time.</li>`;
