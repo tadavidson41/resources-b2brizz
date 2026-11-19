@@ -18,14 +18,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 :root{--pink:#AFAAF9;--lav:#D5D2FF;--peach:#CDF8FF;--ink:#2B2A29;--blue:#AFAAF9;--lblue:#D5D2FF;--navy:#2B2A29;--bg:#FFFFFF;--card:#FFFFFF;--bd:#D5D2FF;--tx:#2B2A29;--s2:#2B2A29;--s3:#2B2A29;--white:#FFFFFF}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--tx);font:15px/1.55 "Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;font-variant-numeric:tabular-nums}
-h1,h2,h3,.mcard .v,.seg button,.lab,.period-pill,.toplink,.hdr-btn{font-family:"Darker Grotesque","Helvetica Neue",Arial,sans-serif}
+h1,h2,h3,.mcard .v,.seg button,.lab,.period-pill,.toplink,.hdr-link{font-family:"Darker Grotesque","Helvetica Neue",Arial,sans-serif}
 button{font:inherit;color:inherit}
 .wrap{max-width:1180px;margin:0 auto;padding:40px 24px 80px}
 .topnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--bd);margin:0 -8px 18px;padding:10px 8px;overflow-x:auto;-webkit-overflow-scrolling:touch}
 .topnav-inner{display:flex;gap:10px;align-items:center;justify-content:center;min-width:100%;flex-wrap:wrap}
-.topnav a,.hdr-btn{display:inline-block;padding:8px 14px;border-radius:999px;border:1px solid var(--bd);background:var(--white);color:var(--tx);text-decoration:none;font-size:13px;font-weight:700}
-.topnav a:hover,.hdr-btn:hover{border-color:var(--pink);color:var(--ink)}
-.hdr-btn.em{background:#AFAAF9;border-color:#AFAAF9;color:#2B2A29}
+.topnav a{display:inline-block;padding:8px 14px;border-radius:999px;border:1px solid var(--bd);background:var(--white);color:var(--tx);text-decoration:none;font-size:13px;font-weight:700}
+.topnav a:hover{border-color:var(--pink);color:var(--ink)}
+.topnav a.hdr-link{border:none;background:none;border-radius:0;padding:8px 6px;text-decoration:underline;text-underline-offset:3px;font-weight:700;color:var(--tx)}
+.topnav a.hdr-link:hover{border:none;color:#7756FF}
 .hero{text-align:center;margin:0 0 8px}
 .brand{display:flex;align-items:center;justify-content:center;gap:14px;max-width:100%}
 .brand .logo{width:min(200px,100%);height:auto;max-height:60px;display:block;margin:0 auto}
@@ -104,7 +105,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <nav class="topnav" aria-label="Page sections"><div class="topnav-inner">
 <a href="#overview">Overview</a>
 <a href="#adsets">Campaigns and ad sets</a>
-<a class="hdr-btn em" href="/audits/power-creative-dashboard/">Creative dashboard</a>
+<a class="hdr-link" href="/audits/power-creative-dashboard/">Creative Dashboard</a>
 </div></nav>
 
 <div class="hero">
@@ -129,7 +130,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
   <div class="showing" id="showing"></div>
   <div class="tscroll" id="table"></div>
-  <p class="sech-note">Active is a live ad set (ACTIVE and serving). Paused includes paused or completed ad sets that delivered in the selected period. Audience size is current targeting, not a historical size for the period. Reach is LinkedIn approximate member reach for the period (not a sum of daily reach). Campaign-group reach and audience size are blank because those metrics are not de-duplicated across ad sets. Cost/LP and dwell pills mark the top and bottom three qualifying rows (lowest Cost/LP and highest dwell are best). Default sort is lowest Cost/LP, with a 5% spend floor so tiny rows do not float to the top.</p>
+  <p class="sech-note">Active is a live ad set (ACTIVE and serving). Paused includes paused or completed ad sets that delivered in the selected period. Audience size is current targeting, not a historical size for the period. Reach is LinkedIn approximate member reach for the period (not a sum of daily reach). The All view lists campaigns only. Choose ENT, GRW, or an industry to see ad set rows. Campaign reach, audience size, and penetration are blank unless a de-duplicated value exists. Cost/LP and dwell pills mark the top and bottom three qualifying rows (lowest Cost/LP and highest dwell are best). Default sort is lowest Cost/LP, with a 5% spend floor so tiny rows do not float to the top.</p>
 </section>
 
 <p class="foot" id="foot"></p>
@@ -250,45 +251,32 @@ function cards(){
   $('cards').innerHTML=items.map(([l,v,n])=>`<div class="mcard"><div class="l">${l}</div><div class="v">${v}</div><div class="n">${n||''}</div></div>`).join('');
 }
 
-function table(){
-  const rows=scoped();
-  if(!rows.length){$('table').innerHTML='<div class="empty">No delivery in this period.</div>';$('showing').textContent='';return;}
+function campView(){return SEG==='All'&&IND==='All'}
+function groupRows(rows){
   const byG={};
   rows.forEach(r=>{(byG[r.gid]||(byG[r.gid]=[])).push(r)});
   const gOrder=D.groups.filter(g=>byG[g.id]);
-  // also any gid not in D.groups
   Object.keys(byG).forEach(id=>{if(!gOrder.some(g=>g.id===id)) gOrder.push({id,name:byG[id][0].gname||id})});
-  const totSpend=rows.reduce((s,r)=>s+(met(r,P).spend||0),0);
+  return {byG,gOrder};
+}
+function asCamp(g,grows){
+  const T=tot(grows,P);
+  return {id:g.id,name:g.name,short:g.name,isCamp:true,kids:grows,on:grows.every(r=>r.on),aud:null,obj_label:'',budget:T.budget,biz:T.biz,m:{[P]:{spend:T.spend,impr:T.impr,lp:T.lp,clicks:T.clicks,dwell:T.dwell,reach:null}}};
+}
+function sortRows(list){
+  const totSpend=list.reduce((s,r)=>s+(met(r,P).spend||0),0);
   const ok=r=>totSpend>0&&(met(r,P).spend||0)>=totSpend*0.05&&(met(r,P).lp||0)>0&&(met(r,P).impr||0)>0;
   const byVol=(a,b)=>{
     if(SORT.vol){const qa=ok(a),qb=ok(b);if(qa!==qb)return qa?-1:1}
     const c=cmpv(AV[SORT.c](a),AV[SORT.c](b))*SORT.d;
     return c||((met(b,P).spend||0)-(met(a,P).spend||0));
   };
-  const grpVal=grows=>{
-    if(SORT.c==='label') return grows[0].gname||'';
-    if(SORT.c==='status') return grows.every(r=>r.on)?0:grows.some(r=>r.on)?0.5:1;
-    if(SORT.c==='obj') return '';
-    if(SORT.c==='aud'||SORT.c==='reach'||SORT.c==='pen') return null;
-    if(SORT.c==='budget') return grows.reduce((s,r)=>s+(r.budget||0),0);
-    if(SORT.c==='biz') return grows.reduce((s,r)=>s+(r.biz||0),0);
-    if(SORT.c==='lp') return grows.reduce((s,r)=>s+(met(r,P).lp||0),0);
-    if(SORT.c==='cpl'){const t=tot(grows,P);return cplOf(t)}
-    if(SORT.c==='dwell') return tot(grows,P).dwell;
-    return tot(grows,P).spend;
-  };
-  gOrder.sort((A,B)=>{
-    const va=grpVal(byG[A.id]), vb=grpVal(byG[B.id]);
-    const c=cmpv(va,vb)*SORT.d;
-    return c||(tot(byG[B.id],P).spend-tot(byG[A.id],P).spend);
-  });
-  gOrder.forEach(g=>byG[g.id].sort(byVol));
-  const W=winners(rows);
-  const live=rows.filter(r=>r.on).length, paused=rows.length-live;
-  $('showing').textContent=`${rows.length} ad sets in ${scopeLabel()} (${live} Active, ${paused} Paused)`;
-  const head=`<thead><tr>
+  return list.slice().sort(byVol);
+}
+function tableHead(nameLabel){
+  return `<thead><tr>
     ${th('status','Status','st')}
-    ${th('label','Ad set')}
+    ${th('label',nameLabel)}
     ${th('obj','Objective')}
     ${th('aud','Audience size','n','Current targeting from LinkedIn audienceCounts, pulled Nov 19. Not historical for the period.')}
     ${th('budget','Daily budget','n','Current daily budget on the ad set at pull time.')}
@@ -299,42 +287,57 @@ function table(){
     ${th('pen','Audience penetration','n','Period reach ÷ current audience size, rounded to a whole percent. Higher is better')}
     ${th('reach','Reach','n','approximateMemberReach for the selected period')}
   </tr></thead>`;
-  let body='';
-  gOrder.forEach(g=>{
-    const grows=byG[g.id];
-    const T=tot(grows,P);
-    const closed=CLOSED.has(g.id);
-    body+=`<tr class="grp${closed?' closed':''}" onclick="tog('${g.id}')">
-      <td class="st">${statusMix(grows)}</td>
-      <td><div class="vlab">${esc(g.name)}</div><div class="vdesc">${grows.length} ad set${grows.length===1?'':'s'}</div></td>
-      <td></td>
-      <td class="n">—</td>
-      <td class="n">${fmtD(T.budget)}</td>
-      <td class="n">${fmtD(T.biz)}</td>
-      <td class="n">${fmtN(T.lp)}</td>
-      <td class="n">${fmtD(cplOf(T))}</td>
-      <td class="n">${fmtS(T.dwell)}</td>
-      <td class="n">—</td>
-      <td class="n">—</td>
-    </tr>`;
-    grows.forEach(r=>{
+}
+function table(){
+  const rows=scoped();
+  if(!rows.length){$('table').innerHTML='<div class="empty">No delivery in this period.</div>';$('showing').textContent='';return;}
+  const live=rows.filter(r=>r.on).length, paused=rows.length-live;
+  if(campView()){
+    const {byG,gOrder}=groupRows(rows);
+    const camps=sortRows(gOrder.map(g=>asCamp(g,byG[g.id])));
+    const W=winners(camps);
+    $('showing').textContent=`${camps.length} campaign${camps.length===1?'':'s'}`;
+    let body='';
+    camps.forEach(r=>{
       const m=met(r,P);
-      body+=`<tr class="set${closed?' hidset':''}">
-        <td class="st">${st(r)}</td>
-        <td title="${esc(r.name)}"><div class="vlab">${esc(r.short)}</div><div class="vdesc">${esc(r.name)}</div></td>
-        <td>${esc(r.obj_label)}</td>
-        <td class="n">${r.aud==null?'—':fmtN(r.aud)}</td>
+      body+=`<tr>
+        <td class="st">${statusMix(r.kids)}</td>
+        <td><div class="vlab">${esc(r.name)}</div><div class="vdesc">${r.kids.length} ad set${r.kids.length===1?'':'s'}</div></td>
+        <td>—</td>
+        <td class="n">—</td>
         <td class="n">${fmtD(r.budget)}</td>
         <td class="n">${fmtD(r.biz)}</td>
         <td class="n">${fmtN(m.lp)}</td>
         <td class="n">${hl(W,r,'cpl',fmtD(cplOf(m)))}</td>
         <td class="n">${hl(W,r,'dwell',fmtS(m.dwell))}</td>
-        <td class="n">${hl(W,r,'pen',fmtP(penOf(r,m)))}</td>
-        <td class="n">${m.reach==null?'—':fmtN(m.reach)}</td>
+        <td class="n">—</td>
+        <td class="n">—</td>
       </tr>`;
     });
+    $('table').innerHTML=`<table>${tableHead('Campaign')}<tbody>${body}</tbody></table>`;
+    return;
+  }
+  const list=sortRows(rows);
+  const W=winners(list);
+  $('showing').textContent=`${list.length} ad set${list.length===1?'':'s'} in ${scopeLabel()} (${live} Active, ${paused} Paused)`;
+  let body='';
+  list.forEach(r=>{
+    const m=met(r,P);
+    body+=`<tr>
+      <td class="st">${st(r)}</td>
+      <td title="${esc(r.name)}"><div class="vlab">${esc(r.short)}</div><div class="vdesc">${esc(r.name)}</div></td>
+      <td>${esc(r.obj_label)}</td>
+      <td class="n">${r.aud==null?'—':fmtN(r.aud)}</td>
+      <td class="n">${fmtD(r.budget)}</td>
+      <td class="n">${fmtD(r.biz)}</td>
+      <td class="n">${fmtN(m.lp)}</td>
+      <td class="n">${hl(W,r,'cpl',fmtD(cplOf(m)))}</td>
+      <td class="n">${hl(W,r,'dwell',fmtS(m.dwell))}</td>
+      <td class="n">${hl(W,r,'pen',fmtP(penOf(r,m)))}</td>
+      <td class="n">${m.reach==null?'—':fmtN(m.reach)}</td>
+    </tr>`;
   });
-  $('table').innerHTML=`<table>${head}<tbody>${body}</tbody></table>`;
+  $('table').innerHTML=`<table>${tableHead('Ad set')}<tbody>${body}</tbody></table>`;
 }
 
 function render(){
