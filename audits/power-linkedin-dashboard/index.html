@@ -49,11 +49,19 @@ section.block.alt{background:var(--lav3)}
 .up{color:#2E6B45;background:#E3F3E8;border-radius:6px;padding:1px 6px;font-weight:700;white-space:nowrap}
 .dn{color:var(--rd);background:var(--rdb);border-radius:6px;padding:1px 6px;font-weight:700;white-space:nowrap}
 .tw{overflow:auto;border:1px solid var(--bd);border-radius:10px;background:#fff}
-table{border-collapse:separate;border-spacing:0;width:100%;font-size:13px}
-th{background:var(--bg);text-align:left;font-weight:700;color:var(--mut);font-size:12px;padding:9px 10px;border-bottom:1px solid var(--bd);white-space:nowrap}
-th.s{cursor:pointer}th.s:hover{color:var(--pu)}th.n,td.n,th.st,td.st{text-align:center;white-space:nowrap}
+table{border-collapse:separate;border-spacing:0;width:100%;table-layout:fixed;font-size:13px}
+th{background:var(--bg);text-align:left;font-weight:700;color:var(--mut);font-size:12px;padding:7px 6px;border-bottom:1px solid var(--bd);white-space:normal;line-height:1.25;vertical-align:bottom}
+th.s{cursor:pointer}th.s:hover{color:var(--pu)}
+th.n,th.st{text-align:center;white-space:normal}
+td.n,td.st{text-align:center;white-space:nowrap}
 td.st .vdesc{max-width:none}
-td{padding:8px 10px;border-bottom:1px solid var(--bd2);vertical-align:middle}
+td{padding:7px 6px;border-bottom:1px solid var(--bd2);vertical-align:middle}
+th.st,td.st{width:76px}
+td.nm,th.nm{width:168px}
+td.nm .vlab,td.nm .vdesc{max-width:100%;overflow-wrap:anywhere;word-break:break-word;white-space:normal}
+a.cm{color:inherit;text-decoration:none}
+a.cm:hover,a.cm:focus-visible{text-decoration:underline;text-underline-offset:2px}
+th.obj,td.obj{width:136px;white-space:nowrap;padding-left:10px;text-align:left}
 tbody tr:hover td{background:#FAFAFF}
 tr.tot td{font-weight:700;background:var(--bg)}
 tr.th td{cursor:pointer}tr.th .vlab:before{content:"\25B8  ";color:var(--pu)}tr.th.open .vlab:before{content:"\25BE  "}
@@ -164,6 +172,7 @@ function scoped(){
 function pk(p){return p+'p'}
 function met(s,p){return (s.m&&s.m[p])||{spend:0,impr:0,lp:0,clicks:0,dwell:null,reach:null}}
 function cplOf(m){return (m.lp>0 && m.spend>0)?m.spend/m.lp:null}
+function cpmOf(m){return (m.impr>0 && m.spend>0)?m.spend/m.impr*1000:null}
 function lpctrOf(m){return (m.impr>0)?m.lp/m.impr:null}
 function penOf(s,m){return (s.aud>0 && m.reach!=null)?(m.reach/s.aud)*100:null}
 function tot(rows,p){
@@ -200,6 +209,7 @@ const AV={
   lp:r=>met(r,P).lp||0,
   lpctr:r=>lpctrOf(met(r,P)),
   cpl:r=>cplOf(met(r,P)),
+  cpm:r=>cpmOf(met(r,P)),
   dwell:r=>met(r,P).dwell,
   pen:r=>penOf(r,met(r,P)),
   reach:r=>met(r,P).reach,
@@ -207,8 +217,8 @@ const AV={
 };
 function pillN(n){if(n<=1)return{b:0,w:0};if(n===2)return{b:1,w:1};if(n===3)return{b:2,w:1};return{b:3,w:Math.min(3,n-3)}}
 function winners(list){if(!list.length)return {};const W={};
- [['cpl',-1],['lpctr',1],['dwell',1],['pen',1]].forEach(([k,dir])=>{
-  const el=list.filter(r=>{const v=AV[k](r);if(v===null)return false;if(k==='cpl')return met(r,P).lp>0&&v>0;if(k==='pen')return r.aud>0&&met(r,P).reach!=null;return met(r,P).impr>0});
+ [['cpl',-1],['cpm',-1],['lpctr',1],['dwell',1],['pen',1]].forEach(([k,dir])=>{
+  const el=list.filter(r=>{const v=AV[k](r);if(v===null)return false;if(k==='cpl')return met(r,P).lp>0&&v>0;if(k==='cpm')return met(r,P).impr>0&&v>0;if(k==='pen')return r.aud>0&&met(r,P).reach!=null;return met(r,P).impr>0});
   const {b,w}=pillN(el.length);const vs=el.map(r=>AV[k](r));
   const best=vs.slice().sort((a,c)=>(c-a)*dir).slice(0,b);
   const worst=vs.slice().sort((a,c)=>(a-c)*dir).filter(v=>!best.includes(v)).slice(0,w);
@@ -216,7 +226,7 @@ function winners(list){if(!list.length)return {};const W={};
 function hl(W,r,k,txt){const w=W[k];if(!w||!w.el.has(r))return txt;const v=AV[k](r);if(v===null)return txt;const i=w.best.indexOf(v);if(i>=0){w.best.splice(i,1,NaN);return `<span class="gv">${txt}</span>`}const j=w.worst.indexOf(v);if(j>=0){w.worst.splice(j,1,NaN);return `<span class="bv">${txt}</span>`}return txt}
 function cmpv(a,b){if(a===null&&b===null)return 0;if(a===null)return 1;if(b===null)return -1;return typeof a==='string'?a.localeCompare(b):a-b}
 let SORT={c:'cpl',d:1,vol:1};
-function srt(c){SORT=(SORT.c===c)?{c,d:-SORT.d}:{c,d:(c==='label'||c==='cpl'||c==='obj'||c==='status')?1:-1};render()}
+function srt(c){SORT=(SORT.c===c)?{c,d:-SORT.d,vol:SORT.vol}:{c,d:(c==='label'||c==='cpl'||c==='cpm'||c==='obj'||c==='status')?1:-1,vol:SORT.vol};render()}
 function th(c,label,cls,title){const on=SORT.c===c;const arw=on?(SORT.d>0?'▲':'▼'):'';return `<th class="s ${cls||''}${on?' act':''}" onclick="srt('${c}')" ${title?`title="${esc(title)}"`:''}>${label}<span class="arw" style="opacity:${on?1:.35};font-size:9px;margin-left:3px">${arw}</span></th>`}
 function st(r){return r.on?'<span class="sp-on">Active</span>':'<span class="sp-off">Paused</span>'}
 function statusMix(rows){const a=rows.filter(r=>r.on).length,p=rows.length-a;if(a&&!p)return '<span class="sp-on">Active</span>';if(!a&&p)return '<span class="sp-off">Paused</span>';return `<span class="sp-on">${a}</span> <span class="sp-off">${p}</span>`}
@@ -230,15 +240,19 @@ function groupRows(rows){
   Object.keys(byG).forEach(id=>{if(!gOrder.some(g=>g.id===id)) gOrder.push({id,name:byG[id][0].gname||id})});
   return {byG,gOrder};
 }
+const CM_ACCT='509859857';
+function cmAdset(id){return 'https://www.linkedin.com/campaignmanager/accounts/'+CM_ACCT+'/campaigns/'+id+'/details'}
+function cmGroup(id){return 'https://www.linkedin.com/campaignmanager/accounts/'+CM_ACCT+'/campaign-groups/'+id}
+function cmName(href,label){return href?`<a class="cm" href="${esc(href)}" target="_blank" rel="noopener noreferrer">${label}</a>`:label}
 function asCamp(g,grows){
   const T=tot(grows,P);
   return {id:g.id,name:g.name,short:g.name,isCamp:true,kids:grows,on:grows.every(r=>r.on),aud:null,obj_label:'',budget:T.budget,biz:T.biz,m:{[P]:{spend:T.spend,impr:T.impr,lp:T.lp,clicks:T.clicks,dwell:T.dwell,reach:null}}};
 }
 function sortRows(list){
   const totSpend=list.reduce((s,r)=>s+(met(r,P).spend||0),0);
-  const ok=r=>totSpend>0&&(met(r,P).spend||0)>=totSpend*0.05&&(met(r,P).lp||0)>0&&(met(r,P).impr||0)>0;
+  const ok=r=>{if(!totSpend||(met(r,P).spend||0)<totSpend*0.05||!(met(r,P).impr||0))return false;if(SORT.c==='cpl')return (met(r,P).lp||0)>0;return true};
   const byVol=(a,b)=>{
-    if(SORT.vol){const qa=ok(a),qb=ok(b);if(qa!==qb)return qa?-1:1}
+    if(SORT.vol&&(SORT.c==='cpl'||SORT.c==='cpm')){const qa=ok(a),qb=ok(b);if(qa!==qb)return qa?-1:1}
     const c=cmpv(AV[SORT.c](a),AV[SORT.c](b))*SORT.d;
     return c||((met(b,P).spend||0)-(met(a,P).spend||0));
   };
@@ -254,25 +268,27 @@ function table(){
     const W=winners(camps);
     const head=`<thead><tr>
       ${th('status','Status','st')}
-      ${th('label','Campaign')}
-      ${th('budget','Daily budget','n','Current daily budget, summed across ad sets in the campaign at pull time.')}
-      ${th('biz','Last biz day spend','n','Spend on '+D.last_biz_day_label+'. LinkedIn reports in UTC days.')}
-      ${th('lp','Landing page clicks','n')}
+      ${th('label','Campaign','nm')}
+      ${th('budget','Daily<br>budget','n','Current daily budget, summed across ad sets in the campaign at pull time.')}
+      ${th('biz','Last biz<br>day spend','n','Spend on '+D.last_biz_day_label+'. LinkedIn reports in UTC days.')}
+      ${th('lp','Landing<br>page clicks','n')}
       ${th('lpctr','LP CTR','n','Landing page clicks / impressions. Higher is better')}
-      ${th('cpl','Cost / LP click','n','Lower is better')}
-      ${th('dwell','Dwell time','n','Period average dwell time, impression-weighted. Higher is better')}
+      ${th('cpl','Cost /<br>LP click','n','Lower is better')}
+      ${th('cpm','CPM','n','Spend ÷ impressions × 1,000, rounded to whole dollars. Lower is better')}
+      ${th('dwell','Dwell<br>time','n','Period average dwell time, impression-weighted. Higher is better')}
     </tr></thead>`;
     let body='';
     camps.forEach(r=>{
       const m=met(r,P);
       body+=`<tr>
         <td class="st">${statusMix(r.kids)}</td>
-        <td><div class="vlab">${esc(r.name)}</div><div class="vdesc">${r.kids.length} ad set${r.kids.length===1?'':'s'}</div></td>
+        <td class="nm"><div class="vlab">${cmName(r.id?cmGroup(r.id):'',esc(r.name))}</div><div class="vdesc">${r.kids.length} ad set${r.kids.length===1?'':'s'}</div></td>
         <td class="n">${usd(r.budget)}</td>
         <td class="n">${usd(r.biz)}</td>
         <td class="n">${num(m.lp)}</td>
         <td class="n">${hl(W,r,'lpctr',fmtLPCTR(lpctrOf(m)))}</td>
         <td class="n">${hl(W,r,'cpl',usd(cplOf(m)))}</td>
+        <td class="n">${hl(W,r,'cpm',usd(cpmOf(m)))}</td>
         <td class="n">${hl(W,r,'dwell',dwf(m.dwell))}</td>
       </tr>`;
     });
@@ -282,16 +298,17 @@ function table(){
   const W=winners(list);
   const head=`<thead><tr>
     ${th('status','Status','st')}
-    ${th('label','Ad set')}
-    ${th('obj','Objective')}
-    ${th('aud','Audience size','n','Current targeting from LinkedIn audienceCounts, pulled Nov 19. Not historical for the period.')}
-    ${th('budget','Daily budget','n','Current daily budget on the ad set at pull time.')}
-    ${th('biz','Last biz day spend','n','Spend on '+D.last_biz_day_label+'. LinkedIn reports in UTC days.')}
-    ${th('lp','Landing page clicks','n')}
+    ${th('label','Ad set','nm')}
+    ${th('obj','Objective','obj')}
+    ${th('aud','Audience<br>size','n','Current targeting from LinkedIn audienceCounts, pulled Nov 19. Not historical for the period.')}
+    ${th('budget','Daily<br>budget','n','Current daily budget on the ad set at pull time.')}
+    ${th('biz','Last biz<br>day spend','n','Spend on '+D.last_biz_day_label+'. LinkedIn reports in UTC days.')}
+    ${th('lp','Landing<br>page clicks','n')}
     ${th('lpctr','LP CTR','n','Landing page clicks / impressions. Higher is better')}
-    ${th('cpl','Cost / LP click','n','Lower is better')}
-    ${th('dwell','Dwell time','n','Period average dwell time. Higher is better')}
-    ${th('pen','Audience penetration','n','Period reach ÷ current audience size, rounded to a whole percent. Higher is better')}
+    ${th('cpl','Cost /<br>LP click','n','Lower is better')}
+    ${th('cpm','CPM','n','Spend ÷ impressions × 1,000, rounded to whole dollars. Lower is better')}
+    ${th('dwell','Dwell<br>time','n','Period average dwell time. Higher is better')}
+    ${th('pen','Audience<br>penetration','n','Period reach ÷ current audience size, rounded to a whole percent. Higher is better')}
     ${th('reach','Reach','n','approximateMemberReach for the selected period')}
   </tr></thead>`;
   let body='';
@@ -299,14 +316,15 @@ function table(){
     const m=met(r,P);
     body+=`<tr>
       <td class="st">${st(r)}</td>
-      <td title="${esc(r.name)}"><div class="vlab">${esc(r.short)}</div><div class="vdesc">${esc(r.name)}</div></td>
-      <td>${esc(r.obj_label)}</td>
+      <td class="nm" title="${esc(r.name)}"><div class="vlab">${cmName(r.id?cmAdset(r.id):'',esc(r.short))}</div><div class="vdesc">${cmName(r.id?cmAdset(r.id):'',esc(r.name))}</div></td>
+      <td class="obj">${esc(r.obj_label)}</td>
       <td class="n">${r.aud==null?'—':num(r.aud)}</td>
       <td class="n">${usd(r.budget)}</td>
       <td class="n">${usd(r.biz)}</td>
       <td class="n">${num(m.lp)}</td>
       <td class="n">${hl(W,r,'lpctr',fmtLPCTR(lpctrOf(m)))}</td>
       <td class="n">${hl(W,r,'cpl',usd(cplOf(m)))}</td>
+      <td class="n">${hl(W,r,'cpm',usd(cpmOf(m)))}</td>
       <td class="n">${hl(W,r,'dwell',dwf(m.dwell))}</td>
       <td class="n">${hl(W,r,'pen',fmtP(penOf(r,m)))}</td>
       <td class="n">${m.reach==null?'—':num(m.reach)}</td>
