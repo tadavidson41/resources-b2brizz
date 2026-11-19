@@ -190,10 +190,10 @@ function tot(rows,p){
 }
 function delta(cur,prev,invert){
   if(cur==null||prev==null||!(prev>0)) return '';
-  const pct=(cur-prev)/Math.abs(prev)*100;
-  const cls=Math.abs(pct)<0.05?'flat':((invert?pct<0:pct>0)?'up':'down');
+  const pct=Math.round((cur-prev)/Math.abs(prev)*100);
+  const cls=pct===0?'flat':((invert?pct<0:pct>0)?'up':'down');
   const sign=pct>0?'+':'';
-  return `<span class="delta ${cls}">${sign}${pct.toFixed(1)}% vs prior</span>`;
+  return `<span class="delta ${cls}">${sign}${pct}% vs prior</span>`;
 }
 function companies(p){
   const c=D.companies[p]||{};
