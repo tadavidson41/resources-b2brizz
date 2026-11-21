@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="theme-color" content="#05060d"><link rel="icon" href="/assets/favicon-32.png"><link rel="stylesheet" href="app.css"><title>Live Bot Map · B2BRizz</title></head><body>
+<div class="stars"></div>
+<header><h1>Bot Map <span>· B2BRizz fleet</span></h1><span class="live"><i></i>CONNECTING</span><div class="stats"><div class="stat"><b id="s-total">–</b>bots</div><div class="stat"><b id="s-now">–</b>active now</div><div class="stat"><b id="s-day">–</b>active 24h</div><div class="stat"><b id="s-ev">–</b>events 24h</div></div><div class="tools"><input type="search" id="q" placeholder="Search bots…" aria-label="Search bots"><select id="cluster" aria-label="Cluster filter"><option value="">All clusters</option></select><nav class="toggle"><a href="./" class="on">Map</a><a href="list.html">List</a></nav></div></header>
+<svg id="map" preserveAspectRatio="xMidYMid meet" aria-label="Live bot map"><defs>
+<radialGradient id="hubg"><stop offset="0" stop-color="#3a4aa8"/><stop offset="1" stop-color="#121842"/></radialGradient>
+<filter id="glow" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs><g class="vb"></g></svg>
+<div class="legend"><span><i style="background:#3dffa8;box-shadow:0 0 8px #3dffa8"></i>pulsing: active &lt;10 min</span><span><i style="background:#7f95ff;box-shadow:0 0 6px #7f95ff"></i>glowing: &lt;24h</span><span><i style="background:#7f95ff55"></i>dim: quiet</span><span>size = 24h activity</span></div>
+<button id="reset">Show all</button>
+<div id="tip"></div><div class="err"></div>
+<div id="ticker"><span class="lab">● ACTIVITY</span><div class="track"></div></div>
+<script src="app.js"></script></body></html>

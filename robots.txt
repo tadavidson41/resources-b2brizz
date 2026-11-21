@@ -1,21 +1,29 @@
 # Allow all crawlers, including AI answer engines
 User-agent: *
 Allow: /
+Disallow: /bot-map/
 
 # Explicitly welcome major AI crawlers
 User-agent: GPTBot
 Allow: /
+Disallow: /bot-map/
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /bot-map/
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /bot-map/
 User-agent: ClaudeBot
 Allow: /
+Disallow: /bot-map/
 User-agent: PerplexityBot
 Allow: /
+Disallow: /bot-map/
 User-agent: Google-Extended
 Allow: /
+Disallow: /bot-map/
 User-agent: CCBot
 Allow: /
+Disallow: /bot-map/
 
 Sitemap: https://resources.b2brizz.com/sitemap.xml

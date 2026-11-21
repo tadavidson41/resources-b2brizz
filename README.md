@@ -6,6 +6,7 @@ A static site (plain HTML) for publishing SEO articles independently of the main
 - index.html ............................ landing page (lists articles)
 - top-6-linkedin-ads-agencies-b2b-saas/ . the article (clean URL, no .html)
 - tme-waitlist/ ......................... The Marketer's Exit community waitlist
+- bot-map/ .............................. private live bot map (noindex; see bot-map/README.md)
 - assets/ ............................... shared stylesheet, fonts, logo, mascot
 - robots.txt ............................ allows all crawlers incl. AI engines
 - sitemap.xml ........................... for Google Search Console

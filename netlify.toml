@@ -35,3 +35,11 @@
   for = "/audits/*"
   [headers.values]
     X-Robots-Tag = "noindex, nofollow, noarchive, nosnippet"
+
+# Live bot map is private and unlisted. noindex meta tag in each page, this header
+# as backstop, and a robots.txt Disallow (per Tim's spec for this path).
+[[headers]]
+  for = "/bot-map/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive, nosnippet"
+    Cache-Control = "public, max-age=0, must-revalidate"
