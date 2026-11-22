@@ -98,11 +98,83 @@ tr.fat-chart td{background:#FAFAFF;padding:10px 14px 16px;border-bottom:1px soli
 .i{display:inline-flex;align-items:center;justify-content:center;margin-left:6px;width:16px;height:16px;border-radius:50%;background:var(--lav2);color:var(--eb);font-size:11px;font-weight:700;cursor:help;position:relative;font-style:normal;vertical-align:6px}
 .i .tip{display:none;position:absolute;left:50%;top:22px;transform:translateX(-50%);width:340px;background:var(--ink);color:#fff;font-weight:400;font-size:12px;line-height:1.45;padding:9px 11px;border-radius:8px;z-index:40;text-align:left}
 .i:hover .tip,.i:focus .tip{display:block}
+
+.nav-toggle{display:none;font-family:"Darker Grotesque","Helvetica Neue",Arial,sans-serif}
+.nav-body{display:flex;flex-direction:column;gap:7px}
+.lists-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.lists-head .sh{margin-bottom:0;flex:1}
+.list-modes{margin:0}
+.lsum{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin:10px 0 8px}
+.lsum .lv{font-family:"Darker Grotesque","Helvetica Neue",Arial,sans-serif;font-size:40px;font-weight:800;line-height:1;letter-spacing:-.02em}
+.lsum .meta{font-size:12.5px;color:var(--mut);line-height:1.4;max-width:42em}
+.lchart{position:relative;margin-top:8px}
+.lchart svg{display:block;width:100%;height:auto}
+.lleg{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:8px;font-size:12px;color:var(--ink)}
+.lleg span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.lleg i{display:inline-block;width:10px;height:10px;border-radius:2px;flex:0 0 10px}
+.ltip{display:none;position:absolute;z-index:6;background:#2B2A29;color:#fff;font-size:12px;line-height:1.4;padding:8px 10px;border-radius:8px;pointer-events:none;min-width:180px;max-width:280px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.ltip .mh{font-weight:700;margin-bottom:4px}
+.ltip .mr{display:flex;justify-content:space-between;gap:12px}
+.ltip .mr b{font-weight:700}
+@media(max-width:700px){
+  .wrap{padding:0 12px}
+  .hd .wrap{padding-top:12px;padding-bottom:10px;gap:10px}
+  .hd h1{font-size:22px}
+  .hd img{height:24px}
+  .hd .tt{padding-left:12px}
+  .hd .dm{font-size:12px}
+  .hd .wrap{align-items:flex-start}
+  .hd .tt{flex:1 1 180px}
+  .hd .hdr-link{flex-basis:100%;margin-left:0;margin-top:2px;font-size:14px}
+  .nav{position:static;z-index:auto;box-shadow:none}
+  .nav .wrap{padding-top:6px;padding-bottom:6px;gap:6px}
+  .nav-toggle{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;border:1px solid var(--bd);background:#fff;border-radius:10px;padding:8px 12px;font-weight:700;font-size:14px;color:var(--ink);text-align:left;cursor:pointer;line-height:1.25}
+  .nav-toggle:after{content:"\25BE";color:var(--pu);font-size:12px;flex:0 0 auto}
+  .nav-toggle[aria-expanded="false"]:after{content:"\25B8"}
+  .nav:not(.open) .nav-body{display:none}
+  .lab{font-size:13px;min-width:54px}
+  .seg{padding:2px;gap:2px;border-radius:8px}
+  .seg button{padding:2px 8px;font-size:13px;border-radius:6px}
+  .seg.sub button{font-size:12px;padding:2px 7px}
+  .seg.sm button{padding:2px 8px;font-size:12px}
+  .rng{font-size:11.5px;margin-left:0;flex-basis:100%}
+  .nr{gap:6px}
+  main{padding:14px 0 36px}
+  section.block{padding:16px 14px;margin-bottom:18px;scroll-margin-top:12px;border-radius:14px}
+  .sh h2{font-size:24px}
+  .kpi .v,.lcard .lv,.lsum .lv{font-size:28px}
+  .lsum{gap:10px}
+  .tw{-webkit-overflow-scrolling:touch;overflow-x:auto;max-width:100%}
+  .tw table{table-layout:auto;width:max-content;min-width:0;font-size:12px}
+  .tw th,.tw td{padding:7px 8px;background-clip:padding-box}
+  .tw th{line-height:1.2;white-space:normal;vertical-align:bottom}
+  .tw th.n,.tw td.n{min-width:88px;max-width:88px}
+  .tw th.n{white-space:normal}
+  .tw td.n,.tw td.st{white-space:nowrap}
+  .tw th.st,.tw td.st{min-width:88px;max-width:88px}
+  .tw th.obj,.tw td.obj{min-width:140px;white-space:nowrap}
+  .tw th.pv,.tw td.pv{position:sticky;left:0;z-index:3;background:#fff;min-width:112px;width:112px}
+  .tw thead th.pv{background:var(--bg);z-index:4}
+  .tw thead th:first-child,.tw tbody td:first-child{position:sticky;left:0;z-index:3;background:#fff}
+  .tw thead th:first-child{background:var(--bg);z-index:4}
+  .tw th.nm:first-child,.tw td.nm:first-child{left:0;min-width:calc(100vw - 150px);max-width:calc(100vw - 150px);box-shadow:8px 0 10px -7px rgba(43,42,41,.28);border-right:1px solid var(--bd)}
+  .tw th.pv + th,.tw td.pv + td,.tw th.pv + .nm,.tw td.pv + .nm{position:sticky;left:112px;z-index:3;background:#fff;min-width:calc(100vw - 262px);max-width:calc(100vw - 262px);box-shadow:8px 0 10px -7px rgba(43,42,41,.28);border-right:1px solid var(--bd)}
+  .tw thead th.pv + th,.tw thead th.pv + .nm,.tw thead th.nm{background:var(--bg);z-index:4}
+  tbody tr:hover td:first-child,tbody tr:hover td.pv,tbody tr:hover td.nm{background:#FAFAFF}
+  tr.kid td:first-child,tr.kid td.pv,tr.kid td.nm{background:#FCFCFF}
+  tr.tot td:first-child,tr.tot td.pv,tr.tot td.nm{background:#fff}
+  tr.fat-chart td{position:static;left:auto;min-width:0;max-width:none;box-shadow:none;border-right:0}
+}
+
+
 </style></head><body>
 <header class="hd"><div class="wrap"><img src="pd-logo.svg" alt="Power Digital"><div class="tt"><h1>LinkedIn Ads Creative Performance</h1><div class="dm">Data through <b id="thru"></b>. Ad status as of <b id="asof"></b>. Includes <b id="nlive"></b> live ad sets plus historical ads from <b id="nhist"></b> paused or completed ad sets.</div></div></div></header>
 <div class="nav" id="nav"><div class="wrap">
+<button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navBody" onclick="togNav()">Filters</button>
+<div class="nav-body" id="navBody">
 <div class="nr"><span class="lab">Period</span><div class="seg" id="pills"></div><span class="rng" id="range"></span></div>
 <div class="nr"><span class="lab">Segment</span><div class="seg" id="segs"></div><span class="lab" style="min-width:0;margin-left:10px">Industry</span><div class="seg" id="inds"></div><div class="seg sub" id="subs"></div></div>
+</div>
 </div></div>
 <main><div class="wrap">
 <section class="block" id="themes"></section>
@@ -116,6 +188,10 @@ const D={"periods":{"l7":{"label":"Last 7 days","start":"2026-11-14","end":"2026
 const ORDER=['l7','mtd','l30','l60'];const MET_KEYS=['lp','ctr','cpl','spend'];let P='l30',IND='All',SUB='All',SEG='All',DSEL=['lp'];
 try{const s=JSON.parse(sessionStorage.getItem('pdcr2')||'{}');if(ORDER.includes(s.P))P=s.P;if(s.IND)IND=s.IND;if(s.SUB)SUB=s.SUB;if(s.SEG)SEG=s.SEG;if(Array.isArray(s.DSEL)&&s.DSEL.length){const keep=s.DSEL.filter(k=>MET_KEYS.includes(k));if(keep.length)DSEL=keep}else if(s.DMODE==='all')DSEL=['lp','ctr','cpl'];else if(MET_KEYS.includes(s.DMODE))DSEL=[s.DMODE]}catch(e){}
 const $=s=>document.getElementById(s);
+function navSummary(){const p=(D.periods[P]&&D.periods[P].label)||P;const parts=[p,SEG==='All'?'All segments':SEG,IND==='All'?'All industries':IND];if(SUB&&SUB!=='All')parts.push(SUB.split(' / ')[0]);return 'Filters: '+parts.join(' · ')}
+function syncNav(){const btn=$('navToggle');if(!btn)return;btn.textContent=navSummary()}
+function togNav(){const nav=$('nav');if(!nav)return;const on=nav.classList.toggle('open');const btn=$('navToggle');if(btn)btn.setAttribute('aria-expanded',on?'true':'false')}
+
 const usd=v=>'$'+Math.round(v).toLocaleString('en-US');const num=v=>Math.round(v).toLocaleString('en-US');
 const pct=(a,b)=>b>0?(100*a/b).toFixed(2)+'%':'n/a';const cpl=(s,l)=>l>0?usd(s/l):'n/a';
 const fmtD=s=>new Date(s+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
@@ -184,14 +260,14 @@ function table(cs){const p=D.periods[P];const AD=SUB!='All'||IND=='Retargeting';
  const cell=(W,r,k,txt,ok)=>{const v=AV[k](r);const shown=W?hl(W,r,k,txt):txt;return `<td class="n">${shown}${ok?vsAvg(k,v,A[k]):''}</td>`};
  const met=(r,W,cmp)=>{const hasI=r.impr>0;return `<td class="n">${usd(r.spend)}</td><td class="n">${num(r.impr)}</td><td class="n">${num(r.lp)}</td>${cell(W,r,'cpl',r.lp>0?usd(r.spend/r.lp):'-',cmp&&r.lp>0)}${cell(W,r,'lpctr',pct(r.lp,r.impr),cmp&&hasI)}<td class="n">${num(r.clicks)}</td>${cell(W,r,'ctr',pct(r.clicks,r.impr),cmp&&hasI)}${cell(W,r,'dwell',dwf(r.dwell),cmp&&r.dwell!=null)}`};
  const thTag=th=>`<span class="tag ttag">${esc(D.TH[th].n)}</span>`;
- const adRow=(x,W,cls)=>{const q=pretty(x.name);return `<tr class="${cls}"><td>${pv(x.name)}</td><td><span class="vlab">${esc(q.t)}</span>${tagH(tagFor(x.name,x.cs))}${segB(x.cs)}${AD?'<br>'+thTag(x.th):''}<div class="vdesc">${esc(D.NM[x.name].desc)}</div></td>${met(x,W,AD)}<td class="st">${stPill(x.cs)}</td></tr>`};
+ const adRow=(x,W,cls)=>{const q=pretty(x.name);return `<tr class="${cls}"><td class="pv">${pv(x.name)}</td><td class="nm"><span class="vlab">${esc(q.t)}</span>${tagH(tagFor(x.name,x.cs))}${segB(x.cs)}${AD?'<br>'+thTag(x.th):''}<div class="vdesc">${esc(D.NM[x.name].desc)}</div></td>${met(x,W,AD)}<td class="st">${stPill(x.cs)}</td></tr>`};
  const body=AD?rows.map(x=>adRow(x,WT,'ad')).join(''):rows.map(r=>{const op=OPEN.has(r.key);const top=r.kids.slice().sort((a,b)=>b.spend-a.spend).find(k=>D.NM[k.name]&&D.NM[k.name].pv);
-  return `<tr class="th${op?' open':''}" onclick="tog('${r.key}')"><td>${top?pv(top.name):'<div class="nopv">No preview</div>'}</td><td><span class="vlab">${esc(r.label)}</span><div class="vdesc">${r.kids.length} ${r.kids.length==1?'ad':'ads'}</div></td>${met(r,WT,0)}<td class="st">${stPill(r.cs)}</td></tr>`+
+  return `<tr class="th${op?' open':''}" onclick="tog('${r.key}')"><td class="pv">${top?pv(top.name):'<div class="nopv">No preview</div>'}</td><td class="nm"><span class="vlab">${esc(r.label)}</span><div class="vdesc">${r.kids.length} ${r.kids.length==1?'ad':'ads'}</div></td>${met(r,WT,0)}<td class="st">${stPill(r.cs)}</td></tr>`+
   (op?(()=>{const WK=winners(r.kids);return r.kids.map(x=>adRow(x,WK,'kid')).join('')})():'')}).join('');
  const avgRow=`<tr class="avg"><td></td><td><span class="vlab">Average</span><div class="vdesc">This view, weighted</div></td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n">${A.cpl!=null?usd(A.cpl):'-'}</td><td class="n">${A.lpctr!=null?(100*A.lpctr).toFixed(2)+'%':'-'}</td><td class="n"></td><td class="n">${A.ctr!=null?(100*A.ctr).toFixed(2)+'%':'-'}</td><td class="n">${dwf(A.dwell)}</td><td class="st"></td></tr>`;
  const sh=(c,n)=>`<th class="s n" onclick="srt('${c}')">${n}${SORT.c==c?(SORT.d>0?' &#9650;':' &#9660;'):''}</th>`;
- return `<div class="tw"><table id="tt" data-mode="${AD?'ad':'theme'}"><thead><tr><th>Preview</th><th class="s" onclick="srt('label')">${AD?'Ad':'Theme / ad'}</th>${sh('spend','Spend')}${sh('impr','Impr.')}${sh('lp','LP clicks')}${sh('cpl','Cost/LP')}${sh('lpctr','LP CTR')}${sh('clicks','Clicks')}${sh('ctr','CTR')}${sh('dwell','Dwell time')}<th class="st">Status now</th></tr></thead>
- <tbody>${AD?avgRow:''}${body}<tr class="tot"><td></td><td>Total</td>${met(T,null,0)}<td class="st">${stPill(cs)}</td></tr></tbody></table></div>
+ return `<div class="tw"><table id="tt" data-mode="${AD?'ad':'theme'}"><thead><tr><th class="pv">Preview</th><th class="s nm" onclick="srt('label')">${AD?'Ad':'Theme / ad'}</th>${sh('spend','Spend')}${sh('impr','Impr.')}${sh('lp','LP clicks')}${sh('cpl','Cost/LP')}${sh('lpctr','LP CTR')}${sh('clicks','Clicks')}${sh('ctr','CTR')}${sh('dwell','Dwell time')}<th class="st">Status now</th></tr></thead>
+ <tbody>${AD?avgRow:''}${body}<tr class="tot"><td class="pv"></td><td class="nm">Total</td>${met(T,null,0)}<td class="st">${stPill(cs)}</td></tr></tbody></table></div>
  <div class="note">${AD?'':'Click a theme to see its ads. '}<span class="gv">Green</span> = best 3 and <span class="bv">red</span> = worst 3, among rows where the metric is meaningful (Cost/LP needs at least one LP click; CTR and LP CTR need at least one impression). Cost/LP is lower-is-better; LP CTR, CTR and dwell time are higher-is-better. On short lists, red is only applied to rows that are not already green.${AD?' "vs avg" compares each ad with the Average row.':''} Dwell time = LinkedIn average dwell time, impression-weighted.</div>`}
 let SETSORT={c:'spend',d:-1};
 function srtSet(c){SETSORT=(SETSORT.c==c)?{c,d:-SETSORT.d}:{c,d:c=='label'?1:(c=='status'?1:-1)};render()}
@@ -209,13 +285,13 @@ function adsets(){const p=D.periods[P];
  const st=r=>r.on?'<span class="sp-on">Active</span>':'<span class="sp-off">Paused</span>';
  return `<div class="sh"><h2>Ad sets ${info(tip)}</h2><span class="sc">${esc(scopeLabel())}, ${esc(p.label.toLowerCase())}</span></div>
  <div class="note" style="margin:0 0 12px">Currently live ad sets, plus paused or completed ad sets with delivery in this period. Spend and Cost/LP follow the period pills.</div>
- <div class="tw"><table><thead><tr><th class="s" onclick="srtSet('label')">Ad set${SETSORT.c=='label'?(SETSORT.d>0?' &#9650;':' &#9660;'):''}</th>${sh('status','Status')}${sh('live','Live ads')}${sh('spend','Spend')}${sh('cpl','Cost/LP')}</tr></thead>
- <tbody>${rows.map(r=>`<tr><td><span class="vlab" title="${esc(r.name)}">${esc(r.short)}</span></td><td class="st">${st(r)}</td><td class="n" title="${esc(liveTip(r))}">${r.live} of ${r.total}${flag(r)}</td><td class="n">${usd(r.spend)}</td><td class="n">${r.cpl!=null?usd(r.cpl):'-'}</td></tr>`).join('')}</tbody></table></div>`}
+ <div class="tw"><table class="camp-table"><thead><tr><th class="s nm" onclick="srtSet('label')">Ad set${SETSORT.c=='label'?(SETSORT.d>0?' &#9650;':' &#9660;'):''}</th>${sh('status','Status')}${sh('live','Live ads')}${sh('spend','Spend')}${sh('cpl','Cost/LP')}</tr></thead>
+ <tbody>${rows.map(r=>`<tr><td class="nm"><span class="vlab" title="${esc(r.name)}">${esc(r.short)}</span></td><td class="st">${st(r)}</td><td class="n" title="${esc(liveTip(r))}">${r.live} of ${r.total}${flag(r)}</td><td class="n">${usd(r.spend)}</td><td class="n">${r.cpl!=null?usd(r.cpl):'-'}</td></tr>`).join('')}</tbody></table></div>`}
 function fatigue(){const F=D.FAT[scopeKey()]||{n:{}};const w=D.meta.fwin;
  const rs=Object.entries(F.n).filter(([n,v])=>v.drop!=null&&v.drop>=20).map(([n,v])=>({n,...v})).sort((a,b)=>b.drop-a.drop);
  $('fatigue').innerHTML=`<div class="sh"><h2>Creative fatigue</h2><span class="sc">${esc(scopeLabel())}</span></div>
  <div class="note" style="margin:0 0 12px">CTR in the last 14 days (${sd(w[0])} to ${fmtD(w[1])}) vs each ad's first 14 days. Flagged at a 30%+ drop, watch at 20 to 30%. Needs 1,000+ impressions in both windows. Fixed windows, not tied to the period. Click an ad to see its 7-day rolling CTR over the last 60 days.</div>
- ${rs.length?`<div class="tw"><table><thead><tr><th>Preview</th><th>Ad</th><th class="st">Status</th><th class="n">CTR, first 14 days</th><th class="n">CTR, last 14 days</th><th class="n">Change</th><th class="n">Impr., first 14 days</th><th class="n">Impr., last 14 days</th></tr></thead><tbody>${rs.map(r=>{const q=pretty(r.n);const open=FATOPEN.has(r.n);return `<tr class="fat-row${open?' open':''}" onclick="togFat(${JSON.stringify(r.n)})"><td>${pv(r.n)}</td><td><span class="vlab">${esc(q.t)}</span>${tagH(tagFor(r.n,D.C.filter(c=>c.name==r.n)))}<div class="vdesc">First delivery ${fmtD(r.first)}</div></td><td class="st">${r.drop>=30?'<span class="pill p-a">Flagged</span>':'<span class="pill p-n">Watch</span>'}</td><td class="n">${r.ctr1.toFixed(2)}%</td><td class="n">${r.ctr2.toFixed(2)}%</td><td class="n"><span class="dn">&#8595; ${r.drop.toFixed(1)}%</span></td><td class="n">${num(r.i1)}</td><td class="n">${num(r.i2)}</td></tr>`+(open?`<tr class="fat-chart"><td colspan="8">${fatChart(r.n)}</td></tr>`:'')}).join('')}</tbody></table></div>`:'<div class="empty">No ads flagged or near the threshold for this filter.</div>'}`}
+ ${rs.length?`<div class="tw"><table class="sets-table"><thead><tr><th class="pv">Preview</th><th class="nm">Ad</th><th class="st">Status</th><th class="n">CTR, first 14 days</th><th class="n">CTR, last 14 days</th><th class="n">Change</th><th class="n">Impr., first 14 days</th><th class="n">Impr., last 14 days</th></tr></thead><tbody>${rs.map(r=>{const q=pretty(r.n);const open=FATOPEN.has(r.n);return `<tr class="fat-row${open?' open':''}" onclick="togFat(${JSON.stringify(r.n)})"><td class="pv">${pv(r.n)}</td><td class="nm"><span class="vlab">${esc(q.t)}</span>${tagH(tagFor(r.n,D.C.filter(c=>c.name==r.n)))}<div class="vdesc">First delivery ${fmtD(r.first)}</div></td><td class="st">${r.drop>=30?'<span class="pill p-a">Flagged</span>':'<span class="pill p-n">Watch</span>'}</td><td class="n">${r.ctr1.toFixed(2)}%</td><td class="n">${r.ctr2.toFixed(2)}%</td><td class="n"><span class="dn">&#8595; ${r.drop.toFixed(1)}%</span></td><td class="n">${num(r.i1)}</td><td class="n">${num(r.i2)}</td></tr>`+(open?`<tr class="fat-chart"><td colspan="8">${fatChart(r.n)}</td></tr>`:'')}).join('')}</tbody></table></div>`:'<div class="empty">No ads flagged or near the threshold for this filter.</div>'}`}
 const info=t=>`<span class="i" tabindex="0" role="note" aria-label="Definition">i<span class="tip">${t}</span></span>`;
 const nice=v=>{if(!(v>0))return 1;const e=Math.pow(10,Math.floor(Math.log10(v)));const f=v/e;return (f<=1?1:f<=2?2:f<=5?5:10)*e};
 const TX=(x,y,s,o)=>`<text x="${x}" y="${y}" font-size="${(o&&o.fs)||11}" fill="${(o&&o.c)||'#525252'}" text-anchor="${(o&&o.a)||'start'}" ${o&&o.b?'font-weight="600"':''}>${s}</text>`;
@@ -316,7 +392,8 @@ function render(){if(typeof hideMtip==='function')hideMtip();const p=D.periods[P
  $('subs').innerHTML=sl?[['All','All '+IND]].concat(sl).map(([k,l])=>`<button class="${k==SUB?'on':''}" onclick="setS('${k}')">${k=='All'?'':dotH(SUBT[k])}${esc(l.split(' / ')[0])}</button>`).join(''):'';
  $('themes').innerHTML=`<div class="sh"><h2>${(SUB!='All'||IND=='Retargeting')?'Creative Performance by Ad':'Creative performance by theme'}</h2><span class="sc">${esc(scopeLabel())}, ${esc(p.label.toLowerCase())}</span></div>${kpis(cs)}${dailyChart()}${table(cs)}`;
  $('adsets').innerHTML=adsets();
- fatigue()}
+ fatigue();
+ syncNav();}
 $('nlive').textContent=D.meta.live_camps;$('nhist').textContent=D.meta.hist_camps;$('thru').textContent=fmtD(D.meta.through);$('asof').textContent=D.meta.asof;
 $('foot').innerHTML=`<li>LinkedIn Ads account 509859857, creative-level data. The tables include ads from live ad sets and from paused or completed ad sets that delivered in the selected period. Live = the ad is Active and serving in a live ad set. Status now reflects the ad's current status, not whether it ran in the period.</li>
 <li>The Ad sets table lists currently live ad sets (campaign status Active and runnable) in the current segment and industry filter, plus paused or completed ad sets that had delivery in the selected period. Status is the ad set's current status: Active or Paused. Live ads = creatives that are Active, approved, and serving. Ads in review are not counted as live and appear in the hover, for example "2 in review." Spend and Cost/LP follow the selected period. On live ad sets, a red pill flags fewer than 3 live ads and an amber pill flags more than 6. The table is sorted with Active first, then Paused, each by spend descending.</li>
