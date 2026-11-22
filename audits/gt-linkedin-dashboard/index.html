@@ -144,14 +144,14 @@ function sorter(state,key){if(state.k===key)state.d=-state.d;else{state.k=key;st
 function arrow(state,key){return state.k===key?(state.d<0?' &#9660;':' &#9650;'):''}
 function metricVal(t,k){return {s:t.s,i:t.i,c:t.c,ctr:t.i>0?t.c/t.i:-1,cpc:t.c>0?t.s/t.c:Infinity,cpm:t.i>0?t.s/t.i:Infinity,l:t.l,cpl:t.l>0?t.s/t.l:Infinity,dw:t.dw==null?-1:t.dw}[k]}
 // ---- daily chart ----
-const MC={spend:'#4F2D7F',impr:'#7A5BA8',clicks:'#2C6E9E',ctr:'#B05A1E',leads:'#1f7a35'};
-const MLAB={spend:'Rolling Spend',impr:'Rolling Impressions',clicks:'Rolling Clicks',ctr:'Rolling CTR',leads:'Rolling Leads'};
+const MC={spend:'#4F2D7F',impr:'#7A5BA8',clicks:'#2C6E9E',ctr:'#B05A1E',leads:'#1f7a35',cpl:'#8a1f5c'};
+const MLAB={spend:'Rolling Spend',impr:'Rolling Impressions',clicks:'Rolling Clicks',ctr:'Rolling CTR',leads:'Rolling Leads',cpl:'Rolling CPL'};
 let DM='spend';
 function setDM(k){DM=k;render()}
 function chartRange(){const end=D.meta.through;let start;if(P==='l6m')start=D.periods.l6m.start;else{const d=new Date(end+'T12:00:00');d.setDate(d.getDate()-59);start=d.toISOString().slice(0,10)}return [start,end]}
-function rollSeries(){const [a,b]=chartRange();const rows=D.daily;const idx={};rows.forEach((r,i)=>idx[r[0]]=i);const out=[];rows.forEach((r,i)=>{if(r[0]<a||r[0]>b)return;let s=0,im=0,c=0,l=0;for(let j=Math.max(0,i-6);j<=i;j++){s+=rows[j][1];im+=rows[j][2];c+=rows[j][3];l+=rows[j][4]}out.push({d:r[0],spend:s,impr:im,clicks:c,leads:l,ctr:im>0?c/im:null})});return out}
+function rollSeries(){const [a,b]=chartRange();const rows=D.daily;const idx={};rows.forEach((r,i)=>idx[r[0]]=i);const out=[];rows.forEach((r,i)=>{if(r[0]<a||r[0]>b)return;let s=0,im=0,c=0,l=0;for(let j=Math.max(0,i-6);j<=i;j++){s+=rows[j][1];im+=rows[j][2];c+=rows[j][3];l+=rows[j][4]}out.push({d:r[0],spend:s,impr:im,clicks:c,leads:l,ctr:im>0?c/im:null,cpl:l>0?s/l:null})});return out}
 const nice=v=>{if(!(v>0))return 1;const e=Math.pow(10,Math.floor(Math.log10(v)));const f=v/e;return (f<=1?1:f<=2?2:f<=5?5:10)*e};
-function yfmt(k,v){if(k==='spend')return usd(v);if(k==='ctr')return (100*v).toFixed(2)+'%';return num(v)}
+function yfmt(k,v){if(k==='spend'||k==='cpl')return usd(v);if(k==='ctr')return (100*v).toFixed(2)+'%';return num(v)}
 function lineSvg(dd,k,opts){opts=opts||{};const W=1000,H=opts.H||240,L=62,R=14,T=14,Bm=26;const vals=dd.map(r=>r[k]).filter(v=>v!=null);const mx=nice(Math.max(...vals,0)*1.08)||1;const n=dd.length;const x=i=>L+(n<=1?0:(W-L-R)*i/(n-1));const y=v=>T+(H-T-Bm)*(1-v/mx);
  let g='';for(let j=0;j<=4;j++){const v=mx*j/4;g+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#eee"/><text x="${L-8}" y="${y(v)+4}" font-size="11" fill="#555" text-anchor="end">${yfmt(k,v)}</text>`}
  const step=Math.max(1,Math.ceil(n/9));for(let i=0;i<n;i+=step)g+=`<text x="${x(i)}" y="${H-8}" font-size="11" fill="#555" text-anchor="middle">${sd(dd[i].d)}</text>`;
@@ -165,7 +165,7 @@ function chMove(ev,id,k){const dd=CHD[id];if(!dd)return;const svg=ev.currentTarg
  const tip=document.getElementById(id+'-tip');let h=`<b>${fmtD(row.d)}</b><br>${MLAB[k]||'7-day rolling CTR'}: ${row[k]==null?'-':yfmt(k,row[k])}`;const m=D.marks&&D.marks[row.d];if(m&&id==='c'){const la=m.filter(z=>z.a==='launched'),st=m.filter(z=>z.a==='stopped');if(la.length)h+=`<br><span style="color:#1f7a35">First delivery:</span> ${la.map(z=>esc(z.n)).join(', ')}`;if(st.length)h+=`<br><span style="color:#b8261b">Last delivery:</span> ${st.map(z=>esc(z.n)).join(', ')}`}
  tip.innerHTML=h;tip.style.display='block';const px=(xx/W)*r.width;tip.style.left=Math.min(px+12,r.width-240)+'px';tip.style.top='8px'}
 function chLeave(id){const t=document.getElementById(id+'-tip');if(t)t.style.display='none';const vl=document.getElementById(id+'-vl');if(vl)vl.setAttribute('opacity','0')}
-function dailyChart(){const dd=rollSeries();CHD.c=dd;const [a,b]=chartRange();const ks=['spend','impr','clicks','ctr','leads'];
+function dailyChart(){const dd=rollSeries();CHD.c=dd;const [a,b]=chartRange();const ks=['spend','impr','clicks','ctr','leads','cpl'];
  const pl=ks.map(k=>`<button class="${k==DM?'on':''}" onclick="setDM('${k}')">${MLAB[k]}</button>`).join('');
  const span=P==='l6m'?'last 6 months':'last 60 days';
  return `<div class="daily"><div class="ch"><div><h3>Daily performance</h3><div class="desc">${fmtD(a)} to ${fmtD(b)} (${span}). Account level, 7-day rolling window. The Last 6 months pill extends the chart; the other pills show the last 60 days.</div></div><div class="seg sm">${pl}</div></div><div class="chart">${lineSvg(dd,DM,{marks:true,id:'c'})}</div><div class="legend"><span><i style="background:${MC[DM]}"></i>${MLAB[DM]}</span><span><i style="background:#1f7a35"></i>Ad set first delivery</span><span><i style="background:#b8261b"></i>Ad set last delivery</span><span>Hover the chart for the day's value and what changed.</span></div></div>`}
