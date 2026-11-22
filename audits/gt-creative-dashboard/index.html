@@ -37,12 +37,13 @@ section.block{background:#fff;border:1px solid #D9D9D9;border-radius:16px;paddin
 .sh{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:14px}
 .sh h2{font-size:26px;line-height:1.1;margin:0;font-weight:700}
 .sh .sc{font-size:12.5px;color:var(--eb);background:var(--lav3);border:1px solid var(--lav2);border-radius:999px;padding:2px 11px;font-weight:600}
-.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-bottom:20px;max-width:900px}
-@media(max-width:800px){.kpis{grid-template-columns:1fr 1fr}}
-.kpi{background:#fff;border:1px solid var(--bd);border-left:3px solid var(--pu);border-radius:8px;padding:11px 14px}
-.kpi .l{font-size:12.5px;color:var(--mut);font-weight:600}
-.kpi .v{font-size:28px;font-weight:700;line-height:1.1;margin:3px 0}
-.kpi .c{font-size:12px;color:var(--mut)}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-bottom:26px;width:100%}
+@media(max-width:1000px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
+@media(max-width:480px){.kpis{grid-template-columns:1fr}}
+.kpi{background:#fff;border:1px solid var(--bd);border-left:3px solid var(--pu);border-radius:10px;padding:18px 20px 16px}
+.kpi .l{font-size:13px;color:var(--mut);font-weight:600}
+.kpi .v{font-size:30px;font-weight:700;line-height:1.1;margin:10px 0 10px}
+.kpi .c{font-size:12.5px;color:var(--mut)}
 .up{color:#2E6B45;background:var(--grb);border-radius:6px;padding:1px 6px;font-weight:700;white-space:nowrap}
 .dn{color:var(--rd);background:var(--rdb);border-radius:6px;padding:1px 6px;font-weight:700;white-space:nowrap}
 .nt{color:var(--mut);background:#eee;border-radius:6px;padding:1px 6px;font-weight:700;white-space:nowrap}
@@ -129,7 +130,7 @@ function kpiBlock(c,p,keys){const m={
  clicks:()=>kpi('Clicks',num(c.c),c.c,p.c,1,num),
  ctr:()=>kpi('CTR',ctrS(c.c,c.i),c.i>0?c.c/c.i:null,p.i>0?p.c/p.i:null,1,v=>(100*v).toFixed(2)+'%'),
  leads:()=>kpi('Leads (Lead Gen Form)',num(c.l),c.l,p.l,1,num),
- cpl:()=>kpi('Cost per lead',cplS(c.s,c.l),c.l>0?c.s/c.l:null,p.l>0?p.s/p.l:null,-1,usd),
+ cpl:()=>kpi('CPL',cplS(c.s,c.l),c.l>0?c.s/c.l:null,p.l>0?p.s/p.l:null,-1,usd),
  cpc:()=>kpi('CPC',cpcS(c.s,c.c),c.c>0?c.s/c.c:null,p.c>0?p.s/p.c:null,-1,usd),
  cpm:()=>kpi('CPM',cpmS(c.s,c.i),c.i>0?1000*c.s/c.i:null,p.i>0?1000*p.s/p.i:null,-1,usd),
  dwell:()=>kpi('Dwell time',dwS(c.dw),c.dw,p.dw,1,v=>v.toFixed(1)+'s')};
@@ -211,7 +212,7 @@ function fatigue(){const w=D.meta.fwin;const F=D.FAT;const rs=Object.entries(F).
  ${rs.length?`<div class="tw"><table><thead><tr><th>Ad</th><th>Status</th><th>CTR, first 14 days</th><th>CTR, last 14 days</th><th>Change</th><th>Impr., first 14 days</th><th>Impr., last 14 days</th></tr></thead><tbody>${body}</tbody></table></div>`:'<div class="empty">No ads flagged or near the threshold.</div>'}
  <div class="note">${chk} ad${chk==1?'':'s'} had enough volume in both windows to check. ${lowLive} live ad${lowLive==1?' is':'s are'} under 1,000 impressions in one of the windows and ${nw} live ad${nw==1?' is':'s are'} too new to compare.</div>`}
 function render(){pills();const ids=Object.keys(D.ads);const c=sum(D.AV[P],ids),p=sum(D.AV[P+'p'],ids);const per=D.periods[P];
- $('themes').innerHTML=`<div class="sh"><h2>Creative performance by format</h2><span class="sc">All ads, ${esc(per.label.toLowerCase())}</span></div>${kpiBlock(c,p,['spend','ctr','clicks','leads','cpl','dwell'])}${dailyChart()}${adTable()}`;
+ $('themes').innerHTML=`<div class="sh"><h2>Creative performance by format</h2><span class="sc">All ads, ${esc(per.label.toLowerCase())}</span></div>${kpiBlock(c,p,['spend','clicks','leads','cpl'])}${dailyChart()}${adTable()}`;
  $('adsets').innerHTML=adsets();$('fatigue').innerHTML=fatigue()}
 $('thru').textContent=fmtD(D.meta.through);$('asof').textContent=D.meta.asof;$('nlive').textContent=D.meta.live_sets;
 $('foot').innerHTML=`<li>LinkedIn Ads account ${D.meta.account} (Grant Thornton US), USD, creative-level data from the LinkedIn Marketing API through ${fmtD(D.meta.through)} (last complete UTC day). Status now is each ad's current status as of ${esc(D.meta.asof)}: Live = Active and serving; Not serving = Active but its ad set or campaign has ended.</li>
