@@ -208,19 +208,24 @@ tr.fat-chart td{background:#FAFAFF;padding:10px 14px 16px;border-bottom:1px soli
   .kpi .v,.lcard .lv,.lsum .lv{font-size:28px}
   .lsum{gap:10px}
   .tw{-webkit-overflow-scrolling:touch;overflow-x:auto;max-width:100%}
-  .tw table{table-layout:auto;width:max-content;min-width:0;font-size:12px}
-  .tw th,.tw td{padding:7px 8px;background-clip:padding-box}
+  .tw table{table-layout:auto;width:max-content;min-width:0;font-size:11px}
+  .tw th,.tw td{padding:5px 6px;background-clip:padding-box}
   .tw th{line-height:1.2;white-space:normal;vertical-align:bottom}
-  .tw th.n,.tw td.n{min-width:88px;max-width:88px}
+  .tw th.n,.tw td.n{min-width:76px;max-width:76px}
   .tw th.n{white-space:normal}
   .tw td.n,.tw td.st{white-space:nowrap}
-  .tw th.st,.tw td.st{position:sticky;left:0;z-index:3;background:#fff;min-width:80px;width:80px}
+  .tw th.st,.tw td.st{position:sticky;left:0;z-index:3;background:#fff;min-width:56px;width:56px;max-width:56px;padding:5px 4px}
   .tw thead th.st{background:var(--bg);z-index:4}
-  .tw th.obj,.tw td.obj{min-width:96px;max-width:96px;white-space:normal}
+  .tw th.obj,.tw td.obj{min-width:76px;max-width:76px;white-space:normal}
   .tw thead th:first-child,.tw tbody td:first-child{position:sticky;left:0;z-index:3;background:#fff}
   .tw thead th:first-child{background:var(--bg);z-index:4}
-  .tw th.nm,.tw td.nm{position:sticky;left:80px;z-index:3;background:#fff;min-width:calc(100vw - 230px);max-width:calc(100vw - 230px);box-shadow:8px 0 10px -7px rgba(43,42,41,.28);border-right:1px solid var(--bd)}
+  .tw th.nm,.tw td.nm{position:sticky;left:56px;z-index:3;background:#fff;min-width:128px;max-width:128px;width:128px;font-size:11px;box-shadow:8px 0 10px -7px rgba(43,42,41,.28);border-right:1px solid var(--bd)}
   .tw thead th.nm{background:var(--bg);z-index:4}
+  .tw .sp-on,.tw .sp-off{padding:2px 5px;font-size:10px}
+  .sets-table td.nm .vdesc{display:none}
+  #lists .tw table{table-layout:fixed;width:100%;font-size:11px}
+  #lists th.al,#lists td.al{min-width:0;width:132px;max-width:132px;font-size:11px;padding:5px 6px;white-space:normal;overflow-wrap:anywhere;word-break:break-word}
+  #lists th.n,#lists td.n{min-width:0;max-width:none}
   tbody tr:hover td:first-child,tbody tr:hover td.st,tbody tr:hover td.nm{background:#FAFAFF}
   tr.kid td:first-child,tr.kid td.st,tr.kid td.nm{background:#FCFCFF}
   tr.tot td:first-child,tr.tot td.nm{background:#fff}
@@ -592,7 +597,7 @@ function table(){
       const m=met(r,P);
       body+=`<tr>
         <td class="st">${statusMix(r.kids)}</td>
-        <td class="nm"><div class="vlab">${cmName(r.id?cmGroup(r.id):'',esc(r.name))}</div><div class="vdesc">${r.kids.length} ad set${r.kids.length===1?'':'s'}</div></td>
+        <td class="nm" title="${esc(r.name)}"><div class="vlab">${cmName(r.id?cmGroup(r.id):'',esc(r.name))}</div><div class="vdesc">${r.kids.length} ad set${r.kids.length===1?'':'s'}</div></td>
         <td class="n">${usd(r.budget)}</td>
         <td class="n">${usd(r.biz)}</td>
         <td class="n">${num(m.lp)}</td>
@@ -953,6 +958,20 @@ function combinedPctFromRows(ar){
  return {pct_points,baseline,vs_baseline:vs};
 }
 
+function isNarrow(){return window.innerWidth<=700}
+function listShortLabel(r){
+  const full=r.label||r.name||r.id||'';
+  const ind=r.industry||'';
+  const tier=r.tier==='Enterprise'?'ENT':(r.tier==='Growth'?'GRW':'');
+  const subMap={'Beauty':'Beauty','Food & Bev':'Food & Bev','Supplements / Hygiene / Baby / Pet':'Supp','Apparel / Jewelry & Accessories':'','Electronics / Fitness / Sporting / Outdoor / Home':'','SaaS / Mid-market B2B':''};
+  const sub=r.sub||'';
+  const ss=Object.prototype.hasOwnProperty.call(subMap,sub)?subMap[sub]:(sub?String(sub).split(' / ')[0]:'');
+  const peers=(accountLists()||[]).filter(x=>x.industry===r.industry&&x.tier===r.tier);
+  const needSub=!!(ss&&peers.length>1);
+  const parts=[ind,tier].filter(Boolean);
+  if(needSub)parts.push(ss);
+  return parts.length?parts.join(' '):full;
+}
 function listCoverage(){
  const rows=accountLists();
  const scope=`<div class="sh"><h2>Account lists</h2><span class="sc">${esc(scopeLabel())}</span></div>`;
@@ -967,7 +986,9 @@ function listCoverage(){
   const ptsH=pts==null?'—':(pts===0?'0 pts':((pts>0?'+':'')+pts+' pts'));
   const cls=pts>0?'up':(pts<0?'dn':'');
   const reach=r.pct!=null?`${r.pct}%${r.n!=null&&r.list_companies?`<div class="vdesc">${num(r.n)} of ${num(r.list_companies)}</div>`:''}`:'—';
-  return `<tr><td class="al">${esc(r.label||r.name||r.id)}</td><td class="n">${reach}</td><td class="n">${pts==null?'—':`<span class="${cls}">${ptsH}</span>`}</td></tr>`;
+  const full=r.label||r.name||r.id||'';
+  const label=isNarrow()?listShortLabel(r):full;
+  return `<tr><td class="al" title="${esc(full)}">${esc(label)}</td><td class="n">${reach}</td><td class="n">${pts==null?'—':`<span class="${cls}">${ptsH}</span>`}</td></tr>`;
  }).join('');
  return `<div class="lists lists-compact" id="lists">${scope}<div class="tw"><table><thead><tr><th class="al">List</th><th class="n">Account reach</th><th class="n">vs Oct 6</th></tr></thead><tbody>${body}</tbody></table></div></div>`;
 }
