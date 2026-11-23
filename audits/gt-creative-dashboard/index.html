@@ -39,7 +39,7 @@ section.block{background:#fff;border:1px solid #D9D9D9;border-radius:16px;paddin
 .sh .sc{font-size:12.5px;color:var(--eb);background:var(--lav3);border:1px solid var(--lav2);border-radius:999px;padding:2px 11px;font-weight:600}
 .kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin-bottom:26px;width:100%}
 @media(max-width:1000px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
-@media(max-width:480px){.kpis{grid-template-columns:1fr}}
+@media(max-width:480px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.kpi{padding:12px 12px 11px}.kpi .l{font-size:12px}.kpi .v{font-size:21px!important;margin:6px 0}.kpi .c{font-size:11px}}
 .kpi{background:#F5F5F7;border:1px solid #D9D9E0;border-left:3px solid var(--pu);border-radius:10px;padding:18px 20px 16px;box-shadow:0 2px 6px rgba(0,0,0,0.08)}
 .kpi .l{font-size:13px;color:var(--mut);font-weight:600}
 .kpi .v{font-size:30px;font-weight:700;line-height:1.1;margin:10px 0 10px}
@@ -61,7 +61,8 @@ tr.tot td{font-weight:700;background:var(--bg)}
 tr.kid td{background:#FCFBFE;font-size:12.5px}
 tr.kid td:first-child{padding-left:30px}
 tr.grp{cursor:pointer}
-.car{display:inline-block;width:12px;color:var(--pu);font-size:11px}
+.car{display:inline-block;width:7px;height:7px;border-right:2px solid var(--pu);border-bottom:2px solid var(--pu);transform:rotate(-45deg);margin:0 10px 1px 2px;vertical-align:middle;transition:transform .15s}
+.car.o{transform:rotate(45deg);margin-bottom:4px}
 .vlab{font-weight:700}
 .vdesc{color:var(--mut);font-size:12px;margin-top:1px}
 .pill{display:inline-block;border-radius:999px;padding:2px 9px;font-size:11.5px;font-weight:700;white-space:nowrap}
@@ -86,7 +87,30 @@ details.foot li{margin:6px 0}
 tr.fat-row{cursor:pointer}
 tr.fat-chart td{background:#fff;text-align:left;white-space:normal}
 .nav-toggle{display:none}
-@media(max-width:720px){.wrap{padding:0 12px}section.block{padding:16px 12px;border-radius:12px}.kpi .v{font-size:22px}.rng{margin-left:0}td.nm{min-width:200px}}
+@media(max-width:720px){
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
+.tw.more{-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 36px),rgba(0,0,0,.25));mask-image:linear-gradient(to right,#000 calc(100% - 36px),rgba(0,0,0,.25))}
+.tw table{width:max-content;min-width:100%;font-size:12px}
+.tw th{white-space:nowrap}
+.tw th,.tw td{padding:7px 8px}
+.tw th:first-child,.tw td:first-child{position:sticky;left:0;z-index:2;background:#fff;box-shadow:6px 0 8px -6px rgba(0,0,0,.25)}
+.tw th:first-child{background:var(--bg);z-index:3}
+tr.kid td:first-child{background:#FCFBFE}
+tr.tot td:first-child{background:var(--bg)}
+tbody tr:hover td:first-child{background:#FAF8FD}
+td.nm{min-width:170px;max-width:190px}
+tr.kid td:first-child{padding-left:16px}
+td.wr{min-width:96px}
+tr.fat-chart td{position:static;box-shadow:none}
+tr.fat-chart td>*{max-width:calc(100vw - 60px)}
+.legend{gap:6px 14px}
+.daily .seg.sm{width:100%}
+.sh h2{font-size:22px}
+.hd .tt{min-width:0;border-left:0;padding-left:0;flex-basis:100%}
+.wrap{padding:0 12px}section.block{padding:16px 12px;border-radius:12px}.kpi .v{font-size:22px}.rng{margin-left:0;flex-basis:100%}}
+
+.swipe{display:none;font-size:11.5px;color:var(--mut);margin:0 0 5px;text-align:right}
+@media(max-width:720px){.swipe.on{display:block}}
 </style></head><body>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WSJD9LJN"
@@ -155,23 +179,29 @@ function chartRange(){const end=D.meta.through;let start;if(P==='l6m')start=D.pe
 function rollSeries(){const [a,b]=chartRange();const rows=D.daily;const idx={};rows.forEach((r,i)=>idx[r[0]]=i);const out=[];rows.forEach((r,i)=>{if(r[0]<a||r[0]>b)return;let s=0,im=0,c=0,l=0;for(let j=Math.max(0,i-6);j<=i;j++){s+=rows[j][1];im+=rows[j][2];c+=rows[j][3];l+=rows[j][4]}out.push({d:r[0],spend:s,impr:im,clicks:c,leads:l,ctr:im>0?c/im:null,cpl:l>0?s/l:null})});return out}
 const nice=v=>{if(!(v>0))return 1;const e=Math.pow(10,Math.floor(Math.log10(v)));const f=v/e;return (f<=1?1:f<=2?2:f<=5?5:10)*e};
 function yfmt(k,v){if(k==='spend'||k==='cpl')return usd(v);if(k==='ctr')return (100*v).toFixed(2)+'%';return num(v)}
-function lineSvg(dd,k,opts){opts=opts||{};const W=1000,H=opts.H||240,L=62,R=14,T=14,Bm=26;const vals=dd.map(r=>r[k]).filter(v=>v!=null);const mx=nice(Math.max(...vals,0)*1.08)||1;const n=dd.length;const x=i=>L+(n<=1?0:(W-L-R)*i/(n-1));const y=v=>T+(H-T-Bm)*(1-v/mx);
- let g='';for(let j=0;j<=4;j++){const v=mx*j/4;g+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#eee"/><text x="${L-8}" y="${y(v)+4}" font-size="11" fill="#555" text-anchor="end">${yfmt(k,v)}</text>`}
- const step=Math.max(1,Math.ceil(n/9));for(let i=0;i<n;i+=step)g+=`<text x="${x(i)}" y="${H-8}" font-size="11" fill="#555" text-anchor="middle">${sd(dd[i].d)}</text>`;
+const MOB=()=>window.innerWidth<640;
+function CDIM(h){return MOB()?{W:420,H:Math.round((h||240)*1.25),L:52,R:10,fs:13,nt:4}:{W:1000,H:h||240,L:62,R:14,fs:11,nt:9}}
+function lineSvg(dd,k,opts){opts=opts||{};const C=CDIM(opts.H);const W=C.W,H=C.H,L=C.L,R=C.R,T=14,Bm=26,FS=C.fs;const vals=dd.map(r=>r[k]).filter(v=>v!=null);const mx=nice(Math.max(...vals,0)*1.08)||1;const n=dd.length;const x=i=>L+(n<=1?0:(W-L-R)*i/(n-1));const y=v=>T+(H-T-Bm)*(1-v/mx);
+ let g='';for(let j=0;j<=4;j++){const v=mx*j/4;g+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#eee"/><text x="${L-8}" y="${y(v)+4}" font-size="${FS}" fill="#555" text-anchor="end">${yfmt(k,v)}</text>`}
+ const step=Math.max(1,Math.ceil(n/C.nt));for(let i=0;i<n;i+=step)g+=`<text x="${x(i)}" y="${H-8}" font-size="${FS}" fill="#555" text-anchor="middle">${sd(dd[i].d)}</text>`;
  let marks='';if(opts.marks){dd.forEach((r,i)=>{const m=D.marks[r.d];if(m)marks+=`<line x1="${x(i)}" x2="${x(i)}" y1="${T}" y2="${H-Bm}" stroke="${m.some(z=>z.a==='launched')?'#1f7a35':'#b8261b'}" stroke-dasharray="3 3" opacity=".55"/>`})}
  let path='';let pen=false;dd.forEach((r,i)=>{const v=r[k];if(v==null){pen=false;return}path+=(pen?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)+' ';pen=true});
  const dots=n<=70?dd.map((r,i)=>r[k]==null?'':`<circle cx="${x(i)}" cy="${y(r[k])}" r="2.3" fill="${MC[k]||'#4F2D7F'}"/>`).join(''):'';
  const id=opts.id||'c';
  return `<svg viewBox="0 0 ${W} ${H}" onmousemove="chMove(event,'${id}','${k}')" onmouseleave="chLeave('${id}')">${g}${marks}<path d="${path}" fill="none" stroke="${MC[k]||'#4F2D7F'}" stroke-width="2"/>${dots}<line id="${id}-vl" x1="0" x2="0" y1="${T}" y2="${H-Bm}" stroke="#999" opacity="0"/></svg><div class="ttip" id="${id}-tip"></div>`}
 const CHD={};
-function chMove(ev,id,k){const dd=CHD[id];if(!dd)return;const svg=ev.currentTarget;const r=svg.getBoundingClientRect();const W=1000,L=62,R=14;const fx=(ev.clientX-r.left)/r.width*W;const n=dd.length;let i=Math.round((fx-L)/((W-L-R)/(Math.max(1,n-1))));i=Math.max(0,Math.min(n-1,i));const row=dd[i];const xx=L+(n<=1?0:(W-L-R)*i/(n-1));const vl=document.getElementById(id+'-vl');vl.setAttribute('x1',xx);vl.setAttribute('x2',xx);vl.setAttribute('opacity','.6');
+function chMove(ev,id,k){const dd=CHD[id];if(!dd)return;const svg=ev.currentTarget;const r=svg.getBoundingClientRect();const C=CDIM();const W=C.W,L=C.L,R=C.R;const fx=(ev.clientX-r.left)/r.width*W;const n=dd.length;let i=Math.round((fx-L)/((W-L-R)/(Math.max(1,n-1))));i=Math.max(0,Math.min(n-1,i));const row=dd[i];const xx=L+(n<=1?0:(W-L-R)*i/(n-1));const vl=document.getElementById(id+'-vl');vl.setAttribute('x1',xx);vl.setAttribute('x2',xx);vl.setAttribute('opacity','.6');
  const tip=document.getElementById(id+'-tip');let h=`<b>${fmtD(row.d)}</b><br>${MLAB[k]||'7-day rolling CTR'}: ${row[k]==null?'-':yfmt(k,row[k])}`;const m=D.marks&&D.marks[row.d];if(m&&id==='c'){const la=m.filter(z=>z.a==='launched'),st=m.filter(z=>z.a==='stopped');if(la.length)h+=`<br><span style="color:#1f7a35">First delivery:</span> ${la.map(z=>esc(z.n)).join(', ')}`;if(st.length)h+=`<br><span style="color:#b8261b">Last delivery:</span> ${st.map(z=>esc(z.n)).join(', ')}`}
- tip.innerHTML=h;tip.style.display='block';const px=(xx/W)*r.width;tip.style.left=Math.min(px+12,r.width-240)+'px';tip.style.top='8px'}
+ tip.innerHTML=h;tip.style.display='block';const px=(xx/W)*r.width;tip.style.left=Math.max(0,Math.min(px+12,r.width-230))+'px';tip.style.top='8px'}
 function chLeave(id){const t=document.getElementById(id+'-tip');if(t)t.style.display='none';const vl=document.getElementById(id+'-vl');if(vl)vl.setAttribute('opacity','0')}
 function dailyChart(){const dd=rollSeries();CHD.c=dd;const [a,b]=chartRange();const ks=['spend','impr','clicks','ctr','leads','cpl'];
  const pl=ks.map(k=>`<button class="${k==DM?'on':''}" onclick="setDM('${k}')">${MLAB[k]}</button>`).join('');
  const span=P==='l6m'?'last 6 months':'last 60 days';
  return `<div class="daily"><div class="ch"><div><h3>Daily performance</h3><div class="desc">${fmtD(a)} to ${fmtD(b)} (${span}). Account level, 7-day rolling window. The Last 6 months pill extends the chart; the other pills show the last 60 days.</div></div><div class="seg sm">${pl}</div></div><div class="chart">${lineSvg(dd,DM,{marks:true,id:'c'})}</div><div class="legend"><span><i style="background:${MC[DM]}"></i>${MLAB[DM]}</span><span><i style="background:#1f7a35"></i>Ad set first delivery</span><span><i style="background:#b8261b"></i>Ad set last delivery</span><span>Hover the chart for the day's value and what changed.</span></div></div>`}
+
+function twHint(){document.querySelectorAll('.tw').forEach(el=>{let h=el.previousElementSibling;if(!h||!h.classList.contains('swipe')){h=document.createElement('div');h.className='swipe';h.textContent='Swipe for more columns \u2192';el.parentNode.insertBefore(h,el)}h.classList.toggle('on',el.scrollWidth>el.clientWidth+4);const f=()=>el.classList.toggle('more',el.scrollWidth-el.clientWidth-el.scrollLeft>4);f();if(!el._h){el._h=1;el.addEventListener('scroll',f,{passive:true})}})}
+new MutationObserver(()=>twHint()).observe(document.querySelector('main'),{childList:true,subtree:true});
+let _mob=window.innerWidth<640;window.addEventListener('resize',()=>{const m=window.innerWidth<640;if(m!==_mob){_mob=m;render()}else twHint()});
 
 const OPEN=new Set();const SORT={k:'s',d:-1};const SORT2={k:'s',d:-1};const FATOPEN=new Set();
 const FORD=['Document','Carousel','Single image','Video','Thought Leader Ad','Spotlight','Text','Message','Follower','Other'];
@@ -188,7 +218,7 @@ function adTable(){const v=D.AV[P];const ids=adsInPeriod();if(!ids.length)return
  const cmp=(a,b)=>SORT.d*((metricVal(a.t,SORT.k)>metricVal(b.t,SORT.k))?1:(metricVal(a.t,SORT.k)<metricVal(b.t,SORT.k))?-1:0);rows.sort(cmp);
  const H=(k,l)=>`<th class="s" onclick="srt('${k}')">${l}${arrow(SORT,k)}</th>`;
  let body='';rows.forEach(r=>{const open=OPEN.has(r.f);const live=r.a.filter(id=>D.ads[id].live).length;const lg=r.a.filter(id=>D.ads[id].lgf).length;
-  body+=`<tr class="grp" onclick="togF('${esc(r.f)}')"><td class="nm"><span class="car">${open?'&#9660;':'&#9654;'}</span><span class="vlab">${esc(r.f)}</span><div class="vdesc">${r.a.length} ad${r.a.length==1?'':'s'}${lg?`, ${lg} with a Lead Gen Form`:''}</div></td><td>${live?`<span class="pill p-g">${live} live</span>`:'<span class="pill p-n">None live</span>'}</td>${cells(r.t)}</tr>`;
+  body+=`<tr class="grp" onclick="togF('${esc(r.f)}')"><td class="nm"><span class="car${open?' o':''}"></span><span class="vlab">${esc(r.f)}</span><div class="vdesc">${r.a.length} ad${r.a.length==1?'':'s'}${lg?`, ${lg} with a Lead Gen Form`:''}</div></td><td>${live?`<span class="pill p-g">${live} live</span>`:'<span class="pill p-n">None live</span>'}</td>${cells(r.t)}</tr>`;
   if(open){const kids=r.a.map(id=>({id,t:sum(v,[id])}));kids.sort((a,b)=>cmp(a,b));kids.forEach(k=>{const A=D.ads[k.id];const S=D.sets[A.set]||{};
    body+=`<tr class="kid"><td class="nm"><span class="vlab">${esc(A.n)}</span>${A.lgf?'<span class="tag">Lead Gen Form</span>':''}<div class="vdesc">${esc(shortSet(S.n))}${A.first?' · first delivery '+fmtD(A.first):''}</div></td><td>${stPill(A.st)}</td>${cells(k.t)}</tr>`})}});
  const T=sum(v,ids);body+=`<tr class="tot"><td>Total</td><td></td>${cells(T)}</tr>`;
@@ -206,7 +236,7 @@ function fatChart(id){const dd=[];const arr=D.ROLL[id]||[];const s=new Date(D.me
  return `<div class="note" style="margin:0 0 8px">7-day rolling CTR (clicks / impressions), ${sd(D.meta.roll[0])} to ${fmtD(D.meta.roll[1])}. Gaps are days with no impressions in the window. Click the row again to collapse.</div><div class="chart">${lineSvg(dd,'ctr',{H:200,id:'f'+id})}</div>`}
 function fatigue(){const w=D.meta.fwin;const F=D.FAT;const rs=Object.entries(F).filter(([id,v])=>v.drop!=null&&v.drop>=20).map(([id,v])=>({id,...v})).sort((a,b)=>b.drop-a.drop);
  const chk=Object.values(F).filter(v=>v.drop!=null).length;const lowLive=Object.entries(F).filter(([id,v])=>v.st==='low'&&D.ads[id].live).length;const nw=Object.entries(F).filter(([id,v])=>v.st==='new'&&D.ads[id].live).length;
- const body=rs.map(r=>{const A=D.ads[r.id];const S=D.sets[A.set]||{};const open=FATOPEN.has(r.id);return `<tr class="fat-row" onclick="togFat('${r.id}')"><td class="nm"><span class="car">${open?'&#9660;':'&#9654;'}</span><span class="vlab">${esc(A.n)}</span><span class="tag">${esc(A.fmt)}</span><div class="vdesc">${esc(shortSet(S.n))} · first delivery ${fmtD(r.first)}</div></td><td>${r.drop>=30?'<span class="pill p-a">Flagged</span>':'<span class="pill p-n">Watch</span>'}</td><td>${r.ctr1.toFixed(2)}%</td><td>${r.ctr2.toFixed(2)}%</td><td><span class="dn">&#8595; ${Math.round(r.drop)}%</span></td><td>${num(r.i1)}</td><td>${num(r.i2)}</td></tr>`+(open?`<tr class="fat-chart"><td colspan="7">${fatChart(r.id)}</td></tr>`:'')}).join('');
+ const body=rs.map(r=>{const A=D.ads[r.id];const S=D.sets[A.set]||{};const open=FATOPEN.has(r.id);return `<tr class="fat-row" onclick="togFat('${r.id}')"><td class="nm"><span class="car${open?' o':''}"></span><span class="vlab">${esc(A.n)}</span><span class="tag">${esc(A.fmt)}</span><div class="vdesc">${esc(shortSet(S.n))} · first delivery ${fmtD(r.first)}</div></td><td>${r.drop>=30?'<span class="pill p-a">Flagged</span>':'<span class="pill p-n">Watch</span>'}</td><td>${r.ctr1.toFixed(2)}%</td><td>${r.ctr2.toFixed(2)}%</td><td><span class="dn">&#8595; ${Math.round(r.drop)}%</span></td><td>${num(r.i1)}</td><td>${num(r.i2)}</td></tr>`+(open?`<tr class="fat-chart"><td colspan="7">${fatChart(r.id)}</td></tr>`:'')}).join('');
  return `<div class="sh"><h2>Creative fatigue</h2><span class="sc">All ad sets</span></div>
  <div class="note" style="margin:0 0 12px">CTR in the last 14 days (${sd(w[0])} to ${fmtD(w[1])}) vs each ad's first 14 days. Flagged at a 30%+ drop, watch at 20 to 30%. Needs 1,000+ impressions in both windows, and the ad's first delivery must be on or before ${fmtD(D.meta.felig)} so the windows do not overlap. Fixed windows, not tied to the period. Click an ad to see its 7-day rolling CTR over the last 60 days.</div>
  ${rs.length?`<div class="tw"><table><thead><tr><th>Ad</th><th>Status</th><th>CTR, first 14 days</th><th>CTR, last 14 days</th><th>Change</th><th>Impr., first 14 days</th><th>Impr., last 14 days</th></tr></thead><tbody>${body}</tbody></table></div>`:'<div class="empty">No ads flagged or near the threshold.</div>'}
