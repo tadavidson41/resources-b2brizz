@@ -1,0 +1,991 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Modash | LinkedIn Ads Campaign Performance</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+<link rel="icon" href="favicon.png">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WSJD9LJN');</script>
+<!-- End Google Tag Manager -->
+<style>
+@font-face{font-family:Inter;src:url(Inter-Variable.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{--pu:#141414;--eb:#141414;--pink:#FFA3D1;--lav:#CAB8FF;--lav2:#ECE5FF;--lav3:#FFF3F9;--peach:#FEC6B2;--ink:#141414;--mut:#525252;--mut2:#8a8a9a;--bg:#F7F7F7;--bd:#E2E2E2;--bd2:#EFEFEF;--gr:#1f7a35;--grb:#D7FEB4;--am:#8a5300;--amb:#FFF1C9;--rd:#b8261b;--rdb:#fdebe9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 Inter,"Helvetica Neue",Arial,sans-serif;font-variant-numeric:tabular-nums}
+h1,h2,h3,.kpi .v,.seg button,.lab,.jump a{font-family:Inter,"Helvetica Neue",Arial,sans-serif}
+button{font:inherit;color:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.hd{background:#fff}
+.hd .wrap{display:flex;align-items:center;gap:18px;padding-top:16px;padding-bottom:14px;flex-wrap:wrap}
+.hd img{height:28px;display:block}
+.hd .tt{flex:1;border-left:2px solid var(--lav2);padding-left:18px}
+.hd h1{font-size:24px;line-height:1.1;margin:0;font-weight:800;letter-spacing:-.4px}
+.hd .dm{color:var(--mut);font-size:12.5px;margin-top:5px}
+.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);backdrop-filter:blur(4px);border-top:1px solid var(--bd2);border-bottom:1px solid var(--bd);box-shadow:0 2px 6px rgba(20,20,20,.05)}
+.nav .wrap{display:flex;flex-direction:column;gap:7px;padding-top:9px;padding-bottom:9px}
+.nr{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.lab{font-weight:700;font-size:13.5px;min-width:76px}
+.seg{display:inline-flex;border:1px solid var(--bd);border-radius:999px;background:#fff;padding:3px;gap:3px;flex-wrap:wrap}
+.seg button{border:0;background:none;padding:4px 12px;border-radius:999px;cursor:pointer;font-size:13px;font-weight:700;white-space:nowrap}
+.seg button.on{background:var(--pu);color:#fff}
+.seg button:not(.on):hover{background:var(--lav3)}
+.seg.sub button{font-size:15px;padding:2px 11px}.seg.sub button.on{background:var(--lav2);color:var(--eb)}
+.rng{font-size:12.5px;color:var(--mut);margin-left:auto}
+main{padding:24px 0 48px}
+section.block{background:#fff;border:1px solid #D9D9D9;border-radius:18px;padding:26px 28px 28px;margin-bottom:28px;scroll-margin-top:110px}
+section.block.alt{background:var(--lav3)}
+.sh{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.sh h2{font-size:26px;line-height:1.15;margin:0;font-weight:800;letter-spacing:-.5px}
+.sh .sc{font-size:13px;color:var(--eb);background:var(--lav3);border:1px solid var(--pink);border-radius:999px;padding:2px 11px;font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,240px));gap:12px;margin-bottom:18px}
+@media(max-width:800px){.kpis{grid-template-columns:1fr}}
+.kpi{background:var(--bg);border:1px solid var(--bd);border-left:3px solid var(--pink);border-radius:8px;padding:11px 14px}
+.kpi .l{font-size:12.5px;color:var(--mut);font-weight:600}
+.kpi .v{font-size:26px;font-weight:800;line-height:1.1;margin:4px 0;letter-spacing:-.4px}
+.kpi .c{font-size:12.5px;color:var(--mut)}
+.up{color:#2E6B45;background:#E3F3E8;border-radius:6px;padding:1px 6px;font-weight:700;white-space:nowrap}
+.dn{color:var(--rd);background:var(--rdb);border-radius:6px;padding:1px 6px;font-weight:700;white-space:nowrap}
+.tw{overflow:auto;border:1px solid var(--bd);border-radius:10px;background:#fff}
+table{border-collapse:separate;border-spacing:0;width:100%;table-layout:fixed;font-size:13px}
+th{background:var(--bg);text-align:left;font-weight:700;color:var(--mut);font-size:12px;padding:7px 6px;border-bottom:1px solid var(--bd);white-space:normal;line-height:1.25;vertical-align:bottom}
+th.s{cursor:pointer}th.s:hover{color:var(--pu)}
+th.n,th.st{text-align:center;white-space:normal}
+td.n,td.st{text-align:center;white-space:nowrap}
+td.st .vdesc{max-width:none}
+td{padding:7px 6px;border-bottom:1px solid var(--bd2);vertical-align:middle}
+th.st,td.st{width:76px}
+td.nm,th.nm{width:156px}
+td.nm .vlab,td.nm .vdesc{max-width:100%;overflow-wrap:anywhere;word-break:break-word;white-space:normal}
+a.cm{color:inherit;text-decoration:none}
+a.cm:hover,a.cm:focus-visible{text-decoration:underline;text-underline-offset:2px}
+th.obj,td.obj{width:136px;white-space:nowrap;padding-left:10px;text-align:left}
+tbody tr:hover td{background:#FFF7FB}
+tr.tot td{font-weight:700;background:var(--bg)}
+tr.th td{cursor:pointer}tr.th .vlab:before{content:"\25B8  ";color:var(--pu)}tr.th.open .vlab:before{content:"\25BE  "}
+tr.kid td{background:#FFFAFD;font-size:12.5px}tr.kid td:first-child{padding-left:26px}
+.vlab{font-weight:700}.vdesc{font-size:11.8px;color:var(--mut);margin-top:2px;max-width:300px}
+.thumb{width:96px;height:96px;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--bd);cursor:zoom-in;display:block;background:var(--bg)}
+tr.kid .thumb{width:72px;height:72px}
+.nopv{width:72px;height:56px;border:1px dashed var(--bd);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--mut2)}
+.pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:2px 9px;font-size:12px;font-weight:600;white-space:nowrap}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.p-g{background:var(--grb);color:var(--gr)}.p-n{background:#efefef;color:var(--mut)}.p-p{background:var(--lav2);color:var(--eb)}.p-a{background:var(--amb);color:var(--am)}.p-r{background:var(--rdb);color:var(--rd)}
+.flag{margin-left:8px}
+.sp-on,.sp-off{display:inline-block;border-radius:999px;padding:3px 9px;font-size:12px;font-weight:700;line-height:1.2;white-space:nowrap}
+.sp-on{background:#E3F3E8;color:#2E6B45}
+.sp-off{background:#fdebe9;color:#b8261b}
+.tag{display:inline-block;border-radius:5px;padding:1px 6px;font-size:10.5px;font-weight:700;margin-left:6px;vertical-align:1px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:0;border:1px solid rgba(20,20,20,.25)}
+.va{font-size:11px;font-weight:600;margin-top:2px;white-space:nowrap}.va.bt{color:#2E6B45}.va.wr{color:var(--rd)}.va.at{color:var(--mut2)}
+tr.avg td{background:var(--lav3);border-bottom:2px solid var(--lav);font-weight:700}
+.sgb{background:#fff;color:var(--mut);border:1px solid var(--bd);font-size:9.5px;margin-left:4px}
+.ttag{background:#fff;color:var(--eb);border:1px solid var(--lav);margin-left:0;margin-top:3px}
+.gv{background:#E3F3E8;color:#2E6B45;font-weight:700;border-radius:6px;padding:3px 8px;white-space:nowrap;display:inline-block;line-height:1.2}
+.bv{background:#fdebe9;color:#b8261b;font-weight:700;border-radius:6px;padding:3px 8px;white-space:nowrap;display:inline-block;line-height:1.2}
+tr.fat-row{cursor:pointer}
+tr.fat-row:hover td{background:#FFF7FB}
+tr.fat-row .vlab:before{content:"\25B8  ";color:var(--pu)}
+tr.fat-row.open .vlab:before{content:"\25BE  "}
+tr.fat-chart td{background:#FFF7FB;padding:10px 14px 16px;border-bottom:1px solid var(--bd)}
+
+.note{font-size:12px;color:var(--mut);margin-top:8px}
+.empty{border:1px dashed var(--bd);border-radius:10px;padding:18px;text-align:center;color:var(--mut);background:#fff}
+#lb{position:fixed;inset:0;background:rgba(20,20,20,.85);display:none;align-items:center;justify-content:center;z-index:100;flex-direction:column;gap:10px;padding:20px}
+#lb img{max-width:92vw;max-height:82vh;border-radius:8px;background:#fff}#lb .cap{color:#fff;font-size:14px}#lb button{position:absolute;top:16px;right:20px;background:#fff;border:0;border-radius:999px;width:34px;height:34px;font-size:18px;cursor:pointer}
+.foot{font-size:12.5px;color:var(--mut)}.foot summary{cursor:pointer;font-weight:700;color:var(--ink)}.foot li{margin:4px 0}
+.seg.sm button{padding:3px 11px;font-size:13px}
+.daily{margin:6px 0 22px}
+.daily h2{font-size:20px;line-height:1.15;margin:0;font-weight:800;letter-spacing:-.3px}
+.ch{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.desc{color:var(--mut);font-size:12.5px;margin-top:4px;font-weight:400}
+.chart svg{display:block}
+.legend{font-size:12px;color:var(--mut);display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:6px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.mtip{display:none;position:fixed;z-index:80;width:340px;max-height:360px;overflow:auto;background:#141414;color:#fff;font-size:12px;line-height:1.45;padding:10px 12px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.18);text-align:left;pointer-events:none}
+.mtip .mh{font-weight:700;margin-bottom:6px}
+.mtip .ml{margin:0 0 5px}
+.mtip .ml i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:1px}
+.chart{position:relative}
+
+.i{display:inline-flex;align-items:center;justify-content:center;margin-left:6px;width:16px;height:16px;border-radius:50%;background:var(--lav2);color:var(--eb);font-size:11px;font-weight:700;cursor:help;position:relative;font-style:normal;vertical-align:6px}
+.i .tip{display:none;position:absolute;left:50%;top:22px;transform:translateX(-50%);width:340px;background:var(--ink);color:#fff;font-weight:400;font-size:12px;line-height:1.45;padding:9px 11px;border-radius:8px;z-index:40;text-align:left}
+.i:hover .tip,.i:focus .tip{display:block}
+
+.hd .hdr-link{margin-left:auto;align-self:center;color:var(--ink);font-family:Inter,"Helvetica Neue",Arial,sans-serif;font-weight:700;font-size:15px;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.hd .hdr-link:hover{color:var(--pu)}
+.kpis.five,.kpis.six{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:800px){.kpis.five,.kpis.six{grid-template-columns:1fr 1fr}}
+.kpi .sub{font-size:12px;color:var(--mut);margin-top:1px;line-height:1.3}
+.lists-compact{margin:0 0 22px}
+.lists-compact .sh{margin-bottom:8px}
+.lists-compact .tw table{table-layout:auto;width:100%}
+.lists-compact th.n,.lists-compact td.n{text-align:right;white-space:nowrap}
+.lists-compact td.al,.lists-compact th.al{text-align:left;min-width:128px;position:static;left:auto;box-shadow:none;background:transparent;max-width:none;white-space:normal;overflow-wrap:anywhere;word-break:break-word}
+.lists-compact thead th:first-child,.lists-compact tbody td:first-child{position:static;left:auto;background:transparent;box-shadow:none}
+.lists-compact .tw{overflow-x:auto}
+.lists-compact .vdesc{max-width:none}
+.reach-chart svg{display:block;width:100%;height:auto;min-height:200px}
+@media(max-width:700px){.reach-chart svg{min-height:240px}}
+.daily .reach-exports{margin:12px 0 0}
+.daily .reach-exports-cap{font-size:12px;font-weight:600;margin:0 0 6px;color:#141414}
+.daily .reach-exports table{font-size:12px;width:auto;min-width:240px}
+.daily .reach-exports th,.daily .reach-exports td{padding:4px 10px 4px 0;vertical-align:top}
+.reach-chart .reach-note{font-size:12px;color:#5b5b5b;margin:8px 0 0;line-height:1.4}
+
+.lists{margin:0 0 22px;scroll-margin-top:110px}
+.lists h2{font-size:24px;line-height:1.1;margin:0;font-weight:800}
+.list-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+@media(max-width:1100px){.list-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.list-grid{grid-template-columns:1fr}}
+.lcard{background:var(--bg);border:1px solid var(--bd);border-left:3px solid var(--pu);border-radius:8px;padding:12px 14px 10px}
+.lcard .ln{font-size:13.5px;font-weight:700;line-height:1.25;margin:0 0 6px}
+.lcard .row{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.lcard .lv{font-family:Inter,"Helvetica Neue",Arial,sans-serif;font-size:30px;font-weight:800;line-height:1;letter-spacing:-.02em}
+.lcard .chg{font-size:13px}
+.lcard .meta{font-size:12px;color:var(--mut);margin-top:4px;line-height:1.35}
+.lcard svg.spark{display:block;width:100%;height:36px;margin-top:4px}
+.lbase{font-size:13px;font-weight:600;margin-top:6px;line-height:1.35}
+.lbase.up{color:#2E6B45}
+.lbase.dn{color:var(--rd)}
+.lpct-cap,.lsec-cap{font-size:11.5px;color:#6B6A69;margin:8px 0 2px;font-weight:500}
+.lcard .lpct{position:relative}
+.lcard .lpct svg{display:block;width:100%;height:auto;min-height:110px}
+.lsec{margin-top:6px}
+.lchart-pct svg{min-height:200px}
+.lcard .axis{font-size:10.5px;color:var(--mut);display:flex;justify-content:space-between;margin-top:2px}
+
+
+.nav-toggle{display:none;font-family:Inter,"Helvetica Neue",Arial,sans-serif}
+.nav-body{display:flex;flex-direction:column;gap:7px}
+.lists-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.lists-head .sh{margin-bottom:0;flex:1}
+.list-modes{margin:0}
+.lsum{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin:10px 0 8px}
+.lsum .lv{font-family:Inter,"Helvetica Neue",Arial,sans-serif;font-size:40px;font-weight:800;line-height:1;letter-spacing:-.02em}
+.lsum .meta{font-size:12.5px;color:var(--mut);line-height:1.4;max-width:42em}
+.lsum-pct{font-size:16px;font-weight:650;margin:2px 0 4px}
+.lchart{position:relative;margin-top:8px}
+.lchart svg{display:block;width:100%;height:auto}
+.lchart-cap{font-size:12px;color:#6B6A69;margin:12px 0 2px;font-weight:500}
+.lchart-sum svg{min-height:150px}
+.lchart-lists svg{min-height:280px}
+.lleg{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:8px;font-size:12px;color:var(--ink)}
+.lleg span{display:inline-flex;align-items:flex-start;gap:6px;white-space:normal;max-width:100%}
+.lleg i{display:inline-block;width:10px;height:10px;border-radius:2px;flex:0 0 10px;margin-top:3px}
+.ltip{display:none;position:absolute;z-index:6;background:#141414;color:#fff;font-size:12px;line-height:1.4;padding:8px 10px;border-radius:8px;pointer-events:none;min-width:180px;max-width:280px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.ltip .mh{font-weight:700;margin-bottom:4px}
+.ltip .mr{display:flex;justify-content:space-between;gap:12px}
+.ltip .mr b{font-weight:700}
+@media(max-width:700px){
+  .wrap{padding:0 12px}
+  .hd .wrap{padding-top:12px;padding-bottom:10px;gap:10px}
+  .hd h1{font-size:22px}
+  .hd img{height:24px}
+  .hd .tt{padding-left:12px}
+  .hd .dm{font-size:12px}
+  .hd .wrap{align-items:flex-start}
+  .hd .tt{flex:1 1 180px}
+  .hd .hdr-link{flex-basis:100%;margin-left:0;margin-top:2px;font-size:14px}
+  .nav{position:static;z-index:auto;box-shadow:none}
+  .nav .wrap{padding-top:6px;padding-bottom:6px;gap:6px}
+  .nav-toggle{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;border:1px solid var(--bd);background:#fff;border-radius:10px;padding:8px 12px;font-weight:700;font-size:14px;color:var(--ink);text-align:left;cursor:pointer;line-height:1.25}
+  .nav-toggle:after{content:"\25BE";color:var(--pu);font-size:12px;flex:0 0 auto}
+  .nav-toggle[aria-expanded="false"]:after{content:"\25B8"}
+  .nav:not(.open) .nav-body{display:none}
+  .lab{font-size:13px;min-width:54px}
+  .seg{padding:2px;gap:2px;border-radius:8px}
+  .seg button{padding:2px 8px;font-size:13px;border-radius:6px}
+  .seg.sub button{font-size:12px;padding:2px 7px}
+  .seg.sm button{padding:2px 8px;font-size:12px}
+  .rng{font-size:11.5px;margin-left:0;flex-basis:100%}
+  .nr{gap:6px}
+  main{padding:14px 0 36px}
+  section.block{padding:16px 14px;margin-bottom:18px;scroll-margin-top:12px;border-radius:14px}
+  .sh h2{font-size:24px}
+  .kpi .v,.lcard .lv,.lsum .lv{font-size:28px}
+  .lsum{gap:10px}
+  .tw{-webkit-overflow-scrolling:touch;overflow-x:auto;max-width:100%}
+  .tw table{table-layout:auto;width:max-content;min-width:0;font-size:11px}
+  .tw th,.tw td{padding:5px 6px;background-clip:padding-box}
+  .tw th{line-height:1.2;white-space:normal;vertical-align:bottom}
+  .tw th.n,.tw td.n{min-width:76px;max-width:76px}
+  .tw th.n{white-space:normal}
+  .tw td.n,.tw td.st{white-space:nowrap}
+  .tw th.st,.tw td.st{position:sticky;left:0;z-index:3;background:#fff;min-width:56px;width:56px;max-width:56px;padding:5px 4px}
+  .tw thead th.st{background:var(--bg);z-index:4}
+  .tw th.obj,.tw td.obj{min-width:76px;max-width:76px;white-space:normal}
+  .tw thead th:first-child,.tw tbody td:first-child{position:sticky;left:0;z-index:3;background:#fff}
+  .tw thead th:first-child{background:var(--bg);z-index:4}
+  .tw th.nm,.tw td.nm{position:sticky;left:56px;z-index:3;background:#fff;min-width:128px;max-width:128px;width:128px;font-size:11px;box-shadow:8px 0 10px -7px rgba(20,20,20,.28);border-right:1px solid var(--bd)}
+  .tw thead th.nm{background:var(--bg);z-index:4}
+  .tw .sp-on,.tw .sp-off{padding:2px 5px;font-size:10px}
+  .sets-table td.nm .vdesc{display:none}
+  #lists .tw table{table-layout:fixed;width:100%;font-size:11px}
+  #lists th.al,#lists td.al{min-width:0;width:132px;max-width:132px;font-size:11px;padding:5px 6px;white-space:normal;overflow-wrap:anywhere;word-break:break-word}
+  #lists th.n,#lists td.n{min-width:0;max-width:none}
+  tbody tr:hover td:first-child,tbody tr:hover td.st,tbody tr:hover td.nm{background:#FFF7FB}
+  tr.kid td:first-child,tr.kid td.st,tr.kid td.nm{background:#FFFAFD}
+  tr.tot td:first-child,tr.tot td.nm{background:#fff}
+  .lchart-sum svg{min-height:140px}
+  .lchart-lists svg{min-height:240px}
+  .lchart-pct svg{min-height:220px}
+  .lcard .lpct svg{min-height:120px}
+  .lsum .lv{font-size:36px}
+}
+
+
+@media(min-width:701px){.sets-table th.nm,.sets-table td.nm{width:300px}.sets-table td.nm .vdesc{display:none}.sets-table th.obj,.sets-table td.obj{width:118px}}
+</style>
+</head><body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WSJD9LJN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header class="hd"><div class="wrap"><img src="modash-logo.png" alt="Modash"><div class="tt"><h1>LinkedIn Ads Campaign Performance</h1><div class="dm">Data through <b id="thru"></b>. Ad status as of <b id="asof"></b>. Includes <b id="nlive"></b> live ad sets plus <b id="nhist"></b> paused or completed ad sets with delivery in the selected windows. Currency EUR.</div></div><a class="hdr-link" href="/audits/modash-fibbler-dashboard/">Fibbler Dashboard</a></div></header>
+<div class="nav" id="nav"><div class="wrap">
+<button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navBody" onclick="togNav()">Filters</button>
+<div class="nav-body" id="navBody">
+<div class="nr"><span class="lab">Period</span><div class="seg" id="pills"></div><span class="rng" id="range"></span></div>
+<div class="nr"><span class="lab">Campaign</span><div class="seg" id="segs"></div></div>
+</div>
+</div></div>
+<main><div class="wrap">
+<section class="block" id="main"></section>
+<details class="foot"><summary>Sources and definitions</summary><ul id="foot"></ul></details>
+</div></main>
+<script>
+const D={"account":"510440948","currency":"EUR","asof":"2026-11-23","asof_label":"Nov 23, 2026","pulled":"2026-11-24","last_biz_day":"2026-11-23","last_biz_day_label":"Mon, Nov 23 (UTC)","meta":{"through":"2026-11-23","asof":"Nov 24, 2026, about 8:00 AM ET","live_camps":17,"hist_camps":17},"periods":{"l7":{"label":"Last 7 days","start":"2026-11-17","end":"2026-11-23","prior_start":"2026-11-10","prior_end":"2026-11-16","prior":{"start":"2026-11-10","end":"2026-11-16"}},"mtd":{"label":"Month to date","start":"2026-11-01","end":"2026-11-23","prior_start":"2026-10-01","prior_end":"2026-10-23","prior":{"start":"2026-10-01","end":"2026-10-23"}},"l30":{"label":"Last 30 days","start":"2026-10-25","end":"2026-11-23","prior_start":"2026-09-25","prior_end":"2026-10-24","prior":{"start":"2026-09-25","end":"2026-10-24"}},"l60":{"label":"Last 60 days","start":"2026-09-25","end":"2026-11-23","prior_start":"2026-07-27","prior_end":"2026-09-24","prior":{"start":"2026-07-27","end":"2026-09-24"}}},"companies":{"l7":{"all":2023},"l7p":{"all":2306},"mtd":{"all":3861},"mtdp":{"all":5594},"l30":{"all":4399,"g:822956644":429,"g:1109801364":4370},"l30p":{"all":6063,"g:822956644":2328,"g:1109801364":4283},"l60":{"all":7353},"l60p":{"all":8215}},"groups":[{"id":"1109801364","name":"Product","full":"Cold Ads [Platform direct product promotions] June 2026","status":"ACTIVE"},{"id":"822956644","name":"Festival","full":"Cold ads (Platform content/event distribution)","status":"ACTIVE"},{"id":"780496474","name":"API","full":"API","status":"PAUSED"},{"id":"628821614","name":"Retargeting","full":"Retargeting","status":"PAUSED"}],"sets":[{"id":"901377104","name":"\ud83e\uddea NA | ICP Company List [Under 5k employees] | Awareness Obj. | Images | 10.5.26","short":"\ud83e\uddea NA | ICP Company List [Under 5k employees] | Images","status":"ACTIVE","on":true,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":14000,"budget":20.0,"gid":"1109801364","gname":"Product","biz":19.870000000000005,"m":{"l7":{"spend":151.76999999999998,"impr":2278,"lp":6,"clicks":7,"dwell":2.7401984162,"reach":1366},"l7p":{"spend":276.61999999999995,"impr":2628,"lp":0,"clicks":1,"dwell":3.77394252,"reach":1600},"mtd":{"spend":684.29,"impr":7267,"lp":10,"clicks":13,"dwell":3.6677039537,"reach":2607},"mtdp":{"spend":402.53,"impr":3330,"lp":4,"clicks":10,"dwell":5.8417501505,"reach":1924},"l30":{"spend":1200.95,"impr":10563,"lp":19,"clicks":25,"dwell":4.319668689,"reach":3204},"l30p":{"spend":409.96999999999997,"impr":3386,"lp":4,"clicks":10,"dwell":5.7883546477,"reach":1943},"l60":{"spend":1610.92,"impr":13949,"lp":23,"clicks":35,"dwell":4.6758991168,"reach":3683},"l60p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null}}},{"id":"835803644","name":"\ud83e\uddea Higher Bid Test | NA | ICP Company List [Under 5k employees] | Engagement | Images | 07.28","short":"\ud83e\uddea Higher Bid Test | NA | ICP Company List [Under 5k employees] | Images","status":"ACTIVE","on":true,"obj":"ENGAGEMENT","obj_label":"Engagement","aud":12000,"budget":20.0,"gid":"1109801364","gname":"Product","biz":23.4,"m":{"l7":{"spend":179.93051321571707,"impr":1626,"lp":6,"clicks":17,"dwell":4.9213333333,"reach":714},"l7p":{"spend":270.71,"impr":2762,"lp":10,"clicks":23,"dwell":5.2284958075,"reach":1073},"mtd":{"spend":776.9305132157169,"impr":7739,"lp":32,"clicks":70,"dwell":5.1548671438,"reach":2009},"mtdp":{"spend":611.56,"impr":6617,"lp":26,"clicks":57,"dwell":5.8360066941,"reach":2147},"l30":{"spend":1067.920513215717,"impr":10951,"lp":40,"clicks":96,"dwell":5.4727035471,"reach":2552},"l30p":{"spend":611.56,"impr":6630,"lp":26,"clicks":57,"dwell":5.8409711509,"reach":2150},"l60":{"spend":1679.480513215717,"impr":17581,"lp":66,"clicks":153,"dwell":5.6115523243,"reach":3461},"l60p":{"spend":1029.9992530694335,"impr":16125,"lp":56,"clicks":127,"dwell":4.9226429151,"reach":3557}}},{"id":"905421024","name":"[Img/Text] ICP Company Lists: Marketers | Influence Festival Promotion | After Event","short":"[Img/Text] ICP Company Lists: Marketers | Influence Festival Promotion | After Event","status":"ACTIVE","on":true,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":70000,"budget":35.0,"gid":"822956644","gname":"Festival","biz":37.43,"m":{"l7":{"spend":244.43000000000004,"impr":11320,"lp":40,"clicks":299,"dwell":8.1402633043,"reach":6597},"l7p":{"spend":245.08,"impr":11317,"lp":47,"clicks":289,"dwell":8.3467197201,"reach":6548},"mtd":{"spend":795.75,"impr":37657,"lp":140,"clicks":863,"dwell":8.1334066624,"reach":10339},"mtdp":{"spend":84.53000000000002,"impr":3565,"lp":12,"clicks":65,"dwell":8.509979841,"reach":3004},"l30":{"spend":1043.5,"impr":49711,"lp":170,"clicks":1077,"dwell":8.1047660659,"reach":11731},"l30p":{"spend":113.24000000000002,"impr":5621,"lp":18,"clicks":99,"dwell":8.8156201871,"reach":4073},"l60":{"spend":1156.7399999999998,"impr":55332,"lp":188,"clicks":1176,"dwell":8.1771194191,"reach":12283},"l60p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null}}},{"id":"887902734","name":"\ud83e\uddeaHigher bid Test | NA | Dream Accounts | [Under 5k employees] | Engagement | Images | 9.1.26","short":"\ud83e\uddeaHigher bid Test | NA | Dream Accounts | [Under 5k employees] | Images","status":"ACTIVE","on":true,"obj":"ENGAGEMENT","obj_label":"Engagement","aud":11000,"budget":20.0,"gid":"1109801364","gname":"Product","biz":40.0,"m":{"l7":{"spend":150.0,"impr":1776,"lp":11,"clicks":16,"dwell":4.8373966102,"reach":1034},"l7p":{"spend":224.99999999999997,"impr":2605,"lp":10,"clicks":19,"dwell":4.6930185257,"reach":1133},"mtd":{"spend":589.7,"impr":7175,"lp":30,"clicks":52,"dwell":4.8133660039,"reach":2225},"mtdp":{"spend":628.2500000951464,"impr":7347,"lp":30,"clicks":45,"dwell":5.3449310628,"reach":1806},"l30":{"spend":877.53,"impr":9486,"lp":41,"clicks":69,"dwell":4.9507353814,"reach":2516},"l30p":{"spend":815.0300000951464,"impr":9421,"lp":39,"clicks":58,"dwell":5.4005980152,"reach":2095},"l60":{"spend":1692.5600000951465,"impr":18907,"lp":80,"clicks":127,"dwell":5.1748416352,"reach":3102},"l60p":{"spend":646.810000025508,"impr":7635,"lp":30,"clicks":65,"dwell":5.4506755579,"reach":2540}}},{"id":"827501104","name":"Rest of World | ICP company list | Video Views Objective | Video | 06.2026","short":"Rest of World | ICP company list | Video","status":"ACTIVE","on":true,"obj":"VIDEO_VIEW","obj_label":"Video Views","aud":15000,"budget":10.0,"gid":"1109801364","gname":"Product","biz":11.009999999999998,"m":{"l7":{"spend":121.93999999999998,"impr":2330,"lp":0,"clicks":8,"dwell":7.2279710082,"reach":1073},"l7p":{"spend":308.69,"impr":5323,"lp":0,"clicks":15,"dwell":7.4806189215,"reach":2143},"mtd":{"spend":648.3199999999998,"impr":11163,"lp":0,"clicks":30,"dwell":7.123378859,"reach":3087},"mtdp":{"spend":558.9600013400561,"impr":7928,"lp":0,"clicks":23,"dwell":7.7880022915,"reach":2112},"l30":{"spend":783.32,"impr":13160,"lp":0,"clicks":38,"dwell":7.2558659368,"reach":3550},"l30p":{"spend":717.0900028566238,"impr":10559,"lp":0,"clicks":30,"dwell":7.6246438002,"reach":2614},"l60":{"spend":1500.4100028566238,"impr":23719,"lp":0,"clicks":68,"dwell":7.4197950921,"reach":4533},"l60p":{"spend":1130.5000008795603,"impr":21630,"lp":1,"clicks":53,"dwell":7.4424713373,"reach":5321}}},{"id":"829804184","name":"NA | Dream Accounts [Under 5k employees] | Video Views Objective | Video | 7.28","short":"NA | Dream Accounts [Under 5k employees] | Video","status":"ACTIVE","on":true,"obj":"VIDEO_VIEW","obj_label":"Video Views","aud":5700,"budget":20.0,"gid":"1109801364","gname":"Product","biz":21.260000000000005,"m":{"l7":{"spend":139.7,"impr":1560,"lp":0,"clicks":1,"dwell":5.865330552,"reach":718},"l7p":{"spend":139.71,"impr":1640,"lp":0,"clicks":0,"dwell":5.3562119731,"reach":836},"mtd":{"spend":440.91,"impr":4965,"lp":2,"clicks":5,"dwell":5.9072504541,"reach":1529},"mtdp":{"spend":503.9200041888663,"impr":4373,"lp":1,"clicks":8,"dwell":7.8599252874,"reach":1336},"l30":{"spend":607.27,"impr":6474,"lp":2,"clicks":7,"dwell":6.0788979402,"reach":1788},"l30p":{"spend":592.900005752194,"impr":5174,"lp":1,"clicks":9,"dwell":8.0585419907,"reach":1525},"l60":{"spend":1200.170005752194,"impr":11648,"lp":3,"clicks":16,"dwell":6.9566920093,"reach":2330},"l60p":{"spend":1276.5800015282969,"impr":12207,"lp":1,"clicks":25,"dwell":6.993253273,"reach":2900}}},{"id":"782201264","name":"NA | ICP Company List [Under 5k employees] | Video Views Objective | Video | 07.28","short":"NA | ICP Company List [Under 5k employees] | Video","status":"ACTIVE","on":true,"obj":"VIDEO_VIEW","obj_label":"Video Views","aud":7800,"budget":30.0,"gid":"1109801364","gname":"Product","biz":18.9,"m":{"l7":{"spend":145.64000000000001,"impr":2102,"lp":0,"clicks":2,"dwell":5.9022722938,"reach":902},"l7p":{"spend":172.32999999999998,"impr":2444,"lp":0,"clicks":3,"dwell":7.1112881148,"reach":990},"mtd":{"spend":498.0599999999999,"impr":7058,"lp":0,"clicks":11,"dwell":6.8551551577,"reach":1906},"mtdp":{"spend":403.660004737058,"impr":5218,"lp":2,"clicks":15,"dwell":7.5720704931,"reach":1628},"l30":{"spend":571.6899999999999,"impr":7954,"lp":0,"clicks":15,"dwell":7.2183964191,"reach":2063},"l30p":{"spend":595.8700049052082,"impr":7191,"lp":2,"clicks":17,"dwell":7.6996665268,"reach":1978},"l60":{"spend":1167.5600049052082,"impr":15145,"lp":2,"clicks":32,"dwell":7.446603262,"reach":2893},"l60p":{"spend":1884.1500009767708,"impr":19496,"lp":1,"clicks":37,"dwell":6.2287144185,"reach":4000}}},{"id":"784701274","name":"EU/APAC | ICP Company List [Under 5k employees] | Engagement | Images | 07.28","short":"EU/APAC | ICP Company List [Under 5k employees] | Images","status":"ACTIVE","on":true,"obj":"ENGAGEMENT","obj_label":"Engagement","aud":7000,"budget":55.0,"gid":"1109801364","gname":"Product","biz":33.75,"m":{"l7":{"spend":129.99,"impr":4664,"lp":13,"clicks":27,"dwell":4.8734251561,"reach":1354},"l7p":{"spend":124.84,"impr":5487,"lp":16,"clicks":27,"dwell":5.0708840527,"reach":1373},"mtd":{"spend":411.37,"impr":15189,"lp":44,"clicks":87,"dwell":4.8321206532,"reach":2261},"mtdp":{"spend":313.6800018440486,"impr":10463,"lp":38,"clicks":65,"dwell":5.610433375,"reach":1661},"l30":{"spend":566.38,"impr":19459,"lp":57,"clicks":121,"dwell":4.9876885068,"reach":2524},"l30p":{"spend":374.1900018440486,"impr":13360,"lp":45,"clicks":78,"dwell":5.6266302009,"reach":1855},"l60":{"spend":940.5700018440485,"impr":32819,"lp":102,"clicks":199,"dwell":5.2477140451,"reach":2916},"l60p":{"spend":273.4900000718541,"impr":8940,"lp":31,"clicks":63,"dwell":5.0896819255,"reach":2244}}},{"id":"785103404","name":"NA/EU/APAC | Influencer Marketing [Non-ICP List] | Awareness | Images | 07.28","short":"NA/EU/APAC | Influencer Marketing [Non-ICP List] | Images","status":"ACTIVE","on":true,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":8000,"budget":20.0,"gid":"1109801364","gname":"Product","biz":22.81,"m":{"l7":{"spend":139.64999999999998,"impr":2749,"lp":0,"clicks":36,"dwell":5.8260975073,"reach":1976},"l7p":{"spend":139.10999999999999,"impr":1602,"lp":0,"clicks":24,"dwell":5.8486190176,"reach":1344},"mtd":{"spend":422.37,"impr":6152,"lp":0,"clicks":77,"dwell":5.8997932165,"reach":2615},"mtdp":{"spend":402.86999999999995,"impr":4845,"lp":0,"clicks":53,"dwell":6.3811626456,"reach":2226},"l30":{"spend":532.26,"impr":7817,"lp":0,"clicks":99,"dwell":5.9732757775,"reach":2971},"l30p":{"spend":499.44000000000005,"impr":6237,"lp":0,"clicks":70,"dwell":6.36828075,"reach":2452},"l60":{"spend":1031.7,"impr":14054,"lp":0,"clicks":169,"dwell":6.1486414323,"reach":3431},"l60p":{"spend":1237.9000000000003,"impr":10606,"lp":0,"clicks":127,"dwell":5.8626495051,"reach":3384}}},{"id":"783901154","name":"Global | ICP company list [ZERO Paid Impr] | Engagement | Images | 07.28","short":"Global | ICP company list [ZERO Paid Impr] | Images","status":"ACTIVE","on":true,"obj":"ENGAGEMENT","obj_label":"Engagement","aud":5800,"budget":30.0,"gid":"1109801364","gname":"Product","biz":14.25,"m":{"l7":{"spend":117.75000000000001,"impr":536,"lp":0,"clicks":8,"dwell":5.5184056604,"reach":216},"l7p":{"spend":198.32,"impr":490,"lp":5,"clicks":10,"dwell":5.8493739669,"reach":199},"mtd":{"spend":488.57,"impr":1665,"lp":7,"clicks":25,"dwell":5.8247616737,"reach":464},"mtdp":{"spend":153.12,"impr":777,"lp":3,"clicks":7,"dwell":9.769534282,"reach":357},"l30":{"spend":513.5699999999999,"impr":2043,"lp":8,"clicks":26,"dwell":5.8619896399,"reach":550},"l30p":{"spend":153.12,"impr":905,"lp":3,"clicks":7,"dwell":10.1952588889,"reach":403},"l60":{"spend":666.69,"impr":2948,"lp":11,"clicks":33,"dwell":7.1943922105,"reach":868},"l60p":{"spend":685.5400006531852,"impr":3729,"lp":23,"clicks":64,"dwell":6.833592502,"reach":1389}}},{"id":"827904434","name":"EU/APAC | Dream Accounts | [Under 5k employees] | Video Views Objective | Video | 06.2026","short":"EU/APAC | Dream Accounts | [Under 5k employees] | Video","status":"ACTIVE","on":true,"obj":"VIDEO_VIEW","obj_label":"Video Views","aud":1900,"budget":12.0,"gid":"1109801364","gname":"Product","biz":9.22,"m":{"l7":{"spend":60.379999999999995,"impr":1518,"lp":0,"clicks":1,"dwell":5.2848753298,"reach":527},"l7p":{"spend":81.70999999999998,"impr":2170,"lp":0,"clicks":4,"dwell":5.6873045287,"reach":774},"mtd":{"spend":214.44,"impr":5527,"lp":1,"clicks":8,"dwell":5.2840498821,"reach":1336},"mtdp":{"spend":136.95000353118724,"impr":3188,"lp":1,"clicks":7,"dwell":5.6962420986,"reach":747},"l30":{"spend":249.60999999999999,"impr":6295,"lp":1,"clicks":9,"dwell":5.3944407266,"reach":1412},"l30p":{"spend":191.4600058326072,"impr":4561,"lp":1,"clicks":11,"dwell":5.9366637207,"reach":938},"l60":{"spend":441.0700058326072,"impr":10856,"lp":2,"clicks":20,"dwell":5.6216302537,"reach":1673},"l60p":{"spend":418.3100048837419,"impr":11359,"lp":2,"clicks":27,"dwell":5.142969855,"reach":2008}}},{"id":"830403464","name":"NA | Dream Accounts | [Under 5k employees] | Engagement | Images | 06.2026","short":"NA | Dream Accounts | [Under 5k employees] | Images","status":"ACTIVE","on":true,"obj":"ENGAGEMENT","obj_label":"Engagement","aud":11000,"budget":60.0,"gid":"1109801364","gname":"Product","biz":7.0,"m":{"l7":{"spend":85.67999999999999,"impr":1253,"lp":8,"clicks":13,"dwell":5.0213410915,"reach":602},"l7p":{"spend":48.800000000000004,"impr":1412,"lp":4,"clicks":8,"dwell":4.3001740057,"reach":734},"mtd":{"spend":211.13,"impr":4672,"lp":21,"clicks":32,"dwell":4.5292794244,"reach":1387},"mtdp":{"spend":183.7600008819012,"impr":6400,"lp":12,"clicks":27,"dwell":5.6841055686,"reach":1530},"l30":{"spend":239.13,"impr":5517,"lp":24,"clicks":36,"dwell":4.6618135686,"reach":1495},"l30p":{"spend":251.3200009650877,"impr":7117,"lp":17,"clicks":37,"dwell":5.7092754483,"reach":1660},"l60":{"spend":490.4500009650877,"impr":12634,"lp":41,"clicks":73,"dwell":5.2515260313,"reach":2179},"l60p":{"spend":773.7399999999999,"impr":16180,"lp":61,"clicks":119,"dwell":4.5399671937,"reach":2308}}},{"id":"828604584","name":"Global | Dream Accounts | [5K+] | Engagement | Images | 06.2026","short":"Global | Dream Accounts | [5K+] | Images","status":"ACTIVE","on":true,"obj":"ENGAGEMENT","obj_label":"Engagement","aud":1500,"budget":60.0,"gid":"1109801364","gname":"Product","biz":0.0,"m":{"l7":{"spend":75.27,"impr":1256,"lp":4,"clicks":7,"dwell":5.5045075939,"reach":252},"l7p":{"spend":44.0,"impr":678,"lp":2,"clicks":4,"dwell":4.4172411243,"reach":175},"mtd":{"spend":224.14000000000001,"impr":3172,"lp":13,"clicks":21,"dwell":5.0092806962,"reach":461},"mtdp":{"spend":160.42,"impr":2918,"lp":9,"clicks":15,"dwell":6.185143989,"reach":421},"l30":{"spend":235.14000000000001,"impr":3719,"lp":14,"clicks":22,"dwell":5.008814305,"reach":489},"l30p":{"spend":170.87,"impr":3410,"lp":9,"clicks":16,"dwell":6.1627191276,"reach":447},"l60":{"spend":406.01,"impr":7129,"lp":23,"clicks":38,"dwell":5.5604061708,"reach":646},"l60p":{"spend":928.1900001216762,"impr":12781,"lp":51,"clicks":100,"dwell":4.7827979989,"reach":1548}}},{"id":"784304724","name":"NA/EU/APAC | ICP company list [5K+] | Engagement | Images | 07.28","short":"NA/EU/APAC | ICP company list [5K+] | Images","status":"ACTIVE","on":true,"obj":"ENGAGEMENT","obj_label":"Engagement","aud":2000,"budget":30.0,"gid":"1109801364","gname":"Product","biz":0.0,"m":{"l7":{"spend":48.3,"impr":1810,"lp":2,"clicks":7,"dwell":4.6932567942,"reach":489},"l7p":{"spend":39.96,"impr":904,"lp":5,"clicks":6,"dwell":6.411575388,"reach":237},"mtd":{"spend":157.63,"impr":4266,"lp":13,"clicks":25,"dwell":5.0767188897,"reach":778},"mtdp":{"spend":168.68000016170285,"impr":3198,"lp":14,"clicks":21,"dwell":5.425801946,"reach":657},"l30":{"spend":171.28,"impr":4873,"lp":15,"clicks":27,"dwell":4.9615963756,"reach":787},"l30p":{"spend":267.07000016814317,"impr":3955,"lp":16,"clicks":28,"dwell":5.432525768,"reach":718},"l60":{"spend":438.3500001681432,"impr":8828,"lp":31,"clicks":55,"dwell":5.172510631,"reach":1034},"l60p":{"spend":1346.2099999999998,"impr":21041,"lp":67,"clicks":118,"dwell":5.0440064427,"reach":2531}}},{"id":"887742884","name":"No Paid Impressions [Last 365] | Global | Engagement | Images | 10.1.26","short":"No Paid Impressions [Last 365] | Global | Images","status":"ACTIVE","on":true,"obj":"ENGAGEMENT","obj_label":"Engagement","aud":1900,"budget":30.0,"gid":"1109801364","gname":"Product","biz":0.0,"m":{"l7":{"spend":33.0,"impr":375,"lp":1,"clicks":3,"dwell":6.4122741935,"reach":109},"l7p":{"spend":62.56,"impr":380,"lp":3,"clicks":6,"dwell":7.7377757256,"reach":113},"mtd":{"spend":95.56,"impr":1018,"lp":4,"clicks":9,"dwell":7.4979674556,"reach":185},"mtdp":{"spend":131.45,"impr":847,"lp":5,"clicks":12,"dwell":7.006402381,"reach":126},"l30":{"spend":117.56,"impr":1188,"lp":5,"clicks":11,"dwell":7.4825947547,"reach":202},"l30p":{"spend":131.45,"impr":850,"lp":5,"clicks":12,"dwell":6.9860699881,"reach":126},"l60":{"spend":249.01,"impr":2038,"lp":10,"clicks":23,"dwell":7.2758933333,"reach":231},"l60p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null}}},{"id":"899851774","name":"NA/EU/APAC | Big 4 | Engagement | Images | 09.18.26","short":"NA/EU/APAC | Big 4 | Images","status":"ACTIVE","on":true,"obj":"ENGAGEMENT","obj_label":"Engagement","aud":930,"budget":10.0,"gid":"1109801364","gname":"Product","biz":0.0,"m":{"l7":{"spend":0.0,"impr":24,"lp":0,"clicks":0,"dwell":8.009125,"reach":19},"l7p":{"spend":5.0,"impr":259,"lp":0,"clicks":1,"dwell":3.8664903475,"reach":100},"mtd":{"spend":55.25,"impr":2500,"lp":12,"clicks":17,"dwell":4.4916958618,"reach":1352},"mtdp":{"spend":24.0,"impr":943,"lp":1,"clicks":4,"dwell":5.1532255319,"reach":241},"l30":{"spend":55.25,"impr":2500,"lp":12,"clicks":17,"dwell":4.4916958618,"reach":1352},"l30p":{"spend":44.65,"impr":1229,"lp":4,"clicks":7,"dwell":5.1181789216,"reach":260},"l60":{"spend":99.9,"impr":3729,"lp":16,"clicks":24,"dwell":4.6982176138,"reach":1519},"l60p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null}}},{"id":"828904474","name":"EU/APAC | Dream Accounts | [Under 5k employees] | Engagement | Images | 07.28","short":"EU/APAC | Dream Accounts | [Under 5k employees] | Images","status":"ACTIVE","on":true,"obj":"ENGAGEMENT","obj_label":"Engagement","aud":5800,"budget":30.0,"gid":"1109801364","gname":"Product","biz":1.55,"m":{"l7":{"spend":18.52,"impr":1390,"lp":2,"clicks":12,"dwell":4.6690412446,"reach":454},"l7p":{"spend":16.770000000000003,"impr":822,"lp":3,"clicks":11,"dwell":4.2669704433,"reach":326},"mtd":{"spend":46.06,"impr":3154,"lp":9,"clicks":30,"dwell":4.4251461391,"reach":783},"mtdp":{"spend":25.049999999999997,"impr":2632,"lp":7,"clicks":17,"dwell":5.414635357,"reach":596},"l30":{"spend":51.45,"impr":3787,"lp":11,"clicks":34,"dwell":4.5289351753,"reach":868},"l30p":{"spend":33.6,"impr":3070,"lp":11,"clicks":23,"dwell":5.4087184943,"reach":649},"l60":{"spend":85.05000000000001,"impr":6857,"lp":22,"clicks":57,"dwell":4.9230894559,"reach":1142},"l60p":{"spend":28.960004355424196,"impr":1756,"lp":6,"clicks":20,"dwell":4.3993641585,"reach":571}}},{"id":"829804394","name":"NA/EU/APAC | Dream Accounts | [5K+] | Video Views Objective | Video | 07.28","short":"NA/EU/APAC | Dream Accounts | [5K+] | Video","status":"PAUSED","on":false,"obj":"VIDEO_VIEW","obj_label":"Video Views","aud":850,"budget":20.0,"gid":"1109801364","gname":"Product","biz":0.0,"m":{"l7":{"spend":53.730000000000004,"impr":457,"lp":0,"clicks":1,"dwell":7.5375964912,"reach":159},"l7p":{"spend":161.90999999999997,"impr":1343,"lp":1,"clicks":5,"dwell":5.7563580524,"reach":254},"mtd":{"spend":352.18,"impr":2811,"lp":1,"clicks":10,"dwell":6.1778627591,"reach":382},"mtdp":{"spend":509.13000006496515,"impr":3976,"lp":1,"clicks":14,"dwell":6.4933190898,"reach":403},"l30":{"spend":480.86,"impr":3739,"lp":1,"clicks":10,"dwell":6.2888606337,"reach":426},"l30p":{"spend":639.6300016281161,"impr":5042,"lp":1,"clicks":15,"dwell":6.2871571713,"reach":464},"l60":{"spend":1120.4900016281163,"impr":8781,"lp":2,"clicks":25,"dwell":6.2878826624,"reach":608},"l60p":{"spend":577.1100010169996,"impr":4893,"lp":3,"clicks":18,"dwell":6.20479416,"reach":1161}}},{"id":"784301204","name":"NA/EU/APAC | ICP Company List [5K+] | Video Views Objective | Video | 07.28","short":"NA/EU/APAC | ICP Company List [5K+] | Video","status":"PAUSED","on":false,"obj":"VIDEO_VIEW","obj_label":"Video Views","aud":900,"budget":20.0,"gid":"1109801364","gname":"Product","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":61.6,"impr":515,"lp":0,"clicks":1,"dwell":5.599705653,"reach":159},"mtd":{"spend":194.31000000000003,"impr":1443,"lp":0,"clicks":2,"dwell":6.8289380223,"reach":286},"mtdp":{"spend":339.06000074950316,"impr":2442,"lp":1,"clicks":6,"dwell":7.0159328942,"reach":489},"l30":{"spend":288.42,"impr":2116,"lp":0,"clicks":3,"dwell":6.7563363378,"reach":357},"l30p":{"spend":427.88004364131064,"impr":3059,"lp":1,"clicks":8,"dwell":6.9784863532,"reach":580},"l60":{"spend":716.3000436413108,"impr":5175,"lp":1,"clicks":11,"dwell":6.8875381628,"reach":710},"l60p":{"spend":657.7100013014484,"impr":5102,"lp":2,"clicks":11,"dwell":5.6751684729,"reach":1493}}},{"id":"887230724","name":"Global | Big 4 | Video Views Objective | Video | 08.30.26","short":"Global | Big 4 | Video","status":"PAUSED","on":false,"obj":"VIDEO_VIEW","obj_label":"Video Views","aud":11000,"budget":10.0,"gid":"1109801364","gname":"Product","biz":0.0,"m":{"l7":{"spend":33.28,"impr":853,"lp":1,"clicks":1,"dwell":4.7091792453,"reach":442},"l7p":{"spend":70.10000000000001,"impr":1792,"lp":0,"clicks":5,"dwell":4.7491700224,"reach":698},"mtd":{"spend":184.38000000000002,"impr":4677,"lp":1,"clicks":7,"dwell":4.8424010294,"reach":1161},"mtdp":{"spend":239.22000904032132,"impr":5658,"lp":1,"clicks":11,"dwell":4.7508578266,"reach":1602},"l30":{"spend":238.19,"impr":5820,"lp":1,"clicks":8,"dwell":4.7829958621,"reach":1300},"l30p":{"spend":372.3100098730872,"impr":8577,"lp":1,"clicks":16,"dwell":4.8522283207,"reach":1915},"l60":{"spend":610.5000098730873,"impr":14397,"lp":2,"clicks":24,"dwell":4.8242361101,"reach":2357},"l60p":{"spend":647.4000001260532,"impr":14532,"lp":5,"clicks":34,"dwell":5.3272973515,"reach":2526}}},{"id":"784400854","name":"EU/APAC | ICP Company List [Under 5k employees] | Video Views Objective | Video | 07.28","short":"EU/APAC | ICP Company List [Under 5k employees] | Video","status":"PAUSED","on":false,"obj":"VIDEO_VIEW","obj_label":"Video Views","aud":5200,"budget":13.0,"gid":"1109801364","gname":"Product","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":45.839999999999996,"impr":203,"lp":0,"clicks":0,"dwell":6.3539900498,"reach":145},"mtd":{"spend":140.34999999999997,"impr":1278,"lp":0,"clicks":4,"dwell":5.9674748428,"reach":734},"mtdp":{"spend":264.4300210100515,"impr":2172,"lp":0,"clicks":2,"dwell":6.8258149515,"reach":990},"l30":{"spend":218.04,"impr":1637,"lp":0,"clicks":5,"dwell":6.0064809816,"reach":852},"l30p":{"spend":326.320023771252,"impr":3044,"lp":0,"clicks":3,"dwell":6.8919907773,"reach":1171},"l60":{"spend":544.360023771252,"impr":4681,"lp":0,"clicks":8,"dwell":6.5826506644,"reach":1540},"l60p":{"spend":822.5700014982208,"impr":8185,"lp":2,"clicks":17,"dwell":6.0943441878,"reach":2231}}},{"id":"291489083","name":"Retargeting 14d","short":"Retargeting 14d","status":"PAUSED","on":false,"obj":"ENGAGEMENT","obj_label":"Engagement","aud":null,"budget":12.5,"gid":"628821614","gname":"Retargeting","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60p":{"spend":213.65999999999997,"impr":4189,"lp":17,"clicks":110,"dwell":6.5075698977,"reach":1693}}},{"id":"331423504","name":"Videos (retargeting 30d)","short":"Videos (retargeting 30d)","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":null,"budget":35.0,"gid":"628821614","gname":"Retargeting","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60p":{"spend":1354.640000587761,"impr":32094,"lp":5,"clicks":730,"dwell":7.2302224438,"reach":11503}}},{"id":"425009324","name":"Static image(s) | Generic company list | Global","short":"Static image(s) | Generic company list | Global","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":50000,"budget":25.0,"gid":"780496474","gname":"API","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":308.21000000000004,"impr":11777,"lp":21,"clicks":60,"dwell":4.8875830488,"reach":6960},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":454.03000000000003,"impr":17175,"lp":24,"clicks":85,"dwell":4.6993539326,"reach":8033},"l60":{"spend":454.0300000000001,"impr":17175,"lp":24,"clicks":85,"dwell":4.6993539326,"reach":8033},"l60p":{"spend":289.88000000000005,"impr":14316,"lp":29,"clicks":74,"dwell":4.8268568519,"reach":7499}}},{"id":"475244034","name":"[img/text] Narrow audience (IMMs only)","short":"[img/text] Narrow audience (IMMs only)","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":15000,"budget":50.0,"gid":"822956644","gname":"Festival","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60p":{"spend":1516.3800006326578,"impr":37055,"lp":294,"clicks":1502,"dwell":8.1326258786,"reach":6556}}},{"id":"570610554","name":"Static image(s) | Agency list | Global","short":"Static image(s) | Agency list | Global","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":22000,"budget":50.0,"gid":"780496474","gname":"API","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":619.9900000000002,"impr":16301,"lp":34,"clicks":66,"dwell":4.921633795,"reach":6468},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":913.2100000000004,"impr":23567,"lp":52,"clicks":102,"dwell":4.8507503622,"reach":7232},"l60":{"spend":913.2100000000004,"impr":23567,"lp":52,"clicks":102,"dwell":4.8507503622,"reach":7232},"l60p":{"spend":578.7200000000001,"impr":17742,"lp":36,"clicks":65,"dwell":5.1592986984,"reach":6713}}},{"id":"685810474","name":"[img/text] Broader audience: marketers in Shopify companies: Affiliate","short":"[img/text] Broader audience: marketers in Shopify companies: Affiliate","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":300000,"budget":50.0,"gid":"822956644","gname":"Festival","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60p":{"spend":1511.7,"impr":77491,"lp":0,"clicks":963,"dwell":2.9936624401,"reach":30696}}},{"id":"783400824","name":"Global | ICP company list [ZERO Paid Impr.] | Video Views Objective | Video | 07.28","short":"Global | ICP company list [ZERO Paid Impr.] | Video","status":"PAUSED","on":false,"obj":"VIDEO_VIEW","obj_label":"Video Views","aud":5000,"budget":35.0,"gid":"1109801364","gname":"Product","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60p":{"spend":91.41,"impr":718,"lp":0,"clicks":2,"dwell":7.9092008427,"reach":316}}},{"id":"784701264","name":"NA | ICP Company List [Under 5k employees] | Engagement | Images | 07.28","short":"NA | ICP Company List [Under 5k employees] | Images","status":"PAUSED","on":false,"obj":"ENGAGEMENT","obj_label":"Engagement","aud":12000,"budget":30.0,"gid":"1109801364","gname":"Product","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60p":{"spend":380.1300001080195,"impr":7709,"lp":27,"clicks":63,"dwell":4.4476359001,"reach":2143}}},{"id":"832021584","name":"Global | ICP Company List [ZERO Paid Impr.] | Awareness Objective | Video | 07.28","short":"Global | ICP Company List [ZERO Paid Impr.] | Video","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":5000,"budget":30.0,"gid":"1109801364","gname":"Product","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":208.5500004729303,"impr":59,"lp":0,"clicks":1,"dwell":7.7429655172,"reach":54},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":348.23000288327455,"impr":155,"lp":0,"clicks":6,"dwell":8.0827777778,"reach":115},"l60":{"spend":348.23000288327466,"impr":155,"lp":0,"clicks":6,"dwell":8.0827777778,"reach":115},"l60p":{"spend":2041.2996071591706,"impr":1362,"lp":0,"clicks":17,"dwell":8.3427736686,"reach":977}}},{"id":"838700034","name":"\ud83e\uddea Higher Bid Test | NA | Dream Accounts [Under 5k employees] | Video Views Objective | Video | 7.28","short":"\ud83e\uddea Higher Bid Test | NA | Dream Accounts [Under 5k employees] | Video","status":"PAUSED","on":false,"obj":"VIDEO_VIEW","obj_label":"Video Views","aud":5700,"budget":20.0,"gid":"1109801364","gname":"Product","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":48.130010306633864,"impr":325,"lp":0,"clicks":0,"dwell":6.3471753846,"reach":237},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":140.27002056530543,"impr":969,"lp":0,"clicks":1,"dwell":6.8234436401,"reach":538},"l60":{"spend":140.27002056530543,"impr":969,"lp":0,"clicks":1,"dwell":6.8234436401,"reach":538},"l60p":{"spend":1222.510001967204,"impr":8869,"lp":4,"clicks":18,"dwell":6.6895268647,"reach":2496}}},{"id":"899482484","name":"[Img/Text] ICP Company Lists: Marketers | Influence Festival Promotion | 9.15 - 10.20.26","short":"[Img/Text] ICP Company Lists: Marketers | Influence Festival Promotion | 9.15 - 10.20.26","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":70000,"budget":191.0,"gid":"822956644","gname":"Festival","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":5457.5671959252,"impr":75071,"lp":285,"clicks":963,"dwell":5.5178001263,"reach":18582},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":7225.737196047536,"impr":97365,"lp":394,"clicks":1336,"dwell":5.5446064214,"reach":20941},"l60":{"spend":7225.737196047536,"impr":97365,"lp":394,"clicks":1336,"dwell":5.5446064214,"reach":20941},"l60p":{"spend":1150.8900004794907,"impr":14618,"lp":56,"clicks":187,"dwell":5.4153573451,"reach":8395}}},{"id":"900192154","name":"[Video] ICP Company Lists: Marketers | Influence Festival Promotion | 9.22 - 10.21.26","short":"[Video] ICP Company Lists: Marketers | Influence Festival Promotion | 9.22 - 10.21.26","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":70000,"budget":150.0,"gid":"822956644","gname":"Festival","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":1126.22,"impr":15836,"lp":5,"clicks":97,"dwell":5.4087492078,"reach":9103},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":1126.22,"impr":15836,"lp":5,"clicks":97,"dwell":5.4087492078,"reach":9103},"l60":{"spend":1126.22,"impr":15836,"lp":5,"clicks":97,"dwell":5.4087492078,"reach":9103},"l60p":{"spend":173.93999999999997,"impr":3906,"lp":1,"clicks":25,"dwell":4.8858600463,"reach":3906}}},{"id":"900383574","name":"[Img/Text] Influencer Titles [Non-ICP] | Influence Festival Promotion | 9.15 - 10.20.26","short":"[Img/Text] Influencer Titles [Non-ICP] | Influence Festival Promotion | 9.15 - 10.20.26","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":18000,"budget":191.0,"gid":"822956644","gname":"Festival","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":4635.83596984289,"impr":26359,"lp":202,"clicks":844,"dwell":7.1586650292,"reach":6434},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":5526.275970026091,"impr":33042,"lp":252,"clicks":1051,"dwell":7.1686146486,"reach":6952},"l60":{"spend":5526.275970026091,"impr":33042,"lp":252,"clicks":1051,"dwell":7.1686146486,"reach":6952},"l60p":{"spend":169.30000000000172,"impr":2165,"lp":14,"clicks":46,"dwell":7.4194270346,"reach":1863}}}],"CHART":{"start":"2026-09-25","end":"2026-11-23","s":{"all":{"d":[["2026-09-25",172,0.002309,26.0203,4475.5],["2026-09-26",192,0.002528,24.4078,4686.29],["2026-09-27",207,0.002634,23.6519,4895.95],["2026-09-28",239,0.002933,22.3119,5332.54],["2026-09-29",251,0.003022,22.9151,5751.69],["2026-09-30",256,0.003219,22.509,5762.3],["2026-10-01",241,0.003082,24.1028,5808.77],["2026-10-02",222,0.00276,27.8808,6189.54],["2026-10-03",226,0.002723,28.1783,6368.3],["2026-10-04",229,0.002708,28.4867,6523.46],["2026-10-05",219,0.002505,30.6109,6703.79],["2026-10-06",241,0.002596,28.6494,6904.5],["2026-10-07",248,0.002622,28.5086,7070.14],["2026-10-08",264,0.00283,27.1852,7176.89],["2026-10-09",271,0.002993,25.5258,6917.48],["2026-10-10",263,0.002993,26.1129,6867.69],["2026-10-11",266,0.003065,25.6976,6835.55],["2026-10-12",268,0.003192,25.0449,6712.02],["2026-10-13",242,0.003074,27.168,6574.66],["2026-10-14",216,0.00299,28.5996,6177.51],["2026-10-15",197,0.002867,29.6534,5841.71],["2026-10-16",186,0.002877,29.6433,5513.66],["2026-10-17",196,0.003114,27.1091,5313.39],["2026-10-18",201,0.003306,25.5679,5139.14],["2026-10-19",218,0.003673,23.0545,5025.88],["2026-10-20",239,0.004102,20.4667,4891.53],["2026-10-21",225,0.004117,20.2358,4553.05],["2026-10-22",206,0.004059,20.2486,4171.21],["2026-10-23",196,0.003973,19.7948,3879.77],["2026-10-24",172,0.003584,20.9109,3596.68],["2026-10-25",143,0.003094,23.1493,3310.34],["2026-10-26",106,0.002423,27.5034,2915.36],["2026-10-27",74,0.001831,34.3397,2541.14],["2026-10-28",84,0.001999,31.6279,2656.74],["2026-10-29",91,0.002117,30.3073,2757.96],["2026-10-30",80,0.002041,31.2232,2497.86],["2026-10-31",81,0.002117,30.5879,2477.62],["2026-11-01",81,0.00215,30.5469,2474.3],["2026-11-02",71,0.002366,27.3399,1941.13],["2026-11-03",65,0.002692,21.4486,1394.16],["2026-11-04",55,0.002859,15.5667,856.17],["2026-11-05",67,0.002799,14.4545,968.45],["2026-11-06",87,0.002755,17.1777,1494.46],["2026-11-07",101,0.002618,20.0143,2021.44],["2026-11-08",116,0.002608,20.99,2434.84],["2026-11-09",128,0.002536,22.6778,2902.76],["2026-11-10",136,0.00239,24.916,3388.58],["2026-11-11",146,0.002334,26.6643,3892.99],["2026-11-12",135,0.002297,28.1076,3794.53],["2026-11-13",119,0.0022,28.6041,3403.89],["2026-11-14",116,0.0023,26.7234,3099.91],["2026-11-15",113,0.002334,25.8812,2924.58],["2026-11-16",106,0.002266,25.8364,2738.66],["2026-11-17",106,0.002356,23.9606,2539.82],["2026-11-18",105,0.002406,22.1437,2325.09],["2026-11-19",104,0.002491,20.5406,2136.22],["2026-11-20",104,0.002522,19.858,2065.23],["2026-11-21",98,0.00236,20.8805,2046.29],["2026-11-22",91,0.002245,21.8506,1988.4],["2026-11-23",94,0.002357,20.5209,1928.96]],"m":[],"ms":[["2026-09-28",[{"t":"new_adset","short":"NA/EU/APAC | Big 4 | Images","name":"NA/EU/APAC | Big 4 | Engagement | Images | 09.18.26"}]],["2026-10-03",[{"t":"adset_paused","short":"\ud83e\uddea Higher Bid Test | NA | Dream Accounts [Under 5k employees] | Video","name":"\ud83e\uddea Higher Bid Test | NA | Dream Accounts [Under 5k employees] | Video Views Objective | Video | 7.28"}]],["2026-10-05",[{"t":"new_adset","short":"No Paid Impressions [Last 365] | Global | Images","name":"No Paid Impressions [Last 365] | Global | Engagement | Images | 10.1.26"}]],["2026-10-06",[{"t":"adset_paused","short":"Global | ICP Company List [ZERO Paid Impr.] | Video","name":"Global | ICP Company List [ZERO Paid Impr.] | Awareness Objective | Video | 07.28"}]],["2026-10-07",[{"t":"adset_paused","short":"[Video] ICP Company Lists: Marketers | Influence Festival Promotion | 9.22 - 10.21.26","name":"[Video] ICP Company Lists: Marketers | Influence Festival Promotion | 9.22 - 10.21.26"}]],["2026-10-13",[{"t":"adset_paused","short":"Static image(s) | Generic company list | Global","name":"Static image(s) | Generic company list | Global"},{"t":"adset_paused","short":"Static image(s) | Agency list | Global","name":"Static image(s) | Agency list | Global"},{"t":"campaign_paused","short":"API","name":"API"}]],["2026-10-19",[{"t":"new_adset","short":"\ud83e\uddea NA | ICP Company List [Under 5k employees] | Images","name":"\ud83e\uddea NA | ICP Company List [Under 5k employees] | Awareness Obj. | Images | 10.5.26"}]],["2026-10-20",[{"t":"adset_paused","short":"[Img/Text] ICP Company Lists: Marketers | Influence Festival Promotion | 9.15 - 10.20.26","name":"[Img/Text] ICP Company Lists: Marketers | Influence Festival Promotion | 9.15 - 10.20.26"},{"t":"adset_paused","short":"[Img/Text] Influencer Titles [Non-ICP] | Influence Festival Promotion | 9.15 - 10.20.26","name":"[Img/Text] Influencer Titles [Non-ICP] | Influence Festival Promotion | 9.15 - 10.20.26"}]],["2026-10-22",[{"t":"new_adset","short":"[Img/Text] ICP Company Lists: Marketers | Influence Festival Promotion | After Event","name":"[Img/Text] ICP Company Lists: Marketers | Influence Festival Promotion | After Event"}]],["2026-11-12",[{"t":"adset_paused","short":"NA/EU/APAC | ICP Company List [5K+] | Video","name":"NA/EU/APAC | ICP Company List [5K+] | Video Views Objective | Video | 07.28"},{"t":"adset_paused","short":"EU/APAC | ICP Company List [Under 5k employees] | Video","name":"EU/APAC | ICP Company List [Under 5k employees] | Video Views Objective | Video | 07.28"}]],["2026-11-19",[{"t":"adset_paused","short":"NA/EU/APAC | Dream Accounts | [5K+] | Video","name":"NA/EU/APAC | Dream Accounts | [5K+] | Video Views Objective | Video | 07.28"},{"t":"adset_paused","short":"Global | Big 4 | Video","name":"Global | Big 4 | Video Views Objective | Video | 08.30.26"}]]]},"g:1109801364":{"d":[["2026-09-25",22,0.000802,88.9423,1956.73],["2026-09-26",22,0.000804,88.6164,1949.56],["2026-09-27",22,0.000804,88.6164,1949.56],["2026-09-28",30,0.001119,66.931,2007.93],["2026-09-29",32,0.00122,64.1994,2054.38],["2026-09-30",36,0.001344,57.0533,2053.92],["2026-10-01",33,0.001204,63.8179,2105.99],["2026-10-02",38,0.001381,59.7647,2271.06],["2026-10-03",38,0.001378,59.8647,2274.86],["2026-10-04",38,0.001378,59.8647,2274.86],["2026-10-05",37,0.001336,59.9708,2218.92],["2026-10-06",48,0.001716,45.4229,2180.3],["2026-10-07",51,0.001946,40.5141,2066.22],["2026-10-08",62,0.002513,32.2787,2001.28],["2026-10-09",61,0.002534,29.199,1781.14],["2026-10-10",62,0.002572,28.8108,1786.27],["2026-10-11",62,0.002572,28.8108,1786.27],["2026-10-12",57,0.002478,29.7147,1693.74],["2026-10-13",50,0.002186,32.5144,1625.72],["2026-10-14",46,0.002004,35.2878,1623.24],["2026-10-15",39,0.001678,40.1449,1565.65],["2026-10-16",38,0.001679,39.8124,1512.87],["2026-10-17",37,0.001647,40.3959,1494.65],["2026-10-18",37,0.001647,40.3959,1494.65],["2026-10-19",42,0.00169,39.5071,1659.3],["2026-10-20",45,0.00171,39.9098,1795.94],["2026-10-21",45,0.001669,43.6316,1963.42],["2026-10-22",44,0.001593,46.3225,2038.19],["2026-10-23",45,0.001553,48.1476,2166.64],["2026-10-24",45,0.001545,48.3738,2176.82],["2026-10-25",45,0.001545,48.3738,2176.82],["2026-10-26",45,0.001543,49.5651,2230.43],["2026-10-27",45,0.001556,51.6316,2323.42],["2026-10-28",53,0.001831,45.2664,2399.12],["2026-10-29",58,0.001963,43.1445,2502.38],["2026-10-30",51,0.001926,44.0547,2246.79],["2026-10-31",51,0.001946,43.7229,2229.87],["2026-11-01",51,0.001946,43.7229,2229.87],["2026-11-02",38,0.002025,44.6363,1696.18],["2026-11-03",27,0.002168,42.6107,1150.49],["2026-11-04",12,0.001699,51.0142,612.17],["2026-11-05",23,0.002016,31.4591,723.56],["2026-11-06",41,0.002135,30.4666,1249.13],["2026-11-07",61,0.002311,29.1202,1776.33],["2026-11-08",76,0.00234,28.8137,2189.84],["2026-11-09",87,0.002238,30.5499,2657.84],["2026-11-10",93,0.002038,33.7945,3142.89],["2026-11-11",104,0.002018,35.0654,3646.8],["2026-11-12",95,0.001985,37.3596,3549.16],["2026-11-13",79,0.001832,39.9853,3158.84],["2026-11-14",70,0.001778,40.7797,2854.58],["2026-11-15",64,0.001716,41.8684,2679.58],["2026-11-16",59,0.001664,42.2641,2493.58],["2026-11-17",60,0.001784,38.2415,2294.49],["2026-11-18",59,0.001831,35.2532,2079.94],["2026-11-19",53,0.00175,35.6802,1891.05],["2026-11-20",55,0.001844,33.0962,1820.29],["2026-11-21",54,0.001788,33.3574,1801.3],["2026-11-22",50,0.001713,34.8702,1743.51],["2026-11-23",54,0.001891,31.195,1684.53]],"m":[],"ms":[["2026-09-28",[{"t":"new_adset","short":"NA/EU/APAC | Big 4 | Images","name":"NA/EU/APAC | Big 4 | Engagement | Images | 09.18.26"}]],["2026-10-03",[{"t":"adset_paused","short":"\ud83e\uddea Higher Bid Test | NA | Dream Accounts [Under 5k employees] | Video","name":"\ud83e\uddea Higher Bid Test | NA | Dream Accounts [Under 5k employees] | Video Views Objective | Video | 7.28"}]],["2026-10-05",[{"t":"new_adset","short":"No Paid Impressions [Last 365] | Global | Images","name":"No Paid Impressions [Last 365] | Global | Engagement | Images | 10.1.26"}]],["2026-10-06",[{"t":"adset_paused","short":"Global | ICP Company List [ZERO Paid Impr.] | Video","name":"Global | ICP Company List [ZERO Paid Impr.] | Awareness Objective | Video | 07.28"}]],["2026-10-19",[{"t":"new_adset","short":"\ud83e\uddea NA | ICP Company List [Under 5k employees] | Images","name":"\ud83e\uddea NA | ICP Company List [Under 5k employees] | Awareness Obj. | Images | 10.5.26"}]],["2026-11-12",[{"t":"adset_paused","short":"NA/EU/APAC | ICP Company List [5K+] | Video","name":"NA/EU/APAC | ICP Company List [5K+] | Video Views Objective | Video | 07.28"},{"t":"adset_paused","short":"EU/APAC | ICP Company List [Under 5k employees] | Video","name":"EU/APAC | ICP Company List [Under 5k employees] | Video Views Objective | Video | 07.28"}]],["2026-11-19",[{"t":"adset_paused","short":"NA/EU/APAC | Dream Accounts | [5K+] | Video","name":"NA/EU/APAC | Dream Accounts | [5K+] | Video Views Objective | Video | 07.28"},{"t":"adset_paused","short":"Global | Big 4 | Video","name":"Global | Big 4 | Video Views Objective | Video | 08.30.26"}]]]},"g:822956644":{"d":[["2026-09-25",107,0.004355,16.3424,1748.64],["2026-09-26",125,0.004441,16.3028,2037.85],["2026-09-27",142,0.004434,16.3328,2319.26],["2026-09-28",168,0.004535,16.3529,2747.29],["2026-09-29",190,0.004644,16.6906,3171.21],["2026-09-30",194,0.00522,16.4015,3181.89],["2026-10-01",182,0.005153,17.4594,3177.61],["2026-10-02",161,0.004301,21.0861,3394.87],["2026-10-03",164,0.004117,21.7674,3569.85],["2026-10-04",168,0.004082,22.1643,3723.61],["2026-10-05",159,0.003636,24.8923,3957.88],["2026-10-06",167,0.003426,25.1257,4196.0],["2026-10-07",167,0.003201,26.819,4478.77],["2026-10-08",173,0.003302,26.8825,4650.67],["2026-10-09",177,0.003535,26.0395,4608.99],["2026-10-10",170,0.003592,26.7927,4554.76],["2026-10-11",171,0.003693,26.4578,4524.28],["2026-10-12",175,0.003928,25.6639,4491.18],["2026-10-13",159,0.003868,28.0521,4460.29],["2026-10-14",145,0.003875,28.6291,4151.22],["2026-10-15",137,0.003764,28.8973,3958.93],["2026-10-16",131,0.003692,28.7349,3764.27],["2026-10-17",145,0.004094,25.0697,3635.11],["2026-10-18",153,0.004416,22.9397,3509.78],["2026-10-19",174,0.005231,19.0528,3315.18],["2026-10-20",194,0.006073,15.9567,3095.59],["2026-10-21",180,0.006503,14.3869,2589.63],["2026-10-22",162,0.007004,13.1668,2133.02],["2026-10-23",151,0.007419,11.3453,1713.13],["2026-10-24",127,0.006728,11.18,1419.86],["2026-10-25",98,0.005732,11.5666,1133.52],["2026-10-26",61,0.004182,11.2284,684.93],["2026-10-27",29,0.00252,7.5076,217.72],["2026-10-28",31,0.002372,8.3103,257.62],["2026-10-29",33,0.002454,7.7448,255.58],["2026-10-30",29,0.00228,8.6576,251.07],["2026-10-31",30,0.002489,8.2583,247.75],["2026-11-01",30,0.002615,8.1477,244.43],["2026-11-02",33,0.002935,7.4227,244.95],["2026-11-03",38,0.00325,6.4124,243.67],["2026-11-04",43,0.003532,5.6744,244.0],["2026-11-05",44,0.003512,5.5657,244.89],["2026-11-06",46,0.003717,5.3333,245.33],["2026-11-07",40,0.003282,6.1278,245.11],["2026-11-08",40,0.00333,6.125,245.0],["2026-11-09",41,0.003536,5.9737,244.92],["2026-11-10",43,0.003809,5.7137,245.69],["2026-11-11",42,0.003816,5.8617,246.19],["2026-11-12",40,0.003657,6.1343,245.37],["2026-11-13",40,0.003644,6.1263,245.05],["2026-11-14",46,0.004157,5.3333,245.33],["2026-11-15",49,0.00441,5.0,245.0],["2026-11-16",47,0.004153,5.2145,245.08],["2026-11-17",46,0.004051,5.3333,245.33],["2026-11-18",46,0.004025,5.3293,245.15],["2026-11-19",51,0.004446,4.8073,245.17],["2026-11-20",49,0.004293,4.9988,244.94],["2026-11-21",44,0.003886,5.568,244.99],["2026-11-22",41,0.003617,5.9729,244.89],["2026-11-23",40,0.003534,6.1108,244.43]],"m":[],"ms":[["2026-10-07",[{"t":"adset_paused","short":"[Video] ICP Company Lists: Marketers | Influence Festival Promotion | 9.22 - 10.21.26","name":"[Video] ICP Company Lists: Marketers | Influence Festival Promotion | 9.22 - 10.21.26"}]],["2026-10-20",[{"t":"adset_paused","short":"[Img/Text] ICP Company Lists: Marketers | Influence Festival Promotion | 9.15 - 10.20.26","name":"[Img/Text] ICP Company Lists: Marketers | Influence Festival Promotion | 9.15 - 10.20.26"},{"t":"adset_paused","short":"[Img/Text] Influencer Titles [Non-ICP] | Influence Festival Promotion | 9.15 - 10.20.26","name":"[Img/Text] Influencer Titles [Non-ICP] | Influence Festival Promotion | 9.15 - 10.20.26"}]],["2026-10-22",[{"t":"new_adset","short":"[Img/Text] ICP Company Lists: Marketers | Influence Festival Promotion | After Event","name":"[Img/Text] ICP Company Lists: Marketers | Influence Festival Promotion | After Event"}]]]},"g:780496474":{"d":[["2026-09-25",37,0.002279,14.2027,525.5],["2026-09-26",40,0.002462,13.1375,525.5],["2026-09-27",39,0.002389,13.4615,525.0],["2026-09-28",40,0.002457,13.162,526.48],["2026-09-29",29,0.001823,18.1414,526.1],["2026-09-30",26,0.001668,20.2496,526.49],["2026-10-01",26,0.00168,20.1988,525.17],["2026-10-02",23,0.001485,22.7657,523.61],["2026-10-03",24,0.00154,21.8163,523.59],["2026-10-04",23,0.001454,22.8257,524.99],["2026-10-05",23,0.001436,22.9126,526.99],["2026-10-06",26,0.001615,20.3154,528.2],["2026-10-07",30,0.00185,17.505,525.15],["2026-10-08",29,0.00179,18.1014,524.94],["2026-10-09",33,0.002012,15.9803,527.35],["2026-10-10",31,0.001888,16.989,526.66],["2026-10-11",33,0.002017,15.9091,525.0],["2026-10-12",36,0.002194,14.6417,527.1],["2026-10-13",33,0.002239,14.8076,488.65],["2026-10-14",25,0.002108,16.122,403.05],["2026-10-15",21,0.002317,15.1014,317.13],["2026-10-16",17,0.002597,13.9129,236.52],["2026-10-17",14,0.002772,13.1164,183.63],["2026-10-18",11,0.002986,12.2464,134.71],["2026-10-19",2,0.001625,25.7,51.4],["2026-10-20",0,null,null,0.0],["2026-10-21",0,null,null,0.0],["2026-10-22",0,null,null,0.0],["2026-10-23",0,null,null,0.0],["2026-10-24",0,null,null,0.0],["2026-10-25",0,null,null,0.0],["2026-10-26",0,null,null,0.0],["2026-10-27",0,null,null,0.0],["2026-10-28",0,null,null,0.0],["2026-10-29",0,null,null,0.0],["2026-10-30",0,null,null,0.0],["2026-10-31",0,null,null,0.0],["2026-11-01",0,null,null,0.0],["2026-11-02",0,null,null,0.0],["2026-11-03",0,null,null,0.0],["2026-11-04",0,null,null,0.0],["2026-11-05",0,null,null,0.0],["2026-11-06",0,null,null,0.0],["2026-11-07",0,null,null,0.0],["2026-11-08",0,null,null,0.0],["2026-11-09",0,null,null,0.0],["2026-11-10",0,null,null,0.0],["2026-11-11",0,null,null,0.0],["2026-11-12",0,null,null,0.0],["2026-11-13",0,null,null,0.0],["2026-11-14",0,null,null,0.0],["2026-11-15",0,null,null,0.0],["2026-11-16",0,null,null,0.0],["2026-11-17",0,null,null,0.0],["2026-11-18",0,null,null,0.0],["2026-11-19",0,null,null,0.0],["2026-11-20",0,null,null,0.0],["2026-11-21",0,null,null,0.0],["2026-11-22",0,null,null,0.0],["2026-11-23",0,null,null,0.0]],"m":[],"ms":[["2026-10-13",[{"t":"adset_paused","short":"Static image(s) | Generic company list | Global","name":"Static image(s) | Generic company list | Global"},{"t":"adset_paused","short":"Static image(s) | Agency list | Global","name":"Static image(s) | Agency list | Global"},{"t":"campaign_paused","short":"API","name":"API"}]]]},"g:628821614":{"d":[["2026-09-25",6,0.00096,40.7717,244.63],["2026-09-26",5,0.001187,34.676,173.38],["2026-09-27",4,0.001385,25.5325,102.13],["2026-09-28",1,0.000739,50.84,50.84],["2026-09-29",0,null,null,0.0],["2026-09-30",0,null,null,0.0],["2026-10-01",0,null,null,0.0],["2026-10-02",0,null,null,0.0],["2026-10-03",0,null,null,0.0],["2026-10-04",0,null,null,0.0],["2026-10-05",0,null,null,0.0],["2026-10-06",0,null,null,0.0],["2026-10-07",0,null,null,0.0],["2026-10-08",0,null,null,0.0],["2026-10-09",0,null,null,0.0],["2026-10-10",0,null,null,0.0],["2026-10-11",0,null,null,0.0],["2026-10-12",0,null,null,0.0],["2026-10-13",0,null,null,0.0],["2026-10-14",0,null,null,0.0],["2026-10-15",0,null,null,0.0],["2026-10-16",0,null,null,0.0],["2026-10-17",0,null,null,0.0],["2026-10-18",0,null,null,0.0],["2026-10-19",0,null,null,0.0],["2026-10-20",0,null,null,0.0],["2026-10-21",0,null,null,0.0],["2026-10-22",0,null,null,0.0],["2026-10-23",0,null,null,0.0],["2026-10-24",0,null,null,0.0],["2026-10-25",0,null,null,0.0],["2026-10-26",0,null,null,0.0],["2026-10-27",0,null,null,0.0],["2026-10-28",0,null,null,0.0],["2026-10-29",0,null,null,0.0],["2026-10-30",0,null,null,0.0],["2026-10-31",0,null,null,0.0],["2026-11-01",0,null,null,0.0],["2026-11-02",0,null,null,0.0],["2026-11-03",0,null,null,0.0],["2026-11-04",0,null,null,0.0],["2026-11-05",0,null,null,0.0],["2026-11-06",0,null,null,0.0],["2026-11-07",0,null,null,0.0],["2026-11-08",0,null,null,0.0],["2026-11-09",0,null,null,0.0],["2026-11-10",0,null,null,0.0],["2026-11-11",0,null,null,0.0],["2026-11-12",0,null,null,0.0],["2026-11-13",0,null,null,0.0],["2026-11-14",0,null,null,0.0],["2026-11-15",0,null,null,0.0],["2026-11-16",0,null,null,0.0],["2026-11-17",0,null,null,0.0],["2026-11-18",0,null,null,0.0],["2026-11-19",0,null,null,0.0],["2026-11-20",0,null,null,0.0],["2026-11-21",0,null,null,0.0],["2026-11-22",0,null,null,0.0],["2026-11-23",0,null,null,0.0]],"m":[],"ms":[]}}}};
+
+const ORDER=['l7','mtd','l30','l60'];const MET_KEYS=['lp','ctr','cpl','spend'];let P='l30',G='All',DSEL=['lp'],LISTMODE='all';
+try{const s=JSON.parse(sessionStorage.getItem('mdli1')||'{}');if(ORDER.includes(s.P))P=s.P;if(s.G&&D.groups.some(g=>g.id===s.G))G=s.G;if(Array.isArray(s.DSEL)&&s.DSEL.length){const keep=s.DSEL.filter(k=>MET_KEYS.includes(k));if(keep.length)DSEL=keep}}catch(e){}
+const $=s=>document.getElementById(s);
+function navSummary(){const p=(D.periods[P]&&D.periods[P].label)||P;return 'Filters: '+[p,scopeLabel()].join(' · ')}
+function syncNav(){const btn=$('navToggle');if(!btn)return;btn.textContent=navSummary()}
+function togNav(){const nav=$('nav');if(!nav)return;const on=nav.classList.toggle('open');const btn=$('navToggle');if(btn)btn.setAttribute('aria-expanded',on?'true':'false')}
+
+const usd=v=>v==null?'-':('€'+Math.round(v).toLocaleString('en-US'));
+const num=v=>v==null?'-':Math.round(v).toLocaleString('en-US');
+const fmtD=s=>new Date(s+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+const sd=s=>new Date(s+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'});
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const TAGC={'Beauty':['#FFBAFB','#141414'],'Food & Bev':['#FFCFA3','#141414'],'Supplements':['#CDF8FF','#141414'],'CPG':['#E8E6E1','#141414'],'Fashion':['#ECE5FF','#141414'],'Lifestyle':['#E3FF43','#141414'],'B2B':['#E0559F','#FFFFFF'],'Retargeting':['#141414','#FFFFFF']};
+const SUBT={'Beauty':'Beauty','Food & Bev':'Food & Bev','Supplements / Hygiene / Baby / Pet':'Supplements','Apparel / Jewelry & Accessories':'Fashion','Electronics / Fitness / Sporting / Outdoor / Home':'Lifestyle','SaaS / Mid-market B2B':'B2B','All industries':'Retargeting'};
+const dotH=v=>TAGC[v]?`<span class="dot" style="background:${TAGC[v][0]}"></span>`:'';
+const INDS=['All','CPG','Fashion','Lifestyle','B2B','Retargeting'];
+const SUBS={CPG:[['Beauty','Beauty'],['Food & Bev','Food & Bev'],['Supplements / Hygiene / Baby / Pet','Supplements / Hygiene / Baby / Pet']]};
+function gName(id){const g=D.groups.find(x=>x.id===id);return g?g.name:id}
+function scopeKey(){return G=='All'?'all':'g:'+G}
+function scopeLabel(){return G=='All'?'All campaigns':gName(G)}
+function save(){try{sessionStorage.setItem('mdli1',JSON.stringify({P,G,DSEL}))}catch(e){}}
+function setListMode(m){LISTMODE=m;save();render()}
+function setD(k){if(k==='all'){DSEL=MET_KEYS.slice()}else if(k==='reach'){DSEL=['reach']}else if(DSEL.includes(k)){if(DSEL.length>1)DSEL=DSEL.filter(x=>x!==k)}else{DSEL=DSEL.filter(x=>x!=='reach').concat([k])}save();render()}
+function setP(k){P=k;save();render()}
+function setG(k){G=k;save();render()}
+function campView(){return G==='All'}
+function scoped(){
+  return D.sets.filter(s=>{
+    if(G!='All' && s.gid!==G) return false;
+    const m=s.m[P]||{};
+    const delivered=(m.spend||0)>0||(m.impr||0)>0;
+    return s.on || delivered;
+  });
+}
+function pk(p){return p+'p'}
+function met(s,p){return (s.m&&s.m[p])||{spend:0,impr:0,lp:0,clicks:0,dwell:null,reach:null}}
+function cplOf(m){return (m.lp>0 && m.spend>0)?m.spend/m.lp:null}
+function cpmOf(m){return (m.impr>0 && m.spend>0)?m.spend/m.impr*1000:null}
+function cprOf(m){return (m.reach>0 && m.spend>0)?m.spend/m.reach:null}
+function lpctrOf(m){return (m.impr>0)?m.lp/m.impr:null}
+function penOf(s,m){return (s.aud>0 && m.reach!=null)?(m.reach/s.aud)*100:null}
+function tot(rows,p){
+  p=p||P;
+  let spend=0,impr=0,lp=0,clicks=0,dN=0,dD=0,biz=0,budget=0;
+  rows.forEach(s=>{
+    const m=met(s,p);
+    spend+=m.spend||0; impr+=m.impr||0; lp+=m.lp||0; clicks+=m.clicks||0;
+    if(m.dwell!=null && (m.impr||0)>0){dN+=m.dwell*m.impr; dD+=m.impr}
+    if(s.biz!=null) biz+=s.biz;
+    if(s.budget!=null) budget+=s.budget;
+  });
+  return {spend,impr,lp,clicks,dwell:dD>0?dN/dD:null,reach:null,biz,budget,aud:null};
+}
+function companies(p){const c=D.companies[p]||{};const k=scopeKey();return (c[k]!=null)?c[k]:null}
+
+function accountLists(){
+  return listRows().filter(r=>r && r.type==='COMPANY_LIST_UPLOAD' && r.list_companies && r.export_reached!=null);
+}
+function reachEmptyMessage(){return 'Not available for Modash'}
+function exportReachSeries(rows){
+  rows=rows||accountLists();
+  const dates=[];
+  const add=end=>{if(end&&dates.indexOf(end)<0)dates.push(end)};
+  rows.forEach(r=>{
+    (r.trend||[]).forEach(p=>add(p&&p.end));
+    (r.pct_points||[]).forEach(p=>{if(p&&(p.source==='export'||p.source==='baseline'))add(p.end)});
+  });
+  dates.sort();
+  return dates.map(end=>{
+    let rch=0,n=0,src=null;
+    rows.forEach(row=>{
+      let p=(row.trend||[]).find(x=>x.end===end);
+      if(!p){
+        p=(row.pct_points||[]).find(x=>x.end===end && (x.source==='export'||x.source==='baseline'));
+      }
+      if(p && (p.source==='api'||p.real===false)) return;
+      if(p&&p.reached!=null&&p.list_companies){
+        rch+=p.reached;n+=p.list_companies;
+        src=p.source||src;
+      }
+    });
+    return n?{end,pct:Math.round(100*rch/n),reached:rch,list_companies:n,source:src||'export',real:true}:null;
+  }).filter(Boolean);
+}
+function reachSeries(rows){
+  rows=rows||accountLists();
+  const order=[];
+  const add=id=>{if(id&&order.indexOf(id)<0)order.push(id)};
+  rows.forEach(r=>{(r.fibbler_windows||[]).forEach(p=>add(p&&p.id))});
+  if(!order.length){
+    const all=((D.LISTS&&D.LISTS.combined_sum)||{}).fibbler_windows||[];
+    all.forEach(p=>add(p&&p.id));
+  }
+  return order.map(id=>{
+    let rch=0,n=0,meta=null;
+    rows.forEach(row=>{
+      const p=(row.fibbler_windows||[]).find(x=>x.id===id);
+      if(p&&p.reached!=null&&p.list_companies){
+        rch+=p.reached;n+=p.list_companies;
+        meta=meta||p;
+      }
+    });
+    return n?{
+      id,
+      end:meta.end,
+      label:meta.label,
+      short:meta.short,
+      axis:meta.axis||meta.short||meta.label,
+      partial:!!meta.partial,
+      pct:Math.round(100*rch/n),
+      reached:rch,
+      list_companies:n,
+      source:'fibbler'
+    }:null;
+  }).filter(Boolean);
+}
+function reachNow(rows){
+  const series=exportReachSeries(rows);
+  const latest=series.length?series[series.length-1]:null;
+  const prior=series.length>=2?series[series.length-2]:null;
+  return {latest,prior,series};
+}
+function reachKpiCard(){
+  const msg=reachEmptyMessage();
+  if(msg){
+    return `<div class="kpi"><div class="l">Account reach %</div><div class="v">-</div><div class="c">${esc(msg)}</div></div>`;
+  }
+  const {latest,prior}=reachNow();
+  if(!latest||latest.pct==null){
+    return `<div class="kpi"><div class="l">Account reach %</div><div class="v">-</div><div class="c">No list yet</div></div>`;
+  }
+  let c='no prior data';
+  if(prior&&prior.pct!=null){
+    const pts=latest.pct-prior.pct;
+    c=pts===0?`<span>flat</span> vs ${prior.pct}% prior`:`<span class="${pts>0?'up':'dn'}">${pts>0?'&#8593;':'&#8595;'} ${Math.abs(pts)} pts</span> vs ${prior.pct}% prior`;
+  }
+  const sub=latest.reached!=null&&latest.list_companies?`${num(latest.reached)} of ${num(latest.list_companies)}`:'';
+  return `<div class="kpi"><div class="l">Account reach %</div><div class="v">${latest.pct}%</div><div class="c">${c}</div>${sub?`<div class="sub">${sub}</div>`:''}</div>`;
+}
+function placeReachLabels(items,minDx){
+  const byPri=items.slice().sort((a,b)=>b.pri-a.pri||a.x-b.x);
+  const kept=[];
+  byPri.forEach(it=>{if(kept.every(k=>Math.abs(k.x-it.x)>=minDx))kept.push(it)});
+  return kept.sort((a,b)=>a.x-b.x);
+}
+function exportReachTable(rows){
+  const series=exportReachSeries(rows);
+  if(!series.length)return '';
+  const body=series.map(p=>{
+    const src=p.source==='baseline'?'Oct 6 baseline':'Export '+fmtD(p.end);
+    const n=p.reached!=null&&p.list_companies?`${num(p.reached)} of ${num(p.list_companies)}`:'';
+    return `<tr><td>${esc(src)}</td><td class="n">${p.pct}%</td><td class="n">${n}</td></tr>`;
+  }).join('');
+  return `<div class="reach-exports lists-compact"><div class="reach-exports-cap">Companies Hub exports</div><div class="tw"><table><thead><tr><th class="al">Point</th><th class="n">Account reach</th><th class="n">Reached</th></tr></thead><tbody>${body}</tbody></table></div></div>`;
+}
+function reachChart(){
+  const msg=reachEmptyMessage();
+  if(msg)return `<div class="empty">${esc(msg)}</div>`;
+  const series=reachSeries();
+  if(!series.length)return `<div class="empty">No list yet</div>`;
+  const host=$('main')||document.body;
+  const W=Math.max(280, Math.round((host&&host.clientWidth)||(window.innerWidth-48)));
+  const narrow=W<720;
+  const H=narrow?300:270,L=36,R=12,T=26,B=narrow?86:52;
+  const vals=series.map(p=>p.pct);
+  const minV=Math.min(...vals), maxV=Math.max(...vals);
+  let y0=Math.max(0, Math.floor((minV-8)/5)*5);
+  let y1=Math.min(100, Math.ceil((maxV+6)/5)*5);
+  if(y1-y0<15){y0=Math.max(0,y0-5);y1=Math.min(100,y1+5)}
+  const y=v=>T+(H-T-B)*(1-(v-y0)/(y1-y0||1));
+  const n=series.length;
+  const inner=W-L-R;
+  const slot=inner/Math.max(1,n);
+  const barW=Math.min(36, Math.max(10, slot*0.62));
+  let g='';
+  const ticks=4;
+  for(let k=0;k<=ticks;k++){
+    const v=y0+(y1-y0)*k/ticks,yy=y(v);
+    g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#ECECEC"/>`+TX(L-6,yy+4,Math.round(v)+'%',{a:'end'});
+  }
+  const bars=series.map((p,i)=>{
+    const cx=L+slot*(i+0.5);
+    const x=cx-barW/2;
+    const top=y(p.pct);
+    const h=Math.max(1, y(y0)-top);
+    return {...p,i,cx,x,top,h,barW,fill:p.partial?'#CAB8FF':'#E0559F'};
+  });
+  const rects=bars.map(p=>`<rect class="${p.partial?'partial':''}" x="${p.x.toFixed(1)}" y="${p.top.toFixed(1)}" width="${p.barW.toFixed(1)}" height="${p.h.toFixed(1)}" rx="2" fill="${p.fill}"/>`).join('');
+  const minLab=narrow?14:16;
+  const pctItems=bars.map(p=>({x:p.cx,y:p.top-6,label:String(p.pct)+'%',pri:p.partial?80:50,i:p.i}));
+  const pctKept=placeReachLabels(pctItems, minLab);
+  const keptIdx={};
+  pctKept.forEach(it=>keptIdx[it.i]=1);
+  // Prefer keeping every label; if a label was dropped, try a slight vertical stagger instead of omitting.
+  const pctLabs=bars.map(p=>{
+    const bump=keptIdx[p.i]?0:(p.i%2===0?-10:10);
+    return TX(p.cx, p.top-6+Math.min(0,bump), p.pct+'%',{a:'middle',b:1,c:'#141414',fs:11});
+  }).join('');
+  let lab='';
+  if(narrow){
+    lab=bars.map(p=>`<text x="0" y="0" transform="translate(${p.cx.toFixed(1)},${H-B+10}) rotate(-90)" text-anchor="end" fill="#141414" font-size="10">${esc(p.short||p.axis||p.label)}</text>`).join('');
+  }else{
+    const axItems=bars.map(p=>({x:p.cx,label:p.axis||p.short||p.label,pri:p.partial||p.i===0||p.i===bars.length-1?90:40,i:p.i}));
+    const axKept=placeReachLabels(axItems, 48);
+    lab=axKept.map(it=>{
+      const a=it.x<=L+8?'start':(it.x>=W-R-8?'end':'middle');
+      return TX(it.x,H-B+16,it.label,{a});
+    }).join('');
+  }
+  window._REACHCHART={series:bars,W,L,R};
+  const hit=bars.map((p,i)=>{
+    const hw=Math.max(18, slot);
+    return `<rect data-i="${i}" x="${(p.cx-hw/2).toFixed(1)}" y="${T-8}" width="${hw.toFixed(1)}" height="${H-T-B+8}" fill="transparent" style="cursor:crosshair"/>`;
+  }).join('');
+  return `<div class="chart reach-chart" id="reachTrend"><svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Account reach percent" onmousemove="reachChartMove(event)" onmouseleave="reachChartLeave()">${g}${rects}${pctLabs}${lab}${hit}</svg><div class="ltip" id="rtip"></div></div>`;
+}
+function reachChartMove(ev){
+  const svg=ev.currentTarget;const st=window._REACHCHART;const box=svg.closest('.reach-chart')||svg.closest('.chart')||svg;const tip=box.querySelector('.ltip')||$('rtip');
+  if(!tip||!st||!st.series||!st.series.length)return;
+  const sr=svg.getBoundingClientRect();const r=box.getBoundingClientRect();
+  const W=st.W||sr.width,L=st.L||36,R=st.R||12;
+  const px=(ev.clientX-sr.left)/Math.max(1,sr.width)*W;
+  let i=0,best=1e9;
+  st.series.forEach((p,k)=>{const d=Math.abs(px-p.cx);if(d<best){best=d;i=k}});
+  const p=st.series[i];
+  const src=p.partial?'Fibbler, rolling 3-month window, month to date':'Fibbler, rolling 3-month window';
+  tip.innerHTML=`<div class="mh">${esc(p.label||p.axis||'')}</div><div class="mr"><span>Account reach</span><b>${p.pct}%</b></div><div class="mr"><span>${esc(src)}</span><b>${p.reached!=null&&p.list_companies?num(p.reached)+' of '+num(p.list_companies):''}</b></div>`;
+  tip.style.display='block';
+  const tw=tip.offsetWidth||200,th=tip.offsetHeight||80;
+  let left=ev.clientX-r.left+12, top=ev.clientY-r.top+12;
+  if(left+tw>r.width-8)left=Math.max(8,ev.clientX-r.left-tw-12);
+  if(top+th>r.height-8)top=Math.max(8,ev.clientY-r.top-th-12);
+  tip.style.left=left+'px';tip.style.top=top+'px';
+}
+function reachChartLeave(){const tip=$('rtip');if(tip)tip.style.display='none'}
+
+function kcard(l,v,cur,pri,lowBetter,fmt){let c='<span>-</span> no prior data';
+ if(cur!==null&&pri!==null){if(!(pri>0)&&pri!==0){c=`vs ${fmt(pri)} prior`}else if(!(pri>0)){c='no prior data'}else{const r=Math.round((cur-pri)/pri*100);const better=lowBetter?r<0:r>0;c=r===0?`<span>flat</span> vs ${fmt(pri)} prior`:`<span class="${better?'up':'dn'}">${r>0?'&#8593;':'&#8595;'} ${Math.abs(r)}%</span> vs ${fmt(pri)} prior`}}
+ return `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="c">${c}</div></div>`}
+function kpis(rows){
+  const T=tot(rows,P),Tp=tot(rows,pk(P));
+  const co=companies(P),cop=companies(pk(P));
+  const cpl=cplOf(T),cplp=cplOf(Tp);
+  const coTxt=co==null?'-':num(co);
+  const coCard=co==null?`<div class="kpi"><div class="l">Companies reached</div><div class="v">-</div><div class="c">Not available for this filter</div></div>`:kcard('Companies reached',coTxt,co,cop,0,num);
+  return `<div class="kpis five">${kcard('Total spend',usd(T.spend),T.spend,Tp.spend,0,usd)}${kcard('Impressions',num(T.impr),T.impr,Tp.impr,0,num)}${kcard('Landing page clicks',num(T.lp),T.lp,Tp.lp,0,num)}${kcard('Cost per LP click',usd(cpl),cpl,cplp,1,usd)}${coCard}</div>`;
+}
+const AV={
+  status:r=>r.on?0:1,
+  label:r=>r.short||r.name||'',
+  obj:r=>r.obj_label||'',
+  aud:r=>r.aud==null?null:r.aud,
+  budget:r=>r.budget==null?null:r.budget,
+  biz:r=>r.biz==null?null:r.biz,
+  lp:r=>met(r,P).lp||0,
+  lpctr:r=>lpctrOf(met(r,P)),
+  cpl:r=>cplOf(met(r,P)),
+  cpm:r=>cpmOf(met(r,P)),
+  dwell:r=>met(r,P).dwell,
+  pen:r=>penOf(r,met(r,P)),
+  reach:r=>met(r,P).reach,
+  cpr:r=>cprOf(met(r,P)),
+  spend:r=>met(r,P).spend||0
+};
+function pillN(n){if(n<=1)return{b:0,w:0};if(n===2)return{b:1,w:1};if(n===3)return{b:2,w:1};return{b:3,w:Math.min(3,n-3)}}
+function winners(list){if(!list.length)return {};const W={};
+ [['cpl',-1],['cpm',-1],['cpr',-1],['lpctr',1],['dwell',1],['pen',1]].forEach(([k,dir])=>{
+  const el=list.filter(r=>{const v=AV[k](r);if(v===null)return false;if(k==='cpl')return met(r,P).lp>0&&v>0;if(k==='cpm')return met(r,P).impr>0&&v>0;if(k==='cpr')return met(r,P).reach>0&&v>0;if(k==='pen')return r.aud>0&&met(r,P).reach!=null;return met(r,P).impr>0});
+  const {b,w}=pillN(el.length);const vs=el.map(r=>AV[k](r));
+  const best=vs.slice().sort((a,c)=>(c-a)*dir).slice(0,b);
+  const worst=vs.slice().sort((a,c)=>(a-c)*dir).filter(v=>!best.includes(v)).slice(0,w);
+  W[k]={best,worst,el:new Set(el)}});return W}
+function hl(W,r,k,txt){const w=W[k];if(!w||!w.el.has(r))return txt;const v=AV[k](r);if(v===null)return txt;const i=w.best.indexOf(v);if(i>=0){w.best.splice(i,1,NaN);return `<span class="gv">${txt}</span>`}const j=w.worst.indexOf(v);if(j>=0){w.worst.splice(j,1,NaN);return `<span class="bv">${txt}</span>`}return txt}
+function cmpv(a,b){if(a===null&&b===null)return 0;if(a===null)return 1;if(b===null)return -1;return typeof a==='string'?a.localeCompare(b):a-b}
+let SORT={c:'cpl',d:1,vol:1};
+function srt(c){SORT=(SORT.c===c)?{c,d:-SORT.d,vol:SORT.vol}:{c,d:(c==='label'||c==='cpl'||c==='cpm'||c==='cpr'||c==='obj'||c==='status')?1:-1,vol:SORT.vol};render()}
+function th(c,label,cls,title){const on=SORT.c===c;const arw=on?(SORT.d>0?'▲':'▼'):'';return `<th class="s ${cls||''}${on?' act':''}" onclick="srt('${c}')" ${title?`title="${esc(title)}"`:''}>${label}<span class="arw" style="opacity:${on?1:.35};font-size:9px;margin-left:3px">${arw}</span></th>`}
+function st(r){return r.on?'<span class="sp-on">Active</span>':'<span class="sp-off">Paused</span>'}
+function statusMix(rows){const a=rows.filter(r=>r.on).length,p=rows.length-a;if(a&&!p)return '<span class="sp-on">Active</span>';if(!a&&p)return '<span class="sp-off">Paused</span>';return `<span class="sp-on">${a}</span> <span class="sp-off">${p}</span>`}
+const dwf=v=>v==null?'-':Number(v).toFixed(1)+'s';
+const fmtP=n=>n==null?'-':(Math.round(n)+'%');
+const fmtLPCTR=v=>v==null?'-':((100*v).toFixed(2)+'%');
+const usd2=v=>v==null?'-':('$'+Number(v).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}));
+function groupRows(rows){
+  const byG={};
+  rows.forEach(r=>{(byG[r.gid]||(byG[r.gid]=[])).push(r)});
+  const gOrder=D.groups.filter(g=>byG[g.id]);
+  Object.keys(byG).forEach(id=>{if(!gOrder.some(g=>g.id===id)) gOrder.push({id,name:byG[id][0].gname||id})});
+  return {byG,gOrder};
+}
+const CM_ACCT='510440948';
+function cmAdset(id){return 'https://www.linkedin.com/campaignmanager/accounts/'+CM_ACCT+'/campaigns/'+id+'/details'}
+function cmGroup(id){return 'https://www.linkedin.com/campaignmanager/accounts/'+CM_ACCT+'/campaign-groups/'+id}
+function cmName(href,label){return href?`<a class="cm" href="${esc(href)}" target="_blank" rel="noopener noreferrer">${label}</a>`:label}
+function asCamp(g,grows){
+  const T=tot(grows,P);
+  return {id:g.id,name:g.name,short:g.name,isCamp:true,kids:grows,on:grows.every(r=>r.on),aud:null,obj_label:'',budget:T.budget,biz:T.biz,m:{[P]:{spend:T.spend,impr:T.impr,lp:T.lp,clicks:T.clicks,dwell:T.dwell,reach:null}}};
+}
+function sortRows(list){
+  const totSpend=list.reduce((s,r)=>s+(met(r,P).spend||0),0);
+  const ok=r=>{if(!totSpend||(met(r,P).spend||0)<totSpend*0.05||!(met(r,P).impr||0))return false;if(SORT.c==='cpl')return (met(r,P).lp||0)>0;if(SORT.c==='cpr')return (met(r,P).reach||0)>0;return true};
+  const byVol=(a,b)=>{
+    if(SORT.vol&&(SORT.c==='cpl'||SORT.c==='cpm'||SORT.c==='cpr')){const qa=ok(a),qb=ok(b);if(qa!==qb)return qa?-1:1}
+    const c=cmpv(AV[SORT.c](a),AV[SORT.c](b))*SORT.d;
+    return c||((met(b,P).spend||0)-(met(a,P).spend||0));
+  };
+  return list.slice().sort(byVol);
+}
+function table(){
+  const rows=scoped();
+  if(!rows.length)return `<div class="empty">No delivery in this period.</div><div class="note" id="showing"></div>`;
+  const live=rows.filter(r=>r.on).length, paused=rows.length-live;
+  if(campView()){
+    const {byG,gOrder}=groupRows(rows);
+    const camps=sortRows(gOrder.map(g=>asCamp(g,byG[g.id])));
+    const W=winners(camps);
+    const head=`<thead><tr>
+      ${th('status','Status','st')}
+      ${th('label','Campaign','nm')}
+      ${th('budget','Daily<br>budget','n','Current daily budget, summed across ad sets in the campaign at pull time.')}
+      ${th('biz','Last biz<br>day spend','n','Spend on '+D.last_biz_day_label+'. LinkedIn reports in UTC days.')}
+      ${th('lp','Landing<br>page clicks','n')}
+      ${th('lpctr','LP CTR','n','Landing page clicks / impressions. Higher is better')}
+      ${th('cpl','Cost /<br>LP click','n','Lower is better')}
+      ${th('cpm','CPM','n','Spend / impressions x 1,000, in whole euros. Lower is better')}
+      ${th('dwell','Dwell<br>time','n','Period average dwell time, impression-weighted. Higher is better')}
+    </tr></thead>`;
+    let body='';
+    camps.forEach(r=>{
+      const m=met(r,P);
+      body+=`<tr>
+        <td class="st">${statusMix(r.kids)}</td>
+        <td class="nm" title="${esc(r.name)}"><div class="vlab">${cmName(r.id?cmGroup(r.id):'',esc(r.name))}</div><div class="vdesc">${r.kids.length} ad set${r.kids.length===1?'':'s'}</div></td>
+        <td class="n">${usd(r.budget)}</td>
+        <td class="n">${usd(r.biz)}</td>
+        <td class="n">${num(m.lp)}</td>
+        <td class="n">${hl(W,r,'lpctr',fmtLPCTR(lpctrOf(m)))}</td>
+        <td class="n">${hl(W,r,'cpl',usd(cplOf(m)))}</td>
+        <td class="n">${hl(W,r,'cpm',usd(cpmOf(m)))}</td>
+        <td class="n">${hl(W,r,'dwell',dwf(m.dwell))}</td>
+      </tr>`;
+    });
+    return `<div class="note" style="margin:0 0 12px">${camps.length} campaign${camps.length===1?'':'s'}. Choose a campaign to see its ad set rows.</div><div class="tw"><table class="camp-table">${head}<tbody>${body}</tbody></table></div>`;
+  }
+  const list=sortRows(rows);
+  const W=winners(list);
+  const head=`<thead><tr>
+    ${th('status','Status','st')}
+    ${th('label','Ad set','nm')}
+    ${th('obj','Objective','obj')}
+    ${th('aud','Audience<br>size','n','Current targeting from LinkedIn audienceCounts, pulled '+D.asof_label+'. Not historical for the period.')}
+    ${th('budget','Daily<br>budget','n','Current daily budget on the ad set at pull time.')}
+    ${th('biz','Last biz<br>day spend','n','Spend on '+D.last_biz_day_label+'. LinkedIn reports in UTC days.')}
+    ${th('lp','Landing<br>page clicks','n')}
+    ${th('lpctr','LP CTR','n','Landing page clicks / impressions. Higher is better')}
+    ${th('cpl','Cost /<br>LP click','n','Lower is better')}
+    ${th('cpm','CPM','n','Spend / impressions x 1,000, in whole euros. Lower is better')}
+    ${th('dwell','Dwell<br>time','n','Period average dwell time. Higher is better')}
+    ${th('pen','Audience<br>penetration','n','Period reach / current audience size, rounded to a whole percent. Higher is better')}
+    ${th('reach','Reach','n','approximateMemberReach for the selected period')}
+  </tr></thead>`;
+  let body='';
+  list.forEach(r=>{
+    const m=met(r,P);
+    body+=`<tr>
+      <td class="st">${st(r)}</td>
+      <td class="nm" title="${esc(r.name)}"><div class="vlab">${cmName(r.id?cmAdset(r.id):'',esc(r.short))}</div><div class="vdesc">${cmName(r.id?cmAdset(r.id):'',esc(r.name))}</div></td>
+      <td class="obj">${esc(r.obj_label)}</td>
+      <td class="n">${r.aud==null?'-':num(r.aud)}</td>
+      <td class="n">${usd(r.budget)}</td>
+      <td class="n">${usd(r.biz)}</td>
+      <td class="n">${num(m.lp)}</td>
+      <td class="n">${hl(W,r,'lpctr',fmtLPCTR(lpctrOf(m)))}</td>
+      <td class="n">${hl(W,r,'cpl',usd(cplOf(m)))}</td>
+      <td class="n">${hl(W,r,'cpm',usd(cpmOf(m)))}</td>
+      <td class="n">${hl(W,r,'dwell',dwf(m.dwell))}</td>
+      <td class="n">${hl(W,r,'pen',fmtP(penOf(r,m)))}</td>
+      <td class="n">${m.reach==null?'-':num(m.reach)}</td>
+    </tr>`;
+  });
+  return `<div class="note" style="margin:0 0 12px">${list.length} ad set${list.length===1?'':'s'} in ${esc(scopeLabel())} (${live} Active, ${paused} Paused)</div><div class="tw"><table class="sets-table">${head}<tbody>${body}</tbody></table></div>`;
+}
+
+const info=t=>`<span class="i" tabindex="0" role="note" aria-label="Definition">i<span class="tip">${t}</span></span>`;
+const nice=v=>{if(!(v>0))return 1;const e=Math.pow(10,Math.floor(Math.log10(v)));const f=v/e;return (f<=1?1:f<=2?2:f<=5?5:10)*e};
+const TX=(x,y,s,o)=>`<text x="${x}" y="${y}" font-size="${(o&&o.fs)||11}" fill="${(o&&o.c)||'#525252'}" text-anchor="${(o&&o.a)||'start'}" ${o&&o.b?'font-weight="600"':''}>${s}</text>`;
+function mkShort(items){const L=new Set(),P=new Set();items.forEach(it=>{(it.a==='launched'?L:P).add(it.n)});const b=[];if(L.size)b.push(L.size+' ad'+(L.size===1?'':'s')+' launched');if(P.size)b.push(P.size+' ad'+(P.size===1?'':'s')+' paused');return b.join(', ')}
+function mkFull(d,items){const order=['launched','paused','adset_paused','removed'];
+ const lab={launched:'Launched (first delivered)',paused:'Last delivered (ad now paused)',adset_paused:'Last delivered (ad set now paused)',removed:'Last delivered (ad now removed)'};
+ const groups={};items.forEach(it=>{const g=groups[it.a]=groups[it.a]||{};const e=g[it.n]=g[it.n]||{camps:new Set(),created:it.created,first:it.first};e.camps.add(it.camp);if(it.created)e.created=it.created});
+ const lines=[fmtD(d)];
+ order.forEach(a=>{if(!groups[a])return;lines.push(lab[a]+':');Object.keys(groups[a]).sort((x,y)=>pretty(x).t.localeCompare(pretty(y).t)).forEach(n=>{const e=groups[a][n],nc=e.camps.size;let extra=nc>1?' (on '+nc+' ad sets)':'';if(a==='launched'&&e.created&&e.first&&e.created!==e.first)extra+=' (created '+sd(e.created)+')';lines.push('• '+pretty(n).t+extra)})});
+ return lines.join('\n')}
+function chartPack(){const ch=D.CHART||{start:'',end:'',s:{}};if(ch.s[scopeKey()])return ch.s[scopeKey()];const base=(ch.s.all||{d:[]}).d;return {d:base.map(r=>[r[0],0,null,null,0]),m:[],ms:[]}}
+const MC={lp:'#E0559F',ctr:'#1F8A4C',cpl:'#141414',spend:'#C45C26'};
+function rangeText(d0,d1){if(!d0||!d1||d0===d1)return '';const a=new Date(d0+'T12:00:00'),b=new Date(d1+'T12:00:00');const mo=t=>t.toLocaleDateString('en-US',{month:'short'});if(mo(a)===mo(b))return mo(a)+' '+a.getDate()+'-'+b.getDate();return sd(d0)+' to '+sd(d1)}
+function daysApart(a,b){return Math.abs((new Date(a+'T12:00:00')-new Date(b+'T12:00:00'))/86400000)}
+const MST={ms:{fill:'#FFE3F1',stroke:'#E0559F',ink:'#141414',dots:['#E0559F'],line:'#E0559F',dash:''},new:{fill:'#E3F3E8',stroke:'#C5E4CC',ink:'#2E6B45',dots:['#2E6B45'],line:'#2E6B45',dash:'3 4'},paused:{fill:'#fdebe9',stroke:'#f0c9c6',ink:'#b8261b',dots:['#b8261b'],line:'#b8261b',dash:'3 4'},both:{fill:'#F4F4F2',stroke:'#DDDDDA',ink:'#141414',dots:['#2E6B45','#b8261b'],line:'#141414',dash:'3 4'}};
+let MTIPS={},MTIPN=0;
+function tipId(html){const id='m'+(++MTIPN);MTIPS[id]=html;return id}
+function showMtip(ev,id){let tip=$('mtip');if(!tip){tip=document.createElement('div');tip.id='mtip';tip.className='mtip';document.body.appendChild(tip)}tip.innerHTML=MTIPS[id]||'';tip.style.display='block';const r=(ev.currentTarget||ev.target).getBoundingClientRect();const w=tip.offsetWidth||340,h=tip.offsetHeight||120;let left=r.left+r.width/2-w/2;left=Math.max(8,Math.min(left,window.innerWidth-w-8));let top=r.bottom+8;if(top+h>window.innerHeight-8)top=Math.max(8,r.top-h-8);tip.style.left=left+'px';tip.style.top=top+'px'}
+function hideMtip(){const tip=$('mtip');if(tip)tip.style.display='none'}
+function markTipHtml(days){const d0=days[0].d,d1=days[days.length-1].d,multi=d0!==d1;const head=multi?rangeText(d0,d1):fmtD(d0);const buckets={camp:[],campp:[],adset:[],adsetp:[],ads:[],adsp:[]};const add=(k,name,d)=>{const s=name+(multi?' ('+sd(d)+')':'');if(s&&!buckets[k].includes(s))buckets[k].push(s)};days.forEach(e=>{(e.ms||[]).forEach(it=>{if(it.t==='new_campaign')add('camp',it.short||it.name,e.d);else if(it.t==='new_adset')add('adset',it.short||it.name,e.d);else if(it.t==='campaign_paused')add('campp',it.short||it.name,e.d);else if(it.t==='adset_paused')add('adsetp',it.short||it.name,e.d)}); (e.ads||[]).forEach(it=>{const nm=pretty(it.n).t||it.n;if(it.a==='launched')add('ads',nm,e.d);else add('adsp',nm,e.d)})});const labs=[['camp','New campaigns'],['adset','New ad sets'],['campp','Campaigns paused'],['adsetp','Ad sets paused']];let h=`<div class="mh">${esc(head)}</div>`;labs.forEach(([k,l])=>{if(buckets[k].length)h+=`<div class="ml"><b>${l}:</b> ${esc(buckets[k].join(', '))}</div>`});return h}
+function markKind(days){const types=new Set();days.forEach(e=>(e.ms||[]).forEach(it=>types.add(it.t)));const launch=types.has('new_adset');const camp=types.has('new_campaign');const pause=types.has('adset_paused')||types.has('campaign_paused');if((launch||camp)&&pause)return 'both';if(pause)return 'paused';if(launch&&!camp)return 'new';return 'ms'}
+function markLabel(days){let nNew=0,nPause=0,nCamp=0,nCampP=0;days.forEach(e=>(e.ms||[]).forEach(it=>{if(it.t==='new_adset')nNew++;else if(it.t==='new_campaign')nCamp++;else if(it.t==='campaign_paused')nCampP++;else if(it.t==='adset_paused')nPause++}));const b=[];if(nCamp)b.push(nCamp+' new campaign'+(nCamp===1?'':'s'));if(nNew)b.push(nNew+' new ad set'+(nNew===1?'':'s'));if(nCampP)b.push(nCampP+' campaign'+(nCampP===1?'':'s')+' paused');if(nPause)b.push(nPause+' paused');return b.join(', ')||sd(days[0].d)}
+function layoutMarks(events,L,R,W){events=events.slice().sort((a,b)=>a.d.localeCompare(b.d));if(!events.length)return [];
+ const make=days=>{days=days.slice().sort((a,b)=>a.d.localeCompare(b.d));const kind=markKind(days);const label=markLabel(days);const nd=kind==='both'?2:1;const w=Math.ceil(12+nd*9+String(label).length*6.4+10);const mid=days.reduce((s,e)=>s+e.x0,0)/days.length;let bx=mid-w/2;if(bx<L)bx=L;if(bx+w>W-R)bx=W-R-w;return {days,kind,label,w,mid,bx,x0s:days.map(e=>e.x0),html:markTipHtml(days)}};
+ let raw=[];events.forEach(e=>{const last=raw[raw.length-1];if(last&&daysApart(last[last.length-1].d,e.d)<=3)last.push(e);else raw.push([e])});
+ let groups=raw.map(make);
+ let guard=0;while(guard++<24){let hit=-1;for(let i=0;i<groups.length-1;i++){if(!(groups[i].bx+groups[i].w+6<=groups[i+1].bx)&&daysApart(groups[i].days[groups[i].days.length-1].d,groups[i+1].days[0].d)<=3){hit=i;break}}if(hit<0)break;groups=groups.slice(0,hit).concat([make(groups[hit].days.concat(groups[hit+1].days))],groups.slice(hit+2))}
+ for(let i=1;i<groups.length;i++){const minBx=groups[i-1].bx+groups[i-1].w+6;if(groups[i].bx<minBx){groups[i].bx=minBx;if(groups[i].bx+groups[i].w>W-R){groups[i].bx=W-R-groups[i].w;for(let j=i;j>=1;j--){if(groups[j-1].bx+groups[j-1].w+6<=groups[j].bx)break;groups[j-1].bx=Math.max(L,groups[j].bx-groups[j-1].w-6)}}}}
+ return groups}
+function tpanel(d,key,fmt,col,H,o){const W=1180,L=64,R=20,T=o.marks?42:14,B=o.xl?30:10;const n=d.length;const vals=d.map(r=>r[key]);const S=nice(1.1*Math.max(.0001,...vals.filter(v=>v!=null)));
+ const bw=(W-L-R)/n;const x=i=>L+bw*i+bw/2;const y=v=>T+(H-T-B)*(1-v/S);let g='';
+ for(let k=0;k<=4;k++){const yy=T+(H-T-B)*k/4;g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#ECECEC"/>`+TX(L-8,yy+4,fmt(S*(1-k/4)),{a:'end'})}
+ const tip=(r)=>`${fmtD(r[0])}: ${o.name} ${r[key]==null?'n/a':fmt(r[key])}`;
+ const pts=d.map((r,i)=>r[key]==null?null:[x(i),y(r[key])]).filter(Boolean);
+ let line='';
+ if(pts.length){const segs=[];let cur=[];pts.forEach((p,i)=>{cur.push(p);const nxt=pts[i+1];const broken=nxt&&Math.abs(nxt[0]-p[0])>bw*1.6;if(!nxt||broken){segs.push(cur);cur=[]}});
+  line=segs.map(s=>s.length===1?'':`<polyline fill="none" stroke="${col}" stroke-width="2.2" stroke-dasharray="6 4" points="${s.map(p=>p.join(',')).join(' ')}"/>`).join('')}
+ const body=line+d.map((r,i)=>r[key]==null?'':`<circle cx="${x(i)}" cy="${y(r[key])}" r="3" fill="${col}"><title>${esc(tip(r))}</title></circle>`).join('');
+ let mk='';
+ if(o.marks&&o.marks.length){const idx=s=>d.findIndex(r=>r[0]==s);const ev=[];o.marks.forEach(e=>{const i=idx(e.d);if(i<0)return;ev.push({...e,x0:x(i)})});
+  const placed=layoutMarks(ev,L,R,W);const ly=18;
+  placed.forEach(p=>{const st=MST[p.kind];const id=tipId(p.html);const evs=`onmouseenter="showMtip(event,'${id}')" onmouseleave="hideMtip()"`;
+   mk+=`<g ${evs} style="cursor:pointer">`;
+   (p.x0s||[]).forEach(x0=>{mk+=`<line x1="${x0}" x2="${x0}" y1="${ly+7}" y2="${H-B}" stroke="${st.line}" stroke-width="${p.kind==='ms'?1.6:1}" ${st.dash?`stroke-dasharray="${st.dash}"`:''} opacity=".7"/>`});
+   mk+=`<rect x="${p.bx}" y="${ly-9}" width="${p.w}" height="16" rx="8" fill="${st.fill}" stroke="${st.stroke}"/>`;
+   let dx=p.bx+8;st.dots.forEach(c=>{mk+=`<circle cx="${dx}" cy="${ly}" r="3.2" fill="${c}"/>`;dx+=9});
+   mk+=`<text x="${dx+2}" y="${ly+3.5}" font-size="10" font-weight="700" fill="${st.ink}">${esc(p.label)}</text></g>`})}
+ const step=Math.ceil(n/12);const lab=o.xl?d.map((r,i)=>i%step==0||i==n-1?TX(x(i),H-B+18,sd(r[0]),{a:'middle'}):'').join(''):'';
+ return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${esc(o.name)} by day">${g}${mk}${body}${lab}</svg>`}
+function firstBase(d,key){for(let i=0;i<d.length;i++){const v=d[i][key];if(v!=null&&v>0)return v}return null}
+function niceRange(lo,hi){if(!(hi>lo)){lo-=10;hi+=10}const step=nice((hi-lo)/4)||1;const y0=Math.floor(lo/step)*step,y1=Math.ceil(hi/step)*step;return {y0,y1,step}}
+function allPanel(d,H,keys){keys=keys&&keys.length?keys:['lp','ctr','cpl'];const W=1180,L=64,R=20,T=18,B=30;const n=d.length;const base={};keys.forEach(k=>base[k]=firstBase(d,k));
+ const idxOf=(r,k)=>r[k]==null||!base[k]?null:100*r[k]/base[k];
+ const ys=d.flatMap(r=>keys.map(k=>idxOf(r,k)).filter(v=>v!=null));
+ const lo=ys.length?Math.min(...ys):80,hi=ys.length?Math.max(...ys):120;const pad=(hi-lo)*0.12||10;const {y0,y1}=niceRange(lo-pad,hi+pad);
+ const bw=(W-L-R)/n;const x=i=>L+bw*i+bw/2;const y=v=>T+(H-T-B)*(1-(v-y0)/(y1-y0));
+ let g='';const ticks=4;for(let k=0;k<=ticks;k++){const v=y0+(y1-y0)*k/ticks,yy=y(v);g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#ECECEC"/>`+TX(L-8,yy+4,String(Math.round(v)),{a:'end'})}
+ if(y0<100&&100<y1)g+=`<line x1="${L}" x2="${W-R}" y1="${y(100)}" y2="${y(100)}" stroke="#BDBDBD" stroke-dasharray="3 4"/>`+TX(L-8,y(100)+4,'100',{a:'end',c:'#6B6B6B'});
+ g+=TX(L,12,'Index',{fs:10,c:'#8A8A8A'});
+ const fmt={lp:v=>num(v),ctr:v=>(100*v).toFixed(2)+'%',cpl:v=>usd(v),spend:v=>usd(v)};
+ const names={lp:'Rolling LP clicks',ctr:'Rolling LP CTR',cpl:'Rolling Cost/LP',spend:'Rolling Spend'};
+ let body='';
+ keys.forEach(k=>{const pts=d.map((r,i)=>{const v=idxOf(r,k);return v==null?null:[x(i),y(v)]});
+  const segs=[];let cur=[];pts.forEach((p,i)=>{if(!p){if(cur.length){segs.push(cur);cur=[]}return}cur.push(p);const nxt=pts[i+1];if(!nxt||(nxt&&Math.abs(nxt[0]-p[0])>bw*1.6)){segs.push(cur);cur=[]}});
+  body+=segs.map(s=>s.length===1?'':`<polyline fill="none" stroke="${MC[k]}" stroke-width="2.2" points="${s.map(p=>p.join(',')).join(' ')}"/>`).join('');
+  body+=d.map((r,i)=>{const v=idxOf(r,k);return v==null?'':`<circle cx="${x(i)}" cy="${y(v)}" r="3" fill="${MC[k]}"/>`}).join('')});
+ MTIPS={};MTIPN=0;
+ const hits=d.map((r,i)=>{const id=tipId(`<div class="mh">${esc(fmtD(r[0]))}</div>`+keys.map(k=>`<div class="ml"><i style="background:${MC[k]}"></i><b>${names[k]}:</b> ${r[k]==null?'n/a':fmt[k](r[k])}</div>`).join(''));return `<rect x="${x(i)-bw/2}" y="${T}" width="${bw}" height="${H-T-B}" fill="transparent" style="cursor:crosshair" onmouseenter="showMtip(event,'${id}')" onmouseleave="hideMtip()"/>`}).join('');
+ const step=Math.ceil(n/12);const lab=d.map((r,i)=>i%step==0||i==n-1?TX(x(i),H-B+18,sd(r[0]),{a:'middle'}):'').join('');
+ return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Rolling LP clicks, LP CTR, and Cost/LP, indexed to 100">${g}${body}${lab}${hits}</svg>`}
+function dailyChart(){const ch=D.CHART||{start:'',end:'',s:{}};const pack=chartPack();
+ const MET={lp:['lp',v=>v==null?'n/a':num(v),MC.lp,'Rolling LP clicks'],ctr:['ctr',v=>v==null?'n/a':(100*v).toFixed(2)+'%',MC.ctr,'Rolling LP CTR'],cpl:['cpl',v=>v==null?'n/a':usd(v),MC.cpl,'Rolling Cost/LP'],spend:['spend',v=>v==null?'n/a':usd(v),MC.spend,'Rolling Spend']};
+ const dd=pack.d.map(r=>({0:r[0],lp:r[1],ctr:r[2],cpl:r[3]==null?null:r[3],spend:r[4]==null?null:r[4]}));
+ MTIPS={};MTIPN=0;
+ const byD={};(pack.m||[]).forEach(([d,items])=>{(byD[d]=byD[d]||{d,ads:[],ms:[]}).ads.push(...items)});(pack.ms||[]).forEach(([d,items])=>{(byD[d]=byD[d]||{d,ads:[],ms:[]}).ms.push(...items)});
+ const MARKS=Object.keys(byD).sort().map(d=>byD[d]);
+ const one=(m,H,o)=>`<div style="font-size:12px;font-weight:600;color:var(--ink);margin:4px 0 0 4px"><i style="display:inline-block;width:10px;height:10px;border-radius:3px;background:${m[2]};margin-right:6px"></i>${m[3]}</div>`+tpanel(dd,m[0],m[1],m[2],H,{name:m[3],marks:MARKS,...o});
+ const vis=DSEL.length?DSEL.slice():['lp'];
+ const isReach=vis.length===1&&vis[0]==='reach';
+ const multi=!isReach&&vis.length>1;
+ const inner=isReach?reachChart():(!dd.length?`<div class="empty">No delivery in the last 60 days for this filter.</div>`:(multi?allPanel(dd,320,vis):one(MET[vis[0]]||MET.lp,300,{xl:1})));
+ const tip=isReach
+  ?'Account reach in this chart is companies on the uploaded lists with paid impressions in Fibbler during each rolling 3-month window, divided by the companies on the current list exports, as a whole percent. Bars are the currently selected lists combined. The latest window is marked lighter when its end month is still month to date. Companies Hub exports (Oct 6 baseline, Nov 21, and later Mondays) are in the table under the chart. The KPI above stays on the latest Campaign Manager export. This chart follows the campaign filter, not the period pills.'
+  :'Single-metric views mark bigger account changes in the current filter: a new ad set on its first day with delivery, an ad set paused or ended on its last day with delivery if it is no longer live, and a new campaign (campaign group) if one launched in this window. Objective and daily budget change history is not available from the LinkedIn API, so those are not marked. Click one or more metric pills to plot them together (or All for every metric). Two or more metrics share one chart, each indexed to 100 at the start of the window; hover for actual values. Rolling Spend is spend in the last 7 days, in whole euros. Rolling metrics use a 7-day window. The chart always shows the last 60 days and follows the campaign filter, not the period pills.';
+ const pills=[['lp','Rolling LP clicks'],['ctr','Rolling LP CTR'],['cpl','Rolling Cost/LP'],['spend','Rolling Spend'],['all','All']].map(([k,l])=>{const on=k==='all'?!isReach&&vis.length===MET_KEYS.length:vis.includes(k);return `<button class="${on?'on':''}" onclick="setD('${k}')">${l}</button>`;}).join('');
+ const hasPartial=isReach&&reachSeries().some(p=>p.partial);
+ const metLeg=isReach?((reachEmptyMessage()||!reachSeries().length)?'':'<span><i style="background:#E0559F;border-radius:2px"></i>Fibbler, rolling 3-month windows</span>'+(hasPartial?'<span><i style="background:#CAB8FF;border-radius:2px"></i>Current window, month to date</span>':'')):vis.map(k=>`<span><i style="background:${MET[k][2]}"></i>${MET[k][3]}</span>`).join('');
+ const markLeg=isReach||multi?'':`<span><i style="background:#2E6B45;border-radius:50%"></i>New ad sets launched</span><span><i style="background:#b8261b;border-radius:50%"></i>Ad sets paused</span><span><i style="background:#E0559F;border-radius:50%"></i>Milestone</span><span>Hover a marker for what changed</span>`;
+ const idxNote=multi?'<span>Each line is indexed to 100 at the start of the window. Hover for actual values.</span>':'';
+ const rollNote=isReach?'':'<span>Rolling metrics use a 7-day window.</span>';
+ const series=isReach?reachSeries():[];
+ const reachDesc=series.length?`Rolling 3-month windows from Fibbler, ${series[0].label} to ${series[series.length-1].label}${series.some(p=>p.partial)?' (latest window is month to date)':''}. Follows the campaign filter, not the period pills.`:'Account reach % follows the campaign filter.';
+ const title=isReach?'Account reach %':'Daily performance';
+ const desc=isReach?reachDesc:`${sd(ch.start)} to ${fmtD(ch.end)} (last 60 days). Follows the campaign filter, not the period pills.`;
+ const chartWrap=isReach?inner:`<div class="chart" id="trend">${inner}</div>`;
+ const exports=isReach?exportReachTable():'';
+ return `<div class="daily" id="daily"><div class="ch"><div><h2>${title} ${info(tip)}</h2><div class="desc">${desc}</div></div><div class="seg sm" id="dmode">${pills}</div></div>${chartWrap}<div class="legend">${metLeg}${markLeg}${idxNote}${rollNote}</div>${exports}</div>`}
+
+
+function listRows(){const L=(D.LISTS&&D.LISTS.lists)||[];return L.filter(r=>{
+ if(SEG==='ENT'&&r.tier!=='Enterprise')return false;
+ if(SEG==='GRW'&&r.tier!=='Growth')return false;
+ if(IND!=='All'){
+  if(IND==='Retargeting')return r.tier==='Retargeting'||r.industry==='Retargeting';
+  if(r.industry!==IND)return false;
+  if(SUB!=='All'&&r.sub&&r.sub!==SUB)return false;
+ }
+ return true;
+})}
+function spark(points){
+ const ns=points.map(p=>p&&p.n!=null?p.n:null);
+ const vals=ns.filter(v=>v!=null);
+ if(!vals.length)return '';
+ const lo=Math.min(...vals), hi=Math.max(...vals);
+ const W=240,H=36,P=3;
+ const x=i=>P+i*((W-2*P)/Math.max(1,ns.length-1));
+ const y=v=>{if(hi===lo)return H/2;return P+(H-2*P)*(1-(v-lo)/(hi-lo))};
+ const pts=[];ns.forEach((v,i)=>{if(v!=null)pts.push([x(i),y(v)])});
+ const line=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ');
+ const last=pts[pts.length-1];
+ return `<svg class="spark" viewBox="0 0 ${W} ${H}" width="100%" height="36" aria-hidden="true"><path d="${line}" fill="none" stroke="#E0559F" stroke-width="2"/>${last?`<circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.6" fill="#E0559F"/>`:''}</svg>`;
+}
+function listColor(i){const C=['#E0559F','#C45C26','#1F8A4C','#1F6BA5','#B45309','#9B1C5A','#0F766E','#6D28D9','#B91C1C','#3F6212','#075985','#9A3412'];return C[i%C.length]}
+function listAllChart(lists, total){
+ const weeks=((D.LISTS&&D.LISTS.weeks)||[]).slice();
+ const listsS=lists.map((r,i)=>({id:r.id,label:r.label||r.name||r.id,color:r.color||listColor(i),points:r.points||[],thick:0,pct:r.pct}));
+ const sumS=total&&(total.points||[]).length?[{id:'sum',label:'All lists (sum)',color:'#111111',points:total.points,thick:1}]:[];
+ const ends=weeks.length?weeks:(listsS[0]&&listsS[0].points||[]).map(p=>p.end);
+ const valAt=(s,end)=>{const p=(s.points||[]).find(x=>x.end===end);return p&&p.n!=null?p.n:null};
+ const host=$('main')||document.body;
+ const W=Math.max(300, Math.round((host&&host.clientWidth)||(window.innerWidth-48)));
+ const L=54,R=8,T=10,B=24;
+ const draw=(series,H,label)=>{
+  const vals=series.flatMap(s=>ends.map(e=>valAt(s,e))).filter(v=>v!=null);
+  if(!ends.length||!vals.length)return '';
+  const minV=Math.min(...vals), maxV=Math.max(...vals);
+  const pad=(maxV-minV)*0.14||Math.max(20,maxV*0.08);
+  let {y0,y1}=niceRange(Math.max(0,minV-pad),maxV+pad);
+  if(y0<0)y0=0;
+  const y=v=>T+(H-T-B)*(1-(v-y0)/(y1-y0||1));
+  const x=i=>L+i*((W-L-R)/Math.max(1,ends.length-1));
+  const fmtA=v=>{const n=Math.round(v);const span=y1-y0;if(span<5000){return n.toLocaleString('en-US')}if(Math.abs(n)>=1000){const k=n/1000;return (Math.abs(k-Math.round(k))<0.05?Math.round(k):k.toFixed(1))+'k'}return String(n)};
+  let g='';
+  const ticks=H<240?2:4;
+  for(let k=0;k<=ticks;k++){const v=y0+(y1-y0)*k/ticks,yy=y(v);g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#ECECEC"/>`+TX(L-8,yy+4,fmtA(v),{a:'end'})}
+  const lab=ends.map((e,i)=>TX(x(i),H-B+16,sd(e),{a:i===0?'start':i===ends.length-1?'end':'middle'})).join('');
+  let body='';
+  series.forEach(s=>{
+   const pts=ends.map((e,i)=>{const v=valAt(s,e);return v==null?null:[x(i),y(v)]});
+   const segs=[];let cur=[];
+   pts.forEach(pt=>{if(!pt){if(cur.length){segs.push(cur);cur=[]}return}cur.push(pt)});
+   if(cur.length)segs.push(cur);
+   const sw=s.thick?2.8:1.8;
+   segs.forEach(seg=>{const d=seg.map((pt,i)=>(i?'L':'M')+pt[0].toFixed(1)+','+pt[1].toFixed(1)).join(' ');body+=`<path d="${d}" fill="none" stroke="${s.color}" stroke-width="${sw}" stroke-linejoin="round"/>`});
+   const last=pts.filter(Boolean).pop();
+   if(last) body+=`<circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="${s.thick?3.4:2.4}" fill="${s.color}"/>`;
+  });
+  const slot=(W-L-R)/Math.max(1,ends.length-1);
+  const hit=ends.map((e,i)=>`<rect data-i="${i}" data-series="${series[0]&&series[0].id==='sum'?'sum':'lists'}" x="${(x(i)-slot/2).toFixed(1)}" y="${T}" width="${slot.toFixed(1)}" height="${H-T-B}" fill="transparent"/>`).join('');
+  return {svg:`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${esc(label||'Weekly companies reached')}" onmousemove="listChartMove(event)" onmouseleave="listChartLeave()">${g}${body}${lab}${hit}</svg>`, series, ends};
+ };
+ const sumDraw=sumS.length?draw(sumS,180,'All lists (sum)'):null;
+ const listDraw=listsS.length?draw(listsS,380,'By list'):null;
+ window._LISTCHART={ends, series:[...listsS,...sumS], W,L,R, packs:{sum:sumDraw&&{series:sumS,ends}, lists:listDraw&&{series:listsS,ends}}};
+ const legend=listsS.concat(sumS).map(s=>`<span><i style="background:${s.color}${s.thick?';height:3px;border-radius:1px':''}"></i>${esc(s.label)}${s.pct!=null?` · ${s.pct}%`:''}</span>`).join('');
+ return `<div class="lchart">${sumDraw?`<div class="lchart-sum"><div class="lchart-cap">All lists (sum)</div>${sumDraw.svg}</div>`:''}${listDraw?`<div class="lchart-lists"><div class="lchart-cap">By list</div>${listDraw.svg}</div>`:''}<div class="ltip" id="ltip"></div><div class="lleg">${legend}</div></div>`;
+}
+function listChartMove(ev){
+ const svg=ev.currentTarget;const tip=$('ltip');if(!tip||!window._LISTCHART)return;
+ const {ends,series}=window._LISTCHART;
+ const sr=svg.getBoundingClientRect();const box=svg.closest('.lchart')||svg;const r=box.getBoundingClientRect();
+ const W=window._LISTCHART.W||sr.width,L=window._LISTCHART.L||54,R=window._LISTCHART.R||12;
+ const px=(ev.clientX-sr.left)/Math.max(1,sr.width)*W;
+ let i=0,best=1e9;
+ ends.forEach((e,k)=>{const xx=L+k*((W-L-R)/Math.max(1,ends.length-1));const d=Math.abs(px-xx);if(d<best){best=d;i=k}});
+ const end=ends[i];
+ const rows=series.map(s=>{const p=(s.points||[]).find(x=>x.end===end);return {label:s.label,v:p&&p.n!=null?p.n:null,color:s.color}}).filter(x=>x.v!=null);
+ const sumFirst=rows.filter(x=>x.label&&x.label.indexOf('All lists')===0);
+ const rest=rows.filter(x=>!(x.label&&x.label.indexOf('All lists')===0));
+ const shown=sumFirst.concat(rest);
+ tip.innerHTML=`<div class="mh">${esc(fmtD(end))}</div>`+shown.map(x=>`<div class="mr"><span>${esc(x.label)}</span><b>${num(x.v)}</b></div>`).join('');
+ tip.style.display='block';
+ const tw=tip.offsetWidth||200,th=tip.offsetHeight||80;
+ let left=ev.clientX-r.left+12, top=ev.clientY-r.top+12;
+ if(left+tw>r.width-8)left=Math.max(8,ev.clientX-r.left-tw-12);
+ if(top+th>r.height-8)top=Math.max(8,ev.clientY-r.top-th-12);
+ tip.style.left=left+'px';tip.style.top=top+'px';
+}
+function listChartLeave(){const tip=$('ltip');if(tip)tip.style.display='none'}
+
+function vsBaseLine(vs){
+ if(!vs||vs.from_pct==null||vs.to_pct==null)return '';
+ const pts=vs.pts;
+ const ptsH=pts===0?'0 pts':((pts>0?'+':'')+pts+' pts');
+ const cls=pts>0?'up':(pts<0?'dn':'');
+ return `<div class="lbase ${cls}">vs Oct 6 baseline: ${vs.from_pct}% to ${vs.to_pct}% (${ptsH})</div>`;
+}
+function pctChart(series, opts){
+ opts=opts||{};
+ const H=opts.H||180;
+ const ends=[];
+ series.forEach(s=>(s.points||[]).forEach(p=>{if(p&&p.end&&ends.indexOf(p.end)<0)ends.push(p.end)}));
+ ends.sort();
+ const valAt=(s,end)=>{const p=(s.points||[]).find(x=>x.end===end);return p&&p.pct!=null?p.pct:null};
+ const vals=series.flatMap(s=>ends.map(e=>valAt(s,e))).filter(v=>v!=null);
+ if(!ends.length||!vals.length)return '';
+ const host=$('main')||document.body;
+ const W=Math.max(220, Math.round(opts.W||((host&&host.clientWidth)||(window.innerWidth-48))));
+ const L=36,R=8,T=12,B=28;
+ const minV=Math.min(...vals), maxV=Math.max(...vals);
+ let y0=Math.max(0, Math.floor((minV-12)/5)*5);
+ let y1=Math.min(100, Math.ceil((maxV+12)/5)*5);
+ if(y1-y0<20){y0=Math.max(0,y0-10);y1=Math.min(100,y1+10)}
+ const y=v=>T+(H-T-B)*(1-(v-y0)/(y1-y0||1));
+ const x=i=>L+i*((W-L-R)/Math.max(1,ends.length-1));
+ const ticks=H<160?2:4;
+ let g='';
+ for(let k=0;k<=ticks;k++){
+  const v=y0+(y1-y0)*k/ticks,yy=y(v);
+  g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#ECECEC"/>`+TX(L-6,yy+4,Math.round(v)+'%',{a:'end'});
+ }
+ const lab=ends.map((e,i)=>TX(x(i),H-B+16,sd(e),{a:i===0?'start':i===ends.length-1?'end':'middle'})).join('');
+ let body='';
+ series.forEach(s=>{
+  const pts=ends.map((e,i)=>{const v=valAt(s,e);return v==null?null:[x(i),y(v)]});
+  const segs=[];let cur=[];
+  pts.forEach(pt=>{if(!pt){if(cur.length){segs.push(cur);cur=[]}return}cur.push(pt)});
+  if(cur.length)segs.push(cur);
+  const sw=s.thick?2.6:1.8;
+  segs.forEach(seg=>{const d=seg.map((pt,i)=>(i?'L':'M')+pt[0].toFixed(1)+','+pt[1].toFixed(1)).join(' ');body+=`<path d="${d}" fill="none" stroke="${s.color}" stroke-width="${sw}" stroke-linejoin="round"/>`});
+  pts.forEach(pt=>{if(pt) body+=`<circle cx="${pt[0].toFixed(1)}" cy="${pt[1].toFixed(1)}" r="${s.thick?3.2:2.4}" fill="${s.color}"/>`});
+ });
+ const slot=(W-L-R)/Math.max(1,ends.length-1);
+ const hit=ends.map((e,i)=>`<rect data-i="${i}" x="${(x(i)-slot/2).toFixed(1)}" y="${T}" width="${Math.max(slot,16).toFixed(1)}" height="${H-T-B}" fill="transparent"/>`).join('');
+ window._PCTCHARTS=window._PCTCHARTS||{};
+ const cid='c'+(window._PCTSEQ=(window._PCTSEQ||0)+1);
+ window._PCTCHARTS[cid]={ends,series,W,L,R};
+ return `<svg data-pct="${cid}" viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${esc(opts.label||'Account reach percent')}" onmousemove="pctChartMove(event)" onmouseleave="pctChartLeave(event)">${g}${body}${lab}${hit}</svg>`;
+}
+function pctChartMove(ev){
+ const svg=ev.currentTarget;const st=window._PCTCHARTS&&window._PCTCHARTS[svg.getAttribute('data-pct')];
+ const box=svg.closest('.lchart')||svg.closest('.lpct')||svg;const tip=(box&&box.querySelector('.ltip'))||$('ptip')||$('ltip');
+ if(!tip||!st)return;
+ const {ends,series}=st;
+ const sr=svg.getBoundingClientRect();const r=box.getBoundingClientRect();
+ const W=st.W||sr.width,L=st.L||36,R=st.R||8;
+ const px=(ev.clientX-sr.left)/Math.max(1,sr.width)*W;
+ let i=0,best=1e9;
+ ends.forEach((e,k)=>{const xx=L+k*((W-L-R)/Math.max(1,ends.length-1));const d=Math.abs(px-xx);if(d<best){best=d;i=k}});
+ const end=ends[i];
+ const rows=series.map(s=>{const p=(s.points||[]).find(x=>x.end===end);return {label:s.label,v:p&&p.pct!=null?p.pct:null,reached:p&&p.reached,n:p&&p.list_companies}}).filter(x=>x.v!=null);
+ tip.innerHTML=`<div class="mh">${esc(fmtD(end))}</div>`+rows.map(x=>`<div class="mr"><span>${esc(x.label)}</span><b>${x.v}%${x.reached!=null&&x.n?` (${num(x.reached)} of ${num(x.n)})`:''}</b></div>`).join('');
+ tip.style.display='block';
+ const tw=tip.offsetWidth||200,th=tip.offsetHeight||80;
+ let left=ev.clientX-r.left+12, top=ev.clientY-r.top+12;
+ if(left+tw>r.width-8)left=Math.max(8,ev.clientX-r.left-tw-12);
+ if(top+th>r.height-8)top=Math.max(8,ev.clientY-r.top-th-12);
+ tip.style.left=left+'px';tip.style.top=top+'px';
+}
+function pctChartLeave(ev){const box=ev&&ev.currentTarget&&(ev.currentTarget.closest('.lchart')||ev.currentTarget.closest('.lpct'));const tip=(box&&box.querySelector('.ltip'))||$('ptip')||$('ltip');if(tip)tip.style.display='none'}
+function listPctChart(lists, total){
+ const listsS=lists.filter(r=>(r.pct_points||[]).length).map((r,i)=>({id:r.id,label:r.label||r.name||r.id,color:r.color||listColor(i),points:r.pct_points||[],thick:0}));
+ const sumPts=(total&&total.pct_points)||[];
+ const sumS=sumPts.length?[{id:'all-pct',label:'All lists',color:'#111111',points:sumPts,thick:1}]:[];
+ const series=listsS.concat(sumS);
+ if(!series.length)return '';
+ const legend=series.map(s=>{
+  const last=(s.points||[]).slice().reverse().find(p=>p&&p.pct!=null);
+  return `<span><i style="background:${s.color}${s.thick?';height:3px;border-radius:1px':''}"></i>${esc(s.label)}${last?` · ${last.pct}%`:''}</span>`;
+ }).join('');
+ return `<div class="lchart lchart-pct"><div class="lchart-cap">Account reach %</div>${pctChart(series,{H:220,label:'Account reach percent'})}<div class="ltip" id="ptip"></div><div class="lleg">${legend}</div></div>`;
+}
+function pctSpark(points){
+ if(!points||points.length<1)return '';
+ const series=[{id:'one',label:'Account reach',color:'#E0559F',points:points,thick:1}];
+ const first=points[0]&&points[0].end?sd(points[0].end):'';
+ const last=points[points.length-1]&&points[points.length-1].end?sd(points[points.length-1].end):'';
+ const iw=window.innerWidth||390;
+ const cols=iw<=700?1:(iw<=1100?2:3);
+ const host=$('main')||document.body;
+ const avail=Math.round((host&&host.clientWidth)||iw)-28;
+ const cardW=Math.max(220, Math.round(avail/cols - (cols>1?12:0) - 28));
+ return `<div class="lpct"><div class="lpct-cap">Account reach %</div>${pctChart(series,{H:120,W:cardW,label:'Account reach percent'})}<div class="ltip"></div></div>`;
+}
+function combinedPctFromRows(ar){
+ const dates=[];
+ ar.forEach(r=>(r.pct_points||[]).forEach(p=>{if(p&&p.end&&dates.indexOf(p.end)<0)dates.push(p.end)}));
+ dates.sort();
+ const pct_points=dates.map(end=>{
+  let rch=0,n=0,src=null;
+  ar.forEach(row=>{
+   const p=(row.pct_points||[]).find(x=>x.end===end);
+   if(p&&p.reached!=null&&p.list_companies){rch+=p.reached;n+=p.list_companies;src=src||p.source}
+  });
+  return n?{end,source:src,pct:Math.round(100*rch/n),reached:rch,list_companies:n}:null;
+ }).filter(Boolean);
+ let baseline=null;
+ const withB=ar.filter(r=>r.baseline&&r.baseline.list_companies);
+ if(withB.length===ar.length&&ar.length){
+  const rch=withB.reduce((s,x)=>s+x.baseline.reached,0);
+  const n=withB.reduce((s,x)=>s+x.baseline.list_companies,0);
+  baseline={end:withB[0].baseline.end,reached:rch,list_companies:n,pct:Math.round(100*rch/n)};
+ }
+ const latest=pct_points.filter(p=>p.source==='export').slice(-1)[0]||pct_points[pct_points.length-1];
+ const vs=(baseline&&latest&&latest.pct!=null)?{from_pct:baseline.pct,to_pct:latest.pct,pts:latest.pct-baseline.pct,from_end:baseline.end,to_end:latest.end}:null;
+ return {pct_points,baseline,vs_baseline:vs};
+}
+
+function isNarrow(){return window.innerWidth<=700}
+function listShortLabel(r){
+  const full=r.label||r.name||r.id||'';
+  const ind=r.industry||'';
+  const tier=r.tier==='Enterprise'?'ENT':(r.tier==='Growth'?'GRW':'');
+  const subMap={'Beauty':'Beauty','Food & Bev':'Food & Bev','Supplements / Hygiene / Baby / Pet':'Supp','Apparel / Jewelry & Accessories':'','Electronics / Fitness / Sporting / Outdoor / Home':'','SaaS / Mid-market B2B':''};
+  const sub=r.sub||'';
+  const ss=Object.prototype.hasOwnProperty.call(subMap,sub)?subMap[sub]:(sub?String(sub).split(' / ')[0]:'');
+  const peers=(accountLists()||[]).filter(x=>x.industry===r.industry&&x.tier===r.tier);
+  const needSub=!!(ss&&peers.length>1);
+  const parts=[ind,tier].filter(Boolean);
+  if(needSub)parts.push(ss);
+  return parts.length?parts.join(' '):full;
+}
+function listCoverage(){return ''}
+
+function render(){if(typeof hideMtip==='function')hideMtip();const p=D.periods[P];const rows=scoped();
+ $('pills').innerHTML=ORDER.map(k=>`<button class="${k==P?'on':''}" onclick="setP('${k}')">${D.periods[k].label}</button>`).join('');
+ const pr=p.prior||{start:p.prior_start,end:p.prior_end};
+ $('range').textContent=`${sd(p.start)} to ${fmtD(p.end)} vs ${sd(pr.start)} to ${fmtD(pr.end)}`;
+ $('segs').innerHTML=[['All','All']].concat(D.groups.map(g=>[g.id,g.name])).map(([k,l])=>`<button class="${k==G?'on':''}" onclick="setG('${k}')" title="${esc(k=='All'?'Every campaign in the account':((D.groups.find(g=>g.id===k)||{}).full||l))}">${esc(l)}</button>`).join('');
+ const title=campView()?'Campaign performance':'Ad set performance';
+ $('main').innerHTML=`<div class="sh"><h2>${title}</h2><span class="sc">${esc(scopeLabel())}, ${esc(p.label.toLowerCase())}</span></div>${kpis(rows)}${dailyChart()}${listCoverage()}${table()}`;
+ syncNav();
+}
+$('nlive').textContent=(D.meta&&D.meta.live_camps!=null)?D.meta.live_camps:'';
+$('nhist').textContent=(D.meta&&D.meta.hist_camps!=null)?D.meta.hist_camps:'';
+$('thru').textContent=fmtD((D.meta&&D.meta.through)||D.asof);
+$('asof').textContent=(D.meta&&D.meta.asof)||D.asof_label;
+$('foot').innerHTML=`<li>LinkedIn Ads account 510440948 (Modash), all amounts in EUR. The All view lists campaigns (campaign groups) across the whole account. Choose a campaign to see its ad set rows. Product is Cold Ads [Platform direct product promotions] June 2026, Festival is Cold ads (Platform content/event distribution), API and Retargeting are older paused campaigns that still delivered in the comparison windows. Tables include live ad sets and paused or completed ad sets that delivered in the selected period. Status is the ad set's current status: Active (ACTIVE and serving) or Paused.</li>
+<li>Cost/LP = spend / landing page clicks, in whole euros. CPM = spend / impressions x 1,000, in whole euros. LP CTR = landing page clicks / impressions, shown to two decimals. Prior = previous equal-length period (month to date: same days last month). Period comparisons are whole percents. Dwell is the period average, shown to one decimal second. Audience size is current targeting from LinkedIn audienceCounts as of the pull, not a historical size for the period. Reach is approximate member reach for the selected period (not a sum of daily reach). Audience penetration = period reach / current audience size, as a whole percent. Campaign-level reach, audience size, and penetration are not shown because those metrics are not de-duplicated across ad sets.</li>
+<li>Companies reached counts unique companies with impressions in the period (MEMBER_COMPANY, LinkedIn only reports companies with 3 or more impressions). The All count covers every period. Campaign filters have counts for Last 30 days (Product and Festival only); other filtered views show a dash rather than a guessed unique count.</li>
+<li>The Daily performance chart always covers the last 60 days ending ${fmtD((D.meta&&D.meta.through)||D.asof)}, and uses six days before that so the first chart day has a full 7-day window. Rolling metrics use a 7-day window: Rolling LP clicks = LP clicks in the last 7 days, Rolling LP CTR = LP clicks in the last 7 days / impressions in the last 7 days, Rolling Cost/LP = spend in the last 7 days / LP clicks in the last 7 days, and Rolling Spend = spend in the last 7 days, both in whole euros. Click one or more metric pills to plot them together, or All for every metric. Two or more metrics share one chart, each indexed to 100 at the start of the window. Markers show new ad sets on their first day with delivery, ad sets paused on their last day with delivery, and new campaigns. It follows the campaign filter, not the period pills.</li>
+<li>Last business day spend is spend on ${D.last_biz_day_label}. Daily budget and objective are current ad set values at pull time. Data comes from the LinkedIn Ads API through the last completed UTC day.</li>`;
+render();
+let _listRz;
+window.addEventListener('resize',()=>{clearTimeout(_listRz);_listRz=setTimeout(()=>{const y=window.scrollY;render();window.scrollTo(0,y);},180)});
+
+</script>
+</body></html>
