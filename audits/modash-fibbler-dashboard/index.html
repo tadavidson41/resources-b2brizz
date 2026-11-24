@@ -547,10 +547,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div id="month-charts">
 <h2>Pipeline created by create month</h2>
 <div class="box trend" id="pipe-chart"></div>
-<p class="sech-note" id="pipe-note"></p>
 <h2>Influenced revenue by close month</h2>
 <div class="box trend" id="rev-chart"></div>
-<p class="sech-note" id="rev-note"></p>
 </div>
 <details class="notes fold"><summary><h3>Things to Know</h3><span class="fold-peek">A deal meets a toggle (7+ paid impressions, 3+ paid clicks, or 3+ paid engagements) when its 6-month journey sum clears the bar.</span><span class="fold-ctl"></span></summary><ul><li><b>Toggle.</b> A deal meets a toggle (7+ paid impressions, 3+ paid clicks, or 3+ paid engagements) when its 6-month journey sum clears the bar; if that window is incomplete or missing, we use the higher of the journey floor and the Nov 5 snapshot total.</li><li><b>Campaign shares.</b> A deal can be credited to several campaigns, so campaign shares can add to more than 100%.</li><li><b>Journey months.</b> Monthly journey counts are calendar months through the create month, not a day-level 365-day or pre-create window. A missing month is not zero.</li><li><strong>Possible job titles.</strong> Estimated by weighting each campaign’s LinkedIn title impression shares by that company’s Fibbler campaign impressions. Title reports cover December 2024 through Nov 15, 2026, using only complete months before each opportunity’s create month. Company campaign totals are snapshot weights and may include later activity. Coverage is the share of company campaign impressions with matching title data. Rankings describe possible roles, with approximate and suppressed LinkedIn demographic counts. Influencer, content creator and exact Member titles are excluded. Rankings stay tied to the opportunity when the report’s period filter changes. LinkedIn job titles as of Nov 22, 2026. Deals are as of Nov 23, 2026.</li>
 <li><b>Influence.</b> A deal counts when paid LinkedIn activity before the deal reaches the selected threshold: 3+ paid clicks, 3+ paid engagements, or 7+ paid impressions. Every deal number on the page uses the same filters.</li>
@@ -941,10 +939,6 @@ function render(){
  const spendRows=m=>sm[m]||0;
  dualChart(document.getElementById('pipe-chart'),ms.map(m=>{const x=created.filter(d=>d.cr.slice(0,7)===m);return{m,v:dealEur(x.reduce((a,d)=>a+d.amt,0)),spend:spendRows(m),sub:x.length+' deals'}}),'#FFA3D1','Pipeline created');
  dualChart(document.getElementById('rev-chart'),ms.map(m=>{const x=won.filter(d=>d.cl.slice(0,7)===m);return{m,v:dealEur(x.reduce((a,d)=>a+d.amt,0)),spend:spendRows(m),sub:x.length+' won'}}),'#CAB8FF','Influenced revenue');
- const part=ms.includes('2026-11')?' November 2026 covers 22 of 30 days.':'';
- const spendLine=' The line is DPP spend for the three product promotion groups, on the same euro scale as the bars. It is not influenced-only spend, and influence or business type does not change it.'+part;
- document.getElementById('pipe-note').textContent='* Bars: filtered deals by create month, in EUR.'+spendLine;
- document.getElementById('rev-note').textContent='* Bars: Closed Won from the same filtered deals, by close month, in EUR.'+spendLine;
  document.getElementById('month-charts').hidden=S.per==='lfm'||S.per==='mtd';
  const fx=document.getElementById('fx-note');
  if(fx) fx.innerHTML='<b>Currency.</b> Ad spend is DPP spend in EUR for the three product promotion groups and is not converted. Deal, pipeline, and revenue amounts are stored in USD and shown in EUR using the '+esc(FX.source)+' for '+esc(FX.dateLabel)+': 1 EUR = '+FX.usdPerEur+' USD. The same rate is used for every deal. This is a fixed-rate presentation, not the rate on each deal date. Money is rounded to the nearest euro. CPM, CPC, and spend per influenced deal use EUR spend only.';
