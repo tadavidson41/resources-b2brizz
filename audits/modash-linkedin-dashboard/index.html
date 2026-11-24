@@ -293,6 +293,7 @@ function scoped(){
   });
 }
 function pk(p){return p+'p'}
+function scopedFor(p){return D.sets.filter(s=>{if(G!='All'&&s.gid!==G)return false;const m=s.m[p]||{};return (m.spend||0)>0||(m.impr||0)>0})}
 function met(s,p){return (s.m&&s.m[p])||{spend:0,impr:0,lp:0,clicks:0,dwell:null,reach:null}}
 function cplOf(m){return (m.lp>0 && m.spend>0)?m.spend/m.lp:null}
 function cpmOf(m){return (m.impr>0 && m.spend>0)?m.spend/m.impr*1000:null}
@@ -498,7 +499,7 @@ function kcard(l,v,cur,pri,lowBetter,fmt){let c='<span>-</span> no prior data';
  if(cur!==null&&pri!==null){if(!(pri>0)&&pri!==0){c=`vs ${fmt(pri)} prior`}else if(!(pri>0)){c='no prior data'}else{const r=Math.round((cur-pri)/pri*100);const better=lowBetter?r<0:r>0;c=r===0?`<span>flat</span> vs ${fmt(pri)} prior`:`<span class="${better?'up':'dn'}">${r>0?'&#8593;':'&#8595;'} ${Math.abs(r)}%</span> vs ${fmt(pri)} prior`}}
  return `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="c">${c}</div></div>`}
 function kpis(rows){
-  const T=tot(rows,P),Tp=tot(rows,pk(P));
+  const T=tot(rows,P),Tp=tot(scopedFor(pk(P)),pk(P));
   const co=companies(P),cop=companies(pk(P));
   const cpl=cplOf(T),cplp=cplOf(Tp);
   const coTxt=co==null?'-':num(co);
