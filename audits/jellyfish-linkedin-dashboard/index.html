@@ -1,0 +1,1046 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jellyfish | LinkedIn Ads Campaign Performance</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+<link rel="icon" href="favicon.ico">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WSJD9LJN');</script>
+<!-- End Google Tag Manager -->
+<style>
+@font-face{font-family:"Roobert";src:url("fonts/Roobert-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Roobert";src:url("fonts/Roobert-Semibold.woff2") format("woff2");font-weight:500 600;font-display:swap}
+@font-face{font-family:"Roobert";src:url("fonts/Roobert-Bold.woff2") format("woff2");font-weight:700 900;font-display:swap}
+:root{--pu:#7319F2;--eb:#4B0FA6;--lav:#C9A6FB;--lav2:#EDE3FE;--lav3:#F5F3FA;--ink:#0D062B;--mut:#55506A;--mut2:#8A859C;--bg:#FAF9FD;--bd:#E4E0EE;--bd2:#F0EDF6;--gr:#1f7a35;--grb:#D7FEB4;--am:#8a5300;--amb:#FFF1C9;--rd:#b8261b;--rdb:#fdebe9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 "Roobert","Helvetica Neue",Arial,sans-serif;font-variant-numeric:tabular-nums}
+h1,h2,h3,.kpi .v,.seg button,.lab,.jump a{font-family:"Roobert","Helvetica Neue",Arial,sans-serif}
+button{font:inherit;color:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.hd{background:#fff}
+.hd .wrap{display:flex;align-items:center;gap:18px;padding-top:16px;padding-bottom:14px;flex-wrap:wrap}
+.hd img{height:28px;display:block}
+.hd .tt{flex:1;border-left:2px solid var(--lav2);padding-left:18px}
+.hd h1{font-size:28px;line-height:1;margin:0;font-weight:800}
+.hd .dm{color:var(--mut);font-size:12.5px;margin-top:5px}
+.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);backdrop-filter:blur(4px);border-top:1px solid var(--bd2);border-bottom:1px solid var(--bd);box-shadow:0 2px 6px rgba(13,6,43,.05)}
+.nav .wrap{display:flex;flex-direction:column;gap:7px;padding-top:9px;padding-bottom:9px}
+.nr{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.lab{font-weight:800;font-size:16px;min-width:76px}
+.seg{display:inline-flex;border:1px solid var(--bd);border-radius:10px;background:#fff;padding:3px;gap:3px;flex-wrap:wrap}
+.seg button{border:0;background:none;padding:3px 13px;border-radius:8px;cursor:pointer;font-size:16px;font-weight:700;white-space:nowrap}
+.seg button.on{background:var(--pu);color:#fff}
+.seg button:not(.on):hover{background:var(--lav3)}
+.seg.sub button{font-size:15px;padding:2px 11px}.seg.sub button.on{background:var(--lav2);color:var(--eb)}
+.rng{font-size:12.5px;color:var(--mut);margin-left:auto}
+main{padding:24px 0 48px}
+section.block{background:#fff;border:1px solid #D9D9D9;border-radius:18px;padding:26px 28px 28px;margin-bottom:28px;scroll-margin-top:110px}
+section.block.alt{background:var(--lav3)}
+.sh{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.sh h2{font-size:32px;line-height:1.1;margin:0;font-weight:800}
+.sh .sc{font-size:13px;color:var(--eb);background:var(--lav3);border:1px solid var(--lav2);border-radius:999px;padding:2px 11px;font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,240px));gap:12px;margin-bottom:18px}
+@media(max-width:800px){.kpis{grid-template-columns:1fr}}
+.kpi{background:var(--bg);border:1px solid var(--bd);border-left:3px solid var(--pu);border-radius:8px;padding:11px 14px}
+.kpi .l{font-size:12.5px;color:var(--mut);font-weight:600}
+.kpi .v{font-size:32px;font-weight:800;line-height:1.05;margin:3px 0}
+.kpi .c{font-size:12.5px;color:var(--mut)}
+.up{color:#2E6B45;background:#E3F3E8;border-radius:6px;padding:1px 6px;font-weight:700;white-space:nowrap}
+.dn{color:var(--rd);background:var(--rdb);border-radius:6px;padding:1px 6px;font-weight:700;white-space:nowrap}
+.tw{overflow:auto;border:1px solid var(--bd);border-radius:10px;background:#fff}
+table{border-collapse:separate;border-spacing:0;width:100%;table-layout:fixed;font-size:13px}
+th{background:var(--bg);text-align:left;font-weight:700;color:var(--mut);font-size:12px;padding:7px 6px;border-bottom:1px solid var(--bd);white-space:normal;line-height:1.25;vertical-align:bottom}
+th.s{cursor:pointer}th.s:hover{color:var(--pu)}
+th.n,th.st{text-align:center;white-space:normal}
+td.n,td.st{text-align:center;white-space:nowrap}
+td.st .vdesc{max-width:none}
+td{padding:7px 6px;border-bottom:1px solid var(--bd2);vertical-align:middle}
+th.st,td.st{width:76px}
+td.nm,th.nm{width:156px}
+td.nm .vlab,td.nm .vdesc{max-width:100%;overflow-wrap:anywhere;word-break:break-word;white-space:normal}
+a.cm{color:inherit;text-decoration:none}
+a.cm:hover,a.cm:focus-visible{text-decoration:underline;text-underline-offset:2px}
+th.obj,td.obj{width:136px;white-space:nowrap;padding-left:10px;text-align:left}
+tbody tr:hover td{background:#F7F3FE}
+tr.tot td{font-weight:700;background:var(--bg)}
+tr.th td{cursor:pointer}tr.th .vlab:before{content:"\25B8  ";color:var(--pu)}tr.th.open .vlab:before{content:"\25BE  "}
+tr.kid td{background:#FBF9FF;font-size:12.5px}tr.kid td:first-child{padding-left:26px}
+.vlab{font-weight:700}.vdesc{font-size:11.8px;color:var(--mut);margin-top:2px;max-width:300px}
+.thumb{width:96px;height:96px;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--bd);cursor:zoom-in;display:block;background:var(--bg)}
+tr.kid .thumb{width:72px;height:72px}
+.nopv{width:72px;height:56px;border:1px dashed var(--bd);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--mut2)}
+.pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:2px 9px;font-size:12px;font-weight:600;white-space:nowrap}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.p-g{background:var(--grb);color:var(--gr)}.p-n{background:#efefef;color:var(--mut)}.p-p{background:var(--lav2);color:var(--eb)}.p-a{background:var(--amb);color:var(--am)}.p-r{background:var(--rdb);color:var(--rd)}
+.flag{margin-left:8px}
+.sp-on,.sp-off{display:inline-block;border-radius:999px;padding:3px 9px;font-size:12px;font-weight:700;line-height:1.2;white-space:nowrap}
+.sp-on{background:#E3F3E8;color:#2E6B45}
+.sp-off{background:#fdebe9;color:#b8261b}
+.tag{display:inline-block;border-radius:5px;padding:1px 6px;font-size:10.5px;font-weight:700;margin-left:6px;vertical-align:1px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:0;border:1px solid rgba(13,6,43,.25)}
+.va{font-size:11px;font-weight:600;margin-top:2px;white-space:nowrap}.va.bt{color:#2E6B45}.va.wr{color:var(--rd)}.va.at{color:var(--mut2)}
+tr.avg td{background:var(--lav3);border-bottom:2px solid var(--lav);font-weight:700}
+.sgb{background:#fff;color:var(--mut);border:1px solid var(--bd);font-size:9.5px;margin-left:4px}
+.ttag{background:#fff;color:var(--eb);border:1px solid var(--lav);margin-left:0;margin-top:3px}
+.gv{background:#E3F3E8;color:#2E6B45;font-weight:700;border-radius:6px;padding:3px 8px;white-space:nowrap;display:inline-block;line-height:1.2}
+.bv{background:#fdebe9;color:#b8261b;font-weight:700;border-radius:6px;padding:3px 8px;white-space:nowrap;display:inline-block;line-height:1.2}
+tr.fat-row{cursor:pointer}
+tr.fat-row:hover td{background:#F7F3FE}
+tr.fat-row .vlab:before{content:"\25B8  ";color:var(--pu)}
+tr.fat-row.open .vlab:before{content:"\25BE  "}
+tr.fat-chart td{background:#F7F3FE;padding:10px 14px 16px;border-bottom:1px solid var(--bd)}
+
+.note{font-size:12px;color:var(--mut);margin-top:8px}
+.empty{border:1px dashed var(--bd);border-radius:10px;padding:18px;text-align:center;color:var(--mut);background:#fff}
+#lb{position:fixed;inset:0;background:rgba(13,6,43,.85);display:none;align-items:center;justify-content:center;z-index:100;flex-direction:column;gap:10px;padding:20px}
+#lb img{max-width:92vw;max-height:82vh;border-radius:8px;background:#fff}#lb .cap{color:#fff;font-size:14px}#lb button{position:absolute;top:16px;right:20px;background:#fff;border:0;border-radius:999px;width:34px;height:34px;font-size:18px;cursor:pointer}
+.foot{font-size:12.5px;color:var(--mut)}.foot summary{cursor:pointer;font-weight:700;color:var(--ink)}.foot li{margin:4px 0}
+.seg.sm button{padding:3px 11px;font-size:13px}
+.daily{margin:6px 0 22px}
+.daily h2{font-size:24px;line-height:1.1;margin:0;font-weight:800}
+.ch{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.desc{color:var(--mut);font-size:12.5px;margin-top:4px;font-weight:400}
+.chart svg{display:block}
+.legend{font-size:12px;color:var(--mut);display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:6px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.mtip{display:none;position:fixed;z-index:80;width:340px;max-height:360px;overflow:auto;background:#0D062B;color:#fff;font-size:12px;line-height:1.45;padding:10px 12px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.18);text-align:left;pointer-events:none}
+.mtip .mh{font-weight:700;margin-bottom:6px}
+.mtip .ml{margin:0 0 5px}
+.mtip .ml i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:1px}
+.chart{position:relative}
+
+.i{display:inline-flex;align-items:center;justify-content:center;margin-left:6px;width:16px;height:16px;border-radius:50%;background:var(--lav2);color:var(--eb);font-size:11px;font-weight:700;cursor:help;position:relative;font-style:normal;vertical-align:6px}
+.i .tip{display:none;position:absolute;left:50%;top:22px;transform:translateX(-50%);width:340px;background:var(--ink);color:#fff;font-weight:400;font-size:12px;line-height:1.45;padding:9px 11px;border-radius:8px;z-index:40;text-align:left}
+.i:hover .tip,.i:focus .tip{display:block}
+
+.hd .hdr-link{margin-left:auto;align-self:center;color:var(--ink);font-family:"Roobert","Helvetica Neue",Arial,sans-serif;font-weight:700;font-size:15px;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.hd .hdr-link:hover{color:var(--pu)}
+.kpis.five,.kpis.six{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:800px){.kpis.five,.kpis.six{grid-template-columns:1fr 1fr}}
+.kpi .sub{font-size:12px;color:var(--mut);margin-top:1px;line-height:1.3}
+.lists-compact{margin:0 0 22px}
+.lists-compact .sh{margin-bottom:8px}
+.lists-compact .tw table{table-layout:auto;width:100%}
+.lists-compact th.n,.lists-compact td.n{text-align:center;white-space:nowrap}
+.lists-compact td.al,.lists-compact th.al{text-align:left;min-width:128px;position:static;left:auto;box-shadow:none;background:transparent;max-width:none;white-space:normal;overflow-wrap:anywhere;word-break:break-word}
+.lists-compact thead th:first-child,.lists-compact tbody td:first-child{position:static;left:auto;background:transparent;box-shadow:none}
+.lists-compact .tw{overflow-x:auto}
+.lists-compact .vdesc{max-width:none}
+.reach-chart svg{display:block;width:100%;height:auto;min-height:200px}
+@media(max-width:700px){.reach-chart svg{min-height:240px}}
+.daily .reach-exports{margin:12px 0 0}
+.daily .reach-exports-cap{font-size:12px;font-weight:600;margin:0 0 6px;color:#0D062B}
+.daily .reach-exports table{font-size:12px;width:auto;min-width:240px}
+.daily .reach-exports th,.daily .reach-exports td{padding:4px 10px 4px 0;vertical-align:top}
+.reach-chart .reach-note{font-size:12px;color:#5b5b5b;margin:8px 0 0;line-height:1.4}
+
+.lists{margin:0 0 22px;scroll-margin-top:110px}
+.lists h2{font-size:24px;line-height:1.1;margin:0;font-weight:800}
+.list-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+@media(max-width:1100px){.list-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.list-grid{grid-template-columns:1fr}}
+.lcard{background:var(--bg);border:1px solid var(--bd);border-left:3px solid var(--pu);border-radius:8px;padding:12px 14px 10px}
+.lcard .ln{font-size:13.5px;font-weight:700;line-height:1.25;margin:0 0 6px}
+.lcard .row{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.lcard .lv{font-family:"Roobert","Helvetica Neue",Arial,sans-serif;font-size:30px;font-weight:800;line-height:1;letter-spacing:-.02em}
+.lcard .chg{font-size:13px}
+.lcard .meta{font-size:12px;color:var(--mut);margin-top:4px;line-height:1.35}
+.lcard svg.spark{display:block;width:100%;height:36px;margin-top:4px}
+.lbase{font-size:13px;font-weight:600;margin-top:6px;line-height:1.35}
+.lbase.up{color:#2E6B45}
+.lbase.dn{color:var(--rd)}
+.lpct-cap,.lsec-cap{font-size:11.5px;color:#6B6A69;margin:8px 0 2px;font-weight:500}
+.lcard .lpct{position:relative}
+.lcard .lpct svg{display:block;width:100%;height:auto;min-height:110px}
+.lsec{margin-top:6px}
+.lchart-pct svg{min-height:200px}
+.lcard .axis{font-size:10.5px;color:var(--mut);display:flex;justify-content:space-between;margin-top:2px}
+
+
+.nav-toggle{display:none;font-family:"Roobert","Helvetica Neue",Arial,sans-serif}
+.nav-body{display:flex;flex-direction:column;gap:7px}
+.lists-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.lists-head .sh{margin-bottom:0;flex:1}
+.list-modes{margin:0}
+.lsum{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin:10px 0 8px}
+.lsum .lv{font-family:"Roobert","Helvetica Neue",Arial,sans-serif;font-size:40px;font-weight:800;line-height:1;letter-spacing:-.02em}
+.lsum .meta{font-size:12.5px;color:var(--mut);line-height:1.4;max-width:42em}
+.lsum-pct{font-size:16px;font-weight:650;margin:2px 0 4px}
+.lchart{position:relative;margin-top:8px}
+.lchart svg{display:block;width:100%;height:auto}
+.lchart-cap{font-size:12px;color:#6B6A69;margin:12px 0 2px;font-weight:500}
+.lchart-sum svg{min-height:150px}
+.lchart-lists svg{min-height:280px}
+.lleg{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:8px;font-size:12px;color:var(--ink)}
+.lleg span{display:inline-flex;align-items:flex-start;gap:6px;white-space:normal;max-width:100%}
+.lleg i{display:inline-block;width:10px;height:10px;border-radius:2px;flex:0 0 10px;margin-top:3px}
+.ltip{display:none;position:absolute;z-index:6;background:#0D062B;color:#fff;font-size:12px;line-height:1.4;padding:8px 10px;border-radius:8px;pointer-events:none;min-width:180px;max-width:280px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.ltip .mh{font-weight:700;margin-bottom:4px}
+.ltip .mr{display:flex;justify-content:space-between;gap:12px}
+.ltip .mr b{font-weight:700}
+@media(max-width:700px){
+  .wrap{padding:0 12px}
+  .hd .wrap{padding-top:12px;padding-bottom:10px;gap:10px}
+  .hd h1{font-size:22px}
+  .hd img{height:24px}
+  .hd .tt{padding-left:12px}
+  .hd .dm{font-size:12px}
+  .hd .wrap{align-items:flex-start}
+  .hd .tt{flex:1 1 180px}
+  .hd .hdr-link{flex-basis:100%;margin-left:0;margin-top:2px;font-size:14px}
+  .nav{position:static;z-index:auto;box-shadow:none}
+  .nav .wrap{padding-top:6px;padding-bottom:6px;gap:6px}
+  .nav-toggle{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;border:1px solid var(--bd);background:#fff;border-radius:10px;padding:8px 12px;font-weight:700;font-size:14px;color:var(--ink);text-align:left;cursor:pointer;line-height:1.25}
+  .nav-toggle:after{content:"\25BE";color:var(--pu);font-size:12px;flex:0 0 auto}
+  .nav-toggle[aria-expanded="false"]:after{content:"\25B8"}
+  .nav:not(.open) .nav-body{display:none}
+  .lab{font-size:13px;min-width:54px}
+  .seg{padding:2px;gap:2px;border-radius:8px}
+  .seg button{padding:2px 8px;font-size:13px;border-radius:6px}
+  .seg.sub button{font-size:12px;padding:2px 7px}
+  .seg.sm button{padding:2px 8px;font-size:12px}
+  .rng{font-size:11.5px;margin-left:0;flex-basis:100%}
+  .nr{gap:6px}
+  main{padding:14px 0 36px}
+  section.block{padding:16px 14px;margin-bottom:18px;scroll-margin-top:12px;border-radius:14px}
+  .sh h2{font-size:24px}
+  .kpi .v,.lcard .lv,.lsum .lv{font-size:28px}
+  .lsum{gap:10px}
+  .tw{-webkit-overflow-scrolling:touch;overflow-x:auto;max-width:100%}
+  .tw table{table-layout:auto;width:max-content;min-width:0;font-size:11px}
+  .tw th,.tw td{padding:5px 6px;background-clip:padding-box}
+  .tw th{line-height:1.2;white-space:normal;vertical-align:bottom}
+  .tw th.n,.tw td.n{min-width:76px;max-width:76px}
+  .tw th.n{white-space:normal}
+  .tw td.n,.tw td.st{white-space:nowrap}
+  .tw th.st,.tw td.st{position:sticky;left:0;z-index:3;background:#fff;min-width:56px;width:56px;max-width:56px;padding:5px 4px}
+  .tw thead th.st{background:var(--bg);z-index:4}
+  .tw th.obj,.tw td.obj{min-width:76px;max-width:76px;white-space:normal}
+  .tw thead th:first-child,.tw tbody td:first-child{position:sticky;left:0;z-index:3;background:#fff}
+  .tw thead th:first-child{background:var(--bg);z-index:4}
+  .tw th.nm,.tw td.nm{position:sticky;left:56px;z-index:3;background:#fff;min-width:128px;max-width:128px;width:128px;font-size:11px;box-shadow:8px 0 10px -7px rgba(13,6,43,.28);border-right:1px solid var(--bd)}
+  .tw thead th.nm{background:var(--bg);z-index:4}
+  .tw .sp-on,.tw .sp-off{padding:2px 5px;font-size:10px}
+  .sets-table td.nm .vdesc{display:none}
+  #lists .tw table{table-layout:fixed;width:100%;font-size:11px}
+  #lists th.al,#lists td.al{min-width:0;width:132px;max-width:132px;font-size:11px;padding:5px 6px;white-space:normal;overflow-wrap:anywhere;word-break:break-word}
+  #lists th.n,#lists td.n{min-width:0;max-width:none}
+  tbody tr:hover td:first-child,tbody tr:hover td.st,tbody tr:hover td.nm{background:#F7F3FE}
+  tr.kid td:first-child,tr.kid td.st,tr.kid td.nm{background:#FBF9FF}
+  tr.tot td:first-child,tr.tot td.nm{background:#fff}
+  .lchart-sum svg{min-height:140px}
+  .lchart-lists svg{min-height:240px}
+  .lchart-pct svg{min-height:220px}
+  .lcard .lpct svg{min-height:120px}
+  .lsum .lv{font-size:36px}
+}
+
+
+th,td{text-align:center}
+.tw th:first-child,.tw td:first-child,th.al,td.al{text-align:left}
+td.nm,th.nm{width:230px}
+.co-table td.al{white-space:normal}
+@media(max-width:700px){
+  .tw th.st,.tw td.st{position:static;min-width:56px}
+  .tw th.nm,.tw td.nm{left:0}
+}
+</style>
+</head><body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WSJD9LJN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header class="hd"><div class="wrap"><img src="jellyfish-logo-purple.svg" alt="Jellyfish"><div class="tt"><h1>LinkedIn Ads Campaign Performance</h1><div class="dm">Data through <b id="thru"></b>. Ad status as of <b id="asof"></b>. Includes <b id="nlive"></b> live ad sets plus <b id="nhist"></b> paused or completed ad sets with delivery in the selected windows.</div></div><a class="hdr-link" href="/audits/jellyfish-creative-dashboard/">Creative Dashboard</a></div></header>
+<div class="nav" id="nav"><div class="wrap">
+<button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navBody" onclick="togNav()">Filters</button>
+<div class="nav-body" id="navBody">
+<div class="nr"><span class="lab">Period</span><div class="seg" id="pills"></div><span class="rng" id="range"></span></div>
+<div class="nr"><span class="lab">Campaign group</span><div class="seg" id="inds"></div><div id="segs" style="display:none"></div><div class="seg sub" id="subs" style="display:none"></div></div>
+</div>
+</div></div>
+<main><div class="wrap">
+<section class="block" id="main"></section>
+<details class="foot"><summary>Sources and definitions</summary><ul id="foot"></ul></details>
+</div></main>
+<script>
+const D={"asof":"2026-11-23","asof_label":"Nov 23, 2026","pulled":"2026-11-24","last_biz_day":"2026-11-23","last_biz_day_label":"Mon, Nov 23 (UTC)","account":"506678050","meta":{"through":"2026-11-23","asof":"Nov 24, 2026, about 8:00 AM ET","live_camps":8,"hist_camps":18},"periods":{"l7":{"label":"Last 7 days","start":"2026-11-17","end":"2026-11-23","prior_start":"2026-11-10","prior_end":"2026-11-16","prior":{"start":"2026-11-10","end":"2026-11-16"}},"mtd":{"label":"Month to date","start":"2026-11-01","end":"2026-11-23","prior_start":"2026-10-01","prior_end":"2026-10-23","prior":{"start":"2026-10-01","end":"2026-10-23"}},"l30":{"label":"Last 30 days","start":"2026-10-25","end":"2026-11-23","prior_start":"2026-09-25","prior_end":"2026-10-24","prior":{"start":"2026-09-25","end":"2026-10-24"}},"l60":{"label":"Last 60 days","start":"2026-09-25","end":"2026-11-23","prior_start":"2026-07-27","prior_end":"2026-09-24","prior":{"start":"2026-07-27","end":"2026-09-24"}}},"companies":{"l7":{"all":1030,"i:2025 Top of funnel: Brand Awareness Campaigns":801,"i:2025 Middle / Bottom of funnel: Conversion Campaigns":433,"i:Awareness | ABM Accounts | 2026":173,"i:Webinar Promotion 2026":184},"l7p":{"all":1169,"i:2025 Top of funnel: Brand Awareness Campaigns":945,"i:2025 Middle / Bottom of funnel: Conversion Campaigns":510,"i:Awareness | ABM Accounts | 2026":144,"i:Webinar Promotion 2026":0},"mtd":{"all":1661,"i:2025 Top of funnel: Brand Awareness Campaigns":1345,"i:2025 Middle / Bottom of funnel: Conversion Campaigns":873,"i:Awareness | ABM Accounts | 2026":437,"i:Webinar Promotion 2026":184},"mtdp":{"all":1948,"i:2025 Top of funnel: Brand Awareness Campaigns":1791,"i:2025 Middle / Bottom of funnel: Conversion Campaigns":911,"i:Awareness | ABM Accounts | 2026":0,"i:Webinar Promotion 2026":278},"l30":{"all":1817,"i:2025 Top of funnel: Brand Awareness Campaigns":1492,"i:2025 Middle / Bottom of funnel: Conversion Campaigns":986,"i:Awareness | ABM Accounts | 2026":486,"i:Webinar Promotion 2026":184},"l30p":{"all":2174,"i:2025 Top of funnel: Brand Awareness Campaigns":1970,"i:2025 Middle / Bottom of funnel: Conversion Campaigns":1017,"i:Awareness | ABM Accounts | 2026":0,"i:Webinar Promotion 2026":605},"l60":{"all":2542,"i:2025 Top of funnel: Brand Awareness Campaigns":2322,"i:2025 Middle / Bottom of funnel: Conversion Campaigns":1247,"i:Awareness | ABM Accounts | 2026":486,"i:Webinar Promotion 2026":718},"l60p":{"all":4121,"i:2025 Top of funnel: Brand Awareness Campaigns":3792,"i:2025 Middle / Bottom of funnel: Conversion Campaigns":2111,"i:Awareness | ABM Accounts | 2026":0,"i:Webinar Promotion 2026":553}},"reach90":{"window":["2026-08-26","2026-11-23"],"prior":["2026-05-28","2026-08-25"],"cur":{"all":3293,"i:2025 Top of funnel: Brand Awareness Campaigns":3093,"i:2025 Middle / Bottom of funnel: Conversion Campaigns":1596,"i:Awareness | ABM Accounts | 2026":486,"i:Webinar Promotion 2026":909},"pri":{"all":5047,"i:2025 Top of funnel: Brand Awareness Campaigns":4664,"i:2025 Middle / Bottom of funnel: Conversion Campaigns":3013},"min_impr":3},"top":{"i:Webinar Promotion 2026":[{"name":"Amazon","impr":6771,"clicks":9,"lp":0},{"name":"Amazon Web Services (AWS)","impr":5254,"clicks":5,"lp":5},{"name":"Meta","impr":4954,"clicks":0,"lp":0},{"name":"Oracle","impr":4825,"clicks":4,"lp":3},{"name":"Apple","impr":4235,"clicks":6,"lp":0},{"name":"NVIDIA","impr":2944,"clicks":0,"lp":0},{"name":"Salesforce","impr":2716,"clicks":4,"lp":3},{"name":"Accenture","impr":1963,"clicks":6,"lp":0},{"name":"Capital One","impr":1336,"clicks":0,"lp":0},{"name":"JPMorganChase","impr":1314,"clicks":0,"lp":0},{"name":"Netflix","impr":961,"clicks":0,"lp":0},{"name":"Fidelity Investments","impr":956,"clicks":0,"lp":0},{"name":"Snowflake","impr":937,"clicks":0,"lp":0},{"name":"SAP","impr":878,"clicks":0,"lp":0},{"name":"EY","impr":861,"clicks":4,"lp":0}],"i:Awareness | ABM Accounts | 2026":[{"name":"IBM","impr":108,"clicks":0,"lp":0},{"name":"Databricks","impr":100,"clicks":8,"lp":0},{"name":"Snowflake","impr":95,"clicks":7,"lp":0},{"name":"Generac","impr":76,"clicks":0,"lp":0},{"name":"Geotab","impr":72,"clicks":0,"lp":0},{"name":"C3 AI","impr":68,"clicks":0,"lp":0},{"name":"Docusign","impr":66,"clicks":0,"lp":0},{"name":"Webflow","impr":65,"clicks":0,"lp":0},{"name":"GM Financial","impr":57,"clicks":4,"lp":0},{"name":"Zscaler","impr":57,"clicks":0,"lp":0},{"name":"Yum! Brands","impr":56,"clicks":0,"lp":0},{"name":"Gusto","impr":56,"clicks":0,"lp":0},{"name":"Tanium","impr":55,"clicks":0,"lp":0},{"name":"Squarespace","impr":55,"clicks":0,"lp":0},{"name":"Tredence Inc.","impr":54,"clicks":0,"lp":0}],"i:2025 Middle / Bottom of funnel: Conversion Campaigns":[{"name":"Accenture","impr":10129,"clicks":90,"lp":15},{"name":"NVIDIA","impr":6053,"clicks":75,"lp":4},{"name":"Novartis","impr":3808,"clicks":48,"lp":15},{"name":"the LEGO Group","impr":3512,"clicks":48,"lp":8},{"name":"Atlassian","impr":2911,"clicks":70,"lp":15},{"name":"Dynatrace","impr":2802,"clicks":35,"lp":4},{"name":"PepsiCo","impr":2752,"clicks":24,"lp":7},{"name":"Amazon","impr":2495,"clicks":77,"lp":8},{"name":"Capital One","impr":2348,"clicks":49,"lp":4},{"name":"The Walt Disney Company","impr":2247,"clicks":40,"lp":5},{"name":"HubSpot","impr":2072,"clicks":41,"lp":0},{"name":"Vinted","impr":2058,"clicks":24,"lp":4},{"name":"MongoDB","impr":1807,"clicks":19,"lp":5},{"name":"Oracle","impr":1430,"clicks":42,"lp":4},{"name":"Netflix","impr":1292,"clicks":23,"lp":4}],"i:2025 Top of funnel: Brand Awareness Campaigns":[{"name":"Amazon","impr":5844,"clicks":80,"lp":0},{"name":"Accenture","impr":5440,"clicks":13,"lp":0},{"name":"EY","impr":4330,"clicks":11,"lp":3},{"name":"SAP","impr":4313,"clicks":15,"lp":0},{"name":"Oracle","impr":4211,"clicks":58,"lp":0},{"name":"Alstom","impr":3951,"clicks":10,"lp":0},{"name":"Snowflake","impr":3500,"clicks":13,"lp":0},{"name":"NVIDIA","impr":3469,"clicks":9,"lp":0},{"name":"Capital One","impr":3213,"clicks":35,"lp":0},{"name":"Zendesk","impr":2755,"clicks":16,"lp":0},{"name":"Red Hat","impr":2713,"clicks":4,"lp":0},{"name":"Cognizant","impr":2696,"clicks":10,"lp":5},{"name":"Booking.com","impr":2449,"clicks":25,"lp":0},{"name":"Netflix","impr":2424,"clicks":12,"lp":0},{"name":"Delivery Hero","impr":2421,"clicks":23,"lp":0}],"all":[{"name":"Accenture","impr":17532,"clicks":109,"lp":17},{"name":"Amazon","impr":15110,"clicks":169,"lp":10},{"name":"NVIDIA","impr":12464,"clicks":88,"lp":4},{"name":"Oracle","impr":10468,"clicks":103,"lp":7},{"name":"Capital One","impr":6895,"clicks":84,"lp":8},{"name":"SAP","impr":6446,"clicks":22,"lp":3},{"name":"EY","impr":6410,"clicks":20,"lp":6},{"name":"Meta","impr":6278,"clicks":44,"lp":0},{"name":"Salesforce","impr":5510,"clicks":64,"lp":6},{"name":"Atlassian","impr":5325,"clicks":72,"lp":17},{"name":"Amazon Web Services (AWS)","impr":5262,"clicks":6,"lp":4},{"name":"Apple","impr":4739,"clicks":6,"lp":0},{"name":"Netflix","impr":4673,"clicks":38,"lp":6},{"name":"Snowflake","impr":4530,"clicks":21,"lp":0},{"name":"Dynatrace","impr":4417,"clicks":39,"lp":3}]},"groups":[{"id":"620226564","name":"2025 Top of funnel: Brand Awareness Campaigns","full":"2025 Top of funnel: Brand Awareness Campaigns","status":"ACTIVE"},{"id":"620167104","name":"2025 Middle / Bottom of funnel: Conversion Campaigns","full":"2025 Middle / Bottom of funnel: Conversion Campaigns","status":"ACTIVE"},{"id":"1235064204","name":"Awareness | ABM Accounts | 2026","full":"Awareness | ABM Accounts | 2026","status":"ACTIVE"},{"id":"1212714734","name":"Webinar Promotion 2026","full":"Webinar Promotion 2026","status":"ACTIVE"}],"sets":[{"id":"903688114","name":"US/CA/EU | Document Ads | ABM Accounts + Job titles | Engagement Obj. | 10.17.26","short":"Document Ads | ABM Accounts + Job titles | Engagement Obj.","status":"ACTIVE","on":true,"obj":"ENGAGEMENT","obj_label":"Engagement","aud":28000,"budget":50.0,"ind":"Awareness | ABM Accounts | 2026","sub":"All","tier":"Not split","gid":"1235064204","gname":"Awareness | ABM Accounts | 2026","biz":51.46000000000001,"m":{"l7":{"spend":510.38000000000005,"impr":2650,"lp":0,"clicks":117,"dwell":4.5920152225,"reach":1245},"l7p":{"spend":152.34999999999997,"impr":689,"lp":0,"clicks":21,"dwell":4.9937537092,"reach":494},"mtd":{"spend":1307.0625853738525,"impr":5329,"lp":0,"clicks":201,"dwell":5.2757510614,"reach":2166},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":1573.2725853738525,"impr":6328,"lp":0,"clicks":233,"dwell":5.5311529355,"reach":2431},"l30p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60":{"spend":1573.2725853738525,"impr":6328,"lp":0,"clicks":233,"dwell":5.5311529355,"reach":2431},"l60p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null}}},{"id":"908463404","name":"US/CA/EU | Image/Text: ABM List + Job Titles | Website Visits Obj. | 11.9.26","short":"Image/Text: ABM List + Job Titles | Website Visits Obj.","status":"ACTIVE","on":true,"obj":"WEBSITE_VISIT","obj_label":"Website Visits","aud":19000,"budget":75.0,"ind":"2025 Top of funnel: Brand Awareness Campaigns","sub":"All","tier":"Not split","gid":"620226564","gname":"2025 Top of funnel: Brand Awareness Campaigns","biz":25.0,"m":{"l7":{"spend":692.62,"impr":7256,"lp":30,"clicks":30,"dwell":5.8809517222,"reach":2404},"l7p":{"spend":542.1,"impr":8092,"lp":23,"clicks":23,"dwell":6.3764015123,"reach":2409},"mtd":{"spend":1234.7200000000003,"impr":15348,"lp":53,"clicks":53,"dwell":6.1422483656,"reach":3957},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":1234.7200000000003,"impr":15348,"lp":53,"clicks":53,"dwell":6.1422483656,"reach":3957},"l30p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60":{"spend":1234.7200000000003,"impr":15348,"lp":53,"clicks":53,"dwell":6.1422483656,"reach":3957},"l60p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null}}},{"id":"470333644","name":"Remarketing & G2 (90 Day) & CL: Web Visits: Single Image: Upmarket+, Owned & Unowned P1-2, Engineering Leaders, EMs, Platform, US/CA/EU","short":"Remarketing & G2 (90 Day) & CL: Web Visits: Single Image: Upmarket+, Owned & Unowned P1-2, Engineering Leaders, EMs, Platform","status":"ACTIVE","on":true,"obj":"WEBSITE_VISIT","obj_label":"Website Visits","aud":19000,"budget":30.0,"ind":"2025 Middle / Bottom of funnel: Conversion Campaigns","sub":"All","tier":"Not split","gid":"620167104","gname":"2025 Middle / Bottom of funnel: Conversion Campaigns","biz":0.0,"m":{"l7":{"spend":221.27999923706054,"impr":4933,"lp":12,"clicks":12,"dwell":5.1763485865,"reach":1711},"l7p":{"spend":290.45,"impr":4537,"lp":16,"clicks":16,"dwell":5.2978153472,"reach":1152},"mtd":{"spend":868.1299992370605,"impr":15568,"lp":47,"clicks":47,"dwell":5.2764674011,"reach":2798},"mtdp":{"spend":882.3799999999999,"impr":13867,"lp":54,"clicks":54,"dwell":5.7006830309,"reach":3105},"l30":{"spend":1115.7299992370604,"impr":20958,"lp":61,"clicks":61,"dwell":5.3307765815,"reach":3148},"l30p":{"spend":1078.77,"impr":17810,"lp":63,"clicks":63,"dwell":5.550893024,"reach":3470},"l60":{"spend":2194.4999992370604,"impr":38768,"lp":124,"clicks":124,"dwell":5.4319040844,"reach":4700},"l60p":{"spend":3368.470000000001,"impr":48304,"lp":181,"clicks":181,"dwell":5.8011096178,"reach":12282}}},{"id":"411278874","name":"Remarketing & G2 (90 Day) & CL: Awareness Obj: TL & Single Image: Upmarket+, Owned & Unowned P1-2, Engineering Leaders, EMs, Platform, US/CA/EU","short":"Remarketing & G2 (90 Day) & CL: Awareness Obj: TL & Single Image: Upmarket+, Owned & Unowned P1-2, Engineering Leaders, EMs, Platform","status":"ACTIVE","on":true,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":19000,"budget":15.0,"ind":"2025 Middle / Bottom of funnel: Conversion Campaigns","sub":"All","tier":"Not split","gid":"620167104","gname":"2025 Middle / Bottom of funnel: Conversion Campaigns","biz":15.980000000000002,"m":{"l7":{"spend":148.48000000000002,"impr":2480,"lp":4,"clicks":49,"dwell":6.1824833812,"reach":1949},"l7p":{"spend":207.97000000000003,"impr":3349,"lp":4,"clicks":69,"dwell":5.6397333738,"reach":2430},"mtd":{"spend":686.8274558861976,"impr":10526,"lp":13,"clicks":228,"dwell":6.068917852,"reach":5053},"mtdp":{"spend":1428.38,"impr":21662,"lp":33,"clicks":722,"dwell":6.8911393311,"reach":8014},"l30":{"spend":1104.9374558861978,"impr":16155,"lp":26,"clicks":410,"dwell":6.326735694,"reach":6322},"l30p":{"spend":1730.09,"impr":26169,"lp":39,"clicks":851,"dwell":6.6776709,"reach":8858},"l60":{"spend":2835.027455886198,"impr":42324,"lp":65,"clicks":1261,"dwell":6.5433751543,"reach":10190},"l60p":{"spend":3219.7629848727347,"impr":59750,"lp":138,"clicks":2402,"dwell":9.2355577856,"reach":18833}}},{"id":"831017844","name":"[ZERO Paid Impr. Accounts] TL & Single Image: Upmarket P1-2 & ENT (owned), Engineering Leaders: EMP, AI Impact, US/CA/EU","short":"[ZERO Paid Impr. Accounts] TL & Single Image: Upmarket P1-2 & ENT (owned), Engineering Leaders: EMP, AI Impact","status":"ACTIVE","on":true,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":1200,"budget":17.5,"ind":"2025 Top of funnel: Brand Awareness Campaigns","sub":"All","tier":"Not split","gid":"620226564","gname":"2025 Top of funnel: Brand Awareness Campaigns","biz":21.110000000000003,"m":{"l7":{"spend":122.88,"impr":213,"lp":0,"clicks":11,"dwell":11.9015311005,"reach":113},"l7p":{"spend":115.89999999999999,"impr":27,"lp":0,"clicks":1,"dwell":12.0086296296,"reach":18},"mtd":{"spend":387.46000000000004,"impr":275,"lp":0,"clicks":16,"dwell":12.1093271375,"reach":146},"mtdp":{"spend":388.78,"impr":115,"lp":1,"clicks":3,"dwell":14.9139469027,"reach":72},"l30":{"spend":504.2800000000001,"impr":312,"lp":1,"clicks":18,"dwell":12.3007278689,"reach":162},"l30p":{"spend":426.13,"impr":133,"lp":1,"clicks":3,"dwell":16.5851068702,"reach":85},"l60":{"spend":930.41,"impr":445,"lp":2,"clicks":21,"dwell":13.5880068807,"reach":242},"l60p":{"spend":543.6159156379263,"impr":364,"lp":0,"clicks":14,"dwell":11.7924180791,"reach":252}}},{"id":"447854144","name":"Spotlight: Remarketing & Cold: Upmarket+, Owned & Unowned P1-2, Engineering Leaders, EMs, Platform: EMP, AI Impact US/CA/EU","short":"Spotlight: Remarketing & Cold: Upmarket+, Owned & Unowned P1-2, Engineering Leaders, EMs, Platform: EMP, AI Impact US/CA/EU","status":"ACTIVE","on":true,"obj":"WEBSITE_VISIT","obj_label":"Website Visits","aud":140000,"budget":15.0,"ind":"2025 Top of funnel: Brand Awareness Campaigns","sub":"All","tier":"Not split","gid":"620226564","gname":"2025 Top of funnel: Brand Awareness Campaigns","biz":17.8,"m":{"l7":{"spend":104.13,"impr":26533,"lp":13,"clicks":13,"dwell":null,"reach":7845},"l7p":{"spend":105.26,"impr":24788,"lp":12,"clicks":12,"dwell":null,"reach":7821},"mtd":{"spend":334.96,"impr":87840,"lp":39,"clicks":39,"dwell":null,"reach":15186},"mtdp":{"spend":315.00999999999993,"impr":91690,"lp":38,"clicks":38,"dwell":null,"reach":16691},"l30":{"spend":439.65000000000003,"impr":109149,"lp":51,"clicks":51,"dwell":null,"reach":16548},"l30p":{"spend":390.61,"impr":114030,"lp":47,"clicks":47,"dwell":null,"reach":18385},"l60":{"spend":830.2600000000001,"impr":223179,"lp":98,"clicks":98,"dwell":null,"reach":24853},"l60p":{"spend":869.0099999999998,"impr":290879,"lp":109,"clicks":109,"dwell":null,"reach":42077}}},{"id":"908811824","name":"US/CA/UK | Rebuilding Jellyfish for the AI era: TLA - ABM List + JTs | 11.17 - 12.8.26","short":"Rebuilding Jellyfish for the AI era: TLA - ABM List + JTs","status":"ACTIVE","on":true,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":28000,"budget":50.0,"ind":"Webinar Promotion 2026","sub":"All","tier":"Not split","gid":"1212714734","gname":"Webinar Promotion 2026","biz":50.95000000000001,"m":{"l7":{"spend":352.75,"impr":4654,"lp":2,"clicks":15,"dwell":7.3100894397,"reach":3269},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":352.75,"impr":4654,"lp":2,"clicks":15,"dwell":7.3100894397,"reach":3269},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":352.75,"impr":4654,"lp":2,"clicks":15,"dwell":7.3100894397,"reach":3269},"l30p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60":{"spend":352.75,"impr":4654,"lp":2,"clicks":15,"dwell":7.3100894397,"reach":3269},"l60p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null}}},{"id":"911172424","name":"US/CA/UK | Rebuilding Jellyfish for the AI era | Spotlights Ads | ABM List + JTs | 11.17 - 12.8.26","short":"Rebuilding Jellyfish for the AI era | Spotlights Ads | ABM List + JTs","status":"ACTIVE","on":true,"obj":"WEBSITE_VISIT","obj_label":"Website Visits","aud":65000,"budget":50.0,"ind":"Webinar Promotion 2026","sub":"All","tier":"Not split","gid":"1212714734","gname":"Webinar Promotion 2026","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null}}},{"id":"447944074","name":"TL & Single Image: Enterprise (Owned + Unowned), Engineering Leaders & EMs & Platform, US/CA/EU","short":"TL & Single Image: Enterprise (Owned + Unowned), Engineering Leaders & EMs & Platform","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":18000,"budget":100.0,"ind":"2025 Top of funnel: Brand Awareness Campaigns","sub":"All","tier":"Not split","gid":"620226564","gname":"2025 Top of funnel: Brand Awareness Campaigns","biz":0.0,"m":{"l7":{"spend":68.2,"impr":787,"lp":1,"clicks":25,"dwell":11.1026744792,"reach":751},"l7p":{"spend":700.41,"impr":6772,"lp":10,"clicks":234,"dwell":10.6515184063,"reach":3909},"mtd":{"spend":2095.0,"impr":17465,"lp":28,"clicks":616,"dwell":10.7499017242,"reach":7091},"mtdp":{"spend":4318.167146380538,"impr":35215,"lp":78,"clicks":1468,"dwell":12.1519315594,"reach":11955},"l30":{"spend":4875.69,"impr":28050,"lp":56,"clicks":1120,"dwell":11.9601866231,"reach":8612},"l30p":{"spend":4797.697146380538,"impr":38709,"lp":83,"clicks":1597,"dwell":11.9647995633,"reach":12346},"l60":{"spend":9673.387146380539,"impr":66759,"lp":139,"clicks":2717,"dwell":11.9628609379,"reach":16429},"l60p":{"spend":3884.777407525055,"impr":57828,"lp":96,"clicks":2543,"dwell":10.0206062718,"reach":14591}}},{"id":"447903864","name":"US/CA/EU | TLA & Single Image: ABM + Job Titles | Awareness Obj. | 11.01.26","short":"TLA & Single Image: ABM + Job Titles | Awareness Obj.","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":19000,"budget":200.0,"ind":"2025 Top of funnel: Brand Awareness Campaigns","sub":"All","tier":"Not split","gid":"620226564","gname":"2025 Top of funnel: Brand Awareness Campaigns","biz":0.0,"m":{"l7":{"spend":403.36999999999995,"impr":3624,"lp":5,"clicks":136,"dwell":9.5863138313,"reach":2608},"l7p":{"spend":524.76,"impr":5113,"lp":8,"clicks":157,"dwell":10.0218421791,"reach":3219},"mtd":{"spend":1581.54,"impr":14997,"lp":19,"clicks":470,"dwell":9.8024427069,"reach":5756},"mtdp":{"spend":1664.4,"impr":19742,"lp":33,"clicks":719,"dwell":10.4371892313,"reach":8304},"l30":{"spend":2106.24,"impr":17863,"lp":30,"clicks":568,"dwell":9.9397070122,"reach":6129},"l30p":{"spend":1890.6799999999996,"impr":21826,"lp":34,"clicks":809,"dwell":10.2589553067,"reach":9146},"l60":{"spend":3996.92,"impr":39689,"lp":64,"clicks":1377,"dwell":10.1150679381,"reach":12516},"l60p":{"spend":3594.653195861142,"impr":77681,"lp":128,"clicks":3330,"dwell":9.9553631062,"reach":29937}}},{"id":"697507734","name":"Document (Gated): Enterprise/Strategic (Owned + Unowned), Engineering Leaders & EMs & Platform, US/CA/EU | 9.9.26","short":"Document (Gated): Enterprise/Strategic (Owned + Unowned), Engineering Leaders & EMs & Platform","status":"PAUSED","on":false,"obj":"LEAD_GENERATION","obj_label":"Lead Generation","aud":34000,"budget":100.0,"ind":"2025 Top of funnel: Brand Awareness Campaigns","sub":"All","tier":"Not split","gid":"620226564","gname":"2025 Top of funnel: Brand Awareness Campaigns","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0.0,"impr":4,"lp":0,"clicks":0,"dwell":1.91525,"reach":4},"mtd":{"spend":576.0600000000001,"impr":6480,"lp":0,"clicks":13,"dwell":7.1562287234,"reach":2165},"mtdp":{"spend":3941.3399999999997,"impr":44898,"lp":0,"clicks":113,"dwell":7.6669553573,"reach":13367},"l30":{"spend":1401.7199999999998,"impr":15002,"lp":0,"clicks":40,"dwell":7.317145097,"reach":4231},"l30p":{"spend":4030.31,"impr":47768,"lp":0,"clicks":117,"dwell":7.5967255607,"reach":13649},"l60":{"spend":5432.030000000001,"impr":62770,"lp":0,"clicks":157,"dwell":7.5297748378,"reach":15329},"l60p":{"spend":2189.4300000000003,"impr":32140,"lp":0,"clicks":116,"dwell":7.4592473111,"reach":11321}}},{"id":"905659344","name":"US/CA/EU | Image Ads | ABM Accounts + Job titles [Eng. leaders / CTOs] | Awareness Obj. | 10.27.26","short":"Image Ads | ABM Accounts + Job titles [Eng. leaders / CTOs] | Awareness Obj.","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":14000,"budget":40.0,"ind":"Awareness | ABM Accounts | 2026","sub":"All","tier":"Not split","gid":"1235064204","gname":"Awareness | ABM Accounts | 2026","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":84.05999999999999,"impr":543,"lp":1,"clicks":2,"dwell":7.562300738,"reach":530},"mtd":{"spend":528.7099999999999,"impr":2903,"lp":6,"clicks":9,"dwell":5.6746579129,"reach":1983},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":914.8900000000001,"impr":4636,"lp":10,"clicks":16,"dwell":5.8910573097,"reach":2674},"l30p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60":{"spend":914.8899999999999,"impr":4636,"lp":10,"clicks":16,"dwell":5.8910573097,"reach":2674},"l60p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null}}},{"id":"569719804","name":"Video Remarketing & G2 (90 Day) & CL: Awareness: Upmarket+, Owned & Unowned P1-2, Engineering Leaders, EMs, Platform, US/CA/EU","short":"Video Remarketing & G2 (90 Day) & CL: Awareness: Upmarket+, Owned & Unowned P1-2, Engineering Leaders, EMs, Platform","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":23000,"budget":17.5,"ind":"2025 Middle / Bottom of funnel: Conversion Campaigns","sub":"All","tier":"Not split","gid":"620167104","gname":"2025 Middle / Bottom of funnel: Conversion Campaigns","biz":0.0,"m":{"l7":{"spend":55.68,"impr":957,"lp":0,"clicks":7,"dwell":7.2303684211,"reach":896},"l7p":{"spend":123.06,"impr":2002,"lp":0,"clicks":21,"dwell":5.6753729839,"reach":1694},"mtd":{"spend":331.92,"impr":4912,"lp":0,"clicks":53,"dwell":6.0816126515,"reach":2836},"mtdp":{"spend":321.99000000000007,"impr":5479,"lp":0,"clicks":54,"dwell":7.0335318641,"reach":3240},"l30":{"spend":407.65999999999997,"impr":6219,"lp":0,"clicks":76,"dwell":6.6042327544,"reach":3252},"l30p":{"spend":377.69,"impr":6365,"lp":0,"clicks":64,"dwell":7.2855016601,"reach":3706},"l60":{"spend":785.3499999999998,"impr":12584,"lp":0,"clicks":140,"dwell":6.9493413423,"reach":4991},"l60p":{"spend":813.9878051844072,"impr":14849,"lp":3,"clicks":132,"dwell":5.455793204,"reach":7009}}},{"id":"447557454","name":"(Sprint) TL & Single Image: Upmarket+, Owned & Unowned P1-2, Engineering Leaders & EMs & Platform, US/CA/EU","short":"(Sprint) TL & Single Image: Upmarket+, Owned & Unowned P1-2, Engineering Leaders & EMs & Platform","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":66000,"budget":50.0,"ind":"2025 Top of funnel: Brand Awareness Campaigns","sub":"All","tier":"Not split","gid":"620226564","gname":"2025 Top of funnel: Brand Awareness Campaigns","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60p":{"spend":2694.8099999999995,"impr":68874,"lp":135,"clicks":1668,"dwell":7.7327522103,"reach":26321}}},{"id":"447803774","name":"TL & Single Image: Upmarket - Tier 1-3, EMs, Platform, PMO, Product: EMP, AI Impact, DevEx, Delivery, US/CA/EU","short":"TL & Single Image: Upmarket - Tier 1-3, EMs, Platform, PMO, Product: EMP, AI Impact, DevEx, Delivery","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":null,"budget":20.0,"ind":"2025 Top of funnel: Brand Awareness Campaigns","sub":"All","tier":"Not split","gid":"620226564","gname":"2025 Top of funnel: Brand Awareness Campaigns","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60p":{"spend":228.32999999999996,"impr":7981,"lp":11,"clicks":338,"dwell":8.6501829964,"reach":5485}}},{"id":"565802634","name":"(Sprint) Video: Upmarket+, Owned & Unowned P1-2, Engineering Leaders & EMs & Platform, US/CA/EU","short":"(Sprint) Video: Upmarket+, Owned & Unowned P1-2, Engineering Leaders & EMs & Platform","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":95000,"budget":10.0,"ind":"2025 Top of funnel: Brand Awareness Campaigns","sub":"All","tier":"Not split","gid":"620226564","gname":"2025 Top of funnel: Brand Awareness Campaigns","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":22.459999999999997,"impr":980,"lp":0,"clicks":14,"dwell":7.0581977343,"reach":963},"l60":{"spend":22.459999999999997,"impr":980,"lp":0,"clicks":14,"dwell":7.0581977343,"reach":963},"l60p":{"spend":640.3204221115323,"impr":20835,"lp":2,"clicks":207,"dwell":5.383231104,"reach":10165}}},{"id":"570104924","name":"TL & Single Image: Upmarket 3 (Owned) - Tier 1-3, Engineering Leaders & EMs & Platform: EMP, AI Impact, DevEx, Delivery, US/CA/EU","short":"TL & Single Image: Upmarket 3 (Owned) - Tier 1-3, Engineering Leaders & EMs & Platform: EMP, AI Impact, DevEx, Delivery","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":320000,"budget":25.0,"ind":"2025 Top of funnel: Brand Awareness Campaigns","sub":"All","tier":"Not split","gid":"620226564","gname":"2025 Top of funnel: Brand Awareness Campaigns","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60p":{"spend":286.03,"impr":6557,"lp":7,"clicks":239,"dwell":8.7935590724,"reach":4043}}},{"id":"699208074","name":"Document (Gated): Strategic (Owned), Engineering Leaders & EMs & Platform, US/CA/EU","short":"Document (Gated): Strategic (Owned), Engineering Leaders & EMs & Platform","status":"PAUSED","on":false,"obj":"LEAD_GENERATION","obj_label":"Lead Generation","aud":19000,"budget":40.0,"ind":"2025 Top of funnel: Brand Awareness Campaigns","sub":"All","tier":"Not split","gid":"620226564","gname":"2025 Top of funnel: Brand Awareness Campaigns","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":195.48000000000002,"impr":1622,"lp":0,"clicks":8,"dwell":7.7575290443,"reach":896},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":288.75000000000006,"impr":2821,"lp":0,"clicks":11,"dwell":7.1441522678,"reach":1378},"l60":{"spend":288.75000000000006,"impr":2821,"lp":0,"clicks":11,"dwell":7.1441522678,"reach":1378},"l60p":{"spend":2095.9057680321685,"impr":44348,"lp":0,"clicks":135,"dwell":7.6902370445,"reach":19050}}},{"id":"702502634","name":"Document (Gated): Upmarket 3 - Tier 1-3, Engineering Leaders, EMs, Platform: EMP, AI Impact, DevEx, US/CA/EU","short":"Document (Gated): Upmarket 3 - Tier 1-3, Engineering Leaders, EMs, Platform: EMP, AI Impact, DevEx","status":"PAUSED","on":false,"obj":"LEAD_GENERATION","obj_label":"Lead Generation","aud":220000,"budget":15.0,"ind":"2025 Top of funnel: Brand Awareness Campaigns","sub":"All","tier":"Not split","gid":"620226564","gname":"2025 Top of funnel: Brand Awareness Campaigns","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60p":{"spend":90.00000000000001,"impr":1707,"lp":0,"clicks":4,"dwell":9.2185669244,"reach":977}}},{"id":"841413694","name":"Customers: Awareness: TL & Single Image","short":"Customers: Awareness: TL & Single Image","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":null,"budget":10.0,"ind":"2025 Middle / Bottom of funnel: Conversion Campaigns","sub":"All","tier":"Not split","gid":"620167104","gname":"2025 Middle / Bottom of funnel: Conversion Campaigns","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":47.129999999999995,"impr":44,"lp":0,"clicks":0,"dwell":5.8094318182,"reach":34},"l60":{"spend":47.129999999999995,"impr":44,"lp":0,"clicks":0,"dwell":5.8094318182,"reach":34},"l60p":{"spend":532.8700000000001,"impr":673,"lp":2,"clicks":9,"dwell":9.9839266467,"reach":135}}},{"id":"843210384","name":"Document (Gated): Enterprise (Unowned) - Priority 1-2, Engineering Leaders & EMs & Platform, US/CA/EU","short":"Document (Gated): Enterprise (Unowned) - Priority 1-2, Engineering Leaders & EMs & Platform","status":"PAUSED","on":false,"obj":"LEAD_GENERATION","obj_label":"Lead Generation","aud":7700,"budget":20.0,"ind":"2025 Top of funnel: Brand Awareness Campaigns","sub":"All","tier":"Not split","gid":"620226564","gname":"2025 Top of funnel: Brand Awareness Campaigns","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60p":{"spend":626.0,"impr":9795,"lp":0,"clicks":43,"dwell":6.8490198256,"reach":2481}}},{"id":"844802584","name":"TL & Single Image: Enterprise (Unowned) - Priority 1-2, Engineering Leaders & EMs & Platform, US/CA/EU","short":"TL & Single Image: Enterprise (Unowned) - Priority 1-2, Engineering Leaders & EMs & Platform","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":8600,"budget":25.0,"ind":"2025 Top of funnel: Brand Awareness Campaigns","sub":"All","tier":"Not split","gid":"620226564","gname":"2025 Top of funnel: Brand Awareness Campaigns","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l60p":{"spend":1053.2800000000002,"impr":13475,"lp":27,"clicks":494,"dwell":8.6794561604,"reach":3785}}},{"id":"899143974","name":"AI Impact Week: Spotlight Ads - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform, US/CA/EU","short":"AI Impact Week: Spotlight Ads - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform","status":"PAUSED","on":false,"obj":"WEBSITE_VISIT","obj_label":"Website Visits","aud":98000,"budget":50.0,"ind":"Webinar Promotion 2026","sub":"All","tier":"Not split","gid":"1212714734","gname":"Webinar Promotion 2026","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":74.88,"impr":31995,"lp":9,"clicks":9,"dwell":null,"reach":11816},"l60":{"spend":74.88,"impr":31995,"lp":9,"clicks":9,"dwell":null,"reach":11816},"l60p":{"spend":315.94,"impr":89127,"lp":35,"clicks":35,"dwell":null,"reach":17906}}},{"id":"899234234","name":"AI Impact Week: Event Lead Gen - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform, US/CA/EU","short":"AI Impact Week: Event Lead Gen - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform","status":"PAUSED","on":false,"obj":"LEAD_GENERATION","obj_label":"Lead Generation","aud":98000,"budget":50.0,"ind":"Webinar Promotion 2026","sub":"All","tier":"Not split","gid":"1212714734","gname":"Webinar Promotion 2026","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":188.89999999999995,"impr":2154,"lp":0,"clicks":7,"dwell":6.416108473,"reach":1752},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":757.6900000000002,"impr":3901,"lp":0,"clicks":11,"dwell":6.7901022873,"reach":2843},"l60":{"spend":757.69,"impr":3901,"lp":0,"clicks":11,"dwell":6.7901022873,"reach":2843},"l60p":{"spend":221.60999999999996,"impr":2977,"lp":1,"clicks":10,"dwell":7.8084752609,"reach":2707}}},{"id":"899737984","name":"AI Impact Week: TLA - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform, US/CA/EU","short":"AI Impact Week: TLA - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform","status":"PAUSED","on":false,"obj":"BRAND_AWARENESS","obj_label":"Brand Awareness","aud":98000,"budget":50.0,"ind":"Webinar Promotion 2026","sub":"All","tier":"Not split","gid":"1212714734","gname":"Webinar Promotion 2026","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":98.11,"impr":2820,"lp":0,"clicks":5,"dwell":4.2177808949,"reach":2490},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":147.12,"impr":4245,"lp":2,"clicks":14,"dwell":4.8930510156,"reach":3124},"l60":{"spend":147.12,"impr":4245,"lp":2,"clicks":14,"dwell":4.8930510156,"reach":3124},"l60p":{"spend":147.73999999999995,"impr":3124,"lp":0,"clicks":6,"dwell":3.9882391792,"reach":2794}}},{"id":"901250044","name":"AI Impact Week: Video TLA - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform, US/CA/EU","short":"AI Impact Week: Video TLA - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform","status":"PAUSED","on":false,"obj":"ENGAGEMENT","obj_label":"Engagement","aud":98000,"budget":75.0,"ind":"Webinar Promotion 2026","sub":"All","tier":"Not split","gid":"1212714734","gname":"Webinar Promotion 2026","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":408.70000000000005,"impr":2824,"lp":2,"clicks":72,"dwell":8.4496346917,"reach":2824},"l30":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l30p":{"spend":408.70000000000005,"impr":2824,"lp":2,"clicks":72,"dwell":8.4496346917,"reach":2824},"l60":{"spend":408.70000000000005,"impr":2824,"lp":2,"clicks":72,"dwell":8.4496346917,"reach":2824},"l60p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null}}}],"CHART":{"start":"2026-09-25","end":"2026-11-23","s":{"all":{"d":[["2026-09-25",107,0.000811,35.4743,3795.75],["2026-09-26",102,0.000798,33.2631,3392.84],["2026-09-27",96,0.000761,32.9539,3163.57],["2026-09-28",79,0.00063,39.1741,3094.75],["2026-09-29",70,0.000631,39.8761,2791.33],["2026-09-30",57,0.000615,42.1561,2402.9],["2026-10-01",45,0.000521,54.0204,2430.92],["2026-10-02",50,0.000642,49.618,2480.9],["2026-10-03",52,0.000673,48.8235,2538.82],["2026-10-04",52,0.00068,49.4115,2569.4],["2026-10-05",55,0.000987,44.6413,2455.27],["2026-10-06",62,0.001041,42.6077,2641.68],["2026-10-07",64,0.001024,44.1769,2827.32],["2026-10-08",62,0.001059,40.6219,2518.56],["2026-10-09",58,0.000943,44.2205,2564.79],["2026-10-10",58,0.000919,50.8926,2951.77],["2026-10-11",60,0.000922,53.9087,3234.52],["2026-10-12",53,0.00082,65.3085,3461.35],["2026-10-13",52,0.000775,71.2677,3705.92],["2026-10-14",58,0.000804,66.3912,3850.69],["2026-10-15",66,0.000835,71.4514,4715.79],["2026-10-16",69,0.00085,75.3583,5199.72],["2026-10-17",68,0.000826,75.3307,5122.49],["2026-10-18",73,0.000869,72.3531,5281.78],["2026-10-19",80,0.000934,67.0078,5360.63],["2026-10-20",79,0.000961,69.3962,5482.3],["2026-10-21",88,0.001093,65.5937,5772.25],["2026-10-22",88,0.001115,59.952,5275.78],["2026-10-23",89,0.001214,59.0481,5255.28],["2026-10-24",89,0.001231,58.5477,5210.75],["2026-10-25",91,0.001247,58.6075,5333.28],["2026-10-26",92,0.001314,56.8301,5228.37],["2026-10-27",93,0.001345,56.2258,5229.0],["2026-10-28",85,0.001313,62.8482,5342.1],["2026-10-29",80,0.001277,71.7995,5743.96],["2026-10-30",80,0.001384,69.7269,5578.15],["2026-10-31",83,0.001422,69.2337,5746.4],["2026-11-01",79,0.001415,71.1539,5621.16],["2026-11-02",73,0.00129,77.7758,5677.63],["2026-11-03",67,0.00111,80.2624,5377.58],["2026-11-04",61,0.00097,82.8618,5054.57],["2026-11-05",61,0.001075,75.2684,4591.37],["2026-11-06",53,0.000864,79.1681,4195.91],["2026-11-07",51,0.000854,77.6533,3960.32],["2026-11-08",54,0.000906,68.1987,3682.73],["2026-11-09",50,0.000809,67.3544,3367.72],["2026-11-10",53,0.00097,62.5009,3312.55],["2026-11-11",55,0.000968,58.0198,3191.09],["2026-11-12",56,0.000915,55.7518,3122.1],["2026-11-13",63,0.001114,48.3184,3044.06],["2026-11-14",62,0.001115,46.7627,2899.29],["2026-11-15",66,0.001167,45.2668,2987.61],["2026-11-16",74,0.001323,38.4638,2846.32],["2026-11-17",83,0.001329,38.4405,3190.56],["2026-11-18",84,0.001417,38.7156,3252.11],["2026-11-19",87,0.001547,36.6113,3185.18],["2026-11-20",83,0.001405,36.9895,3070.13],["2026-11-21",77,0.001294,38.1332,2936.26],["2026-11-22",76,0.001285,37.2495,2830.96],["2026-11-23",67,0.001239,39.9966,2679.77]],"m":[],"ms":[["2026-09-29",[{"t":"adset_paused","short":"(Sprint) Video: Upmarket+, Owned & Unowned P1-2, Engineering Leaders & EMs & Platform","name":"(Sprint) Video: Upmarket+, Owned & Unowned P1-2, Engineering Leaders & EMs & Platform, US/CA/EU","last":"2026-09-29","status":"PAUSED"},{"t":"adset_paused","short":"Customers: Awareness: TL & Single Image","name":"Customers: Awareness: TL & Single Image","last":"2026-09-29","status":"PAUSED"},{"t":"adset_paused","short":"AI Impact Week: Spotlight Ads - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform","name":"AI Impact Week: Spotlight Ads - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform, US/CA/EU","last":"2026-09-29","status":"COMPLETED"}]],["2026-10-02",[{"t":"new_adset","short":"AI Impact Week: Video TLA - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform","name":"AI Impact Week: Video TLA - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform, US/CA/EU","created":"2026-10-02","run":"2026-10-02","first":"2026-10-02","obj":"ENGAGEMENT"}]],["2026-10-05",[{"t":"adset_paused","short":"AI Impact Week: Event Lead Gen - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform","name":"AI Impact Week: Event Lead Gen - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform, US/CA/EU","last":"2026-10-05","status":"COMPLETED"}]],["2026-10-06",[{"t":"adset_paused","short":"Document (Gated): Strategic (Owned), Engineering Leaders & EMs & Platform","name":"Document (Gated): Strategic (Owned), Engineering Leaders & EMs & Platform, US/CA/EU","last":"2026-10-06","status":"PAUSED"},{"t":"adset_paused","short":"AI Impact Week: TLA - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform","name":"AI Impact Week: TLA - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform, US/CA/EU","last":"2026-10-06","status":"COMPLETED"},{"t":"adset_paused","short":"AI Impact Week: Video TLA - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform","name":"AI Impact Week: Video TLA - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform, US/CA/EU","last":"2026-10-06","status":"PAUSED"}]],["2026-10-27",[{"t":"new_campaign","short":"Awareness | ABM Accounts | 2026","name":"Awareness | ABM Accounts | 2026","first":"2026-10-27"},{"t":"new_adset","short":"Image Ads | ABM Accounts + Job titles [Eng. leaders / CTOs] | Awareness Obj.","name":"US/CA/EU | Image Ads | ABM Accounts + Job titles [Eng. leaders / CTOs] | Awareness Obj. | 10.27.26","created":"2026-10-27","run":"2026-10-27","first":"2026-10-27","obj":"BRAND_AWARENESS"}]],["2026-10-28",[{"t":"new_adset","short":"Document Ads | ABM Accounts + Job titles | Engagement Obj.","name":"US/CA/EU | Document Ads | ABM Accounts + Job titles | Engagement Obj. | 10.17.26","created":"2026-10-17","run":"2026-10-28","first":"2026-10-28","obj":"ENGAGEMENT"}]],["2026-11-10",[{"t":"adset_paused","short":"Document (Gated): Enterprise/Strategic (Owned + Unowned), Engineering Leaders & EMs & Platform","name":"Document (Gated): Enterprise/Strategic (Owned + Unowned), Engineering Leaders & EMs & Platform, US/CA/EU | 9.9.26","last":"2026-11-10","status":"PAUSED"}]],["2026-11-11",[{"t":"adset_paused","short":"Image Ads | ABM Accounts + Job titles [Eng. leaders / CTOs] | Awareness Obj.","name":"US/CA/EU | Image Ads | ABM Accounts + Job titles [Eng. leaders / CTOs] | Awareness Obj. | 10.27.26","last":"2026-11-11","status":"PAUSED"}]],["2026-11-12",[{"t":"new_adset","short":"Image/Text: ABM List + Job Titles | Website Visits Obj.","name":"US/CA/EU | Image/Text: ABM List + Job Titles | Website Visits Obj. | 11.9.26","created":"2026-11-11","run":"2026-11-11","first":"2026-11-12","obj":"WEBSITE_VISIT"}]],["2026-11-17",[{"t":"new_adset","short":"Rebuilding Jellyfish for the AI era: TLA - ABM List + JTs","name":"US/CA/UK | Rebuilding Jellyfish for the AI era: TLA - ABM List + JTs | 11.17 - 12.8.26","created":"2026-11-17","run":"2026-11-17","first":"2026-11-17","obj":"BRAND_AWARENESS"},{"t":"adset_paused","short":"TL & Single Image: Enterprise (Owned + Unowned), Engineering Leaders & EMs & Platform","name":"TL & Single Image: Enterprise (Owned + Unowned), Engineering Leaders & EMs & Platform, US/CA/EU","last":"2026-11-17","status":"PAUSED"}]],["2026-11-18",[{"t":"adset_paused","short":"TLA & Single Image: ABM + Job Titles | Awareness Obj.","name":"US/CA/EU | TLA & Single Image: ABM + Job Titles | Awareness Obj. | 11.01.26","last":"2026-11-18","status":"PAUSED"}]],["2026-11-19",[{"t":"adset_paused","short":"Video Remarketing & G2 (90 Day) & CL: Awareness: Upmarket+, Owned & Unowned P1-2, Engineering Leaders, EMs, Platform","name":"Video Remarketing & G2 (90 Day) & CL: Awareness: Upmarket+, Owned & Unowned P1-2, Engineering Leaders, EMs, Platform, US/CA/EU","last":"2026-11-19","status":"PAUSED"}]]]},"i:2025 Top of funnel: Brand Awareness Campaigns":{"d":[["2026-09-25",48,0.0011,44.0008,2112.04],["2026-09-26",44,0.001128,40.3284,1774.45],["2026-09-27",36,0.00101,42.3914,1526.09],["2026-09-28",30,0.000823,48.675,1460.25],["2026-09-29",27,0.000733,44.6663,1205.99],["2026-09-30",23,0.000706,40.8661,939.92],["2026-10-01",17,0.00042,55.7618,947.95],["2026-10-02",21,0.000529,43.1038,905.18],["2026-10-03",21,0.000528,43.1314,905.76],["2026-10-04",21,0.000528,43.1314,905.76],["2026-10-05",21,0.000601,41.7248,876.22],["2026-10-06",25,0.000662,41.6,1040.0],["2026-10-07",27,0.000685,46.6715,1260.13],["2026-10-08",28,0.000769,40.4211,1131.79],["2026-10-09",26,0.000628,51.2131,1331.54],["2026-10-10",31,0.000679,59.0555,1830.72],["2026-10-11",33,0.000657,67.3564,2222.76],["2026-10-12",33,0.000631,78.1403,2578.63],["2026-10-13",32,0.000576,91.4103,2925.13],["2026-10-14",36,0.000594,85.5547,3079.97],["2026-10-15",41,0.000604,95.3671,3910.05],["2026-10-16",45,0.000638,97.5984,4391.93],["2026-10-17",46,0.000644,94.6089,4352.01],["2026-10-18",49,0.000674,91.2852,4472.98],["2026-10-19",57,0.000763,79.8245,4550.0],["2026-10-20",59,0.000828,79.8125,4708.94],["2026-10-21",68,0.000974,73.1329,4973.04],["2026-10-22",70,0.00103,65.0365,4552.56],["2026-10-23",67,0.001081,67.9798,4554.65],["2026-10-24",64,0.001053,69.7701,4465.29],["2026-10-25",68,0.001105,67.9016,4617.31],["2026-10-26",65,0.00111,69.4372,4513.42],["2026-10-27",62,0.00108,71.9987,4463.92],["2026-10-28",54,0.001041,82.353,4447.06],["2026-10-29",46,0.000938,100.2333,4610.73],["2026-10-30",49,0.001129,87.7267,4298.61],["2026-10-31",52,0.0012,83.7031,4352.56],["2026-11-01",47,0.001159,86.6111,4070.72],["2026-11-02",43,0.001053,92.7542,3988.43],["2026-11-03",40,0.000891,90.6068,3624.27],["2026-11-04",34,0.000699,96.9409,3295.99],["2026-11-05",37,0.000866,79.1365,2928.05],["2026-11-06",32,0.000671,81.3225,2602.32],["2026-11-07",28,0.000604,85.0461,2381.29],["2026-11-08",31,0.000672,69.8048,2163.95],["2026-11-09",29,0.000601,66.29,1922.41],["2026-11-10",32,0.000781,58.5222,1872.71],["2026-11-11",33,0.000777,54.5091,1798.8],["2026-11-12",35,0.000736,52.7337,1845.68],["2026-11-13",40,0.000917,46.542,1861.68],["2026-11-14",41,0.00095,44.4251,1821.43],["2026-11-15",47,0.001053,43.0143,2021.67],["2026-11-16",53,0.001183,37.5175,1988.43],["2026-11-17",62,0.001223,36.7673,2279.57],["2026-11-18",65,0.001378,35.9846,2339.0],["2026-11-19",64,0.001477,33.3856,2136.68],["2026-11-20",60,0.001306,32.219,1933.14],["2026-11-21",57,0.001242,31.2226,1779.69],["2026-11-22",54,0.001222,29.2041,1577.02],["2026-11-23",49,0.001276,28.3918,1391.2]],"m":[],"ms":[["2026-09-29",[{"t":"adset_paused","short":"(Sprint) Video: Upmarket+, Owned & Unowned P1-2, Engineering Leaders & EMs & Platform","name":"(Sprint) Video: Upmarket+, Owned & Unowned P1-2, Engineering Leaders & EMs & Platform, US/CA/EU","last":"2026-09-29","status":"PAUSED"}]],["2026-10-06",[{"t":"adset_paused","short":"Document (Gated): Strategic (Owned), Engineering Leaders & EMs & Platform","name":"Document (Gated): Strategic (Owned), Engineering Leaders & EMs & Platform, US/CA/EU","last":"2026-10-06","status":"PAUSED"}]],["2026-11-10",[{"t":"adset_paused","short":"Document (Gated): Enterprise/Strategic (Owned + Unowned), Engineering Leaders & EMs & Platform","name":"Document (Gated): Enterprise/Strategic (Owned + Unowned), Engineering Leaders & EMs & Platform, US/CA/EU | 9.9.26","last":"2026-11-10","status":"PAUSED"}]],["2026-11-12",[{"t":"new_adset","short":"Image/Text: ABM List + Job Titles | Website Visits Obj.","name":"US/CA/EU | Image/Text: ABM List + Job Titles | Website Visits Obj. | 11.9.26","created":"2026-11-11","run":"2026-11-11","first":"2026-11-12","obj":"WEBSITE_VISIT"}]],["2026-11-17",[{"t":"adset_paused","short":"TL & Single Image: Enterprise (Owned + Unowned), Engineering Leaders & EMs & Platform","name":"TL & Single Image: Enterprise (Owned + Unowned), Engineering Leaders & EMs & Platform, US/CA/EU","last":"2026-11-17","status":"PAUSED"}]],["2026-11-18",[{"t":"adset_paused","short":"TLA & Single Image: ABM + Job Titles | Awareness Obj.","name":"US/CA/EU | TLA & Single Image: ABM + Job Titles | Awareness Obj. | 11.01.26","last":"2026-11-18","status":"PAUSED"}]]]},"i:2025 Middle / Bottom of funnel: Conversion Campaigns":{"d":[["2026-09-25",33,0.002391,31.1412,1027.66],["2026-09-26",30,0.002107,31.458,943.74],["2026-09-27",32,0.002184,29.9381,958.02],["2026-09-28",24,0.001769,37.6387,903.33],["2026-09-29",22,0.001784,36.9264,812.38],["2026-09-30",18,0.001791,36.845,663.21],["2026-10-01",17,0.001693,39.3759,669.39],["2026-10-02",20,0.001902,34.596,691.92],["2026-10-03",24,0.002182,29.9783,719.48],["2026-10-04",25,0.0023,28.0708,701.77],["2026-10-05",31,0.002558,22.5016,697.55],["2026-10-06",34,0.002553,22.4385,762.91],["2026-10-07",35,0.002292,24.8994,871.48],["2026-10-08",32,0.002123,25.3738,811.96],["2026-10-09",31,0.002146,26.2371,813.35],["2026-10-10",26,0.001948,30.7504,799.51],["2026-10-11",26,0.002004,30.9238,804.02],["2026-10-12",20,0.001724,39.323,786.46],["2026-10-13",20,0.001733,39.0395,780.79],["2026-10-14",22,0.001914,35.0327,770.72],["2026-10-15",25,0.00225,32.2296,805.74],["2026-10-16",24,0.00224,33.6579,807.79],["2026-10-17",22,0.002026,35.0218,770.48],["2026-10-18",24,0.002121,33.7,808.8],["2026-10-19",23,0.002093,35.2448,810.63],["2026-10-20",20,0.001833,38.668,773.36],["2026-10-21",20,0.001865,39.9605,799.21],["2026-10-22",18,0.001635,40.1789,723.22],["2026-10-23",22,0.001946,31.8468,700.63],["2026-10-24",25,0.002164,29.8184,745.46],["2026-10-25",23,0.002007,31.1291,715.97],["2026-10-26",27,0.002356,26.4796,714.95],["2026-10-27",30,0.002645,23.0553,691.66],["2026-10-28",29,0.002496,23.2638,674.65],["2026-10-29",31,0.002619,24.3184,753.87],["2026-10-30",28,0.002313,27.0575,757.61],["2026-10-31",27,0.00219,27.4611,741.45],["2026-11-01",27,0.002209,29.1385,786.74],["2026-11-02",25,0.002046,31.4388,785.97],["2026-11-03",22,0.001853,36.1486,795.27],["2026-11-04",23,0.00208,35.1948,809.48],["2026-11-05",21,0.00194,35.4319,744.07],["2026-11-06",18,0.001717,38.3583,690.45],["2026-11-07",20,0.001991,35.109,702.18],["2026-11-08",20,0.001996,32.9069,658.14],["2026-11-09",17,0.001704,35.7157,607.17],["2026-11-10",18,0.001797,33.8932,610.08],["2026-11-11",18,0.001712,32.4443,584.0],["2026-11-12",17,0.001654,35.1322,597.25],["2026-11-13",19,0.001877,33.1404,629.67],["2026-11-14",18,0.001767,34.9621,629.32],["2026-11-15",17,0.001679,36.0294,612.5],["2026-11-16",20,0.002023,31.074,621.48],["2026-11-17",20,0.002053,30.9305,618.61],["2026-11-18",18,0.001913,32.745,589.41],["2026-11-19",21,0.002347,28.5714,600.0],["2026-11-20",21,0.002536,26.5257,557.04],["2026-11-21",18,0.002251,26.3583,474.45],["2026-11-22",20,0.002321,24.661,493.22],["2026-11-23",16,0.001912,26.59,425.44]],"m":[],"ms":[["2026-09-29",[{"t":"adset_paused","short":"Customers: Awareness: TL & Single Image","name":"Customers: Awareness: TL & Single Image","last":"2026-09-29","status":"PAUSED"}]],["2026-11-19",[{"t":"adset_paused","short":"Video Remarketing & G2 (90 Day) & CL: Awareness: Upmarket+, Owned & Unowned P1-2, Engineering Leaders, EMs, Platform","name":"Video Remarketing & G2 (90 Day) & CL: Awareness: Upmarket+, Owned & Unowned P1-2, Engineering Leaders, EMs, Platform, US/CA/EU","last":"2026-11-19","status":"PAUSED"}]]]},"i:Awareness | ABM Accounts | 2026":{"d":[["2026-09-25",0,null,null,0.0],["2026-09-26",0,null,null,0.0],["2026-09-27",0,null,null,0.0],["2026-09-28",0,null,null,0.0],["2026-09-29",0,null,null,0.0],["2026-09-30",0,null,null,0.0],["2026-10-01",0,null,null,0.0],["2026-10-02",0,null,null,0.0],["2026-10-03",0,null,null,0.0],["2026-10-04",0,null,null,0.0],["2026-10-05",0,null,null,0.0],["2026-10-06",0,null,null,0.0],["2026-10-07",0,null,null,0.0],["2026-10-08",0,null,null,0.0],["2026-10-09",0,null,null,0.0],["2026-10-10",0,null,null,0.0],["2026-10-11",0,null,null,0.0],["2026-10-12",0,null,null,0.0],["2026-10-13",0,null,null,0.0],["2026-10-14",0,null,null,0.0],["2026-10-15",0,null,null,0.0],["2026-10-16",0,null,null,0.0],["2026-10-17",0,null,null,0.0],["2026-10-18",0,null,null,0.0],["2026-10-19",0,null,null,0.0],["2026-10-20",0,null,null,0.0],["2026-10-21",0,null,null,0.0],["2026-10-22",0,null,null,0.0],["2026-10-23",0,null,null,0.0],["2026-10-24",0,null,null,0.0],["2026-10-25",0,null,null,0.0],["2026-10-26",0,null,null,0.0],["2026-10-27",1,0.002618,73.42,73.42],["2026-10-28",2,0.001637,110.195,220.39],["2026-10-29",3,0.001696,126.4533,379.36],["2026-10-30",3,0.00131,173.9767,521.93],["2026-10-31",4,0.001464,163.0975,652.39],["2026-11-01",5,0.001624,152.74,763.7],["2026-11-02",5,0.001423,180.646,903.23],["2026-11-03",5,0.001392,191.608,958.04],["2026-11-04",4,0.001245,237.275,949.1],["2026-11-05",3,0.000943,306.4167,919.25],["2026-11-06",3,0.000937,301.0467,903.14],["2026-11-07",3,0.000909,292.2833,876.85],["2026-11-08",3,0.000873,286.8809,860.64],["2026-11-09",4,0.001121,209.5356,838.14],["2026-11-10",3,0.000811,276.5875,829.76],["2026-11-11",4,0.001031,202.0731,808.29],["2026-11-12",4,0.001189,169.7931,679.17],["2026-11-13",4,0.001418,138.1781,552.71],["2026-11-14",3,0.001315,149.5142,448.54],["2026-11-15",2,0.00111,176.72,353.44],["2026-11-16",1,0.000812,236.41,236.41],["2026-11-17",1,0.000804,235.18,235.18],["2026-11-18",0,0.0,null,209.98],["2026-11-19",0,0.0,null,281.65],["2026-11-20",0,0.0,null,357.34],["2026-11-21",0,0.0,null,416.53],["2026-11-22",0,0.0,null,458.92],["2026-11-23",0,0.0,null,510.38]],"m":[],"ms":[["2026-10-27",[{"t":"new_campaign","short":"Awareness | ABM Accounts | 2026","name":"Awareness | ABM Accounts | 2026","first":"2026-10-27"},{"t":"new_adset","short":"Image Ads | ABM Accounts + Job titles [Eng. leaders / CTOs] | Awareness Obj.","name":"US/CA/EU | Image Ads | ABM Accounts + Job titles [Eng. leaders / CTOs] | Awareness Obj. | 10.27.26","created":"2026-10-27","run":"2026-10-27","first":"2026-10-27","obj":"BRAND_AWARENESS"}]],["2026-10-28",[{"t":"new_adset","short":"Document Ads | ABM Accounts + Job titles | Engagement Obj.","name":"US/CA/EU | Document Ads | ABM Accounts + Job titles | Engagement Obj. | 10.17.26","created":"2026-10-17","run":"2026-10-28","first":"2026-10-28","obj":"ENGAGEMENT"}]],["2026-11-11",[{"t":"adset_paused","short":"Image Ads | ABM Accounts + Job titles [Eng. leaders / CTOs] | Awareness Obj.","name":"US/CA/EU | Image Ads | ABM Accounts + Job titles [Eng. leaders / CTOs] | Awareness Obj. | 10.27.26","last":"2026-11-11","status":"PAUSED"}]]]},"i:Webinar Promotion 2026":{"d":[["2026-09-25",26,0.000349,25.2327,656.05],["2026-09-26",28,0.000376,24.0946,674.65],["2026-09-27",28,0.000369,24.2664,679.46],["2026-09-28",25,0.000331,29.2468,731.17],["2026-09-29",21,0.00034,36.8076,772.96],["2026-09-30",16,0.00032,49.9856,799.77],["2026-10-01",11,0.000306,73.9618,813.58],["2026-10-02",9,0.000326,98.2,883.8],["2026-10-03",7,0.000265,130.5114,913.58],["2026-10-04",6,0.000232,160.3117,961.87],["2026-10-05",3,0.000347,293.8333,881.5],["2026-10-06",3,0.000354,279.59,838.77],["2026-10-07",2,0.000256,347.855,695.71],["2026-10-08",2,0.000283,287.405,574.81],["2026-10-09",1,0.000177,419.9,419.9],["2026-10-10",1,0.000243,321.54,321.54],["2026-10-11",1,0.000538,207.74,207.74],["2026-10-12",0,0.0,null,96.26],["2026-10-13",0,null,null,0.0],["2026-10-14",0,null,null,0.0],["2026-10-15",0,null,null,0.0],["2026-10-16",0,null,null,0.0],["2026-10-17",0,null,null,0.0],["2026-10-18",0,null,null,0.0],["2026-10-19",0,null,null,0.0],["2026-10-20",0,null,null,0.0],["2026-10-21",0,null,null,0.0],["2026-10-22",0,null,null,0.0],["2026-10-23",0,null,null,0.0],["2026-10-24",0,null,null,0.0],["2026-10-25",0,null,null,0.0],["2026-10-26",0,null,null,0.0],["2026-10-27",0,null,null,0.0],["2026-10-28",0,null,null,0.0],["2026-10-29",0,null,null,0.0],["2026-10-30",0,null,null,0.0],["2026-10-31",0,null,null,0.0],["2026-11-01",0,null,null,0.0],["2026-11-02",0,null,null,0.0],["2026-11-03",0,null,null,0.0],["2026-11-04",0,null,null,0.0],["2026-11-05",0,null,null,0.0],["2026-11-06",0,null,null,0.0],["2026-11-07",0,null,null,0.0],["2026-11-08",0,null,null,0.0],["2026-11-09",0,null,null,0.0],["2026-11-10",0,null,null,0.0],["2026-11-11",0,null,null,0.0],["2026-11-12",0,null,null,0.0],["2026-11-13",0,null,null,0.0],["2026-11-14",0,null,null,0.0],["2026-11-15",0,null,null,0.0],["2026-11-16",0,null,null,0.0],["2026-11-17",0,0.0,null,57.2],["2026-11-18",1,0.000659,113.72,113.72],["2026-11-19",2,0.000859,83.425,166.85],["2026-11-20",2,0.000688,111.305,222.61],["2026-11-21",2,0.000584,132.795,265.59],["2026-11-22",2,0.00051,150.9,301.8],["2026-11-23",2,0.00043,176.375,352.75]],"m":[],"ms":[["2026-09-29",[{"t":"adset_paused","short":"AI Impact Week: Spotlight Ads - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform","name":"AI Impact Week: Spotlight Ads - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform, US/CA/EU","last":"2026-09-29","status":"COMPLETED"}]],["2026-10-02",[{"t":"new_adset","short":"AI Impact Week: Video TLA - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform","name":"AI Impact Week: Video TLA - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform, US/CA/EU","created":"2026-10-02","run":"2026-10-02","first":"2026-10-02","obj":"ENGAGEMENT"}]],["2026-10-05",[{"t":"adset_paused","short":"AI Impact Week: Event Lead Gen - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform","name":"AI Impact Week: Event Lead Gen - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform, US/CA/EU","last":"2026-10-05","status":"COMPLETED"}]],["2026-10-06",[{"t":"adset_paused","short":"AI Impact Week: TLA - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform","name":"AI Impact Week: TLA - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform, US/CA/EU","last":"2026-10-06","status":"COMPLETED"},{"t":"adset_paused","short":"AI Impact Week: Video TLA - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform","name":"AI Impact Week: Video TLA - Enterprise (Owned + Unowned), Eng Leaders & EMs & Platform, US/CA/EU","last":"2026-10-06","status":"PAUSED"}]],["2026-11-17",[{"t":"new_adset","short":"Rebuilding Jellyfish for the AI era: TLA - ABM List + JTs","name":"US/CA/UK | Rebuilding Jellyfish for the AI era: TLA - ABM List + JTs | 11.17 - 12.8.26","created":"2026-11-17","run":"2026-11-17","first":"2026-11-17","obj":"BRAND_AWARENESS"}]]]}}}};
+
+const ORDER=['l7','mtd','l30','l60'];const MET_KEYS=['lp','ctr','cpl','spend'];let P='l30',IND='All',SUB='All',SEG='All',DSEL=['lp'],LISTMODE='all';
+try{const s=JSON.parse(sessionStorage.getItem('jfli1')||'{}');if(ORDER.includes(s.P))P=s.P;if(s.IND)IND=s.IND;if(s.SUB)SUB=s.SUB;if(s.SEG)SEG=s.SEG;if(Array.isArray(s.DSEL)&&s.DSEL.length){{const keep=s.DSEL.filter(k=>MET_KEYS.includes(k));if(keep.length)DSEL=keep}}else if(s.DMODE==='all')DSEL=['lp','ctr','cpl'];else if(MET_KEYS.includes(s.DMODE))DSEL=[s.DMODE];if(s.LISTMODE==='cards'||s.LISTMODE==='all')LISTMODE=s.LISTMODE}catch(e){}
+const $=s=>document.getElementById(s);
+function navSummary(){const p=(D.periods[P]&&D.periods[P].label)||P;const parts=[p,IND==='All'?'All campaign groups':IND];return 'Filters: '+parts.join(' · ')}
+function syncNav(){const btn=$('navToggle');if(!btn)return;btn.textContent=navSummary()}
+function togNav(){const nav=$('nav');if(!nav)return;const on=nav.classList.toggle('open');const btn=$('navToggle');if(btn)btn.setAttribute('aria-expanded',on?'true':'false')}
+
+const usd=v=>v==null?'-':('$'+Math.round(v).toLocaleString('en-US'));
+const num=v=>v==null?'-':Math.round(v).toLocaleString('en-US');
+const fmtD=s=>new Date(s+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+const sd=s=>new Date(s+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'});
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const GPAL=['#7319F2','#0BE3BF','#D0EF07','#0D062B','#C9A6FB','#F2994A','#2F80ED','#EB5757'];const TAGC={};(D.groups||[]).forEach((g,i)=>{TAGC[g.name]=[GPAL[i%GPAL.length],'#FFFFFF']});
+const SUBT={'Beauty':'Beauty','Food & Bev':'Food & Bev','Supplements / Hygiene / Baby / Pet':'Supplements','Apparel / Jewelry & Accessories':'Fashion','Electronics / Fitness / Sporting / Outdoor / Home':'Lifestyle','SaaS / Mid-market B2B':'B2B','All industries':'Retargeting'};
+const dotH=v=>TAGC[v]?`<span class="dot" style="background:${TAGC[v][0]}"></span>`:'';
+const INDS=['All'].concat((D.groups||[]).map(g=>g.name));if(!INDS.includes(IND))IND='All';SEG='All';SUB='All';
+const SUBS={};
+function scopeKey(){return IND=='All'?'all':'i:'+IND}
+function scopeLabel(){return IND=='All'?'All ad sets':IND}
+const SEGT={ENT:'Enterprise',GRW:'Growth'};
+function save(){try{sessionStorage.setItem('jfli1',JSON.stringify({P,IND,SUB,SEG,DSEL,LISTMODE}))}catch(e){}}
+function setListMode(m){LISTMODE=m;save();render()}
+function setD(k){if(k==='all'){DSEL=MET_KEYS.slice()}else if(k==='reach'){DSEL=['reach']}else if(DSEL.includes(k)){if(DSEL.length>1)DSEL=DSEL.filter(x=>x!==k)}else{DSEL=DSEL.filter(x=>x!=='reach').concat([k])}save();render()}
+function setP(k){P=k;save();render()}
+function setI(k){IND=k;SUB='All';save();render()}
+function setIx(i){setI(INDS[i])}
+function setS(k){SUB=k;save();render()}
+function setG(k){SEG=k;if(SEG!='All'&&IND=='Retargeting'){IND='All';SUB='All'}save();render()}
+function campView(){return SEG==='All'&&IND==='All'}
+function scoped(){
+  return D.sets.filter(s=>{
+    if(SEG!='All' && s.tier!==SEGT[SEG]) return false;
+    if(IND!='All' && (s.ind!==IND || (SUB!='All' && s.sub!==SUB))) return false;
+    const m=s.m[P]||{};
+    const delivered=(m.spend||0)>0||(m.impr||0)>0;
+    return s.on || delivered;
+  });
+}
+function pk(p){return p+'p'}
+function met(s,p){return (s.m&&s.m[p])||{spend:0,impr:0,lp:0,clicks:0,dwell:null,reach:null}}
+function cplOf(m){return (m.lp>0 && m.spend>0)?m.spend/m.lp:null}
+function cpmOf(m){return (m.impr>0 && m.spend>0)?m.spend/m.impr*1000:null}
+function cprOf(m){return (m.reach>0 && m.spend>0)?m.spend/m.reach:null}
+function lpctrOf(m){return (m.impr>0)?m.lp/m.impr:null}
+function penOf(s,m){return (s.aud>0 && m.reach!=null)?(m.reach/s.aud)*100:null}
+function tot(rows,p){
+  p=p||P;
+  let spend=0,impr=0,lp=0,clicks=0,dN=0,dD=0,biz=0,budget=0;
+  rows.forEach(s=>{
+    const m=met(s,p);
+    spend+=m.spend||0; impr+=m.impr||0; lp+=m.lp||0; clicks+=m.clicks||0;
+    if(m.dwell!=null && (m.impr||0)>0){dN+=m.dwell*m.impr; dD+=m.impr}
+    if(s.biz!=null) biz+=s.biz;
+    if(s.budget!=null) budget+=s.budget;
+  });
+  return {spend,impr,lp,clicks,dwell:dD>0?dN/dD:null,reach:null,biz,budget,aud:null};
+}
+function companies(p){const c=D.companies[p]||{};const k=scopeKey();return (c[k]!=null)?c[k]:null}
+
+function accountLists(){
+  return listRows().filter(r=>r && r.type==='COMPANY_LIST_UPLOAD' && r.list_companies && r.export_reached!=null);
+}
+function reachEmptyMessage(){
+  if(accountLists().length)return null;
+  if(IND==='Retargeting')return 'Account reach is for uploaded company lists. This filter has none.';
+  return 'No list yet';
+}
+function exportReachSeries(rows){
+  rows=rows||accountLists();
+  const dates=[];
+  const add=end=>{if(end&&dates.indexOf(end)<0)dates.push(end)};
+  rows.forEach(r=>{
+    (r.trend||[]).forEach(p=>add(p&&p.end));
+    (r.pct_points||[]).forEach(p=>{if(p&&(p.source==='export'||p.source==='baseline'))add(p.end)});
+  });
+  dates.sort();
+  return dates.map(end=>{
+    let rch=0,n=0,src=null;
+    rows.forEach(row=>{
+      let p=(row.trend||[]).find(x=>x.end===end);
+      if(!p){
+        p=(row.pct_points||[]).find(x=>x.end===end && (x.source==='export'||x.source==='baseline'));
+      }
+      if(p && (p.source==='api'||p.real===false)) return;
+      if(p&&p.reached!=null&&p.list_companies){
+        rch+=p.reached;n+=p.list_companies;
+        src=p.source||src;
+      }
+    });
+    return n?{end,pct:Math.round(100*rch/n),reached:rch,list_companies:n,source:src||'export',real:true}:null;
+  }).filter(Boolean);
+}
+function reachSeries(rows){
+  rows=rows||accountLists();
+  const order=[];
+  const add=id=>{if(id&&order.indexOf(id)<0)order.push(id)};
+  rows.forEach(r=>{(r.fibbler_windows||[]).forEach(p=>add(p&&p.id))});
+  if(!order.length){
+    const all=((D.LISTS&&D.LISTS.combined_sum)||{}).fibbler_windows||[];
+    all.forEach(p=>add(p&&p.id));
+  }
+  return order.map(id=>{
+    let rch=0,n=0,meta=null;
+    rows.forEach(row=>{
+      const p=(row.fibbler_windows||[]).find(x=>x.id===id);
+      if(p&&p.reached!=null&&p.list_companies){
+        rch+=p.reached;n+=p.list_companies;
+        meta=meta||p;
+      }
+    });
+    return n?{
+      id,
+      end:meta.end,
+      label:meta.label,
+      short:meta.short,
+      axis:meta.axis||meta.short||meta.label,
+      partial:!!meta.partial,
+      pct:Math.round(100*rch/n),
+      reached:rch,
+      list_companies:n,
+      source:'fibbler'
+    }:null;
+  }).filter(Boolean);
+}
+function reachNow(rows){
+  const series=exportReachSeries(rows);
+  const latest=series.length?series[series.length-1]:null;
+  const prior=series.length>=2?series[series.length-2]:null;
+  return {latest,prior,series};
+}
+function reachKpiCard(){
+  const msg=reachEmptyMessage();
+  if(msg){
+    return `<div class="kpi"><div class="l">Account reach %</div><div class="v">-</div><div class="c">${esc(msg)}</div></div>`;
+  }
+  const {latest,prior}=reachNow();
+  if(!latest||latest.pct==null){
+    return `<div class="kpi"><div class="l">Account reach %</div><div class="v">-</div><div class="c">No list yet</div></div>`;
+  }
+  let c='no prior data';
+  if(prior&&prior.pct!=null){
+    const pts=latest.pct-prior.pct;
+    c=pts===0?`<span>flat</span> vs ${prior.pct}% prior`:`<span class="${pts>0?'up':'dn'}">${pts>0?'&#8593;':'&#8595;'} ${Math.abs(pts)} pts</span> vs ${prior.pct}% prior`;
+  }
+  const sub=latest.reached!=null&&latest.list_companies?`${num(latest.reached)} of ${num(latest.list_companies)}`:'';
+  return `<div class="kpi"><div class="l">Account reach %</div><div class="v">${latest.pct}%</div><div class="c">${c}</div>${sub?`<div class="sub">${sub}</div>`:''}</div>`;
+}
+function placeReachLabels(items,minDx){
+  const byPri=items.slice().sort((a,b)=>b.pri-a.pri||a.x-b.x);
+  const kept=[];
+  byPri.forEach(it=>{if(kept.every(k=>Math.abs(k.x-it.x)>=minDx))kept.push(it)});
+  return kept.sort((a,b)=>a.x-b.x);
+}
+function exportReachTable(rows){
+  const series=exportReachSeries(rows);
+  if(!series.length)return '';
+  const body=series.map(p=>{
+    const src=p.source==='baseline'?'Oct 6 baseline':'Export '+fmtD(p.end);
+    const n=p.reached!=null&&p.list_companies?`${num(p.reached)} of ${num(p.list_companies)}`:'';
+    return `<tr><td>${esc(src)}</td><td class="n">${p.pct}%</td><td class="n">${n}</td></tr>`;
+  }).join('');
+  return `<div class="reach-exports lists-compact"><div class="reach-exports-cap">Companies Hub exports</div><div class="tw"><table><thead><tr><th class="al">Point</th><th class="n">Account reach</th><th class="n">Reached</th></tr></thead><tbody>${body}</tbody></table></div></div>`;
+}
+function reachChart(){
+  const msg=reachEmptyMessage();
+  if(msg)return `<div class="empty">${esc(msg)}</div>`;
+  const series=reachSeries();
+  if(!series.length)return `<div class="empty">No list yet</div>`;
+  const host=$('main')||document.body;
+  const W=Math.max(280, Math.round((host&&host.clientWidth)||(window.innerWidth-48)));
+  const narrow=W<720;
+  const H=narrow?300:270,L=36,R=12,T=26,B=narrow?86:52;
+  const vals=series.map(p=>p.pct);
+  const minV=Math.min(...vals), maxV=Math.max(...vals);
+  let y0=Math.max(0, Math.floor((minV-8)/5)*5);
+  let y1=Math.min(100, Math.ceil((maxV+6)/5)*5);
+  if(y1-y0<15){y0=Math.max(0,y0-5);y1=Math.min(100,y1+5)}
+  const y=v=>T+(H-T-B)*(1-(v-y0)/(y1-y0||1));
+  const n=series.length;
+  const inner=W-L-R;
+  const slot=inner/Math.max(1,n);
+  const barW=Math.min(36, Math.max(10, slot*0.62));
+  let g='';
+  const ticks=4;
+  for(let k=0;k<=ticks;k++){
+    const v=y0+(y1-y0)*k/ticks,yy=y(v);
+    g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#ECECEC"/>`+TX(L-6,yy+4,Math.round(v)+'%',{a:'end'});
+  }
+  const bars=series.map((p,i)=>{
+    const cx=L+slot*(i+0.5);
+    const x=cx-barW/2;
+    const top=y(p.pct);
+    const h=Math.max(1, y(y0)-top);
+    return {...p,i,cx,x,top,h,barW,fill:p.partial?'#C9A6FB':'#7319F2'};
+  });
+  const rects=bars.map(p=>`<rect class="${p.partial?'partial':''}" x="${p.x.toFixed(1)}" y="${p.top.toFixed(1)}" width="${p.barW.toFixed(1)}" height="${p.h.toFixed(1)}" rx="2" fill="${p.fill}"/>`).join('');
+  const minLab=narrow?14:16;
+  const pctItems=bars.map(p=>({x:p.cx,y:p.top-6,label:String(p.pct)+'%',pri:p.partial?80:50,i:p.i}));
+  const pctKept=placeReachLabels(pctItems, minLab);
+  const keptIdx={};
+  pctKept.forEach(it=>keptIdx[it.i]=1);
+  // Prefer keeping every label; if a label was dropped, try a slight vertical stagger instead of omitting.
+  const pctLabs=bars.map(p=>{
+    const bump=keptIdx[p.i]?0:(p.i%2===0?-10:10);
+    return TX(p.cx, p.top-6+Math.min(0,bump), p.pct+'%',{a:'middle',b:1,c:'#0D062B',fs:11});
+  }).join('');
+  let lab='';
+  if(narrow){
+    lab=bars.map(p=>`<text x="0" y="0" transform="translate(${p.cx.toFixed(1)},${H-B+10}) rotate(-90)" text-anchor="end" fill="#0D062B" font-size="10">${esc(p.short||p.axis||p.label)}</text>`).join('');
+  }else{
+    const axItems=bars.map(p=>({x:p.cx,label:p.axis||p.short||p.label,pri:p.partial||p.i===0||p.i===bars.length-1?90:40,i:p.i}));
+    const axKept=placeReachLabels(axItems, 48);
+    lab=axKept.map(it=>{
+      const a=it.x<=L+8?'start':(it.x>=W-R-8?'end':'middle');
+      return TX(it.x,H-B+16,it.label,{a});
+    }).join('');
+  }
+  window._REACHCHART={series:bars,W,L,R};
+  const hit=bars.map((p,i)=>{
+    const hw=Math.max(18, slot);
+    return `<rect data-i="${i}" x="${(p.cx-hw/2).toFixed(1)}" y="${T-8}" width="${hw.toFixed(1)}" height="${H-T-B+8}" fill="transparent" style="cursor:crosshair"/>`;
+  }).join('');
+  return `<div class="chart reach-chart" id="reachTrend"><svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Account reach percent" onmousemove="reachChartMove(event)" onmouseleave="reachChartLeave()">${g}${rects}${pctLabs}${lab}${hit}</svg><div class="ltip" id="rtip"></div></div>`;
+}
+function reachChartMove(ev){
+  const svg=ev.currentTarget;const st=window._REACHCHART;const box=svg.closest('.reach-chart')||svg.closest('.chart')||svg;const tip=box.querySelector('.ltip')||$('rtip');
+  if(!tip||!st||!st.series||!st.series.length)return;
+  const sr=svg.getBoundingClientRect();const r=box.getBoundingClientRect();
+  const W=st.W||sr.width,L=st.L||36,R=st.R||12;
+  const px=(ev.clientX-sr.left)/Math.max(1,sr.width)*W;
+  let i=0,best=1e9;
+  st.series.forEach((p,k)=>{const d=Math.abs(px-p.cx);if(d<best){best=d;i=k}});
+  const p=st.series[i];
+  const src=p.partial?'Fibbler, rolling 3-month window, month to date':'Fibbler, rolling 3-month window';
+  tip.innerHTML=`<div class="mh">${esc(p.label||p.axis||'')}</div><div class="mr"><span>Account reach</span><b>${p.pct}%</b></div><div class="mr"><span>${esc(src)}</span><b>${p.reached!=null&&p.list_companies?num(p.reached)+' of '+num(p.list_companies):''}</b></div>`;
+  tip.style.display='block';
+  const tw=tip.offsetWidth||200,th=tip.offsetHeight||80;
+  let left=ev.clientX-r.left+12, top=ev.clientY-r.top+12;
+  if(left+tw>r.width-8)left=Math.max(8,ev.clientX-r.left-tw-12);
+  if(top+th>r.height-8)top=Math.max(8,ev.clientY-r.top-th-12);
+  tip.style.left=left+'px';tip.style.top=top+'px';
+}
+function reachChartLeave(){const tip=$('rtip');if(tip)tip.style.display='none'}
+
+function kcard(l,v,cur,pri,lowBetter,fmt){let c='<span>-</span> no prior data';
+ if(cur!==null&&pri!==null){if(!(pri>0)&&pri!==0){c=`vs ${fmt(pri)} prior`}else if(!(pri>0)){c='no prior data'}else{const r=Math.round((cur-pri)/pri*100);const better=lowBetter?r<0:r>0;c=r===0?`<span>flat</span> vs ${fmt(pri)} prior`:`<span class="${better?'up':'dn'}">${r>0?'&#8593;':'&#8595;'} ${Math.abs(r)}%</span> vs ${fmt(pri)} prior`}}
+ return `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="c">${c}</div></div>`}
+function reach90Card(){
+  const R=D.reach90||{};const k=scopeKey();const cur=(R.cur||{})[k],pri=(R.pri||{})[k];
+  const l='Company reach (90 days)';
+  if(cur==null)return `<div class="kpi"><div class="l">${l}</div><div class="v">-</div><div class="c">Not available for this filter</div></div>`;
+  const card=kcard(l,num(cur),cur,pri==null?null:pri,0,num);
+  return card.replace('</div></div>',`</div><div class="sub">3+ paid impressions, ${sd(R.window[0])} to ${fmtD(R.window[1])}</div></div>`);
+}
+function kpis(rows){
+  const T=tot(rows,P),Tp=tot(rows,pk(P));
+  const co=companies(P),cop=companies(pk(P));
+  const cpl=cplOf(T),cplp=cplOf(Tp);
+  const coTxt=co==null?'-':num(co);
+  const coCard=co==null?`<div class="kpi"><div class="l">Companies reached</div><div class="v">-</div><div class="c">Not available for this filter</div></div>`:kcard('Companies reached',coTxt,co,cop,0,num);
+  return `<div class="kpis six">${kcard('Total spend',usd(T.spend),T.spend,Tp.spend,0,usd)}${kcard('Impressions',num(T.impr),T.impr,Tp.impr,0,num)}${kcard('Landing page clicks',num(T.lp),T.lp,Tp.lp,0,num)}${kcard('Cost per LP click',usd(cpl),cpl,cplp,1,usd)}${coCard}${reach90Card()}</div>`;
+}
+const AV={
+  status:r=>r.on?0:1,
+  label:r=>r.short||r.name||'',
+  obj:r=>r.obj_label||'',
+  aud:r=>r.aud==null?null:r.aud,
+  budget:r=>r.budget==null?null:r.budget,
+  biz:r=>r.biz==null?null:r.biz,
+  lp:r=>met(r,P).lp||0,
+  lpctr:r=>lpctrOf(met(r,P)),
+  cpl:r=>cplOf(met(r,P)),
+  cpm:r=>cpmOf(met(r,P)),
+  dwell:r=>met(r,P).dwell,
+  pen:r=>penOf(r,met(r,P)),
+  reach:r=>met(r,P).reach,
+  cpr:r=>cprOf(met(r,P)),
+  spend:r=>met(r,P).spend||0
+};
+function pillN(n){if(n<=1)return{b:0,w:0};if(n===2)return{b:1,w:1};if(n===3)return{b:2,w:1};return{b:3,w:Math.min(3,n-3)}}
+function winners(list){if(!list.length)return {};const W={};
+ [['cpl',-1],['cpm',-1],['cpr',-1],['lpctr',1],['dwell',1],['pen',1]].forEach(([k,dir])=>{
+  const el=list.filter(r=>{const v=AV[k](r);if(v===null)return false;if(k==='cpl')return met(r,P).lp>0&&v>0;if(k==='cpm')return met(r,P).impr>0&&v>0;if(k==='cpr')return met(r,P).reach>0&&v>0;if(k==='pen')return r.aud>0&&met(r,P).reach!=null;return met(r,P).impr>0});
+  const {b,w}=pillN(el.length);const vs=el.map(r=>AV[k](r));
+  const best=vs.slice().sort((a,c)=>(c-a)*dir).slice(0,b);
+  const worst=vs.slice().sort((a,c)=>(a-c)*dir).filter(v=>!best.includes(v)).slice(0,w);
+  W[k]={best,worst,el:new Set(el)}});return W}
+function hl(W,r,k,txt){const w=W[k];if(!w||!w.el.has(r))return txt;const v=AV[k](r);if(v===null)return txt;const i=w.best.indexOf(v);if(i>=0){w.best.splice(i,1,NaN);return `<span class="gv">${txt}</span>`}const j=w.worst.indexOf(v);if(j>=0){w.worst.splice(j,1,NaN);return `<span class="bv">${txt}</span>`}return txt}
+function cmpv(a,b){if(a===null&&b===null)return 0;if(a===null)return 1;if(b===null)return -1;return typeof a==='string'?a.localeCompare(b):a-b}
+let SORT={c:'cpl',d:1,vol:1};
+function srt(c){SORT=(SORT.c===c)?{c,d:-SORT.d,vol:SORT.vol}:{c,d:(c==='label'||c==='cpl'||c==='cpm'||c==='cpr'||c==='obj'||c==='status')?1:-1,vol:SORT.vol};render()}
+function th(c,label,cls,title){const on=SORT.c===c;const arw=on?(SORT.d>0?'▲':'▼'):'';return `<th class="s ${cls||''}${on?' act':''}" onclick="srt('${c}')" ${title?`title="${esc(title)}"`:''}>${label}<span class="arw" style="opacity:${on?1:.35};font-size:9px;margin-left:3px">${arw}</span></th>`}
+function st(r){return r.on?'<span class="sp-on">Active</span>':'<span class="sp-off">Paused</span>'}
+function statusMix(rows){const a=rows.filter(r=>r.on).length,p=rows.length-a;if(a&&!p)return '<span class="sp-on">Active</span>';if(!a&&p)return '<span class="sp-off">Paused</span>';return `<span class="sp-on">${a}</span> <span class="sp-off">${p}</span>`}
+const dwf=v=>v==null?'-':Number(v).toFixed(1)+'s';
+const fmtP=n=>n==null?'-':(Math.round(n)+'%');
+const fmtLPCTR=v=>v==null?'-':((100*v).toFixed(2)+'%');
+const usd2=v=>v==null?'-':('$'+Number(v).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}));
+function groupRows(rows){
+  const byG={};
+  rows.forEach(r=>{(byG[r.gid]||(byG[r.gid]=[])).push(r)});
+  const gOrder=D.groups.filter(g=>byG[g.id]);
+  Object.keys(byG).forEach(id=>{if(!gOrder.some(g=>g.id===id)) gOrder.push({id,name:byG[id][0].gname||id})});
+  return {byG,gOrder};
+}
+const CM_ACCT=D.account;
+function cmAdset(id){return 'https://www.linkedin.com/campaignmanager/accounts/'+CM_ACCT+'/campaigns/'+id+'/details'}
+function cmGroup(id){return 'https://www.linkedin.com/campaignmanager/accounts/'+CM_ACCT+'/campaign-groups/'+id}
+function cmName(href,label){return href?`<a class="cm" href="${esc(href)}" target="_blank" rel="noopener noreferrer">${label}</a>`:label}
+function asCamp(g,grows){
+  const T=tot(grows,P);
+  return {id:g.id,name:g.name,short:g.name,isCamp:true,kids:grows,on:grows.every(r=>r.on),aud:null,obj_label:'',budget:T.budget,biz:T.biz,m:{[P]:{spend:T.spend,impr:T.impr,lp:T.lp,clicks:T.clicks,dwell:T.dwell,reach:null}}};
+}
+function sortRows(list){
+  const totSpend=list.reduce((s,r)=>s+(met(r,P).spend||0),0);
+  const ok=r=>{if(!totSpend||(met(r,P).spend||0)<totSpend*0.05||!(met(r,P).impr||0))return false;if(SORT.c==='cpl')return (met(r,P).lp||0)>0;if(SORT.c==='cpr')return (met(r,P).reach||0)>0;return true};
+  const byVol=(a,b)=>{
+    if(SORT.vol&&(SORT.c==='cpl'||SORT.c==='cpm'||SORT.c==='cpr')){const qa=ok(a),qb=ok(b);if(qa!==qb)return qa?-1:1}
+    const c=cmpv(AV[SORT.c](a),AV[SORT.c](b))*SORT.d;
+    return c||((met(b,P).spend||0)-(met(a,P).spend||0));
+  };
+  return list.slice().sort(byVol);
+}
+function table(){
+  const rows=scoped();
+  if(!rows.length)return `<div class="empty">No delivery in this period.</div><div class="note" id="showing"></div>`;
+  const live=rows.filter(r=>r.on).length, paused=rows.length-live;
+  if(campView()){
+    const {byG,gOrder}=groupRows(rows);
+    const camps=sortRows(gOrder.map(g=>asCamp(g,byG[g.id])));
+    const W=winners(camps);
+    const head=`<thead><tr>
+      ${th('label','Campaign group','nm')}
+      ${th('status','Status','st')}
+      ${th('budget','Daily<br>budget','n','Current daily budget, summed across ad sets in the campaign group at pull time.')}
+      ${th('biz','Last biz<br>day spend','n','Spend on '+D.last_biz_day_label+'. LinkedIn reports in UTC days.')}
+      ${th('lp','Landing<br>page clicks','n')}
+      ${th('lpctr','LP CTR','n','Landing page clicks / impressions. Higher is better')}
+      ${th('cpl','Cost /<br>LP click','n','Lower is better')}
+      ${th('cpm','CPM','n','Spend ÷ impressions × 1,000, rounded to whole dollars. Lower is better')}
+      ${th('dwell','Dwell<br>time','n','Period average dwell time, impression-weighted. Higher is better')}
+    </tr></thead>`;
+    let body='';
+    camps.forEach(r=>{
+      const m=met(r,P);
+      body+=`<tr>
+        <td class="nm" title="${esc(r.name)}"><div class="vlab">${cmName(r.id?cmGroup(r.id):'',esc(r.name))}</div><div class="vdesc">${r.kids.length} ad set${r.kids.length===1?'':'s'}</div></td>
+        <td class="st">${statusMix(r.kids)}</td>
+        <td class="n">${usd(r.budget)}</td>
+        <td class="n">${usd(r.biz)}</td>
+        <td class="n">${num(m.lp)}</td>
+        <td class="n">${hl(W,r,'lpctr',fmtLPCTR(lpctrOf(m)))}</td>
+        <td class="n">${hl(W,r,'cpl',usd(cplOf(m)))}</td>
+        <td class="n">${hl(W,r,'cpm',usd(cpmOf(m)))}</td>
+        <td class="n">${hl(W,r,'dwell',dwf(m.dwell))}</td>
+      </tr>`;
+    });
+    return `<div class="note" style="margin:0 0 12px">${camps.length} campaign group${camps.length===1?'':'s'}. Choose a campaign group above to see its ad sets.</div><div class="tw"><table class="camp-table">${head}<tbody>${body}</tbody></table></div>`;
+  }
+  const list=sortRows(rows);
+  const W=winners(list);
+  const head=`<thead><tr>
+    ${th('label','Ad set','nm')}
+    ${th('status','Status','st')}
+    ${th('obj','Objective','obj')}
+    ${th('aud','Audience<br>size','n','Current targeting from LinkedIn audienceCounts, pulled '+D.asof_label+'. Not historical for the period.')}
+    ${th('budget','Daily<br>budget','n','Current daily budget on the ad set at pull time.')}
+    ${th('biz','Last biz<br>day spend','n','Spend on '+D.last_biz_day_label+'. LinkedIn reports in UTC days.')}
+    ${th('lp','Landing<br>page clicks','n')}
+    ${th('lpctr','LP CTR','n','Landing page clicks / impressions. Higher is better')}
+    ${th('cpl','Cost /<br>LP click','n','Lower is better')}
+    ${th('cpm','CPM','n','Spend ÷ impressions × 1,000, rounded to whole dollars. Lower is better')}
+    ${th('dwell','Dwell<br>time','n','Period average dwell time. Higher is better')}
+    ${th('pen','Audience<br>penetration','n','Period reach ÷ current audience size, rounded to a whole percent. Higher is better')}
+    ${th('reach','Reach','n','approximateMemberReach for the selected period')}
+    ${th('cpr','Cost per<br>reach','n','Period spend ÷ approximate member reach. Lower is better')}
+  </tr></thead>`;
+  let body='';
+  list.forEach(r=>{
+    const m=met(r,P);
+    body+=`<tr>
+      <td class="nm" title="${esc(r.name)}"><div class="vlab">${cmName(r.id?cmAdset(r.id):'',esc(r.short))}</div><div class="vdesc">${cmName(r.id?cmAdset(r.id):'',esc(r.name))}</div></td>
+      <td class="st">${st(r)}</td>
+      <td class="obj">${esc(r.obj_label)}</td>
+      <td class="n">${r.aud==null?'-':num(r.aud)}</td>
+      <td class="n">${usd(r.budget)}</td>
+      <td class="n">${usd(r.biz)}</td>
+      <td class="n">${num(m.lp)}</td>
+      <td class="n">${hl(W,r,'lpctr',fmtLPCTR(lpctrOf(m)))}</td>
+      <td class="n">${hl(W,r,'cpl',usd(cplOf(m)))}</td>
+      <td class="n">${hl(W,r,'cpm',usd(cpmOf(m)))}</td>
+      <td class="n">${hl(W,r,'dwell',dwf(m.dwell))}</td>
+      <td class="n">${hl(W,r,'pen',fmtP(penOf(r,m)))}</td>
+      <td class="n">${m.reach==null?'-':num(m.reach)}</td>
+      <td class="n">${hl(W,r,'cpr',usd2(cprOf(m)))}</td>
+    </tr>`;
+  });
+  return `<div class="note" style="margin:0 0 12px">${list.length} ad set${list.length===1?'':'s'} in ${esc(scopeLabel())} (${live} Active, ${paused} Paused)</div><div class="tw"><table class="sets-table">${head}<tbody>${body}</tbody></table></div>`;
+}
+
+const info=t=>`<span class="i" tabindex="0" role="note" aria-label="Definition">i<span class="tip">${t}</span></span>`;
+const nice=v=>{if(!(v>0))return 1;const e=Math.pow(10,Math.floor(Math.log10(v)));const f=v/e;return (f<=1?1:f<=2?2:f<=5?5:10)*e};
+const TX=(x,y,s,o)=>`<text x="${x}" y="${y}" font-size="${(o&&o.fs)||11}" fill="${(o&&o.c)||'#525252'}" text-anchor="${(o&&o.a)||'start'}" ${o&&o.b?'font-weight="600"':''}>${s}</text>`;
+function mkShort(items){const L=new Set(),P=new Set();items.forEach(it=>{(it.a==='launched'?L:P).add(it.n)});const b=[];if(L.size)b.push(L.size+' ad'+(L.size===1?'':'s')+' launched');if(P.size)b.push(P.size+' ad'+(P.size===1?'':'s')+' paused');return b.join(', ')}
+function mkFull(d,items){const order=['launched','paused','adset_paused','removed'];
+ const lab={launched:'Launched (first delivered)',paused:'Last delivered (ad now paused)',adset_paused:'Last delivered (ad set now paused)',removed:'Last delivered (ad now removed)'};
+ const groups={};items.forEach(it=>{const g=groups[it.a]=groups[it.a]||{};const e=g[it.n]=g[it.n]||{camps:new Set(),created:it.created,first:it.first};e.camps.add(it.camp);if(it.created)e.created=it.created});
+ const lines=[fmtD(d)];
+ order.forEach(a=>{if(!groups[a])return;lines.push(lab[a]+':');Object.keys(groups[a]).sort((x,y)=>pretty(x).t.localeCompare(pretty(y).t)).forEach(n=>{const e=groups[a][n],nc=e.camps.size;let extra=nc>1?' (on '+nc+' ad sets)':'';if(a==='launched'&&e.created&&e.first&&e.created!==e.first)extra+=' (created '+sd(e.created)+')';lines.push('• '+pretty(n).t+extra)})});
+ return lines.join('\n')}
+function chartPack(){const ch=D.CHART||{start:'',end:'',s:{}};if(ch.s[scopeKey()])return ch.s[scopeKey()];const base=(ch.s.all||{d:[]}).d;return {d:base.map(r=>[r[0],0,null,null,0]),m:[],ms:[]}}
+const MC={lp:'#7319F2',ctr:'#1F8A4C',cpl:'#0D062B',spend:'#C45C26'};
+function rangeText(d0,d1){if(!d0||!d1||d0===d1)return '';const a=new Date(d0+'T12:00:00'),b=new Date(d1+'T12:00:00');const mo=t=>t.toLocaleDateString('en-US',{month:'short'});if(mo(a)===mo(b))return mo(a)+' '+a.getDate()+'-'+b.getDate();return sd(d0)+'\u2013'+sd(d1)}
+function daysApart(a,b){return Math.abs((new Date(a+'T12:00:00')-new Date(b+'T12:00:00'))/86400000)}
+const MST={ms:{fill:'#EDE8FF',stroke:'#7319F2',ink:'#4B0FA6',dots:['#7319F2'],line:'#7319F2',dash:''},new:{fill:'#E3F3E8',stroke:'#C5E4CC',ink:'#2E6B45',dots:['#2E6B45'],line:'#2E6B45',dash:'3 4'},paused:{fill:'#fdebe9',stroke:'#f0c9c6',ink:'#b8261b',dots:['#b8261b'],line:'#b8261b',dash:'3 4'},both:{fill:'#F4F4F2',stroke:'#DDDDDA',ink:'#0D062B',dots:['#2E6B45','#b8261b'],line:'#0D062B',dash:'3 4'}};
+let MTIPS={},MTIPN=0;
+function tipId(html){const id='m'+(++MTIPN);MTIPS[id]=html;return id}
+function showMtip(ev,id){let tip=$('mtip');if(!tip){tip=document.createElement('div');tip.id='mtip';tip.className='mtip';document.body.appendChild(tip)}tip.innerHTML=MTIPS[id]||'';tip.style.display='block';const r=(ev.currentTarget||ev.target).getBoundingClientRect();const w=tip.offsetWidth||340,h=tip.offsetHeight||120;let left=r.left+r.width/2-w/2;left=Math.max(8,Math.min(left,window.innerWidth-w-8));let top=r.bottom+8;if(top+h>window.innerHeight-8)top=Math.max(8,r.top-h-8);tip.style.left=left+'px';tip.style.top=top+'px'}
+function hideMtip(){const tip=$('mtip');if(tip)tip.style.display='none'}
+function markTipHtml(days){const d0=days[0].d,d1=days[days.length-1].d,multi=d0!==d1;const head=multi?rangeText(d0,d1):fmtD(d0);const buckets={camp:[],campp:[],adset:[],adsetp:[],ads:[],adsp:[]};const add=(k,name,d)=>{const s=name+(multi?' ('+sd(d)+')':'');if(s&&!buckets[k].includes(s))buckets[k].push(s)};days.forEach(e=>{(e.ms||[]).forEach(it=>{if(it.t==='new_campaign')add('camp',it.short||it.name,e.d);else if(it.t==='new_adset')add('adset',it.short||it.name,e.d);else if(it.t==='campaign_paused')add('campp',it.short||it.name,e.d);else if(it.t==='adset_paused')add('adsetp',it.short||it.name,e.d)}); (e.ads||[]).forEach(it=>{const nm=pretty(it.n).t||it.n;if(it.a==='launched')add('ads',nm,e.d);else add('adsp',nm,e.d)})});const labs=[['camp','New campaign groups'],['adset','New ad sets'],['campp','Campaign groups paused'],['adsetp','Ad sets paused']];let h=`<div class="mh">${esc(head)}</div>`;labs.forEach(([k,l])=>{if(buckets[k].length)h+=`<div class="ml"><b>${l}:</b> ${esc(buckets[k].join(', '))}</div>`});return h}
+function markKind(days){const types=new Set();days.forEach(e=>(e.ms||[]).forEach(it=>types.add(it.t)));const launch=types.has('new_adset');const camp=types.has('new_campaign');const pause=types.has('adset_paused')||types.has('campaign_paused');if((launch||camp)&&pause)return 'both';if(pause)return 'paused';if(launch&&!camp)return 'new';return 'ms'}
+function markLabel(days){let nNew=0,nPause=0,nCamp=0,nCampP=0;days.forEach(e=>(e.ms||[]).forEach(it=>{if(it.t==='new_adset')nNew++;else if(it.t==='new_campaign')nCamp++;else if(it.t==='campaign_paused')nCampP++;else if(it.t==='adset_paused')nPause++}));const b=[];if(nCamp)b.push(nCamp+' new campaign group'+(nCamp===1?'':'s'));if(nNew)b.push(nNew+' new ad set'+(nNew===1?'':'s'));if(nCampP)b.push(nCampP+' campaign group'+(nCampP===1?'':'s')+' paused');if(nPause)b.push(nPause+' paused');return b.join(', ')||sd(days[0].d)}
+function layoutMarks(events,L,R,W){events=events.slice().sort((a,b)=>a.d.localeCompare(b.d));if(!events.length)return [];
+ const make=days=>{days=days.slice().sort((a,b)=>a.d.localeCompare(b.d));const kind=markKind(days);const label=markLabel(days);const nd=kind==='both'?2:1;const w=Math.ceil(12+nd*9+String(label).length*6.4+10);const mid=days.reduce((s,e)=>s+e.x0,0)/days.length;let bx=mid-w/2;if(bx<L)bx=L;if(bx+w>W-R)bx=W-R-w;return {days,kind,label,w,mid,bx,x0s:days.map(e=>e.x0),html:markTipHtml(days)}};
+ let raw=[];events.forEach(e=>{const last=raw[raw.length-1];if(last&&daysApart(last[last.length-1].d,e.d)<=3)last.push(e);else raw.push([e])});
+ let groups=raw.map(make);
+ let guard=0;while(guard++<24){let hit=-1;for(let i=0;i<groups.length-1;i++){if(!(groups[i].bx+groups[i].w+6<=groups[i+1].bx)&&daysApart(groups[i].days[groups[i].days.length-1].d,groups[i+1].days[0].d)<=3){hit=i;break}}if(hit<0)break;groups=groups.slice(0,hit).concat([make(groups[hit].days.concat(groups[hit+1].days))],groups.slice(hit+2))}
+ for(let i=1;i<groups.length;i++){const minBx=groups[i-1].bx+groups[i-1].w+6;if(groups[i].bx<minBx){groups[i].bx=minBx;if(groups[i].bx+groups[i].w>W-R){groups[i].bx=W-R-groups[i].w;for(let j=i;j>=1;j--){if(groups[j-1].bx+groups[j-1].w+6<=groups[j].bx)break;groups[j-1].bx=Math.max(L,groups[j].bx-groups[j-1].w-6)}}}}
+ return groups}
+function tpanel(d,key,fmt,col,H,o){const W=1180,L=64,R=20,T=o.marks?42:14,B=o.xl?30:10;const n=d.length;const vals=d.map(r=>r[key]);const S=nice(1.1*Math.max(.0001,...vals.filter(v=>v!=null)));
+ const bw=(W-L-R)/n;const x=i=>L+bw*i+bw/2;const y=v=>T+(H-T-B)*(1-v/S);let g='';
+ for(let k=0;k<=4;k++){const yy=T+(H-T-B)*k/4;g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#ECECEC"/>`+TX(L-8,yy+4,fmt(S*(1-k/4)),{a:'end'})}
+ const tip=(r)=>`${fmtD(r[0])}: ${o.name} ${r[key]==null?'n/a':fmt(r[key])}`;
+ const pts=d.map((r,i)=>r[key]==null?null:[x(i),y(r[key])]).filter(Boolean);
+ let line='';
+ if(pts.length){const segs=[];let cur=[];pts.forEach((p,i)=>{cur.push(p);const nxt=pts[i+1];const broken=nxt&&Math.abs(nxt[0]-p[0])>bw*1.6;if(!nxt||broken){segs.push(cur);cur=[]}});
+  line=segs.map(s=>s.length===1?'':`<polyline fill="none" stroke="${col}" stroke-width="2.2" stroke-dasharray="6 4" points="${s.map(p=>p.join(',')).join(' ')}"/>`).join('')}
+ const body=line+d.map((r,i)=>r[key]==null?'':`<circle cx="${x(i)}" cy="${y(r[key])}" r="3" fill="${col}"><title>${esc(tip(r))}</title></circle>`).join('');
+ let mk='';
+ if(o.marks&&o.marks.length){const idx=s=>d.findIndex(r=>r[0]==s);const ev=[];o.marks.forEach(e=>{const i=idx(e.d);if(i<0)return;ev.push({...e,x0:x(i)})});
+  const placed=layoutMarks(ev,L,R,W);const ly=18;
+  placed.forEach(p=>{const st=MST[p.kind];const id=tipId(p.html);const evs=`onmouseenter="showMtip(event,'${id}')" onmouseleave="hideMtip()"`;
+   mk+=`<g ${evs} style="cursor:pointer">`;
+   (p.x0s||[]).forEach(x0=>{mk+=`<line x1="${x0}" x2="${x0}" y1="${ly+7}" y2="${H-B}" stroke="${st.line}" stroke-width="${p.kind==='ms'?1.6:1}" ${st.dash?`stroke-dasharray="${st.dash}"`:''} opacity=".7"/>`});
+   mk+=`<rect x="${p.bx}" y="${ly-9}" width="${p.w}" height="16" rx="8" fill="${st.fill}" stroke="${st.stroke}"/>`;
+   let dx=p.bx+8;st.dots.forEach(c=>{mk+=`<circle cx="${dx}" cy="${ly}" r="3.2" fill="${c}"/>`;dx+=9});
+   mk+=`<text x="${dx+2}" y="${ly+3.5}" font-size="10" font-weight="700" fill="${st.ink}">${esc(p.label)}</text></g>`})}
+ const step=Math.ceil(n/12);const lab=o.xl?d.map((r,i)=>i%step==0||i==n-1?TX(x(i),H-B+18,sd(r[0]),{a:'middle'}):'').join(''):'';
+ return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${esc(o.name)} by day">${g}${mk}${body}${lab}</svg>`}
+function firstBase(d,key){for(let i=0;i<d.length;i++){const v=d[i][key];if(v!=null&&v>0)return v}return null}
+function niceRange(lo,hi){if(!(hi>lo)){lo-=10;hi+=10}const step=nice((hi-lo)/4)||1;const y0=Math.floor(lo/step)*step,y1=Math.ceil(hi/step)*step;return {y0,y1,step}}
+function allPanel(d,H,keys){keys=keys&&keys.length?keys:['lp','ctr','cpl'];const W=1180,L=64,R=20,T=18,B=30;const n=d.length;const base={};keys.forEach(k=>base[k]=firstBase(d,k));
+ const idxOf=(r,k)=>r[k]==null||!base[k]?null:100*r[k]/base[k];
+ const ys=d.flatMap(r=>keys.map(k=>idxOf(r,k)).filter(v=>v!=null));
+ const lo=ys.length?Math.min(...ys):80,hi=ys.length?Math.max(...ys):120;const pad=(hi-lo)*0.12||10;const {y0,y1}=niceRange(lo-pad,hi+pad);
+ const bw=(W-L-R)/n;const x=i=>L+bw*i+bw/2;const y=v=>T+(H-T-B)*(1-(v-y0)/(y1-y0));
+ let g='';const ticks=4;for(let k=0;k<=ticks;k++){const v=y0+(y1-y0)*k/ticks,yy=y(v);g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#ECECEC"/>`+TX(L-8,yy+4,String(Math.round(v)),{a:'end'})}
+ if(y0<100&&100<y1)g+=`<line x1="${L}" x2="${W-R}" y1="${y(100)}" y2="${y(100)}" stroke="#BDBDBD" stroke-dasharray="3 4"/>`+TX(L-8,y(100)+4,'100',{a:'end',c:'#6B6B6B'});
+ g+=TX(L,12,'Index',{fs:10,c:'#8A8A8A'});
+ const fmt={lp:v=>num(v),ctr:v=>(100*v).toFixed(2)+'%',cpl:v=>usd(v),spend:v=>usd(v)};
+ const names={lp:'Rolling LP clicks',ctr:'Rolling LP CTR',cpl:'Rolling Cost/LP',spend:'Rolling Spend'};
+ let body='';
+ keys.forEach(k=>{const pts=d.map((r,i)=>{const v=idxOf(r,k);return v==null?null:[x(i),y(v)]});
+  const segs=[];let cur=[];pts.forEach((p,i)=>{if(!p){if(cur.length){segs.push(cur);cur=[]}return}cur.push(p);const nxt=pts[i+1];if(!nxt||(nxt&&Math.abs(nxt[0]-p[0])>bw*1.6)){segs.push(cur);cur=[]}});
+  body+=segs.map(s=>s.length===1?'':`<polyline fill="none" stroke="${MC[k]}" stroke-width="2.2" points="${s.map(p=>p.join(',')).join(' ')}"/>`).join('');
+  body+=d.map((r,i)=>{const v=idxOf(r,k);return v==null?'':`<circle cx="${x(i)}" cy="${y(v)}" r="3" fill="${MC[k]}"/>`}).join('')});
+ MTIPS={};MTIPN=0;
+ const hits=d.map((r,i)=>{const id=tipId(`<div class="mh">${esc(fmtD(r[0]))}</div>`+keys.map(k=>`<div class="ml"><i style="background:${MC[k]}"></i><b>${names[k]}:</b> ${r[k]==null?'n/a':fmt[k](r[k])}</div>`).join(''));return `<rect x="${x(i)-bw/2}" y="${T}" width="${bw}" height="${H-T-B}" fill="transparent" style="cursor:crosshair" onmouseenter="showMtip(event,'${id}')" onmouseleave="hideMtip()"/>`}).join('');
+ const step=Math.ceil(n/12);const lab=d.map((r,i)=>i%step==0||i==n-1?TX(x(i),H-B+18,sd(r[0]),{a:'middle'}):'').join('');
+ return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Rolling LP clicks, LP CTR, and Cost/LP, indexed to 100">${g}${body}${lab}${hits}</svg>`}
+function dailyChart(){const ch=D.CHART||{start:'',end:'',s:{}};const pack=chartPack();
+ const MET={lp:['lp',v=>v==null?'n/a':num(v),MC.lp,'Rolling LP clicks'],ctr:['ctr',v=>v==null?'n/a':(100*v).toFixed(2)+'%',MC.ctr,'Rolling LP CTR'],cpl:['cpl',v=>v==null?'n/a':usd(v),MC.cpl,'Rolling Cost/LP'],spend:['spend',v=>v==null?'n/a':usd(v),MC.spend,'Rolling Spend']};
+ const dd=pack.d.map(r=>({0:r[0],lp:r[1],ctr:r[2],cpl:r[3]==null?null:r[3],spend:r[4]==null?null:r[4]}));
+ MTIPS={};MTIPN=0;
+ const byD={};(pack.m||[]).forEach(([d,items])=>{(byD[d]=byD[d]||{d,ads:[],ms:[]}).ads.push(...items)});(pack.ms||[]).forEach(([d,items])=>{(byD[d]=byD[d]||{d,ads:[],ms:[]}).ms.push(...items)});
+ const MARKS=Object.keys(byD).sort().map(d=>byD[d]);
+ const one=(m,H,o)=>`<div style="font-size:12px;font-weight:600;color:var(--ink);margin:4px 0 0 4px"><i style="display:inline-block;width:10px;height:10px;border-radius:3px;background:${m[2]};margin-right:6px"></i>${m[3]}</div>`+tpanel(dd,m[0],m[1],m[2],H,{name:m[3],marks:MARKS,...o});
+ const vis=DSEL.length?DSEL.slice():['lp'];
+ const isReach=vis.length===1&&vis[0]==='reach';
+ const multi=!isReach&&vis.length>1;
+ const inner=isReach?reachChart():(!dd.length?`<div class="empty">No delivery in the last 60 days for this filter.</div>`:(multi?allPanel(dd,320,vis):one(MET[vis[0]]||MET.lp,300,{xl:1})));
+ const tip=isReach
+  ?'Account reach in this chart is companies on the uploaded lists with paid impressions in Fibbler during each rolling 3-month window, divided by the companies on the current list exports, as a whole percent. Bars are the currently selected lists combined. The latest window is marked lighter when its end month is still month to date. Companies Hub exports (Oct 6 baseline, Nov 21, and later Mondays) are in the table under the chart. The KPI above stays on the latest Campaign Manager export. This chart follows the campaign group filter, not the period pills.'
+  :'Single-metric views mark bigger account changes in the current filter: a new ad set on its first day with delivery, an ad set paused or ended on its last day with delivery if it is no longer live, and a new campaign group if one launched in this window. Objective and daily budget change history is not available from the LinkedIn API, so those are not marked. Click one or more metric pills to plot them together (or All for every metric). Two or more metrics share one chart, each indexed to 100 at the start of the window; hover for actual values. Rolling Spend is spend in the last 7 days. Rolling metrics use a 7-day window. The chart always shows the last 60 days and follows the campaign group filter, not the period pills.';
+ const pills=[['lp','Rolling LP clicks'],['ctr','Rolling LP CTR'],['cpl','Rolling Cost/LP'],['spend','Rolling Spend'],['all','All']].map(([k,l])=>{const on=k==='all'?!isReach&&vis.length===MET_KEYS.length:vis.includes(k);return `<button class="${on?'on':''}" onclick="setD('${k}')">${l}</button>`;}).join('');
+ const hasPartial=isReach&&reachSeries().some(p=>p.partial);
+ const metLeg=isReach?((reachEmptyMessage()||!reachSeries().length)?'':'<span><i style="background:#7319F2;border-radius:2px"></i>Fibbler, rolling 3-month windows</span>'+(hasPartial?'<span><i style="background:#C9A6FB;border-radius:2px"></i>Current window, month to date</span>':'')):vis.map(k=>`<span><i style="background:${MET[k][2]}"></i>${MET[k][3]}</span>`).join('');
+ const markLeg=isReach||multi?'':`<span><i style="background:#2E6B45;border-radius:50%"></i>New ad sets launched</span><span><i style="background:#b8261b;border-radius:50%"></i>Ad sets paused</span><span><i style="background:#7319F2;border-radius:50%"></i>Milestone</span><span>Hover a marker for what changed</span>`;
+ const idxNote=multi?'<span>Each line is indexed to 100 at the start of the window. Hover for actual values.</span>':'';
+ const rollNote=isReach?'':'<span>Rolling metrics use a 7-day window.</span>';
+ const series=isReach?reachSeries():[];
+ const reachDesc=series.length?`Rolling 3-month windows from Fibbler, ${series[0].label} to ${series[series.length-1].label}${series.some(p=>p.partial)?' (latest window is month to date)':''}. Follows the campaign group filter, not the period pills.`:'Account reach % follows the segment and industry filters.';
+ const title=isReach?'Account reach %':'Daily performance';
+ const desc=isReach?reachDesc:`${sd(ch.start)} to ${fmtD(ch.end)} (last 60 days). Follows the campaign group filter, not the period pills.`;
+ const chartWrap=isReach?inner:`<div class="chart" id="trend">${inner}</div>`;
+ const exports=isReach?exportReachTable():'';
+ return `<div class="daily" id="daily"><div class="ch"><div><h2>${title} ${info(tip)}</h2><div class="desc">${desc}</div></div><div class="seg sm" id="dmode">${pills}</div></div>${chartWrap}<div class="legend">${metLeg}${markLeg}${idxNote}${rollNote}</div>${exports}</div>`}
+
+
+function listRows(){const L=(D.LISTS&&D.LISTS.lists)||[];return L.filter(r=>{
+ if(SEG==='ENT'&&r.tier!=='Enterprise')return false;
+ if(SEG==='GRW'&&r.tier!=='Growth')return false;
+ if(IND!=='All'){
+  if(IND==='Retargeting')return r.tier==='Retargeting'||r.industry==='Retargeting';
+  if(r.industry!==IND)return false;
+  if(SUB!=='All'&&r.sub&&r.sub!==SUB)return false;
+ }
+ return true;
+})}
+function spark(points){
+ const ns=points.map(p=>p&&p.n!=null?p.n:null);
+ const vals=ns.filter(v=>v!=null);
+ if(!vals.length)return '';
+ const lo=Math.min(...vals), hi=Math.max(...vals);
+ const W=240,H=36,P=3;
+ const x=i=>P+i*((W-2*P)/Math.max(1,ns.length-1));
+ const y=v=>{if(hi===lo)return H/2;return P+(H-2*P)*(1-(v-lo)/(hi-lo))};
+ const pts=[];ns.forEach((v,i)=>{if(v!=null)pts.push([x(i),y(v)])});
+ const line=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ');
+ const last=pts[pts.length-1];
+ return `<svg class="spark" viewBox="0 0 ${W} ${H}" width="100%" height="36" aria-hidden="true"><path d="${line}" fill="none" stroke="#7319F2" stroke-width="2"/>${last?`<circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.6" fill="#7319F2"/>`:''}</svg>`;
+}
+function listColor(i){const C=['#7319F2','#C45C26','#1F8A4C','#1F6BA5','#B45309','#9B1C5A','#0F766E','#6D28D9','#B91C1C','#3F6212','#075985','#9A3412'];return C[i%C.length]}
+function listAllChart(lists, total){
+ const weeks=((D.LISTS&&D.LISTS.weeks)||[]).slice();
+ const listsS=lists.map((r,i)=>({id:r.id,label:r.label||r.name||r.id,color:r.color||listColor(i),points:r.points||[],thick:0,pct:r.pct}));
+ const sumS=total&&(total.points||[]).length?[{id:'sum',label:'All lists (sum)',color:'#111111',points:total.points,thick:1}]:[];
+ const ends=weeks.length?weeks:(listsS[0]&&listsS[0].points||[]).map(p=>p.end);
+ const valAt=(s,end)=>{const p=(s.points||[]).find(x=>x.end===end);return p&&p.n!=null?p.n:null};
+ const host=$('main')||document.body;
+ const W=Math.max(300, Math.round((host&&host.clientWidth)||(window.innerWidth-48)));
+ const L=54,R=8,T=10,B=24;
+ const draw=(series,H,label)=>{
+  const vals=series.flatMap(s=>ends.map(e=>valAt(s,e))).filter(v=>v!=null);
+  if(!ends.length||!vals.length)return '';
+  const minV=Math.min(...vals), maxV=Math.max(...vals);
+  const pad=(maxV-minV)*0.14||Math.max(20,maxV*0.08);
+  let {y0,y1}=niceRange(Math.max(0,minV-pad),maxV+pad);
+  if(y0<0)y0=0;
+  const y=v=>T+(H-T-B)*(1-(v-y0)/(y1-y0||1));
+  const x=i=>L+i*((W-L-R)/Math.max(1,ends.length-1));
+  const fmtA=v=>{const n=Math.round(v);const span=y1-y0;if(span<5000){return n.toLocaleString('en-US')}if(Math.abs(n)>=1000){const k=n/1000;return (Math.abs(k-Math.round(k))<0.05?Math.round(k):k.toFixed(1))+'k'}return String(n)};
+  let g='';
+  const ticks=H<240?2:4;
+  for(let k=0;k<=ticks;k++){const v=y0+(y1-y0)*k/ticks,yy=y(v);g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#ECECEC"/>`+TX(L-8,yy+4,fmtA(v),{a:'end'})}
+  const lab=ends.map((e,i)=>TX(x(i),H-B+16,sd(e),{a:i===0?'start':i===ends.length-1?'end':'middle'})).join('');
+  let body='';
+  series.forEach(s=>{
+   const pts=ends.map((e,i)=>{const v=valAt(s,e);return v==null?null:[x(i),y(v)]});
+   const segs=[];let cur=[];
+   pts.forEach(pt=>{if(!pt){if(cur.length){segs.push(cur);cur=[]}return}cur.push(pt)});
+   if(cur.length)segs.push(cur);
+   const sw=s.thick?2.8:1.8;
+   segs.forEach(seg=>{const d=seg.map((pt,i)=>(i?'L':'M')+pt[0].toFixed(1)+','+pt[1].toFixed(1)).join(' ');body+=`<path d="${d}" fill="none" stroke="${s.color}" stroke-width="${sw}" stroke-linejoin="round"/>`});
+   const last=pts.filter(Boolean).pop();
+   if(last) body+=`<circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="${s.thick?3.4:2.4}" fill="${s.color}"/>`;
+  });
+  const slot=(W-L-R)/Math.max(1,ends.length-1);
+  const hit=ends.map((e,i)=>`<rect data-i="${i}" data-series="${series[0]&&series[0].id==='sum'?'sum':'lists'}" x="${(x(i)-slot/2).toFixed(1)}" y="${T}" width="${slot.toFixed(1)}" height="${H-T-B}" fill="transparent"/>`).join('');
+  return {svg:`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${esc(label||'Weekly companies reached')}" onmousemove="listChartMove(event)" onmouseleave="listChartLeave()">${g}${body}${lab}${hit}</svg>`, series, ends};
+ };
+ const sumDraw=sumS.length?draw(sumS,180,'All lists (sum)'):null;
+ const listDraw=listsS.length?draw(listsS,380,'By list'):null;
+ window._LISTCHART={ends, series:[...listsS,...sumS], W,L,R, packs:{sum:sumDraw&&{series:sumS,ends}, lists:listDraw&&{series:listsS,ends}}};
+ const legend=listsS.concat(sumS).map(s=>`<span><i style="background:${s.color}${s.thick?';height:3px;border-radius:1px':''}"></i>${esc(s.label)}${s.pct!=null?` · ${s.pct}%`:''}</span>`).join('');
+ return `<div class="lchart">${sumDraw?`<div class="lchart-sum"><div class="lchart-cap">All lists (sum)</div>${sumDraw.svg}</div>`:''}${listDraw?`<div class="lchart-lists"><div class="lchart-cap">By list</div>${listDraw.svg}</div>`:''}<div class="ltip" id="ltip"></div><div class="lleg">${legend}</div></div>`;
+}
+function listChartMove(ev){
+ const svg=ev.currentTarget;const tip=$('ltip');if(!tip||!window._LISTCHART)return;
+ const {ends,series}=window._LISTCHART;
+ const sr=svg.getBoundingClientRect();const box=svg.closest('.lchart')||svg;const r=box.getBoundingClientRect();
+ const W=window._LISTCHART.W||sr.width,L=window._LISTCHART.L||54,R=window._LISTCHART.R||12;
+ const px=(ev.clientX-sr.left)/Math.max(1,sr.width)*W;
+ let i=0,best=1e9;
+ ends.forEach((e,k)=>{const xx=L+k*((W-L-R)/Math.max(1,ends.length-1));const d=Math.abs(px-xx);if(d<best){best=d;i=k}});
+ const end=ends[i];
+ const rows=series.map(s=>{const p=(s.points||[]).find(x=>x.end===end);return {label:s.label,v:p&&p.n!=null?p.n:null,color:s.color}}).filter(x=>x.v!=null);
+ const sumFirst=rows.filter(x=>x.label&&x.label.indexOf('All lists')===0);
+ const rest=rows.filter(x=>!(x.label&&x.label.indexOf('All lists')===0));
+ const shown=sumFirst.concat(rest);
+ tip.innerHTML=`<div class="mh">${esc(fmtD(end))}</div>`+shown.map(x=>`<div class="mr"><span>${esc(x.label)}</span><b>${num(x.v)}</b></div>`).join('');
+ tip.style.display='block';
+ const tw=tip.offsetWidth||200,th=tip.offsetHeight||80;
+ let left=ev.clientX-r.left+12, top=ev.clientY-r.top+12;
+ if(left+tw>r.width-8)left=Math.max(8,ev.clientX-r.left-tw-12);
+ if(top+th>r.height-8)top=Math.max(8,ev.clientY-r.top-th-12);
+ tip.style.left=left+'px';tip.style.top=top+'px';
+}
+function listChartLeave(){const tip=$('ltip');if(tip)tip.style.display='none'}
+
+function vsBaseLine(vs){
+ if(!vs||vs.from_pct==null||vs.to_pct==null)return '';
+ const pts=vs.pts;
+ const ptsH=pts===0?'0 pts':((pts>0?'+':'')+pts+' pts');
+ const cls=pts>0?'up':(pts<0?'dn':'');
+ return `<div class="lbase ${cls}">vs Oct 6 baseline: ${vs.from_pct}% to ${vs.to_pct}% (${ptsH})</div>`;
+}
+function pctChart(series, opts){
+ opts=opts||{};
+ const H=opts.H||180;
+ const ends=[];
+ series.forEach(s=>(s.points||[]).forEach(p=>{if(p&&p.end&&ends.indexOf(p.end)<0)ends.push(p.end)}));
+ ends.sort();
+ const valAt=(s,end)=>{const p=(s.points||[]).find(x=>x.end===end);return p&&p.pct!=null?p.pct:null};
+ const vals=series.flatMap(s=>ends.map(e=>valAt(s,e))).filter(v=>v!=null);
+ if(!ends.length||!vals.length)return '';
+ const host=$('main')||document.body;
+ const W=Math.max(220, Math.round(opts.W||((host&&host.clientWidth)||(window.innerWidth-48))));
+ const L=36,R=8,T=12,B=28;
+ const minV=Math.min(...vals), maxV=Math.max(...vals);
+ let y0=Math.max(0, Math.floor((minV-12)/5)*5);
+ let y1=Math.min(100, Math.ceil((maxV+12)/5)*5);
+ if(y1-y0<20){y0=Math.max(0,y0-10);y1=Math.min(100,y1+10)}
+ const y=v=>T+(H-T-B)*(1-(v-y0)/(y1-y0||1));
+ const x=i=>L+i*((W-L-R)/Math.max(1,ends.length-1));
+ const ticks=H<160?2:4;
+ let g='';
+ for(let k=0;k<=ticks;k++){
+  const v=y0+(y1-y0)*k/ticks,yy=y(v);
+  g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#ECECEC"/>`+TX(L-6,yy+4,Math.round(v)+'%',{a:'end'});
+ }
+ const lab=ends.map((e,i)=>TX(x(i),H-B+16,sd(e),{a:i===0?'start':i===ends.length-1?'end':'middle'})).join('');
+ let body='';
+ series.forEach(s=>{
+  const pts=ends.map((e,i)=>{const v=valAt(s,e);return v==null?null:[x(i),y(v)]});
+  const segs=[];let cur=[];
+  pts.forEach(pt=>{if(!pt){if(cur.length){segs.push(cur);cur=[]}return}cur.push(pt)});
+  if(cur.length)segs.push(cur);
+  const sw=s.thick?2.6:1.8;
+  segs.forEach(seg=>{const d=seg.map((pt,i)=>(i?'L':'M')+pt[0].toFixed(1)+','+pt[1].toFixed(1)).join(' ');body+=`<path d="${d}" fill="none" stroke="${s.color}" stroke-width="${sw}" stroke-linejoin="round"/>`});
+  pts.forEach(pt=>{if(pt) body+=`<circle cx="${pt[0].toFixed(1)}" cy="${pt[1].toFixed(1)}" r="${s.thick?3.2:2.4}" fill="${s.color}"/>`});
+ });
+ const slot=(W-L-R)/Math.max(1,ends.length-1);
+ const hit=ends.map((e,i)=>`<rect data-i="${i}" x="${(x(i)-slot/2).toFixed(1)}" y="${T}" width="${Math.max(slot,16).toFixed(1)}" height="${H-T-B}" fill="transparent"/>`).join('');
+ window._PCTCHARTS=window._PCTCHARTS||{};
+ const cid='c'+(window._PCTSEQ=(window._PCTSEQ||0)+1);
+ window._PCTCHARTS[cid]={ends,series,W,L,R};
+ return `<svg data-pct="${cid}" viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${esc(opts.label||'Account reach percent')}" onmousemove="pctChartMove(event)" onmouseleave="pctChartLeave(event)">${g}${body}${lab}${hit}</svg>`;
+}
+function pctChartMove(ev){
+ const svg=ev.currentTarget;const st=window._PCTCHARTS&&window._PCTCHARTS[svg.getAttribute('data-pct')];
+ const box=svg.closest('.lchart')||svg.closest('.lpct')||svg;const tip=(box&&box.querySelector('.ltip'))||$('ptip')||$('ltip');
+ if(!tip||!st)return;
+ const {ends,series}=st;
+ const sr=svg.getBoundingClientRect();const r=box.getBoundingClientRect();
+ const W=st.W||sr.width,L=st.L||36,R=st.R||8;
+ const px=(ev.clientX-sr.left)/Math.max(1,sr.width)*W;
+ let i=0,best=1e9;
+ ends.forEach((e,k)=>{const xx=L+k*((W-L-R)/Math.max(1,ends.length-1));const d=Math.abs(px-xx);if(d<best){best=d;i=k}});
+ const end=ends[i];
+ const rows=series.map(s=>{const p=(s.points||[]).find(x=>x.end===end);return {label:s.label,v:p&&p.pct!=null?p.pct:null,reached:p&&p.reached,n:p&&p.list_companies}}).filter(x=>x.v!=null);
+ tip.innerHTML=`<div class="mh">${esc(fmtD(end))}</div>`+rows.map(x=>`<div class="mr"><span>${esc(x.label)}</span><b>${x.v}%${x.reached!=null&&x.n?` (${num(x.reached)} of ${num(x.n)})`:''}</b></div>`).join('');
+ tip.style.display='block';
+ const tw=tip.offsetWidth||200,th=tip.offsetHeight||80;
+ let left=ev.clientX-r.left+12, top=ev.clientY-r.top+12;
+ if(left+tw>r.width-8)left=Math.max(8,ev.clientX-r.left-tw-12);
+ if(top+th>r.height-8)top=Math.max(8,ev.clientY-r.top-th-12);
+ tip.style.left=left+'px';tip.style.top=top+'px';
+}
+function pctChartLeave(ev){const box=ev&&ev.currentTarget&&(ev.currentTarget.closest('.lchart')||ev.currentTarget.closest('.lpct'));const tip=(box&&box.querySelector('.ltip'))||$('ptip')||$('ltip');if(tip)tip.style.display='none'}
+function listPctChart(lists, total){
+ const listsS=lists.filter(r=>(r.pct_points||[]).length).map((r,i)=>({id:r.id,label:r.label||r.name||r.id,color:r.color||listColor(i),points:r.pct_points||[],thick:0}));
+ const sumPts=(total&&total.pct_points)||[];
+ const sumS=sumPts.length?[{id:'all-pct',label:'All lists',color:'#111111',points:sumPts,thick:1}]:[];
+ const series=listsS.concat(sumS);
+ if(!series.length)return '';
+ const legend=series.map(s=>{
+  const last=(s.points||[]).slice().reverse().find(p=>p&&p.pct!=null);
+  return `<span><i style="background:${s.color}${s.thick?';height:3px;border-radius:1px':''}"></i>${esc(s.label)}${last?` · ${last.pct}%`:''}</span>`;
+ }).join('');
+ return `<div class="lchart lchart-pct"><div class="lchart-cap">Account reach %</div>${pctChart(series,{H:220,label:'Account reach percent'})}<div class="ltip" id="ptip"></div><div class="lleg">${legend}</div></div>`;
+}
+function pctSpark(points){
+ if(!points||points.length<1)return '';
+ const series=[{id:'one',label:'Account reach',color:'#7319F2',points:points,thick:1}];
+ const first=points[0]&&points[0].end?sd(points[0].end):'';
+ const last=points[points.length-1]&&points[points.length-1].end?sd(points[points.length-1].end):'';
+ const iw=window.innerWidth||390;
+ const cols=iw<=700?1:(iw<=1100?2:3);
+ const host=$('main')||document.body;
+ const avail=Math.round((host&&host.clientWidth)||iw)-28;
+ const cardW=Math.max(220, Math.round(avail/cols - (cols>1?12:0) - 28));
+ return `<div class="lpct"><div class="lpct-cap">Account reach %</div>${pctChart(series,{H:120,W:cardW,label:'Account reach percent'})}<div class="ltip"></div></div>`;
+}
+function combinedPctFromRows(ar){
+ const dates=[];
+ ar.forEach(r=>(r.pct_points||[]).forEach(p=>{if(p&&p.end&&dates.indexOf(p.end)<0)dates.push(p.end)}));
+ dates.sort();
+ const pct_points=dates.map(end=>{
+  let rch=0,n=0,src=null;
+  ar.forEach(row=>{
+   const p=(row.pct_points||[]).find(x=>x.end===end);
+   if(p&&p.reached!=null&&p.list_companies){rch+=p.reached;n+=p.list_companies;src=src||p.source}
+  });
+  return n?{end,source:src,pct:Math.round(100*rch/n),reached:rch,list_companies:n}:null;
+ }).filter(Boolean);
+ let baseline=null;
+ const withB=ar.filter(r=>r.baseline&&r.baseline.list_companies);
+ if(withB.length===ar.length&&ar.length){
+  const rch=withB.reduce((s,x)=>s+x.baseline.reached,0);
+  const n=withB.reduce((s,x)=>s+x.baseline.list_companies,0);
+  baseline={end:withB[0].baseline.end,reached:rch,list_companies:n,pct:Math.round(100*rch/n)};
+ }
+ const latest=pct_points.filter(p=>p.source==='export').slice(-1)[0]||pct_points[pct_points.length-1];
+ const vs=(baseline&&latest&&latest.pct!=null)?{from_pct:baseline.pct,to_pct:latest.pct,pts:latest.pct-baseline.pct,from_end:baseline.end,to_end:latest.end}:null;
+ return {pct_points,baseline,vs_baseline:vs};
+}
+
+function isNarrow(){return window.innerWidth<=700}
+function listShortLabel(r){
+  const full=r.label||r.name||r.id||'';
+  const ind=r.industry||'';
+  const tier=r.tier==='Enterprise'?'ENT':(r.tier==='Growth'?'GRW':'');
+  const subMap={'Beauty':'Beauty','Food & Bev':'Food & Bev','Supplements / Hygiene / Baby / Pet':'Supp','Apparel / Jewelry & Accessories':'','Electronics / Fitness / Sporting / Outdoor / Home':'','SaaS / Mid-market B2B':''};
+  const sub=r.sub||'';
+  const ss=Object.prototype.hasOwnProperty.call(subMap,sub)?subMap[sub]:(sub?String(sub).split(' / ')[0]:'');
+  const peers=(accountLists()||[]).filter(x=>x.industry===r.industry&&x.tier===r.tier);
+  const needSub=!!(ss&&peers.length>1);
+  const parts=[ind,tier].filter(Boolean);
+  if(needSub)parts.push(ss);
+  return parts.length?parts.join(' '):full;
+}
+function listCoverage(){
+ const rows=accountLists();
+ const scope=`<div class="sh"><h2>Account lists</h2><span class="sc">${esc(scopeLabel())}</span></div>`;
+ const empty=reachEmptyMessage();
+ if(!rows.length){
+  if(!empty)return '';
+  return `<div class="lists lists-compact" id="lists">${scope}<div class="empty">${esc(empty)}</div></div>`;
+ }
+ const body=rows.map(r=>{
+  const vs=r.vs_baseline;
+  const pts=vs&&vs.pts!=null?vs.pts:null;
+  const ptsH=pts==null?'-':(pts===0?'0 pts':((pts>0?'+':'')+pts+' pts'));
+  const cls=pts>0?'up':(pts<0?'dn':'');
+  const reach=r.pct!=null?`${r.pct}%${r.n!=null&&r.list_companies?`<div class="vdesc">${num(r.n)} of ${num(r.list_companies)}</div>`:''}`:'-';
+  const full=r.label||r.name||r.id||'';
+  const label=isNarrow()?listShortLabel(r):full;
+  return `<tr><td class="al" title="${esc(full)}">${esc(label)}</td><td class="n">${reach}</td><td class="n">${pts==null?'-':`<span class="${cls}">${ptsH}</span>`}</td></tr>`;
+ }).join('');
+ return `<div class="lists lists-compact" id="lists">${scope}<div class="tw"><table><thead><tr><th class="al">List</th><th class="n">Account reach</th><th class="n">vs Oct 6</th></tr></thead><tbody>${body}</tbody></table></div></div>`;
+}
+
+function topCompanies(){
+ const R=D.reach90||{};const rows=((D.top||{})[scopeKey()])||[];
+ const scope=`<div class="sh"><h2>Top companies reached</h2><span class="sc">${esc(scopeLabel())}, last 90 days</span></div>`;
+ if(!rows.length)return `<div class="lists lists-compact co-table" id="lists">${scope}<div class="empty">No companies with 3+ paid impressions in the last 90 days for this filter.</div></div>`;
+ const body=rows.map((r,i)=>`<tr><td class="al">${i+1}. ${esc(r.name)}</td><td class="n">${num(r.impr)}</td><td class="n">${num(r.clicks)}</td><td class="n">${num(r.lp)}</td><td class="n">${r.impr>0?(100*r.clicks/r.impr).toFixed(2)+'%':'-'}</td></tr>`).join('');
+ return `<div class="lists lists-compact co-table" id="lists">${scope}<div class="note" style="margin:0 0 8px">Top ${rows.length} companies by paid impressions, ${sd(R.window[0])} to ${fmtD(R.window[1])}. Only companies with 3+ paid impressions count as reached.</div><div class="tw"><table><thead><tr><th class="al">Company</th><th class="n">Impressions</th><th class="n">Clicks</th><th class="n">Landing<br>page clicks</th><th class="n">CTR</th></tr></thead><tbody>${body}</tbody></table></div></div>`;
+}
+function render(){if(typeof hideMtip==='function')hideMtip();const p=D.periods[P];const rows=scoped();
+ $('pills').innerHTML=ORDER.map(k=>`<button class="${k==P?'on':''}" onclick="setP('${k}')">${D.periods[k].label}</button>`).join('');
+ const pr=p.prior||{start:p.prior_start,end:p.prior_end};
+ $('range').textContent=`${sd(p.start)} to ${fmtD(p.end)} vs ${sd(pr.start)} to ${fmtD(pr.end)}`;
+ if(0)$('segs').innerHTML=[['All','All'],['ENT','ENT'],['GRW','GRW']].map(([k,l])=>`<button class="${k==SEG?'on':''}" onclick="setG('${k}')" title="${k=='All'?'Enterprise, Growth and Retargeting':SEGT[k]+' ad sets only'}">${l}</button>`).join('');
+ $('inds').innerHTML=INDS.map((k,i)=>`<button class="${k==IND?'on':''}" onclick="setIx(${i})">${dotH(k)}${esc(k)}</button>`).join('');
+ const sl=SUBS[IND];$('subs').style.display=sl?'':'none';
+ $('subs').innerHTML=sl?[['All','All '+IND]].concat(sl).map(([k,l])=>`<button class="${k==SUB?'on':''}" onclick="setS('${k}')">${k=='All'?'':dotH(SUBT[k])}${esc(l.split(' / ')[0])}</button>`).join(''):'';
+ const title=campView()?'Campaign group performance':'Ad set performance';
+ $('main').innerHTML=`<div class="sh"><h2>${title}</h2><span class="sc">${esc(scopeLabel())}, ${esc(p.label.toLowerCase())}</span></div>${kpis(rows)}${dailyChart()}${topCompanies()}${table()}`;
+ syncNav();
+}
+$('nlive').textContent=(D.meta&&D.meta.live_camps!=null)?D.meta.live_camps:'';
+$('nhist').textContent=(D.meta&&D.meta.hist_camps!=null)?D.meta.hist_camps:'';
+$('thru').textContent=fmtD((D.meta&&D.meta.through)||D.asof);
+$('asof').textContent=(D.meta&&D.meta.asof)||D.asof_label;
+$('foot').innerHTML=`<li>LinkedIn Ads account ${esc(D.account)} (Jellyfish), live LinkedIn Marketing API data through ${fmtD((D.meta&&D.meta.through)||D.asof)}, the last completed UTC day. The All view lists campaign groups. Choose a campaign group to see its ad sets. Tables include live ad sets and paused or completed ad sets that delivered in the selected period. Status is the ad set's current status: Active (ACTIVE and serving) or Paused.</li>
+<li>Spend, budgets, Cost/LP, and CPM are whole dollars. Cost/LP = spend / landing page clicks. LP CTR = landing page clicks / impressions, shown to two decimals. Prior = previous equal-length period (month to date: same days last month). Period comparisons are whole percents. Dwell is the period average, shown to one decimal second. Audience size is current targeting from LinkedIn audienceCounts as of the pull, not a historical size for the period. Reach is approximate member reach for the selected period (not a sum of daily reach). Audience penetration = period reach / current audience size, as a whole percent. Campaign group rows do not show reach, audience size, or penetration because those are not de-duplicated across ad sets.</li>
+<li>Companies reached counts unique companies (MEMBER_COMPANY) with 3+ paid impressions in the selected period, for the whole account or the selected campaign group. Company reach (90 days) uses the same 3+ paid impressions rule over the last 90 days, compared with the 90 days before that, and does not follow the period pills. Top companies reached lists the companies with the most paid impressions in the last 90 days, by company name.</li>
+<li>The Daily performance chart always covers the last 60 days ending ${fmtD((D.meta&&D.meta.through)||D.asof)}, and uses six days before that so the first chart day has a full 7-day window. Rolling LP clicks = LP clicks in the last 7 days, Rolling LP CTR = LP clicks / impressions in the last 7 days, Rolling Cost/LP = spend / LP clicks in the last 7 days, and Rolling Spend = spend in the last 7 days. Two or more metrics share one chart, each indexed to 100 at the start of the window; hover for actual values. On single-metric views, a marker is an ad set's first day with delivery (launch), its last day with delivery if it is no longer live (pause), or a new campaign group. LinkedIn does not provide objective or daily budget change history, so those are not marked. It follows the campaign group filter, not the period pills.</li>
+<li>Last business day spend is spend on ${D.last_biz_day_label}. Daily budget and objective are current ad set values at pull time.</li>`;
+render();
+let _listRz;
+window.addEventListener('resize',()=>{clearTimeout(_listRz);_listRz=setTimeout(()=>{const y=window.scrollY;render();window.scrollTo(0,y);},180)});
+
+</script>
+</body></html>
