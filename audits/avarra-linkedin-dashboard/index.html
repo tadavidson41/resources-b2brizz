@@ -1,0 +1,1041 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Avarra | LinkedIn Ads Campaign Performance</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet"><meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet">
+<link rel="icon" href="favicon.png">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WSJD9LJN');</script>
+<!-- End Google Tag Manager -->
+<style>
+@font-face{font-family:"Funnel Sans";src:url(fonts/FunnelSans-300.woff2) format("woff2");font-weight:300;font-display:swap}
+@font-face{font-family:"Funnel Sans";src:url(fonts/FunnelSans-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Funnel Sans";src:url(fonts/FunnelSans-500.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"Funnel Sans";src:url(fonts/FunnelSans-600.woff2) format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Funnel Sans";src:url(fonts/FunnelSans-700.woff2) format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url(fonts/GeistMono-400.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Geist Mono";src:url(fonts/GeistMono-500.woff2) format("woff2");font-weight:500;font-display:swap}
+:root{--pu:#336754;--eb:#336754;--lav:#a9c6b6;--lav2:#cfe0d6;--lav3:#eaf1ec;--hi:#3fd48a;--ink:#0d0f0f;--mut:#4b514e;--mut2:#868c89;--bg:#f6f5f1;--bd:#dcdad3;--bd2:#ebe9e3;--gr:#1d6b45;--grb:#d9f5e6;--am:#8a5300;--amb:#FFF1C9;--rd:#b8261b;--rdb:#fdebe9}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 "Funnel Sans","Helvetica Neue",Arial,sans-serif;font-variant-numeric:tabular-nums}
+h1,h2,h3,.kpi .v,.seg button,.lab,.jump a{font-family:"Funnel Sans","Helvetica Neue",Arial,sans-serif}
+button{font:inherit;color:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+.hd{background:#fff}
+.hd .wrap{display:flex;align-items:center;gap:18px;padding-top:16px;padding-bottom:14px;flex-wrap:wrap}
+.hd img{height:28px;display:block}
+.hd .tt{flex:1;border-left:2px solid var(--lav2);padding-left:18px}
+.hd h1{font-size:28px;line-height:1;margin:0;font-weight:500}
+.hd .dm{color:var(--mut);font-size:12.5px;margin-top:5px}
+.nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.97);backdrop-filter:blur(4px);border-top:1px solid var(--bd2);border-bottom:1px solid var(--bd);box-shadow:0 2px 6px rgba(13,15,15,.05)}
+.nav .wrap{display:flex;flex-direction:column;gap:7px;padding-top:9px;padding-bottom:9px}
+.nr{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.lab{font-weight:600;font-size:16px;min-width:76px}
+.seg{display:inline-flex;border:1px solid var(--bd);border-radius:10px;background:#fff;padding:3px;gap:3px;flex-wrap:wrap}
+.seg button{border:0;background:none;padding:3px 13px;border-radius:8px;cursor:pointer;font-size:16px;font-weight:700;white-space:nowrap}
+.seg button.on{background:var(--pu);color:#fff}
+.seg button:not(.on):hover{background:var(--lav3)}
+.seg.sub button{font-size:15px;padding:2px 11px}.seg.sub button.on{background:var(--lav2);color:var(--eb)}
+.rng{font-size:12.5px;color:var(--mut);margin-left:auto}
+main{padding:24px 0 48px}
+section.block{background:#fff;border:1px solid #D9D9D9;border-radius:18px;padding:26px 28px 28px;margin-bottom:28px;scroll-margin-top:110px}
+section.block.alt{background:var(--lav3)}
+.sh{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:16px}
+.sh h2{font-size:32px;line-height:1.1;margin:0;font-weight:500}
+.sh .sc{font-size:13px;color:var(--eb);background:var(--lav3);border:1px solid var(--lav2);border-radius:999px;padding:2px 11px;font-weight:600}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,240px));gap:12px;margin-bottom:18px}
+@media(max-width:800px){.kpis{grid-template-columns:1fr}}
+.kpi{background:var(--bg);border:1px solid var(--bd);border-left:3px solid var(--pu);border-radius:8px;padding:11px 14px}
+.kpi .l{font-size:12.5px;color:var(--mut);font-weight:600}
+.kpi .v{font-size:32px;font-weight:500;line-height:1.05;margin:3px 0}
+.kpi .c{font-size:12.5px;color:var(--mut)}
+.up{color:#2E6B45;background:#E3F3E8;border-radius:6px;padding:1px 6px;font-weight:700;white-space:nowrap}
+.dn{color:var(--rd);background:var(--rdb);border-radius:6px;padding:1px 6px;font-weight:700;white-space:nowrap}
+.tw{overflow:auto;border:1px solid var(--bd);border-radius:10px;background:#fff}
+table{border-collapse:separate;border-spacing:0;width:100%;table-layout:fixed;font-size:13px}
+th{background:var(--bg);text-align:left;font-weight:700;color:var(--mut);font-size:12px;padding:7px 6px;border-bottom:1px solid var(--bd);white-space:normal;line-height:1.25;vertical-align:bottom}
+th.s{cursor:pointer}th.s:hover{color:var(--pu)}
+th.n,th.st{text-align:center;white-space:normal}
+td.n,td.st{text-align:center;white-space:nowrap}
+td.st .vdesc{max-width:none}
+td{padding:7px 6px;border-bottom:1px solid var(--bd2);vertical-align:middle}
+th.st,td.st{width:76px}
+td.nm,th.nm{width:156px}
+td.nm .vlab,td.nm .vdesc{max-width:100%;overflow-wrap:anywhere;word-break:break-word;white-space:normal}
+a.cm{color:inherit;text-decoration:none}
+a.cm:hover,a.cm:focus-visible{text-decoration:underline;text-underline-offset:2px}
+th.obj,td.obj{width:136px;white-space:nowrap;padding-left:10px;text-align:left}
+tbody tr:hover td{background:#f7faf8}
+tr.tot td{font-weight:700;background:var(--bg)}
+tr.th td{cursor:pointer}tr.th .vlab:before{content:"\25B8  ";color:var(--pu)}tr.th.open .vlab:before{content:"\25BE  "}
+tr.kid td{background:#fbfcfa;font-size:12.5px}tr.kid td:first-child{padding-left:26px}
+.vlab{font-weight:700}.vdesc{font-size:11.8px;color:var(--mut);margin-top:2px;max-width:300px}
+.thumb{width:96px;height:96px;object-fit:cover;object-position:top;border-radius:8px;border:1px solid var(--bd);cursor:zoom-in;display:block;background:var(--bg)}
+tr.kid .thumb{width:72px;height:72px}
+.nopv{width:72px;height:56px;border:1px dashed var(--bd);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--mut2)}
+.pill{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:2px 9px;font-size:12px;font-weight:600;white-space:nowrap}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.p-g{background:var(--grb);color:var(--gr)}.p-n{background:#efefef;color:var(--mut)}.p-p{background:var(--lav2);color:var(--eb)}.p-a{background:var(--amb);color:var(--am)}.p-r{background:var(--rdb);color:var(--rd)}
+.flag{margin-left:8px}
+.sp-on,.sp-off{display:inline-block;border-radius:999px;padding:3px 9px;font-size:12px;font-weight:700;line-height:1.2;white-space:nowrap}
+.sp-on{background:#E3F3E8;color:#2E6B45}
+.sp-off{background:#fdebe9;color:#b8261b}
+.tag{display:inline-block;border-radius:5px;padding:1px 6px;font-size:10.5px;font-weight:700;margin-left:6px;vertical-align:1px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:0;border:1px solid rgba(13,15,15,.25)}
+.va{font-size:11px;font-weight:600;margin-top:2px;white-space:nowrap}.va.bt{color:#2E6B45}.va.wr{color:var(--rd)}.va.at{color:var(--mut2)}
+tr.avg td{background:var(--lav3);border-bottom:2px solid var(--lav);font-weight:700}
+.sgb{background:#fff;color:var(--mut);border:1px solid var(--bd);font-size:9.5px;margin-left:4px}
+.ttag{background:#fff;color:var(--eb);border:1px solid var(--lav);margin-left:0;margin-top:3px}
+.gv{background:#E3F3E8;color:#2E6B45;font-weight:700;border-radius:6px;padding:3px 8px;white-space:nowrap;display:inline-block;line-height:1.2}
+.bv{background:#fdebe9;color:#b8261b;font-weight:700;border-radius:6px;padding:3px 8px;white-space:nowrap;display:inline-block;line-height:1.2}
+tr.fat-row{cursor:pointer}
+tr.fat-row:hover td{background:#f7faf8}
+tr.fat-row .vlab:before{content:"\25B8  ";color:var(--pu)}
+tr.fat-row.open .vlab:before{content:"\25BE  "}
+tr.fat-chart td{background:#f7faf8;padding:10px 14px 16px;border-bottom:1px solid var(--bd)}
+
+.note{font-size:12px;color:var(--mut);margin-top:8px}
+.empty{border:1px dashed var(--bd);border-radius:10px;padding:18px;text-align:center;color:var(--mut);background:#fff}
+#lb{position:fixed;inset:0;background:rgba(13,15,15,.85);display:none;align-items:center;justify-content:center;z-index:100;flex-direction:column;gap:10px;padding:20px}
+#lb img{max-width:92vw;max-height:82vh;border-radius:8px;background:#fff}#lb .cap{color:#fff;font-size:14px}#lb button{position:absolute;top:16px;right:20px;background:#fff;border:0;border-radius:999px;width:34px;height:34px;font-size:18px;cursor:pointer}
+.foot{font-size:12.5px;color:var(--mut)}.foot summary{cursor:pointer;font-weight:700;color:var(--ink)}.foot li{margin:4px 0}
+.seg.sm button{padding:3px 11px;font-size:13px}
+.daily{margin:6px 0 22px}
+.daily h2{font-size:24px;line-height:1.1;margin:0;font-weight:500}
+.ch{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.desc{color:var(--mut);font-size:12.5px;margin-top:4px;font-weight:400}
+.chart svg{display:block}
+.legend{font-size:12px;color:var(--mut);display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin-top:6px}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.mtip{display:none;position:fixed;z-index:80;width:340px;max-height:360px;overflow:auto;background:#0d0f0f;color:#fff;font-size:12px;line-height:1.45;padding:10px 12px;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.18);text-align:left;pointer-events:none}
+.mtip .mh{font-weight:700;margin-bottom:6px}
+.mtip .ml{margin:0 0 5px}
+.mtip .ml i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px;vertical-align:1px}
+.chart{position:relative}
+
+.i{display:inline-flex;align-items:center;justify-content:center;margin-left:6px;width:16px;height:16px;border-radius:50%;background:var(--lav2);color:var(--eb);font-size:11px;font-weight:700;cursor:help;position:relative;font-style:normal;vertical-align:6px}
+.i .tip{display:none;position:absolute;left:50%;top:22px;transform:translateX(-50%);width:340px;background:var(--ink);color:#fff;font-weight:400;font-size:12px;line-height:1.45;padding:9px 11px;border-radius:8px;z-index:40;text-align:left}
+.i:hover .tip,.i:focus .tip{display:block}
+
+.hd .hdr-link{margin-left:auto;align-self:center;color:var(--ink);font-family:"Funnel Sans","Helvetica Neue",Arial,sans-serif;font-weight:700;font-size:15px;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.hd .hdr-link:hover{color:var(--pu)}
+.kpis.five,.kpis.six{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:800px){.kpis.five,.kpis.six{grid-template-columns:1fr 1fr}}
+.kpi .sub{font-size:12px;color:var(--mut);margin-top:1px;line-height:1.3}
+.lists-compact{margin:0 0 22px}
+.lists-compact .sh{margin-bottom:8px}
+.lists-compact .tw table{table-layout:auto;width:100%}
+.lists-compact th.n,.lists-compact td.n{text-align:right;white-space:nowrap}
+.lists-compact td.al,.lists-compact th.al{text-align:left;min-width:128px;position:static;left:auto;box-shadow:none;background:transparent;max-width:none;white-space:normal;overflow-wrap:anywhere;word-break:break-word}
+.lists-compact thead th:first-child,.lists-compact tbody td:first-child{position:static;left:auto;background:transparent;box-shadow:none}
+.lists-compact .tw{overflow-x:auto}
+.lists-compact .vdesc{max-width:none}
+.reach-chart svg{display:block;width:100%;height:auto;min-height:200px}
+@media(max-width:700px){.reach-chart svg{min-height:240px}}
+.daily .reach-exports{margin:12px 0 0}
+.daily .reach-exports-cap{font-size:12px;font-weight:600;margin:0 0 6px;color:#0d0f0f}
+.daily .reach-exports table{font-size:12px;width:auto;min-width:240px}
+.daily .reach-exports th,.daily .reach-exports td{padding:4px 10px 4px 0;vertical-align:top}
+.reach-chart .reach-note{font-size:12px;color:#5b5b5b;margin:8px 0 0;line-height:1.4}
+
+.lists{margin:0 0 22px;scroll-margin-top:110px}
+.lists h2{font-size:24px;line-height:1.1;margin:0;font-weight:600}
+.list-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:12px}
+@media(max-width:1100px){.list-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.list-grid{grid-template-columns:1fr}}
+.lcard{background:var(--bg);border:1px solid var(--bd);border-left:3px solid var(--pu);border-radius:8px;padding:12px 14px 10px}
+.lcard .ln{font-size:13.5px;font-weight:700;line-height:1.25;margin:0 0 6px}
+.lcard .row{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.lcard .lv{font-family:"Funnel Sans","Helvetica Neue",Arial,sans-serif;font-size:30px;font-weight:600;line-height:1;letter-spacing:-.02em}
+.lcard .chg{font-size:13px}
+.lcard .meta{font-size:12px;color:var(--mut);margin-top:4px;line-height:1.35}
+.lcard svg.spark{display:block;width:100%;height:36px;margin-top:4px}
+.lbase{font-size:13px;font-weight:600;margin-top:6px;line-height:1.35}
+.lbase.up{color:#2E6B45}
+.lbase.dn{color:var(--rd)}
+.lpct-cap,.lsec-cap{font-size:11.5px;color:#6B6A69;margin:8px 0 2px;font-weight:500}
+.lcard .lpct{position:relative}
+.lcard .lpct svg{display:block;width:100%;height:auto;min-height:110px}
+.lsec{margin-top:6px}
+.lchart-pct svg{min-height:200px}
+.lcard .axis{font-size:10.5px;color:var(--mut);display:flex;justify-content:space-between;margin-top:2px}
+
+
+.nav-toggle{display:none;font-family:"Funnel Sans","Helvetica Neue",Arial,sans-serif}
+.nav-body{display:flex;flex-direction:column;gap:7px}
+.lists-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.lists-head .sh{margin-bottom:0;flex:1}
+.list-modes{margin:0}
+.lsum{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin:10px 0 8px}
+.lsum .lv{font-family:"Funnel Sans","Helvetica Neue",Arial,sans-serif;font-size:40px;font-weight:600;line-height:1;letter-spacing:-.02em}
+.lsum .meta{font-size:12.5px;color:var(--mut);line-height:1.4;max-width:42em}
+.lsum-pct{font-size:16px;font-weight:650;margin:2px 0 4px}
+.lchart{position:relative;margin-top:8px}
+.lchart svg{display:block;width:100%;height:auto}
+.lchart-cap{font-size:12px;color:#6B6A69;margin:12px 0 2px;font-weight:500}
+.lchart-sum svg{min-height:150px}
+.lchart-lists svg{min-height:280px}
+.lleg{display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:8px;font-size:12px;color:var(--ink)}
+.lleg span{display:inline-flex;align-items:flex-start;gap:6px;white-space:normal;max-width:100%}
+.lleg i{display:inline-block;width:10px;height:10px;border-radius:2px;flex:0 0 10px;margin-top:3px}
+.ltip{display:none;position:absolute;z-index:6;background:#0d0f0f;color:#fff;font-size:12px;line-height:1.4;padding:8px 10px;border-radius:8px;pointer-events:none;min-width:180px;max-width:280px;box-shadow:0 8px 24px rgba(0,0,0,.18)}
+.ltip .mh{font-weight:700;margin-bottom:4px}
+.ltip .mr{display:flex;justify-content:space-between;gap:12px}
+.ltip .mr b{font-weight:700}
+@media(max-width:700px){
+  .wrap{padding:0 12px}
+  .hd .wrap{padding-top:12px;padding-bottom:10px;gap:10px}
+  .hd h1{font-size:22px}
+  .hd img{height:24px}
+  .hd .tt{padding-left:12px}
+  .hd .dm{font-size:12px}
+  .hd .wrap{align-items:flex-start}
+  .hd .tt{flex:1 1 180px}
+  .hd .hdr-link{flex-basis:100%;margin-left:0;margin-top:2px;font-size:14px}
+  .nav{position:static;z-index:auto;box-shadow:none}
+  .nav .wrap{padding-top:6px;padding-bottom:6px;gap:6px}
+  .nav-toggle{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;border:1px solid var(--bd);background:#fff;border-radius:10px;padding:8px 12px;font-weight:700;font-size:14px;color:var(--ink);text-align:left;cursor:pointer;line-height:1.25}
+  .nav-toggle:after{content:"\25BE";color:var(--pu);font-size:12px;flex:0 0 auto}
+  .nav-toggle[aria-expanded="false"]:after{content:"\25B8"}
+  .nav:not(.open) .nav-body{display:none}
+  .lab{font-size:13px;min-width:54px}
+  .seg{padding:2px;gap:2px;border-radius:8px}
+  .seg button{padding:2px 8px;font-size:13px;border-radius:6px}
+  .seg.sub button{font-size:12px;padding:2px 7px}
+  .seg.sm button{padding:2px 8px;font-size:12px}
+  .rng{font-size:11.5px;margin-left:0;flex-basis:100%}
+  .nr{gap:6px}
+  main{padding:14px 0 36px}
+  section.block{padding:16px 14px;margin-bottom:18px;scroll-margin-top:12px;border-radius:14px}
+  .sh h2{font-size:24px}
+  .kpi .v,.lcard .lv,.lsum .lv{font-size:28px}
+  .lsum{gap:10px}
+  .tw{-webkit-overflow-scrolling:touch;overflow-x:auto;max-width:100%}
+  .tw table{table-layout:auto;width:max-content;min-width:0;font-size:11px}
+  .tw th,.tw td{padding:5px 6px;background-clip:padding-box}
+  .tw th{line-height:1.2;white-space:normal;vertical-align:bottom}
+  .tw th.n,.tw td.n{min-width:76px;max-width:76px}
+  .tw th.n{white-space:normal}
+  .tw td.n,.tw td.st{white-space:nowrap}
+  .tw th.st,.tw td.st{position:sticky;left:0;z-index:3;background:#fff;min-width:56px;width:56px;max-width:56px;padding:5px 4px}
+  .tw thead th.st{background:var(--bg);z-index:4}
+  .tw th.obj,.tw td.obj{min-width:76px;max-width:76px;white-space:normal}
+  .tw thead th:first-child,.tw tbody td:first-child{position:sticky;left:0;z-index:3;background:#fff}
+  .tw thead th:first-child{background:var(--bg);z-index:4}
+  .tw th.nm,.tw td.nm{position:sticky;left:56px;z-index:3;background:#fff;min-width:128px;max-width:128px;width:128px;font-size:11px;box-shadow:8px 0 10px -7px rgba(13,15,15,.28);border-right:1px solid var(--bd)}
+  .tw thead th.nm{background:var(--bg);z-index:4}
+  .tw .sp-on,.tw .sp-off{padding:2px 5px;font-size:10px}
+  .sets-table td.nm .vdesc{display:none}
+  #lists .tw table{table-layout:fixed;width:100%;font-size:11px}
+  #lists th.al,#lists td.al{min-width:0;width:132px;max-width:132px;font-size:11px;padding:5px 6px;white-space:normal;overflow-wrap:anywhere;word-break:break-word}
+  #lists th.n,#lists td.n{min-width:0;max-width:none}
+  tbody tr:hover td:first-child,tbody tr:hover td.st,tbody tr:hover td.nm{background:#f7faf8}
+  tr.kid td:first-child,tr.kid td.st,tr.kid td.nm{background:#fbfcfa}
+  tr.tot td:first-child,tr.tot td.nm{background:#fff}
+  .lchart-sum svg{min-height:140px}
+  .lchart-lists svg{min-height:240px}
+  .lchart-pct svg{min-height:220px}
+  .lcard .lpct svg{min-height:120px}
+  .lsum .lv{font-size:36px}
+}
+
+/* Avarra brand layer (matches /audits/avarra-creative-dashboard/) */
+.hd{border-bottom:1px solid var(--bd2)}
+.hd .logo{height:26px;width:auto;display:block}
+h1,h2,h3,.kpi .v{letter-spacing:-.01em}
+.lab,.sh .sc,th,.kpi .l{font-family:"Geist Mono",ui-monospace,Menlo,monospace}
+.lab{font-weight:500;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--mut)}
+.seg button{font-weight:500;font-size:14px}
+.kpi .l{font-size:11.5px;font-weight:500;text-transform:uppercase;letter-spacing:.03em}
+th{font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.02em}
+.up,.gv{color:#1d6b45;background:#d9f5e6}
+@media(max-width:700px){.hd .logo{height:22px}.seg button{font-size:13px}}
+</style>
+</head><body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WSJD9LJN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header class="hd"><div class="wrap"><svg class="logo" role="img" aria-label="avarra" xmlns="http://www.w3.org/2000/svg" width="512" height="107" fill="none" viewBox="-6 -6 512 107"><path fill="#336754" d="M306.862 47.572V93.48h19.569V43.05c0-15.331 11.488-19.229 24.05-19.61V0c-22.244 0-43.619 15.346-43.619 47.572m49.978 0V93.48h19.569V43.05c0-15.331 11.489-19.229 24.05-19.61V0c-22.244 0-43.619 15.346-43.619 47.572M171.668 1.2h21.456l-29.387 80.6c-3.041 7.985-10.225 13.2-18.21 13.2s-15.183-5.215-18.225-13.2l-29.4-80.586h21.144l26.603 74.692zm116.997 92.279H275.75l-2.254-12.277c-17.246 15.319-41.649 16.27-59.806 2.594-17.26-12.996-23.751-36.925-13.621-57.744 9.167-18.85 30.868-29.999 52.935-24.757 20.316 4.821 35.742 23.386 35.715 45.698zm-19.867-46.784c0-14.817-12.005-26.822-26.821-26.822s-26.82 12.005-26.82 26.822 12.004 26.82 26.82 26.82 26.821-12.004 26.821-26.82M93.407 93.479H80.492l-2.254-12.277c-17.246 15.319-41.65 16.27-59.806 2.594C1.172 70.8-5.319 46.871 4.812 26.052 13.977 7.202 35.678-3.947 57.745 1.295 78.061 6.116 93.487 24.681 93.46 46.993zM73.526 46.695c0-14.817-12.005-26.822-26.82-26.822-14.816 0-26.82 12.005-26.82 26.822s12.004 26.82 26.82 26.82c14.815 0 26.82-12.004 26.82-26.82m426.42 46.784h-12.915l-2.254-12.277c-17.247 15.319-41.65 16.27-59.806 2.594-17.26-12.996-23.752-36.925-13.621-57.744 9.167-18.85 30.867-29.999 52.935-24.757C484.6 6.116 500.027 24.681 500 46.993zm-19.868-46.784c0-14.817-12.005-26.822-26.82-26.822-14.816 0-26.821 12.005-26.821 26.822s12.005 26.82 26.821 26.82c14.815 0 26.82-12.004 26.82-26.82"/></svg><div class="tt"><h1>LinkedIn Ads Campaign Performance</h1><div class="dm">Data through <b id="thru"></b>. Ad status as of <b id="asof"></b>. Includes <b id="nlive"></b> live ad sets plus <b id="nhist"></b> paused or completed ad sets with delivery in the selected windows.</div></div><a class="hdr-link" href="/audits/avarra-creative-dashboard/">Creative Dashboard</a></div></header>
+<div class="nav" id="nav"><div class="wrap">
+<button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navBody" onclick="togNav()">Filters</button>
+<div class="nav-body" id="navBody">
+<div class="nr"><span class="lab">Period</span><div class="seg" id="pills"></div><span class="rng" id="range"></span></div>
+<div class="nr"><span class="lab">Segment</span><div class="seg" id="segs"></div><span class="lab" style="min-width:0;margin-left:10px">Industry</span><div class="seg" id="inds"></div><div class="seg sub" id="subs"></div></div>
+</div>
+</div></div>
+<main><div class="wrap">
+<section class="block" id="main"></section>
+<details class="foot"><summary>Sources and definitions</summary><ul id="foot"></ul></details>
+</div></main>
+<script>
+const D={"asof":"2026-11-23","asof_label":"Nov 23, 2026","aud_pulled":"Nov 24, 2026","pulled":"2026-11-24","last_biz_day":"2026-11-23","last_biz_day_label":"Mon, Nov 23 (UTC)","meta":{"through":"2026-11-23","asof":"Nov 24, 2026, about 8:00 AM ET","live_camps":4,"hist_camps":3},"periods":{"l7":{"label":"Last 7 days","start":"2026-11-17","end":"2026-11-23","prior_start":"2026-11-10","prior_end":"2026-11-16","prior":{"start":"2026-11-10","end":"2026-11-16"}},"mtd":{"label":"Month to date","start":"2026-11-01","end":"2026-11-23","prior_start":"2026-10-01","prior_end":"2026-10-23","prior":{"start":"2026-10-01","end":"2026-10-23"}},"l30":{"label":"Last 30 days","start":"2026-10-25","end":"2026-11-23","prior_start":"2026-09-25","prior_end":"2026-10-24","prior":{"start":"2026-09-25","end":"2026-10-24"}},"l60":{"label":"Last 60 days","start":"2026-09-25","end":"2026-11-23","prior_start":"2026-07-27","prior_end":"2026-09-24","prior":{"start":"2026-07-27","end":"2026-09-24"}}},"companies":{"l7":{"all":379,"i:Cross-industry":265,"i:Cybersecurity":52,"i:Medical Device":78,"i:Thought Leaders":0,"ENT|all":34,"ENT|i:Cross-industry":34,"TAM|all":231,"TAM|i:Cross-industry":231},"l7p":{"all":469,"i:Cross-industry":306,"i:Cybersecurity":46,"i:Medical Device":139,"i:Thought Leaders":0,"ENT|all":52,"ENT|i:Cross-industry":52,"TAM|all":254,"TAM|i:Cross-industry":254},"mtd":{"all":737,"i:Cross-industry":523,"i:Cybersecurity":67,"i:Medical Device":182,"i:Thought Leaders":99,"ENT|all":103,"ENT|i:Cross-industry":103,"TAM|all":424,"TAM|i:Cross-industry":424},"mtdp":{"all":943,"i:Cross-industry":701,"i:Cybersecurity":108,"i:Medical Device":183,"i:Thought Leaders":219,"ENT|all":123,"ENT|i:Cross-industry":123,"TAM|all":578,"TAM|i:Cross-industry":578},"l30":{"all":844,"i:Cross-industry":617,"i:Cybersecurity":76,"i:Medical Device":189,"i:Thought Leaders":162,"ENT|all":131,"ENT|i:Cross-industry":131,"TAM|all":490,"TAM|i:Cross-industry":490},"l30p":{"all":981,"i:Cross-industry":751,"i:Cybersecurity":108,"i:Medical Device":183,"i:Thought Leaders":222,"ENT|all":127,"ENT|i:Cross-industry":127,"TAM|all":625,"TAM|i:Cross-industry":625},"l60":{"all":1157,"i:Cross-industry":901,"i:Cybersecurity":114,"i:Medical Device":229,"i:Thought Leaders":315,"ENT|all":182,"ENT|i:Cross-industry":182,"TAM|all":725,"TAM|i:Cross-industry":725},"l60p":{"all":626,"i:Cross-industry":626,"i:Cybersecurity":0,"i:Medical Device":0,"i:Thought Leaders":0,"ENT|all":87,"ENT|i:Cross-industry":87,"TAM|all":543,"TAM|i:Cross-industry":543}},"groups":[{"id":"1217401416","name":"Cybersecurity Accounts | Sept. 2026","full":"Cybersecurity Accounts | Sept. 2026","status":"ACTIVE"},{"id":"1186733186","name":"LinkedIn Ads 2026","full":"LinkedIn Ads 2026","status":"ACTIVE"},{"id":"1217239166","name":"Medical Device Accounts | Sept. 2026","full":"Medical Device Accounts | Sept. 2026","status":"ACTIVE"},{"id":"1220422756","name":"Thought Leader Ads | Oct. 2026","full":"Thought Leader Ads | Oct. 2026","status":"ACTIVE"}],"sets":[{"id":"870110026","name":"Cold | Enterprise Accounts | Website Visits | Image Ads | 08.19.26","short":"Enterprise","status":"ACTIVE","on":true,"obj":"WEBSITE_VISIT","obj_label":"Website Visits","aud":2700,"budget":65.0,"ind":"Cross-industry","sub":"All","tier":"Enterprise","gid":"1186733186","gname":"LinkedIn Ads 2026","biz":102.25,"m":{"l7":{"spend":457.86,"impr":2400,"lp":36,"clicks":36,"dwell":15.6926205607,"reach":375},"l7p":{"spend":445.59000000000003,"impr":3748,"lp":32,"clicks":32,"dwell":15.4014451796,"reach":421},"mtd":{"spend":1467.25,"impr":11178,"lp":109,"clicks":109,"dwell":15.3591224844,"reach":760},"mtdp":{"spend":1002.7500000000001,"impr":9801,"lp":63,"clicks":63,"dwell":7.2863506574,"reach":1081},"l30":{"spend":2256.24,"impr":15923,"lp":161,"clicks":161,"dwell":15.1270502142,"reach":944},"l30p":{"spend":1433.5200002945335,"impr":11729,"lp":80,"clicks":80,"dwell":7.0049759509,"reach":1133},"l60":{"spend":3689.7600002945337,"impr":27652,"lp":241,"clicks":241,"dwell":9.7680067196,"reach":1384},"l60p":{"spend":1416.2100000141825,"impr":7366,"lp":34,"clicks":34,"dwell":5.1780456528,"reach":862}}},{"id":"870020866","name":"Cold | TAM Accounts | Website Visits | Image Ads | 08.19.26","short":"TAM","status":"ACTIVE","on":true,"obj":"WEBSITE_VISIT","obj_label":"Website Visits","aud":27000,"budget":100.0,"ind":"Cross-industry","sub":"All","tier":"TAM","gid":"1186733186","gname":"LinkedIn Ads 2026","biz":22.0,"m":{"l7":{"spend":561.9,"impr":6176,"lp":29,"clicks":29,"dwell":5.0548279448,"reach":2165},"l7p":{"spend":505.28000000000003,"impr":4400,"lp":25,"clicks":25,"dwell":4.4022431569,"reach":1523},"mtd":{"spend":1562.18,"impr":16549,"lp":80,"clicks":80,"dwell":5.0916119937,"reach":3914},"mtdp":{"spend":1410.2457982192038,"impr":16315,"lp":82,"clicks":82,"dwell":5.4200779173,"reach":5045},"l30":{"spend":1990.5700000000002,"impr":22427,"lp":105,"clicks":105,"dwell":5.2402484453,"reach":5137},"l30p":{"spend":2590.225798233146,"impr":26545,"lp":134,"clicks":134,"dwell":5.3784267877,"reach":5867},"l60":{"spend":4580.795798233146,"impr":48972,"lp":239,"clicks":239,"dwell":5.3151147578,"reach":7463},"l60p":{"spend":2593.2700004242542,"impr":36898,"lp":148,"clicks":148,"dwell":4.9956774922,"reach":5320}}},{"id":"907845246","name":"Cold | Medical Device | Website Visits | Image Ads | 08.19.26","short":"Medical Device","status":"ACTIVE","on":true,"obj":"WEBSITE_VISIT","obj_label":"Website Visits","aud":2800,"budget":40.0,"ind":"Medical Device","sub":"All","tier":"Not split","gid":"1217239166","gname":"Medical Device Accounts | Sept. 2026","biz":0.0,"m":{"l7":{"spend":197.4,"impr":1300,"lp":10,"clicks":10,"dwell":4.6146085271,"reach":492},"l7p":{"spend":65.94,"impr":2197,"lp":3,"clicks":3,"dwell":5.95404199,"reach":622},"mtd":{"spend":351.34,"impr":6977,"lp":19,"clicks":19,"dwell":5.664556658,"reach":1115},"mtdp":{"spend":565.42,"impr":6650,"lp":30,"clicks":30,"dwell":5.903815575,"reach":944},"l30":{"spend":465.19,"impr":8243,"lp":24,"clicks":24,"dwell":5.7557234664,"reach":1171},"l30p":{"spend":565.42,"impr":6666,"lp":30,"clicks":30,"dwell":5.9013754893,"reach":944},"l60":{"spend":1030.61,"impr":14909,"lp":54,"clicks":54,"dwell":5.8208345672,"reach":1388},"l60p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null}}},{"id":"907942356","name":"Cold | Cybersecurity | Website Visits | Image Ads | 08.19.26","short":"Cybersecurity","status":"ACTIVE","on":true,"obj":"WEBSITE_VISIT","obj_label":"Website Visits","aud":3900,"budget":120.0,"ind":"Cybersecurity","sub":"All","tier":"Not split","gid":"1217401416","gname":"Cybersecurity Accounts | Sept. 2026","biz":34.43,"m":{"l7":{"spend":129.42999999999998,"impr":1395,"lp":8,"clicks":8,"dwell":7.4523297414,"reach":288},"l7p":{"spend":96.0,"impr":836,"lp":6,"clicks":6,"dwell":6.3090804322,"reach":250},"mtd":{"spend":235.43,"impr":2713,"lp":15,"clicks":15,"dwell":6.7980509978,"reach":363},"mtdp":{"spend":358.21000000000004,"impr":5908,"lp":18,"clicks":18,"dwell":7.0974044467,"reach":454},"l30":{"spend":306.75,"impr":3860,"lp":18,"clicks":18,"dwell":7.0030386912,"reach":423},"l30p":{"spend":358.21000000000004,"impr":5914,"lp":18,"clicks":18,"dwell":7.0957938284,"reach":454},"l60":{"spend":664.9599999999999,"impr":9774,"lp":36,"clicks":36,"dwell":7.0591541697,"reach":518},"l60p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null}}},{"id":"910764806","name":"TLAs [David Knight] | All Accounts | Engagement - Image/Text | 10.8.26","short":"TLA David Knight (Engagement)","status":"PAUSED","on":false,"obj":"ENGAGEMENT","obj_label":"Engagement","aud":38000,"budget":null,"ind":"Thought Leaders","sub":"All","tier":"Not split","gid":"1220422756","gname":"Thought Leader Ads | Oct. 2026","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":89.41000000000005,"impr":1084,"lp":17,"clicks":56,"dwell":8.8499235182,"reach":983},"mtdp":{"spend":314.14,"impr":3255,"lp":46,"clicks":148,"dwell":9.2587398477,"reach":2457},"l30":{"spend":178.00000000000003,"impr":2008,"lp":29,"clicks":100,"dwell":9.8737453704,"reach":1510},"l30p":{"spend":321.99999999999994,"impr":3304,"lp":47,"clicks":152,"dwell":9.2473975602,"reach":2481},"l60":{"spend":500.0,"impr":5312,"lp":76,"clicks":252,"dwell":9.4842425598,"reach":2827},"l60p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null}}},{"id":"865554006","name":"Cold | TAM Accounts | Video Views | 08.04.26","short":"TAM (Video)","status":"PAUSED","on":false,"obj":"VIDEO_VIEW","obj_label":"Video Views","aud":19000,"budget":15.0,"ind":"Cross-industry","sub":"All","tier":"TAM","gid":"1186733186","gname":"LinkedIn Ads 2026","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":370.2800000000001,"impr":3555,"lp":0,"clicks":5,"dwell":4.9525829571,"reach":1899},"l30":{"spend":44.23,"impr":766,"lp":0,"clicks":1,"dwell":8.8437477004,"reach":602},"l30p":{"spend":657.28,"impr":5529,"lp":2,"clicks":10,"dwell":5.4891062863,"reach":2740},"l60":{"spend":701.51,"impr":6295,"lp":2,"clicks":11,"dwell":5.8965894653,"reach":2981},"l60p":{"spend":2751.1800000000003,"impr":28983,"lp":10,"clicks":68,"dwell":6.2404676172,"reach":6461}}},{"id":"865623526","name":"Cold | Enterprise Accounts | Video Views | 08.04.26","short":"Enterprise (Video)","status":"PAUSED","on":false,"obj":"VIDEO_VIEW","obj_label":"Video Views","aud":900,"budget":15.0,"ind":"Cross-industry","sub":"All","tier":"Enterprise","gid":"1186733186","gname":"LinkedIn Ads 2026","biz":0.0,"m":{"l7":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"l7p":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtd":{"spend":0,"impr":0,"lp":0,"clicks":0,"dwell":null,"reach":null},"mtdp":{"spend":325.08,"impr":625,"lp":0,"clicks":1,"dwell":4.8169454254,"reach":249},"l30":{"spend":10.709999999999999,"impr":61,"lp":0,"clicks":0,"dwell":4.38055,"reach":49},"l30p":{"spend":418.50000000000006,"impr":787,"lp":0,"clicks":1,"dwell":4.7207592357,"reach":277},"l60":{"spend":429.2099999999999,"impr":848,"lp":0,"clicks":1,"dwell":4.6966023669,"reach":286},"l60p":{"spend":1606.5699999999997,"impr":5435,"lp":3,"clicks":23,"dwell":5.8470901018,"reach":459}}}],"CHART":{"start":"2026-09-25","end":"2026-11-23","s":{"all":{"d":[["2026-09-25",41,0.003981,31.9446,1309.73],["2026-09-26",45,0.004186,30.8176,1386.79],["2026-09-27",50,0.004504,29.9756,1498.78],["2026-09-28",56,0.004471,29.825,1670.2],["2026-09-29",60,0.004236,30.1258,1807.55],["2026-09-30",73,0.004758,30.0207,2191.51],["2026-10-01",76,0.004965,29.8396,2267.81],["2026-10-02",78,0.005063,29.326,2287.43],["2026-10-03",77,0.004935,28.8218,2219.28],["2026-10-04",77,0.004941,27.9403,2151.41],["2026-10-05",71,0.004775,27.4383,1948.12],["2026-10-06",73,0.005321,25.1325,1834.68],["2026-10-07",58,0.004594,23.7413,1377.0],["2026-10-08",55,0.004035,22.5963,1242.8],["2026-10-09",53,0.003927,22.1778,1175.43],["2026-10-10",51,0.003956,22.6634,1155.84],["2026-10-11",46,0.00368,24.1957,1113.0],["2026-10-12",51,0.003901,22.2008,1132.24],["2026-10-13",50,0.003585,21.3908,1069.54],["2026-10-14",59,0.004258,19.1812,1131.69],["2026-10-15",65,0.004653,18.3397,1192.08],["2026-10-16",72,0.005266,17.2007,1238.45],["2026-10-17",80,0.005585,15.8625,1269.0],["2026-10-18",79,0.005591,15.4203,1218.2],["2026-10-19",85,0.005788,15.7153,1335.8],["2026-10-20",86,0.006111,15.9774,1374.06],["2026-10-21",91,0.005858,15.7007,1428.76],["2026-10-22",91,0.006166,15.0051,1365.46],["2026-10-23",94,0.006141,14.7438,1385.92],["2026-10-24",87,0.006193,14.6676,1276.08],["2026-10-25",85,0.006309,14.4538,1228.57],["2026-10-26",69,0.006531,13.8249,953.92],["2026-10-27",70,0.007148,12.4,868.0],["2026-10-28",65,0.007232,12.5583,816.29],["2026-10-29",63,0.006571,11.6778,735.7],["2026-10-30",79,0.005942,14.8273,1171.36],["2026-10-31",97,0.00656,15.939,1546.08],["2026-11-01",97,0.00656,15.939,1546.08],["2026-11-02",110,0.006505,16.3159,1794.75],["2026-11-03",114,0.005897,16.3832,1867.69],["2026-11-04",120,0.006186,15.8682,1904.18],["2026-11-05",119,0.005994,16.1821,1925.67],["2026-11-06",97,0.006179,14.691,1425.03],["2026-11-07",76,0.005427,13.0859,994.53],["2026-11-08",77,0.005337,13.2131,1017.41],["2026-11-09",78,0.005601,12.789,997.54],["2026-11-10",71,0.006573,13.2614,941.56],["2026-11-11",59,0.006165,14.0985,831.81],["2026-11-12",57,0.00639,14.7305,839.64],["2026-11-13",63,0.006839,15.5549,979.96],["2026-11-14",62,0.006457,16.4385,1019.19],["2026-11-15",67,0.006038,16.8212,1127.02],["2026-11-16",66,0.005903,16.8608,1112.81],["2026-11-17",76,0.005809,16.6311,1263.96],["2026-11-18",82,0.006253,16.8504,1381.73],["2026-11-19",84,0.00677,16.5313,1388.63],["2026-11-20",86,0.006769,16.1815,1391.61],["2026-11-21",89,0.006967,16.5082,1469.23],["2026-11-22",86,0.007593,16.3081,1402.5],["2026-11-23",83,0.007364,16.224,1346.59]],"m":[],"ms":[["2026-10-02",[{"t":"new_campaign","short":"Medical Device Accounts | Sept. 2026","name":"Medical Device Accounts | Sept. 2026","created":"2026-10-02","first":"2026-10-02"},{"t":"new_campaign","short":"Cybersecurity Accounts | Sept. 2026","name":"Cybersecurity Accounts | Sept. 2026","created":"2026-10-02","first":"2026-10-02"},{"t":"new_adset","short":"Medical Device","name":"Cold | Medical Device | Website Visits | Image Ads | 08.19.26","created":"2026-10-02","run":"2026-10-02","first":"2026-10-02","obj":"WEBSITE_VISIT"},{"t":"new_adset","short":"Cybersecurity","name":"Cold | Cybersecurity | Website Visits | Image Ads | 08.19.26","created":"2026-10-02","run":"2026-10-02","first":"2026-10-02","obj":"WEBSITE_VISIT"}]],["2026-10-08",[{"t":"new_campaign","short":"Thought Leader Ads | Oct. 2026","name":"Thought Leader Ads | Oct. 2026","created":"2026-10-08","first":"2026-10-08"},{"t":"new_adset","short":"TLA David Knight (Engagement)","name":"TLAs [David Knight] | All Accounts | Engagement - Image/Text | 10.8.26","created":"2026-10-08","run":"2026-10-08","first":"2026-10-08","obj":"ENGAGEMENT"}]],["2026-10-31",[{"t":"adset_paused","short":"TAM (Video)","name":"Cold | TAM Accounts | Video Views | 08.04.26","last":"2026-10-31","status":"PAUSED"},{"t":"adset_paused","short":"Enterprise (Video)","name":"Cold | Enterprise Accounts | Video Views | 08.04.26","last":"2026-10-31","status":"PAUSED"}]],["2026-11-08",[{"t":"adset_paused","short":"TLA David Knight (Engagement)","name":"TLAs [David Knight] | All Accounts | Engagement - Image/Text | 10.8.26","last":"2026-11-08","status":"COMPLETED"}]]]},"i:Cross-industry":{"d":[["2026-09-25",41,0.003981,31.9446,1309.73],["2026-09-26",45,0.004186,30.8176,1386.79],["2026-09-27",50,0.004504,29.9756,1498.78],["2026-09-28",56,0.004471,29.825,1670.2],["2026-09-29",60,0.004236,30.1258,1807.55],["2026-09-30",73,0.004758,30.0207,2191.51],["2026-10-01",76,0.004965,29.8396,2267.81],["2026-10-02",74,0.00501,29.668,2195.43],["2026-10-03",72,0.005009,29.2261,2104.28],["2026-10-04",68,0.004926,28.6385,1947.42],["2026-10-05",61,0.004849,28.2152,1721.13],["2026-10-06",59,0.005411,26.232,1547.69],["2026-10-07",42,0.004717,24.8573,1044.01],["2026-10-08",36,0.003975,23.9824,863.37],["2026-10-09",34,0.003907,24.7628,841.94],["2026-10-10",29,0.003572,26.2688,761.8],["2026-10-11",27,0.003485,28.5185,770.0],["2026-10-12",28,0.003439,27.3757,766.52],["2026-10-13",25,0.002844,28.5364,713.41],["2026-10-14",29,0.00326,26.7824,776.69],["2026-10-15",32,0.003566,24.7094,790.7],["2026-10-16",39,0.004258,22.1062,862.14],["2026-10-17",42,0.004492,21.0848,885.56],["2026-10-18",40,0.004358,20.825,833.0],["2026-10-19",45,0.004655,20.1607,907.23],["2026-10-20",50,0.00538,19.5264,976.32],["2026-10-21",55,0.005393,18.124,996.82],["2026-10-22",58,0.006071,17.3759,1007.8],["2026-10-23",56,0.005932,16.9634,949.95],["2026-10-24",57,0.006234,16.1918,922.93],["2026-10-25",57,0.006282,16.0549,915.13],["2026-10-26",47,0.006794,15.5228,729.57],["2026-10-27",42,0.007084,14.2069,596.69],["2026-10-28",40,0.006983,12.8298,513.19],["2026-10-29",40,0.006141,10.8087,432.35],["2026-10-30",59,0.005884,15.279,901.46],["2026-10-31",77,0.006725,16.5236,1272.32],["2026-11-01",77,0.006725,16.5236,1272.32],["2026-11-02",89,0.007085,16.8745,1501.83],["2026-11-03",96,0.006878,16.664,1599.74],["2026-11-04",99,0.006965,17.2453,1707.28],["2026-11-05",96,0.006463,18.0597,1733.73],["2026-11-06",76,0.006779,16.6766,1267.42],["2026-11-07",54,0.005704,15.5556,840.0],["2026-11-08",54,0.005704,15.5556,840.0],["2026-11-09",55,0.00556,15.078,829.29],["2026-11-10",52,0.006166,15.2862,794.88],["2026-11-11",47,0.006167,15.4243,724.94],["2026-11-12",48,0.007209,15.5542,746.6],["2026-11-13",53,0.007871,15.9328,844.44],["2026-11-14",54,0.007501,16.5243,892.31],["2026-11-15",57,0.006927,16.7558,955.08],["2026-11-16",57,0.006996,16.6819,950.87],["2026-11-17",63,0.007043,16.6511,1049.02],["2026-11-18",68,0.007702,16.7763,1140.79],["2026-11-19",65,0.007704,16.5383,1074.99],["2026-11-20",70,0.007292,15.771,1103.97],["2026-11-21",71,0.007561,15.9661,1133.59],["2026-11-22",70,0.008014,15.8586,1110.1],["2026-11-23",65,0.007579,15.6886,1019.76]],"m":[],"ms":[["2026-10-31",[{"t":"adset_paused","short":"TAM (Video)","name":"Cold | TAM Accounts | Video Views | 08.04.26","last":"2026-10-31","status":"PAUSED"},{"t":"adset_paused","short":"Enterprise (Video)","name":"Cold | Enterprise Accounts | Video Views | 08.04.26","last":"2026-10-31","status":"PAUSED"}]]]},"i:Cybersecurity":{"d":[["2026-09-25",0,null,null,0.0],["2026-09-26",0,null,null,0.0],["2026-09-27",0,null,null,0.0],["2026-09-28",0,null,null,0.0],["2026-09-29",0,null,null,0.0],["2026-09-30",0,null,null,0.0],["2026-10-01",0,null,null,0.0],["2026-10-02",2,0.016949,23.0,46.0],["2026-10-03",2,0.006494,23.0,46.0],["2026-10-04",4,0.006421,22.2475,88.99],["2026-10-05",4,0.004202,22.2475,88.99],["2026-10-06",8,0.006084,18.6238,148.99],["2026-10-07",8,0.00542,18.6238,148.99],["2026-10-08",8,0.003793,18.6238,148.99],["2026-10-09",7,0.002774,17.9986,125.99],["2026-10-10",8,0.003318,18.6238,148.99],["2026-10-11",6,0.002752,17.6667,106.0],["2026-10-12",7,0.003096,18.4286,129.0],["2026-10-13",3,0.001503,23.0,69.0],["2026-10-14",4,0.001757,23.0,92.0],["2026-10-15",5,0.002929,20.678,103.39],["2026-10-16",4,0.003177,20.0975,80.39],["2026-10-17",4,0.002653,17.805,71.22],["2026-10-18",4,0.002703,17.805,71.22],["2026-10-19",5,0.00361,18.844,94.22],["2026-10-20",5,0.003701,18.844,94.22],["2026-10-21",4,0.003044,17.805,71.22],["2026-10-22",3,0.0018,19.9433,59.83],["2026-10-23",5,0.00249,21.166,105.83],["2026-10-24",4,0.002371,23.0,92.0],["2026-10-25",4,0.002452,23.0,92.0],["2026-10-26",2,0.00152,23.0,46.0],["2026-10-27",2,0.00132,23.0,46.0],["2026-10-28",4,0.002918,23.08,92.32],["2026-10-29",4,0.003693,23.08,92.32],["2026-10-30",3,0.00262,23.7733,71.32],["2026-10-31",3,0.002616,23.7733,71.32],["2026-11-01",3,0.002616,23.7733,71.32],["2026-11-02",3,0.002513,23.7733,71.32],["2026-11-03",3,0.002976,23.7733,71.32],["2026-11-04",1,0.001239,25.0,25.0],["2026-11-05",1,0.001355,25.0,25.0],["2026-11-06",0,0.0,null,0.0],["2026-11-07",0,0.0,null,0.0],["2026-11-08",0,0.0,null,0.0],["2026-11-09",1,0.002299,10.0,10.0],["2026-11-10",1,0.002762,10.0,10.0],["2026-11-11",1,0.002899,10.0,10.0],["2026-11-12",1,0.001812,10.0,10.0],["2026-11-13",5,0.007062,11.6,58.0],["2026-11-14",5,0.007541,11.6,58.0],["2026-11-15",7,0.008333,15.1429,106.0],["2026-11-16",6,0.007177,16.0,96.0],["2026-11-17",7,0.00536,17.2857,121.0],["2026-11-18",7,0.005389,17.2857,121.0],["2026-11-19",11,0.008607,15.3636,169.0],["2026-11-20",7,0.006524,17.2857,121.0],["2026-11-21",8,0.005827,17.875,143.0],["2026-11-22",6,0.005177,15.8333,95.0],["2026-11-23",8,0.005735,16.1788,129.43]],"m":[],"ms":[["2026-10-02",[{"t":"new_campaign","short":"Cybersecurity Accounts | Sept. 2026","name":"Cybersecurity Accounts | Sept. 2026","created":"2026-10-02","first":"2026-10-02"},{"t":"new_adset","short":"Cybersecurity","name":"Cold | Cybersecurity | Website Visits | Image Ads | 08.19.26","created":"2026-10-02","run":"2026-10-02","first":"2026-10-02","obj":"WEBSITE_VISIT"}]]]},"i:Medical Device":{"d":[["2026-09-25",0,null,null,0.0],["2026-09-26",0,null,null,0.0],["2026-09-27",0,null,null,0.0],["2026-09-28",0,null,null,0.0],["2026-09-29",0,null,null,0.0],["2026-09-30",0,null,null,0.0],["2026-10-01",0,null,null,0.0],["2026-10-02",2,0.003854,23.0,46.0],["2026-10-03",3,0.003254,23.0,69.0],["2026-10-04",5,0.004318,23.0,115.0],["2026-10-05",6,0.004488,23.0,138.0],["2026-10-06",6,0.004,23.0,138.0],["2026-10-07",8,0.003562,23.0,184.0],["2026-10-08",9,0.003953,23.0,207.0],["2026-10-09",7,0.003853,23.0,161.0],["2026-10-10",8,0.004499,23.0,184.0],["2026-10-11",7,0.004202,23.0,161.0],["2026-10-12",6,0.003713,23.0,138.0],["2026-10-13",8,0.004348,20.7638,166.11],["2026-10-14",6,0.005025,20.0183,120.11],["2026-10-15",9,0.00565,17.4567,157.11],["2026-10-16",9,0.005461,17.4567,157.11],["2026-10-17",11,0.005898,15.5555,171.11],["2026-10-18",11,0.005495,15.5555,171.11],["2026-10-19",12,0.00561,16.1758,194.11],["2026-10-20",10,0.004931,16.6,166.0],["2026-10-21",14,0.005433,16.1429,226.0],["2026-10-22",10,0.004371,16.6,166.0],["2026-10-23",12,0.004501,16.7758,201.31],["2026-10-24",8,0.003808,17.6638,141.31],["2026-10-25",7,0.003804,16.9014,118.31],["2026-10-26",6,0.003812,15.885,95.31],["2026-10-27",8,0.005277,17.6638,141.31],["2026-10-28",6,0.005736,21.0267,126.16],["2026-10-29",6,0.005484,21.0267,126.16],["2026-10-30",5,0.003987,22.77,113.85],["2026-10-31",5,0.003949,22.77,113.85],["2026-11-01",5,0.003949,22.77,113.85],["2026-11-02",5,0.002508,22.77,113.85],["2026-11-03",5,0.001545,18.37,91.85],["2026-11-04",5,0.001505,14.2,71.0],["2026-11-05",5,0.001565,14.2,71.0],["2026-11-06",5,0.001614,13.6,68.0],["2026-11-07",5,0.001605,13.6,68.0],["2026-11-08",6,0.001745,14.6667,88.0],["2026-11-09",6,0.00218,14.6667,88.0],["2026-11-10",5,0.003626,16.8,84.0],["2026-11-11",3,0.002667,20.0,60.0],["2026-11-12",3,0.002007,20.0,60.0],["2026-11-13",3,0.001818,22.0,66.0],["2026-11-14",3,0.001764,22.0,66.0],["2026-11-15",3,0.00148,21.98,65.94],["2026-11-16",3,0.001365,21.98,65.94],["2026-11-17",6,0.002119,15.6567,93.94],["2026-11-18",7,0.002344,17.1343,119.94],["2026-11-19",8,0.002971,18.08,144.64],["2026-11-20",9,0.004429,18.5156,166.64],["2026-11-21",10,0.004973,19.264,192.64],["2026-11-22",10,0.006983,19.74,197.4],["2026-11-23",10,0.007692,19.74,197.4]],"m":[],"ms":[["2026-10-02",[{"t":"new_campaign","short":"Medical Device Accounts | Sept. 2026","name":"Medical Device Accounts | Sept. 2026","created":"2026-10-02","first":"2026-10-02"},{"t":"new_adset","short":"Medical Device","name":"Cold | Medical Device | Website Visits | Image Ads | 08.19.26","created":"2026-10-02","run":"2026-10-02","first":"2026-10-02","obj":"WEBSITE_VISIT"}]]]},"i:Thought Leaders":{"d":[["2026-09-25",0,null,null,0.0],["2026-09-26",0,null,null,0.0],["2026-09-27",0,null,null,0.0],["2026-09-28",0,null,null,0.0],["2026-09-29",0,null,null,0.0],["2026-09-30",0,null,null,0.0],["2026-10-01",0,null,null,0.0],["2026-10-02",0,null,null,0.0],["2026-10-03",0,null,null,0.0],["2026-10-04",0,null,null,0.0],["2026-10-05",0,null,null,0.0],["2026-10-06",0,null,null,0.0],["2026-10-07",0,null,null,0.0],["2026-10-08",2,0.010582,11.72,23.44],["2026-10-09",5,0.011013,9.3,46.5],["2026-10-10",6,0.010274,10.175,61.05],["2026-10-11",6,0.006623,12.6667,76.0],["2026-10-12",10,0.009488,9.872,98.72],["2026-10-13",14,0.010598,8.6443,121.02],["2026-10-14",20,0.013441,7.1445,142.89],["2026-10-15",19,0.011203,7.4147,140.88],["2026-10-16",20,0.012446,6.9405,138.81],["2026-10-17",23,0.014348,6.1352,141.11],["2026-10-18",24,0.016327,5.9529,142.87],["2026-10-19",23,0.015405,6.0974,140.24],["2026-10-20",21,0.014989,6.5486,137.52],["2026-10-21",18,0.012448,7.4844,134.72],["2026-10-22",20,0.016,6.5915,131.83],["2026-10-23",21,0.017588,6.1348,128.83],["2026-10-24",18,0.016115,6.6578,119.84],["2026-10-25",17,0.018319,6.0665,103.13],["2026-10-26",14,0.018494,5.9314,83.04],["2026-10-27",18,0.021609,4.6667,84.0],["2026-10-28",15,0.017794,5.6413,84.62],["2026-10-29",13,0.014509,6.5285,84.87],["2026-10-30",12,0.013809,7.0608,84.73],["2026-10-31",12,0.012987,7.3825,88.59],["2026-11-01",12,0.012987,7.3825,88.59],["2026-11-02",13,0.011188,8.2885,107.75],["2026-11-03",10,0.00885,10.478,104.78],["2026-11-04",15,0.014205,6.7267,100.9],["2026-11-05",17,0.015947,5.6435,95.94],["2026-11-06",16,0.014981,5.6006,89.61],["2026-11-07",17,0.016268,5.09,86.53],["2026-11-08",17,0.015683,5.2594,89.41],["2026-11-09",16,0.018913,4.3906,70.25],["2026-11-10",13,0.020734,4.0523,52.68],["2026-11-11",8,0.016701,4.6088,36.87],["2026-11-12",5,0.023256,4.608,23.04],["2026-11-13",2,0.016667,5.76,11.52],["2026-11-14",0,0.0,null,2.88],["2026-11-15",0,null,null,0.0],["2026-11-16",0,null,null,0.0],["2026-11-17",0,null,null,0.0],["2026-11-18",0,null,null,0.0],["2026-11-19",0,null,null,0.0],["2026-11-20",0,null,null,0.0],["2026-11-21",0,null,null,0.0],["2026-11-22",0,null,null,0.0],["2026-11-23",0,null,null,0.0]],"m":[],"ms":[["2026-10-08",[{"t":"new_campaign","short":"Thought Leader Ads | Oct. 2026","name":"Thought Leader Ads | Oct. 2026","created":"2026-10-08","first":"2026-10-08"},{"t":"new_adset","short":"TLA David Knight (Engagement)","name":"TLAs [David Knight] | All Accounts | Engagement - Image/Text | 10.8.26","created":"2026-10-08","run":"2026-10-08","first":"2026-10-08","obj":"ENGAGEMENT"}]],["2026-11-08",[{"t":"adset_paused","short":"TLA David Knight (Engagement)","name":"TLAs [David Knight] | All Accounts | Engagement - Image/Text | 10.8.26","last":"2026-11-08","status":"COMPLETED"}]]]},"ENT|all":{"d":[["2026-09-25",8,0.004512,39.3275,314.62],["2026-09-26",9,0.005587,39.2089,352.88],["2026-09-27",11,0.006471,37.9864,417.85],["2026-09-28",11,0.005908,38.6345,424.98],["2026-09-29",11,0.005382,38.9109,428.02],["2026-09-30",16,0.00735,37.6888,603.02],["2026-10-01",15,0.007253,39.3227,589.84],["2026-10-02",14,0.006965,39.7257,556.16],["2026-10-03",16,0.007136,34.0369,544.59],["2026-10-04",15,0.006667,31.7413,476.12],["2026-10-05",14,0.006071,32.375,453.25],["2026-10-06",18,0.007417,28.0972,505.75],["2026-10-07",13,0.006121,25.4423,330.75],["2026-10-08",12,0.005457,23.365,280.38],["2026-10-09",12,0.00566,23.1692,278.03],["2026-10-10",10,0.004615,27.802,278.02],["2026-10-11",10,0.004615,31.5,315.0],["2026-10-12",10,0.004673,31.039,310.39],["2026-10-13",6,0.002222,42.9817,257.89],["2026-10-14",8,0.00248,38.6713,309.37],["2026-10-15",11,0.003301,30.4164,334.58],["2026-10-16",16,0.004087,25.48,407.68],["2026-10-17",19,0.004613,22.6626,430.59],["2026-10-18",17,0.004296,22.2353,378.0],["2026-10-19",22,0.005152,20.5923,453.03],["2026-10-20",27,0.007075,19.3096,521.36],["2026-10-21",31,0.007002,17.4868,542.09],["2026-10-22",32,0.007314,16.9444,542.22],["2026-10-23",32,0.008457,15.8912,508.52],["2026-10-24",32,0.009214,14.9522,478.47],["2026-10-25",32,0.00923,14.8931,476.58],["2026-10-26",27,0.009398,14.2096,383.66],["2026-10-27",22,0.009366,13.3105,292.83],["2026-10-28",21,0.013258,11.9343,250.62],["2026-10-29",22,0.012754,9.5455,210.0],["2026-10-30",37,0.008981,14.353,531.06],["2026-10-31",52,0.01082,15.3788,799.7],["2026-11-01",52,0.01082,15.3788,799.7],["2026-11-02",59,0.011238,15.3764,907.21],["2026-11-03",68,0.010882,14.7751,1004.71],["2026-11-04",71,0.010578,14.9528,1061.65],["2026-11-05",69,0.00919,15.7377,1085.9],["2026-11-06",54,0.009768,14.373,776.14],["2026-11-07",34,0.007581,13.3824,455.0],["2026-11-08",34,0.007581,13.3824,455.0],["2026-11-09",34,0.007414,13.4203,456.29],["2026-11-10",33,0.00759,14.0709,464.34],["2026-11-11",31,0.006913,14.629,453.5],["2026-11-12",31,0.008242,14.289,442.96],["2026-11-13",32,0.008823,14.2188,455.0],["2026-11-14",32,0.008823,14.2188,455.0],["2026-11-15",32,0.008823,14.2188,455.0],["2026-11-16",32,0.008538,13.9247,445.59],["2026-11-17",35,0.010057,13.3511,467.29],["2026-11-18",36,0.012752,13.1978,475.12],["2026-11-19",37,0.015208,13.4114,496.22],["2026-11-20",36,0.015491,12.6389,455.0],["2026-11-21",36,0.015306,12.6389,455.0],["2026-11-22",36,0.015306,12.6389,455.0],["2026-11-23",36,0.015,12.7183,457.86]],"m":[],"ms":[["2026-10-31",[{"t":"adset_paused","short":"Enterprise (Video)","name":"Cold | Enterprise Accounts | Video Views | 08.04.26","last":"2026-10-31","status":"PAUSED"}]]]},"ENT|i:Cross-industry":{"d":[["2026-09-25",8,0.004512,39.3275,314.62],["2026-09-26",9,0.005587,39.2089,352.88],["2026-09-27",11,0.006471,37.9864,417.85],["2026-09-28",11,0.005908,38.6345,424.98],["2026-09-29",11,0.005382,38.9109,428.02],["2026-09-30",16,0.00735,37.6888,603.02],["2026-10-01",15,0.007253,39.3227,589.84],["2026-10-02",14,0.006965,39.7257,556.16],["2026-10-03",16,0.007136,34.0369,544.59],["2026-10-04",15,0.006667,31.7413,476.12],["2026-10-05",14,0.006071,32.375,453.25],["2026-10-06",18,0.007417,28.0972,505.75],["2026-10-07",13,0.006121,25.4423,330.75],["2026-10-08",12,0.005457,23.365,280.38],["2026-10-09",12,0.00566,23.1692,278.03],["2026-10-10",10,0.004615,27.802,278.02],["2026-10-11",10,0.004615,31.5,315.0],["2026-10-12",10,0.004673,31.039,310.39],["2026-10-13",6,0.002222,42.9817,257.89],["2026-10-14",8,0.00248,38.6713,309.37],["2026-10-15",11,0.003301,30.4164,334.58],["2026-10-16",16,0.004087,25.48,407.68],["2026-10-17",19,0.004613,22.6626,430.59],["2026-10-18",17,0.004296,22.2353,378.0],["2026-10-19",22,0.005152,20.5923,453.03],["2026-10-20",27,0.007075,19.3096,521.36],["2026-10-21",31,0.007002,17.4868,542.09],["2026-10-22",32,0.007314,16.9444,542.22],["2026-10-23",32,0.008457,15.8912,508.52],["2026-10-24",32,0.009214,14.9522,478.47],["2026-10-25",32,0.00923,14.8931,476.58],["2026-10-26",27,0.009398,14.2096,383.66],["2026-10-27",22,0.009366,13.3105,292.83],["2026-10-28",21,0.013258,11.9343,250.62],["2026-10-29",22,0.012754,9.5455,210.0],["2026-10-30",37,0.008981,14.353,531.06],["2026-10-31",52,0.01082,15.3788,799.7],["2026-11-01",52,0.01082,15.3788,799.7],["2026-11-02",59,0.011238,15.3764,907.21],["2026-11-03",68,0.010882,14.7751,1004.71],["2026-11-04",71,0.010578,14.9528,1061.65],["2026-11-05",69,0.00919,15.7377,1085.9],["2026-11-06",54,0.009768,14.373,776.14],["2026-11-07",34,0.007581,13.3824,455.0],["2026-11-08",34,0.007581,13.3824,455.0],["2026-11-09",34,0.007414,13.4203,456.29],["2026-11-10",33,0.00759,14.0709,464.34],["2026-11-11",31,0.006913,14.629,453.5],["2026-11-12",31,0.008242,14.289,442.96],["2026-11-13",32,0.008823,14.2188,455.0],["2026-11-14",32,0.008823,14.2188,455.0],["2026-11-15",32,0.008823,14.2188,455.0],["2026-11-16",32,0.008538,13.9247,445.59],["2026-11-17",35,0.010057,13.3511,467.29],["2026-11-18",36,0.012752,13.1978,475.12],["2026-11-19",37,0.015208,13.4114,496.22],["2026-11-20",36,0.015491,12.6389,455.0],["2026-11-21",36,0.015306,12.6389,455.0],["2026-11-22",36,0.015306,12.6389,455.0],["2026-11-23",36,0.015,12.7183,457.86]],"m":[],"ms":[["2026-10-31",[{"t":"adset_paused","short":"Enterprise (Video)","name":"Cold | Enterprise Accounts | Video Views | 08.04.26","last":"2026-10-31","status":"PAUSED"}]]]},"ENT|i:Cybersecurity":{"d":[["2026-09-25",0,null,null,0.0],["2026-09-26",0,null,null,0.0],["2026-09-27",0,null,null,0.0],["2026-09-28",0,null,null,0.0],["2026-09-29",0,null,null,0.0],["2026-09-30",0,null,null,0.0],["2026-10-01",0,null,null,0.0],["2026-10-02",0,null,null,0.0],["2026-10-03",0,null,null,0.0],["2026-10-04",0,null,null,0.0],["2026-10-05",0,null,null,0.0],["2026-10-06",0,null,null,0.0],["2026-10-07",0,null,null,0.0],["2026-10-08",0,null,null,0.0],["2026-10-09",0,null,null,0.0],["2026-10-10",0,null,null,0.0],["2026-10-11",0,null,null,0.0],["2026-10-12",0,null,null,0.0],["2026-10-13",0,null,null,0.0],["2026-10-14",0,null,null,0.0],["2026-10-15",0,null,null,0.0],["2026-10-16",0,null,null,0.0],["2026-10-17",0,null,null,0.0],["2026-10-18",0,null,null,0.0],["2026-10-19",0,null,null,0.0],["2026-10-20",0,null,null,0.0],["2026-10-21",0,null,null,0.0],["2026-10-22",0,null,null,0.0],["2026-10-23",0,null,null,0.0],["2026-10-24",0,null,null,0.0],["2026-10-25",0,null,null,0.0],["2026-10-26",0,null,null,0.0],["2026-10-27",0,null,null,0.0],["2026-10-28",0,null,null,0.0],["2026-10-29",0,null,null,0.0],["2026-10-30",0,null,null,0.0],["2026-10-31",0,null,null,0.0],["2026-11-01",0,null,null,0.0],["2026-11-02",0,null,null,0.0],["2026-11-03",0,null,null,0.0],["2026-11-04",0,null,null,0.0],["2026-11-05",0,null,null,0.0],["2026-11-06",0,null,null,0.0],["2026-11-07",0,null,null,0.0],["2026-11-08",0,null,null,0.0],["2026-11-09",0,null,null,0.0],["2026-11-10",0,null,null,0.0],["2026-11-11",0,null,null,0.0],["2026-11-12",0,null,null,0.0],["2026-11-13",0,null,null,0.0],["2026-11-14",0,null,null,0.0],["2026-11-15",0,null,null,0.0],["2026-11-16",0,null,null,0.0],["2026-11-17",0,null,null,0.0],["2026-11-18",0,null,null,0.0],["2026-11-19",0,null,null,0.0],["2026-11-20",0,null,null,0.0],["2026-11-21",0,null,null,0.0],["2026-11-22",0,null,null,0.0],["2026-11-23",0,null,null,0.0]],"m":[],"ms":[]},"ENT|i:Medical Device":{"d":[["2026-09-25",0,null,null,0.0],["2026-09-26",0,null,null,0.0],["2026-09-27",0,null,null,0.0],["2026-09-28",0,null,null,0.0],["2026-09-29",0,null,null,0.0],["2026-09-30",0,null,null,0.0],["2026-10-01",0,null,null,0.0],["2026-10-02",0,null,null,0.0],["2026-10-03",0,null,null,0.0],["2026-10-04",0,null,null,0.0],["2026-10-05",0,null,null,0.0],["2026-10-06",0,null,null,0.0],["2026-10-07",0,null,null,0.0],["2026-10-08",0,null,null,0.0],["2026-10-09",0,null,null,0.0],["2026-10-10",0,null,null,0.0],["2026-10-11",0,null,null,0.0],["2026-10-12",0,null,null,0.0],["2026-10-13",0,null,null,0.0],["2026-10-14",0,null,null,0.0],["2026-10-15",0,null,null,0.0],["2026-10-16",0,null,null,0.0],["2026-10-17",0,null,null,0.0],["2026-10-18",0,null,null,0.0],["2026-10-19",0,null,null,0.0],["2026-10-20",0,null,null,0.0],["2026-10-21",0,null,null,0.0],["2026-10-22",0,null,null,0.0],["2026-10-23",0,null,null,0.0],["2026-10-24",0,null,null,0.0],["2026-10-25",0,null,null,0.0],["2026-10-26",0,null,null,0.0],["2026-10-27",0,null,null,0.0],["2026-10-28",0,null,null,0.0],["2026-10-29",0,null,null,0.0],["2026-10-30",0,null,null,0.0],["2026-10-31",0,null,null,0.0],["2026-11-01",0,null,null,0.0],["2026-11-02",0,null,null,0.0],["2026-11-03",0,null,null,0.0],["2026-11-04",0,null,null,0.0],["2026-11-05",0,null,null,0.0],["2026-11-06",0,null,null,0.0],["2026-11-07",0,null,null,0.0],["2026-11-08",0,null,null,0.0],["2026-11-09",0,null,null,0.0],["2026-11-10",0,null,null,0.0],["2026-11-11",0,null,null,0.0],["2026-11-12",0,null,null,0.0],["2026-11-13",0,null,null,0.0],["2026-11-14",0,null,null,0.0],["2026-11-15",0,null,null,0.0],["2026-11-16",0,null,null,0.0],["2026-11-17",0,null,null,0.0],["2026-11-18",0,null,null,0.0],["2026-11-19",0,null,null,0.0],["2026-11-20",0,null,null,0.0],["2026-11-21",0,null,null,0.0],["2026-11-22",0,null,null,0.0],["2026-11-23",0,null,null,0.0]],"m":[],"ms":[]},"ENT|i:Thought Leaders":{"d":[["2026-09-25",0,null,null,0.0],["2026-09-26",0,null,null,0.0],["2026-09-27",0,null,null,0.0],["2026-09-28",0,null,null,0.0],["2026-09-29",0,null,null,0.0],["2026-09-30",0,null,null,0.0],["2026-10-01",0,null,null,0.0],["2026-10-02",0,null,null,0.0],["2026-10-03",0,null,null,0.0],["2026-10-04",0,null,null,0.0],["2026-10-05",0,null,null,0.0],["2026-10-06",0,null,null,0.0],["2026-10-07",0,null,null,0.0],["2026-10-08",0,null,null,0.0],["2026-10-09",0,null,null,0.0],["2026-10-10",0,null,null,0.0],["2026-10-11",0,null,null,0.0],["2026-10-12",0,null,null,0.0],["2026-10-13",0,null,null,0.0],["2026-10-14",0,null,null,0.0],["2026-10-15",0,null,null,0.0],["2026-10-16",0,null,null,0.0],["2026-10-17",0,null,null,0.0],["2026-10-18",0,null,null,0.0],["2026-10-19",0,null,null,0.0],["2026-10-20",0,null,null,0.0],["2026-10-21",0,null,null,0.0],["2026-10-22",0,null,null,0.0],["2026-10-23",0,null,null,0.0],["2026-10-24",0,null,null,0.0],["2026-10-25",0,null,null,0.0],["2026-10-26",0,null,null,0.0],["2026-10-27",0,null,null,0.0],["2026-10-28",0,null,null,0.0],["2026-10-29",0,null,null,0.0],["2026-10-30",0,null,null,0.0],["2026-10-31",0,null,null,0.0],["2026-11-01",0,null,null,0.0],["2026-11-02",0,null,null,0.0],["2026-11-03",0,null,null,0.0],["2026-11-04",0,null,null,0.0],["2026-11-05",0,null,null,0.0],["2026-11-06",0,null,null,0.0],["2026-11-07",0,null,null,0.0],["2026-11-08",0,null,null,0.0],["2026-11-09",0,null,null,0.0],["2026-11-10",0,null,null,0.0],["2026-11-11",0,null,null,0.0],["2026-11-12",0,null,null,0.0],["2026-11-13",0,null,null,0.0],["2026-11-14",0,null,null,0.0],["2026-11-15",0,null,null,0.0],["2026-11-16",0,null,null,0.0],["2026-11-17",0,null,null,0.0],["2026-11-18",0,null,null,0.0],["2026-11-19",0,null,null,0.0],["2026-11-20",0,null,null,0.0],["2026-11-21",0,null,null,0.0],["2026-11-22",0,null,null,0.0],["2026-11-23",0,null,null,0.0]],"m":[],"ms":[]},"TAM|all":{"d":[["2026-09-25",33,0.003871,30.1548,995.11],["2026-09-26",36,0.00394,28.7197,1033.91],["2026-09-27",39,0.004148,27.7162,1080.93],["2026-09-28",45,0.00422,27.6716,1245.22],["2026-09-29",49,0.004043,28.1537,1379.53],["2026-09-30",57,0.00433,27.8682,1588.49],["2026-10-01",61,0.004608,27.5077,1677.97],["2026-10-02",60,0.004703,27.3212,1639.27],["2026-10-03",56,0.004616,27.8516,1559.69],["2026-10-04",53,0.004588,27.7603,1471.3],["2026-10-05",47,0.004574,26.9761,1267.88],["2026-10-06",41,0.004837,25.4131,1041.94],["2026-10-07",29,0.004277,24.595,713.26],["2026-10-08",24,0.0035,24.2911,582.99],["2026-10-09",22,0.003342,25.6321,563.91],["2026-10-10",19,0.003193,25.4619,483.78],["2026-10-11",17,0.003046,26.7647,455.0],["2026-10-12",18,0.002999,25.3406,456.13],["2026-10-13",19,0.00312,23.9747,455.52],["2026-10-14",21,0.003703,22.2533,467.32],["2026-10-15",21,0.003722,21.72,456.12],["2026-10-16",23,0.004386,19.7591,454.46],["2026-10-17",23,0.004398,19.7813,454.97],["2026-10-18",23,0.004405,19.7826,455.0],["2026-10-19",23,0.004261,19.7478,454.2],["2026-10-20",23,0.004199,19.7809,454.96],["2026-10-21",24,0.004159,18.9471,454.73],["2026-10-22",26,0.005021,17.9069,465.58],["2026-10-23",24,0.004243,18.3929,441.43],["2026-10-24",25,0.004408,17.7784,444.46],["2026-10-25",25,0.00446,17.542,438.55],["2026-10-26",20,0.004944,17.2955,345.91],["2026-10-27",20,0.005587,15.193,303.86],["2026-10-28",19,0.004585,13.8195,262.57],["2026-10-29",18,0.003759,12.3528,222.35],["2026-10-30",22,0.003724,16.8364,370.4],["2026-10-31",25,0.003763,18.9048,472.62],["2026-11-01",25,0.003763,18.9048,472.62],["2026-11-02",30,0.004103,19.8207,594.62],["2026-11-03",28,0.003632,21.2511,595.03],["2026-11-04",28,0.003733,23.0582,645.63],["2026-11-05",27,0.003675,23.9937,647.83],["2026-11-06",22,0.003871,22.3309,491.28],["2026-11-07",20,0.004014,19.25,385.0],["2026-11-08",20,0.004014,19.25,385.0],["2026-11-09",21,0.003958,17.7619,373.0],["2026-11-10",19,0.004651,17.3968,330.54],["2026-11-11",16,0.0051,16.965,271.44],["2026-11-12",17,0.005868,17.8612,303.64],["2026-11-13",21,0.006759,18.5448,389.44],["2026-11-14",22,0.006159,19.8777,437.31],["2026-11-15",25,0.005432,20.0032,500.08],["2026-11-16",25,0.005682,20.2112,505.28],["2026-11-17",28,0.005124,20.7761,581.73],["2026-11-18",32,0.005328,20.8022,665.67],["2026-11-19",28,0.004664,20.6704,578.77],["2026-11-20",34,0.004673,19.0874,648.97],["2026-11-21",35,0.004973,19.3883,678.59],["2026-11-22",34,0.005327,19.2676,655.1],["2026-11-23",29,0.004696,19.3759,561.9]],"m":[],"ms":[["2026-10-31",[{"t":"adset_paused","short":"TAM (Video)","name":"Cold | TAM Accounts | Video Views | 08.04.26","last":"2026-10-31","status":"PAUSED"}]]]},"TAM|i:Cross-industry":{"d":[["2026-09-25",33,0.003871,30.1548,995.11],["2026-09-26",36,0.00394,28.7197,1033.91],["2026-09-27",39,0.004148,27.7162,1080.93],["2026-09-28",45,0.00422,27.6716,1245.22],["2026-09-29",49,0.004043,28.1537,1379.53],["2026-09-30",57,0.00433,27.8682,1588.49],["2026-10-01",61,0.004608,27.5077,1677.97],["2026-10-02",60,0.004703,27.3212,1639.27],["2026-10-03",56,0.004616,27.8516,1559.69],["2026-10-04",53,0.004588,27.7603,1471.3],["2026-10-05",47,0.004574,26.9761,1267.88],["2026-10-06",41,0.004837,25.4131,1041.94],["2026-10-07",29,0.004277,24.595,713.26],["2026-10-08",24,0.0035,24.2911,582.99],["2026-10-09",22,0.003342,25.6321,563.91],["2026-10-10",19,0.003193,25.4619,483.78],["2026-10-11",17,0.003046,26.7647,455.0],["2026-10-12",18,0.002999,25.3406,456.13],["2026-10-13",19,0.00312,23.9747,455.52],["2026-10-14",21,0.003703,22.2533,467.32],["2026-10-15",21,0.003722,21.72,456.12],["2026-10-16",23,0.004386,19.7591,454.46],["2026-10-17",23,0.004398,19.7813,454.97],["2026-10-18",23,0.004405,19.7826,455.0],["2026-10-19",23,0.004261,19.7478,454.2],["2026-10-20",23,0.004199,19.7809,454.96],["2026-10-21",24,0.004159,18.9471,454.73],["2026-10-22",26,0.005021,17.9069,465.58],["2026-10-23",24,0.004243,18.3929,441.43],["2026-10-24",25,0.004408,17.7784,444.46],["2026-10-25",25,0.00446,17.542,438.55],["2026-10-26",20,0.004944,17.2955,345.91],["2026-10-27",20,0.005587,15.193,303.86],["2026-10-28",19,0.004585,13.8195,262.57],["2026-10-29",18,0.003759,12.3528,222.35],["2026-10-30",22,0.003724,16.8364,370.4],["2026-10-31",25,0.003763,18.9048,472.62],["2026-11-01",25,0.003763,18.9048,472.62],["2026-11-02",30,0.004103,19.8207,594.62],["2026-11-03",28,0.003632,21.2511,595.03],["2026-11-04",28,0.003733,23.0582,645.63],["2026-11-05",27,0.003675,23.9937,647.83],["2026-11-06",22,0.003871,22.3309,491.28],["2026-11-07",20,0.004014,19.25,385.0],["2026-11-08",20,0.004014,19.25,385.0],["2026-11-09",21,0.003958,17.7619,373.0],["2026-11-10",19,0.004651,17.3968,330.54],["2026-11-11",16,0.0051,16.965,271.44],["2026-11-12",17,0.005868,17.8612,303.64],["2026-11-13",21,0.006759,18.5448,389.44],["2026-11-14",22,0.006159,19.8777,437.31],["2026-11-15",25,0.005432,20.0032,500.08],["2026-11-16",25,0.005682,20.2112,505.28],["2026-11-17",28,0.005124,20.7761,581.73],["2026-11-18",32,0.005328,20.8022,665.67],["2026-11-19",28,0.004664,20.6704,578.77],["2026-11-20",34,0.004673,19.0874,648.97],["2026-11-21",35,0.004973,19.3883,678.59],["2026-11-22",34,0.005327,19.2676,655.1],["2026-11-23",29,0.004696,19.3759,561.9]],"m":[],"ms":[["2026-10-31",[{"t":"adset_paused","short":"TAM (Video)","name":"Cold | TAM Accounts | Video Views | 08.04.26","last":"2026-10-31","status":"PAUSED"}]]]},"TAM|i:Cybersecurity":{"d":[["2026-09-25",0,null,null,0.0],["2026-09-26",0,null,null,0.0],["2026-09-27",0,null,null,0.0],["2026-09-28",0,null,null,0.0],["2026-09-29",0,null,null,0.0],["2026-09-30",0,null,null,0.0],["2026-10-01",0,null,null,0.0],["2026-10-02",0,null,null,0.0],["2026-10-03",0,null,null,0.0],["2026-10-04",0,null,null,0.0],["2026-10-05",0,null,null,0.0],["2026-10-06",0,null,null,0.0],["2026-10-07",0,null,null,0.0],["2026-10-08",0,null,null,0.0],["2026-10-09",0,null,null,0.0],["2026-10-10",0,null,null,0.0],["2026-10-11",0,null,null,0.0],["2026-10-12",0,null,null,0.0],["2026-10-13",0,null,null,0.0],["2026-10-14",0,null,null,0.0],["2026-10-15",0,null,null,0.0],["2026-10-16",0,null,null,0.0],["2026-10-17",0,null,null,0.0],["2026-10-18",0,null,null,0.0],["2026-10-19",0,null,null,0.0],["2026-10-20",0,null,null,0.0],["2026-10-21",0,null,null,0.0],["2026-10-22",0,null,null,0.0],["2026-10-23",0,null,null,0.0],["2026-10-24",0,null,null,0.0],["2026-10-25",0,null,null,0.0],["2026-10-26",0,null,null,0.0],["2026-10-27",0,null,null,0.0],["2026-10-28",0,null,null,0.0],["2026-10-29",0,null,null,0.0],["2026-10-30",0,null,null,0.0],["2026-10-31",0,null,null,0.0],["2026-11-01",0,null,null,0.0],["2026-11-02",0,null,null,0.0],["2026-11-03",0,null,null,0.0],["2026-11-04",0,null,null,0.0],["2026-11-05",0,null,null,0.0],["2026-11-06",0,null,null,0.0],["2026-11-07",0,null,null,0.0],["2026-11-08",0,null,null,0.0],["2026-11-09",0,null,null,0.0],["2026-11-10",0,null,null,0.0],["2026-11-11",0,null,null,0.0],["2026-11-12",0,null,null,0.0],["2026-11-13",0,null,null,0.0],["2026-11-14",0,null,null,0.0],["2026-11-15",0,null,null,0.0],["2026-11-16",0,null,null,0.0],["2026-11-17",0,null,null,0.0],["2026-11-18",0,null,null,0.0],["2026-11-19",0,null,null,0.0],["2026-11-20",0,null,null,0.0],["2026-11-21",0,null,null,0.0],["2026-11-22",0,null,null,0.0],["2026-11-23",0,null,null,0.0]],"m":[],"ms":[]},"TAM|i:Medical Device":{"d":[["2026-09-25",0,null,null,0.0],["2026-09-26",0,null,null,0.0],["2026-09-27",0,null,null,0.0],["2026-09-28",0,null,null,0.0],["2026-09-29",0,null,null,0.0],["2026-09-30",0,null,null,0.0],["2026-10-01",0,null,null,0.0],["2026-10-02",0,null,null,0.0],["2026-10-03",0,null,null,0.0],["2026-10-04",0,null,null,0.0],["2026-10-05",0,null,null,0.0],["2026-10-06",0,null,null,0.0],["2026-10-07",0,null,null,0.0],["2026-10-08",0,null,null,0.0],["2026-10-09",0,null,null,0.0],["2026-10-10",0,null,null,0.0],["2026-10-11",0,null,null,0.0],["2026-10-12",0,null,null,0.0],["2026-10-13",0,null,null,0.0],["2026-10-14",0,null,null,0.0],["2026-10-15",0,null,null,0.0],["2026-10-16",0,null,null,0.0],["2026-10-17",0,null,null,0.0],["2026-10-18",0,null,null,0.0],["2026-10-19",0,null,null,0.0],["2026-10-20",0,null,null,0.0],["2026-10-21",0,null,null,0.0],["2026-10-22",0,null,null,0.0],["2026-10-23",0,null,null,0.0],["2026-10-24",0,null,null,0.0],["2026-10-25",0,null,null,0.0],["2026-10-26",0,null,null,0.0],["2026-10-27",0,null,null,0.0],["2026-10-28",0,null,null,0.0],["2026-10-29",0,null,null,0.0],["2026-10-30",0,null,null,0.0],["2026-10-31",0,null,null,0.0],["2026-11-01",0,null,null,0.0],["2026-11-02",0,null,null,0.0],["2026-11-03",0,null,null,0.0],["2026-11-04",0,null,null,0.0],["2026-11-05",0,null,null,0.0],["2026-11-06",0,null,null,0.0],["2026-11-07",0,null,null,0.0],["2026-11-08",0,null,null,0.0],["2026-11-09",0,null,null,0.0],["2026-11-10",0,null,null,0.0],["2026-11-11",0,null,null,0.0],["2026-11-12",0,null,null,0.0],["2026-11-13",0,null,null,0.0],["2026-11-14",0,null,null,0.0],["2026-11-15",0,null,null,0.0],["2026-11-16",0,null,null,0.0],["2026-11-17",0,null,null,0.0],["2026-11-18",0,null,null,0.0],["2026-11-19",0,null,null,0.0],["2026-11-20",0,null,null,0.0],["2026-11-21",0,null,null,0.0],["2026-11-22",0,null,null,0.0],["2026-11-23",0,null,null,0.0]],"m":[],"ms":[]},"TAM|i:Thought Leaders":{"d":[["2026-09-25",0,null,null,0.0],["2026-09-26",0,null,null,0.0],["2026-09-27",0,null,null,0.0],["2026-09-28",0,null,null,0.0],["2026-09-29",0,null,null,0.0],["2026-09-30",0,null,null,0.0],["2026-10-01",0,null,null,0.0],["2026-10-02",0,null,null,0.0],["2026-10-03",0,null,null,0.0],["2026-10-04",0,null,null,0.0],["2026-10-05",0,null,null,0.0],["2026-10-06",0,null,null,0.0],["2026-10-07",0,null,null,0.0],["2026-10-08",0,null,null,0.0],["2026-10-09",0,null,null,0.0],["2026-10-10",0,null,null,0.0],["2026-10-11",0,null,null,0.0],["2026-10-12",0,null,null,0.0],["2026-10-13",0,null,null,0.0],["2026-10-14",0,null,null,0.0],["2026-10-15",0,null,null,0.0],["2026-10-16",0,null,null,0.0],["2026-10-17",0,null,null,0.0],["2026-10-18",0,null,null,0.0],["2026-10-19",0,null,null,0.0],["2026-10-20",0,null,null,0.0],["2026-10-21",0,null,null,0.0],["2026-10-22",0,null,null,0.0],["2026-10-23",0,null,null,0.0],["2026-10-24",0,null,null,0.0],["2026-10-25",0,null,null,0.0],["2026-10-26",0,null,null,0.0],["2026-10-27",0,null,null,0.0],["2026-10-28",0,null,null,0.0],["2026-10-29",0,null,null,0.0],["2026-10-30",0,null,null,0.0],["2026-10-31",0,null,null,0.0],["2026-11-01",0,null,null,0.0],["2026-11-02",0,null,null,0.0],["2026-11-03",0,null,null,0.0],["2026-11-04",0,null,null,0.0],["2026-11-05",0,null,null,0.0],["2026-11-06",0,null,null,0.0],["2026-11-07",0,null,null,0.0],["2026-11-08",0,null,null,0.0],["2026-11-09",0,null,null,0.0],["2026-11-10",0,null,null,0.0],["2026-11-11",0,null,null,0.0],["2026-11-12",0,null,null,0.0],["2026-11-13",0,null,null,0.0],["2026-11-14",0,null,null,0.0],["2026-11-15",0,null,null,0.0],["2026-11-16",0,null,null,0.0],["2026-11-17",0,null,null,0.0],["2026-11-18",0,null,null,0.0],["2026-11-19",0,null,null,0.0],["2026-11-20",0,null,null,0.0],["2026-11-21",0,null,null,0.0],["2026-11-22",0,null,null,0.0],["2026-11-23",0,null,null,0.0]],"m":[],"ms":[]}}},"LISTS":null,"notes":{"audience":"Current targeting audienceCounts.total from the LinkedIn API, pulled Nov 24, 2026. LinkedIn returns rounded totals. Not a historical audience for the selected period.","reach":"approximateMemberReach for the selected period from get_analytics (timeGranularity ALL). Not summed from daily reach.","companies":"Unique MEMBER_COMPANY organizations with impressions in the period (timeGranularity ALL), pulled separately for every filter scope and period.","dwell":"averageDwellTime for the selected period (impression-weighted) from get_analytics ALL.","last_biz":"Spend on the most recent completed weekday in LinkedIn UTC days (Mon, Nov 23 (UTC)).","budget":"Current dailyBudget on the campaign entity at pull time (Nov 23, 2026).","objective":"Current objectiveType on the campaign entity at pull time. The LinkedIn API does not expose objective or budget change history, so those are not marked on the chart."}};
+
+const ORDER=['l7','mtd','l30','l60'];const MET_KEYS=['lp','ctr','cpl','spend'];let P='l30',IND='All',SUB='All',SEG='All',DSEL=['lp'],LISTMODE='all';
+try{const s=JSON.parse(sessionStorage.getItem('avli2')||'{}');if(ORDER.includes(s.P))P=s.P;if(s.IND)IND=s.IND;if(s.SUB)SUB=s.SUB;if(s.SEG)SEG=s.SEG;if(Array.isArray(s.DSEL)&&s.DSEL.length){if(s.DSEL.length===1&&s.DSEL[0]==='reach'){DSEL=['reach']}else{const keep=s.DSEL.filter(k=>MET_KEYS.includes(k));if(keep.length)DSEL=keep}}else if(s.DMODE==='all')DSEL=['lp','ctr','cpl'];else if(MET_KEYS.includes(s.DMODE))DSEL=[s.DMODE];if(s.LISTMODE==='cards'||s.LISTMODE==='all')LISTMODE=s.LISTMODE}catch(e){}
+const $=s=>document.getElementById(s);
+function navSummary(){const p=(D.periods[P]&&D.periods[P].label)||P;const parts=[p,SEG==='All'?'All segments':SEG,IND==='All'?'All industries':IND];if(SUB&&SUB!=='All')parts.push(SUB.split(' / ')[0]);return 'Filters: '+parts.join(' · ')}
+function syncNav(){const btn=$('navToggle');if(!btn)return;btn.textContent=navSummary()}
+function togNav(){const nav=$('nav');if(!nav)return;const on=nav.classList.toggle('open');const btn=$('navToggle');if(btn)btn.setAttribute('aria-expanded',on?'true':'false')}
+
+const usd=v=>v==null?'–':('$'+Math.round(v).toLocaleString('en-US'));
+const num=v=>v==null?'–':Math.round(v).toLocaleString('en-US');
+const fmtD=s=>new Date(s+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+const sd=s=>new Date(s+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric'});
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const TAGC={'Cross-industry':['#eaf1ec','#0d0f0f'],'Cybersecurity':['#336754','#FFFFFF'],'Medical Device':['#3fd48a','#0d0f0f'],'Thought Leaders':['#0d0f0f','#FFFFFF']};
+const SUBT={};
+const dotH=v=>TAGC[v]?`<span class="dot" style="background:${TAGC[v][0]}"></span>`:'';
+const INDS=['All'].concat(['Cross-industry','Cybersecurity','Medical Device','Thought Leaders'].filter(k=>D.sets.some(s=>s.ind===k)));
+const SUBS={};
+function indsFor(seg){return INDS.filter(k=>k==='All'||seg==='All'||D.sets.some(s=>s.ind===k&&s.tier===SEGT[seg]))}
+function scopeKey(){const k=IND=='All'?'all':(SUB!='All'?'s:'+SUB:'i:'+IND);return SEG=='All'?k:SEG+'|'+k}
+function scopeLabel(){const b=IND=='All'?'All ad sets':IND+(SUB!='All'?' / '+SUB:'');return SEG=='All'?b:SEGT[SEG]+', '+b}
+const SEGT={ENT:'Enterprise',TAM:'TAM'};
+function save(){try{sessionStorage.setItem('avli2',JSON.stringify({P,IND,SUB,SEG,DSEL,LISTMODE}))}catch(e){}}
+function setListMode(m){LISTMODE=m;save();render()}
+function setD(k){if(k==='all'){DSEL=MET_KEYS.slice()}else if(k==='reach'){DSEL=['reach']}else if(DSEL.includes(k)){if(DSEL.length>1)DSEL=DSEL.filter(x=>x!==k)}else{DSEL=DSEL.filter(x=>x!=='reach').concat([k])}save();render()}
+if(!['All','ENT','TAM'].includes(SEG))SEG='All';if(!indsFor(SEG).includes(IND)){IND='All'}SUB='All';if(DSEL.includes('reach'))DSEL=['lp'];
+function setP(k){P=k;save();render()}
+function setI(k){IND=k;SUB='All';save();render()}
+function setS(k){SUB=k;save();render()}
+function setG(k){SEG=k;if(!indsFor(SEG).includes(IND)){IND='All';SUB='All'}save();render()}
+function campView(){return SEG==='All'&&IND==='All'}
+function scoped(){
+  return D.sets.filter(s=>{
+    if(SEG!='All' && s.tier!==SEGT[SEG]) return false;
+    if(IND!='All' && (s.ind!==IND || (SUB!='All' && s.sub!==SUB))) return false;
+    const m=s.m[P]||{};
+    const delivered=(m.spend||0)>0||(m.impr||0)>0;
+    return s.on || delivered;
+  });
+}
+function pk(p){return p+'p'}
+function met(s,p){return (s.m&&s.m[p])||{spend:0,impr:0,lp:0,clicks:0,dwell:null,reach:null}}
+function cplOf(m){return (m.lp>0 && m.spend>0)?m.spend/m.lp:null}
+function cpmOf(m){return (m.impr>0 && m.spend>0)?m.spend/m.impr*1000:null}
+function cprOf(m){return (m.reach>0 && m.spend>0)?m.spend/m.reach:null}
+function lpctrOf(m){return (m.impr>0)?m.lp/m.impr:null}
+function penOf(s,m){return (s.aud>0 && m.reach!=null)?(m.reach/s.aud)*100:null}
+function tot(rows,p){
+  p=p||P;
+  let spend=0,impr=0,lp=0,clicks=0,dN=0,dD=0,biz=0,budget=0;
+  rows.forEach(s=>{
+    const m=met(s,p);
+    spend+=m.spend||0; impr+=m.impr||0; lp+=m.lp||0; clicks+=m.clicks||0;
+    if(m.dwell!=null && (m.impr||0)>0){dN+=m.dwell*m.impr; dD+=m.impr}
+    if(s.biz!=null) biz+=s.biz;
+    if(s.budget!=null) budget+=s.budget;
+  });
+  return {spend,impr,lp,clicks,dwell:dD>0?dN/dD:null,reach:null,biz,budget,aud:null};
+}
+function companies(p){const c=D.companies[p]||{};const k=scopeKey();return (c[k]!=null)?c[k]:null}
+
+function accountLists(){
+  return listRows().filter(r=>r && r.type==='COMPANY_LIST_UPLOAD' && r.list_companies && r.export_reached!=null);
+}
+function reachEmptyMessage(){
+  if(accountLists().length)return null;
+  if(IND==='Retargeting')return 'Account reach is for uploaded company lists. This filter has none.';
+  return 'No list yet';
+}
+function exportReachSeries(rows){
+  rows=rows||accountLists();
+  const dates=[];
+  const add=end=>{if(end&&dates.indexOf(end)<0)dates.push(end)};
+  rows.forEach(r=>{
+    (r.trend||[]).forEach(p=>add(p&&p.end));
+    (r.pct_points||[]).forEach(p=>{if(p&&(p.source==='export'||p.source==='baseline'))add(p.end)});
+  });
+  dates.sort();
+  return dates.map(end=>{
+    let rch=0,n=0,src=null;
+    rows.forEach(row=>{
+      let p=(row.trend||[]).find(x=>x.end===end);
+      if(!p){
+        p=(row.pct_points||[]).find(x=>x.end===end && (x.source==='export'||x.source==='baseline'));
+      }
+      if(p && (p.source==='api'||p.real===false)) return;
+      if(p&&p.reached!=null&&p.list_companies){
+        rch+=p.reached;n+=p.list_companies;
+        src=p.source||src;
+      }
+    });
+    return n?{end,pct:Math.round(100*rch/n),reached:rch,list_companies:n,source:src||'export',real:true}:null;
+  }).filter(Boolean);
+}
+function reachSeries(rows){
+  rows=rows||accountLists();
+  const order=[];
+  const add=id=>{if(id&&order.indexOf(id)<0)order.push(id)};
+  rows.forEach(r=>{(r.fibbler_windows||[]).forEach(p=>add(p&&p.id))});
+  if(!order.length){
+    const all=((D.LISTS&&D.LISTS.combined_sum)||{}).fibbler_windows||[];
+    all.forEach(p=>add(p&&p.id));
+  }
+  return order.map(id=>{
+    let rch=0,n=0,meta=null;
+    rows.forEach(row=>{
+      const p=(row.fibbler_windows||[]).find(x=>x.id===id);
+      if(p&&p.reached!=null&&p.list_companies){
+        rch+=p.reached;n+=p.list_companies;
+        meta=meta||p;
+      }
+    });
+    return n?{
+      id,
+      end:meta.end,
+      label:meta.label,
+      short:meta.short,
+      axis:meta.axis||meta.short||meta.label,
+      partial:!!meta.partial,
+      pct:Math.round(100*rch/n),
+      reached:rch,
+      list_companies:n,
+      source:'fibbler'
+    }:null;
+  }).filter(Boolean);
+}
+function reachNow(rows){
+  const series=exportReachSeries(rows);
+  const latest=series.length?series[series.length-1]:null;
+  const prior=series.length>=2?series[series.length-2]:null;
+  return {latest,prior,series};
+}
+function reachKpiCard(){
+  const msg=reachEmptyMessage();
+  if(msg){
+    return `<div class="kpi"><div class="l">Account reach %</div><div class="v">–</div><div class="c">${esc(msg)}</div></div>`;
+  }
+  const {latest,prior}=reachNow();
+  if(!latest||latest.pct==null){
+    return `<div class="kpi"><div class="l">Account reach %</div><div class="v">–</div><div class="c">No list yet</div></div>`;
+  }
+  let c='no prior data';
+  if(prior&&prior.pct!=null){
+    const pts=latest.pct-prior.pct;
+    c=pts===0?`<span>flat</span> vs ${prior.pct}% prior`:`<span class="${pts>0?'up':'dn'}">${pts>0?'&#8593;':'&#8595;'} ${Math.abs(pts)} pts</span> vs ${prior.pct}% prior`;
+  }
+  const sub=latest.reached!=null&&latest.list_companies?`${num(latest.reached)} of ${num(latest.list_companies)}`:'';
+  return `<div class="kpi"><div class="l">Account reach %</div><div class="v">${latest.pct}%</div><div class="c">${c}</div>${sub?`<div class="sub">${sub}</div>`:''}</div>`;
+}
+function placeReachLabels(items,minDx){
+  const byPri=items.slice().sort((a,b)=>b.pri-a.pri||a.x-b.x);
+  const kept=[];
+  byPri.forEach(it=>{if(kept.every(k=>Math.abs(k.x-it.x)>=minDx))kept.push(it)});
+  return kept.sort((a,b)=>a.x-b.x);
+}
+function exportReachTable(rows){
+  const series=exportReachSeries(rows);
+  if(!series.length)return '';
+  const body=series.map(p=>{
+    const src=p.source==='baseline'?'Oct 6 baseline':'Export '+fmtD(p.end);
+    const n=p.reached!=null&&p.list_companies?`${num(p.reached)} of ${num(p.list_companies)}`:'';
+    return `<tr><td>${esc(src)}</td><td class="n">${p.pct}%</td><td class="n">${n}</td></tr>`;
+  }).join('');
+  return `<div class="reach-exports lists-compact"><div class="reach-exports-cap">Companies Hub exports</div><div class="tw"><table><thead><tr><th class="al">Point</th><th class="n">Account reach</th><th class="n">Reached</th></tr></thead><tbody>${body}</tbody></table></div></div>`;
+}
+function reachChart(){
+  const msg=reachEmptyMessage();
+  if(msg)return `<div class="empty">${esc(msg)}</div>`;
+  const series=reachSeries();
+  if(!series.length)return `<div class="empty">No list yet</div>`;
+  const host=$('main')||document.body;
+  const W=Math.max(280, Math.round((host&&host.clientWidth)||(window.innerWidth-48)));
+  const narrow=W<720;
+  const H=narrow?300:270,L=36,R=12,T=26,B=narrow?86:52;
+  const vals=series.map(p=>p.pct);
+  const minV=Math.min(...vals), maxV=Math.max(...vals);
+  let y0=Math.max(0, Math.floor((minV-8)/5)*5);
+  let y1=Math.min(100, Math.ceil((maxV+6)/5)*5);
+  if(y1-y0<15){y0=Math.max(0,y0-5);y1=Math.min(100,y1+5)}
+  const y=v=>T+(H-T-B)*(1-(v-y0)/(y1-y0||1));
+  const n=series.length;
+  const inner=W-L-R;
+  const slot=inner/Math.max(1,n);
+  const barW=Math.min(36, Math.max(10, slot*0.62));
+  let g='';
+  const ticks=4;
+  for(let k=0;k<=ticks;k++){
+    const v=y0+(y1-y0)*k/ticks,yy=y(v);
+    g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#ECECEC"/>`+TX(L-6,yy+4,Math.round(v)+'%',{a:'end'});
+  }
+  const bars=series.map((p,i)=>{
+    const cx=L+slot*(i+0.5);
+    const x=cx-barW/2;
+    const top=y(p.pct);
+    const h=Math.max(1, y(y0)-top);
+    return {...p,i,cx,x,top,h,barW,fill:p.partial?'#a9c6b6':'#336754'};
+  });
+  const rects=bars.map(p=>`<rect class="${p.partial?'partial':''}" x="${p.x.toFixed(1)}" y="${p.top.toFixed(1)}" width="${p.barW.toFixed(1)}" height="${p.h.toFixed(1)}" rx="2" fill="${p.fill}"/>`).join('');
+  const minLab=narrow?14:16;
+  const pctItems=bars.map(p=>({x:p.cx,y:p.top-6,label:String(p.pct)+'%',pri:p.partial?80:50,i:p.i}));
+  const pctKept=placeReachLabels(pctItems, minLab);
+  const keptIdx={};
+  pctKept.forEach(it=>keptIdx[it.i]=1);
+  // Prefer keeping every label; if a label was dropped, try a slight vertical stagger instead of omitting.
+  const pctLabs=bars.map(p=>{
+    const bump=keptIdx[p.i]?0:(p.i%2===0?-10:10);
+    return TX(p.cx, p.top-6+Math.min(0,bump), p.pct+'%',{a:'middle',b:1,c:'#0d0f0f',fs:11});
+  }).join('');
+  let lab='';
+  if(narrow){
+    lab=bars.map(p=>`<text x="0" y="0" transform="translate(${p.cx.toFixed(1)},${H-B+10}) rotate(-90)" text-anchor="end" fill="#0d0f0f" font-size="10">${esc(p.short||p.axis||p.label)}</text>`).join('');
+  }else{
+    const axItems=bars.map(p=>({x:p.cx,label:p.axis||p.short||p.label,pri:p.partial||p.i===0||p.i===bars.length-1?90:40,i:p.i}));
+    const axKept=placeReachLabels(axItems, 48);
+    lab=axKept.map(it=>{
+      const a=it.x<=L+8?'start':(it.x>=W-R-8?'end':'middle');
+      return TX(it.x,H-B+16,it.label,{a});
+    }).join('');
+  }
+  window._REACHCHART={series:bars,W,L,R};
+  const hit=bars.map((p,i)=>{
+    const hw=Math.max(18, slot);
+    return `<rect data-i="${i}" x="${(p.cx-hw/2).toFixed(1)}" y="${T-8}" width="${hw.toFixed(1)}" height="${H-T-B+8}" fill="transparent" style="cursor:crosshair"/>`;
+  }).join('');
+  return `<div class="chart reach-chart" id="reachTrend"><svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Account reach percent" onmousemove="reachChartMove(event)" onmouseleave="reachChartLeave()">${g}${rects}${pctLabs}${lab}${hit}</svg><div class="ltip" id="rtip"></div></div>`;
+}
+function reachChartMove(ev){
+  const svg=ev.currentTarget;const st=window._REACHCHART;const box=svg.closest('.reach-chart')||svg.closest('.chart')||svg;const tip=box.querySelector('.ltip')||$('rtip');
+  if(!tip||!st||!st.series||!st.series.length)return;
+  const sr=svg.getBoundingClientRect();const r=box.getBoundingClientRect();
+  const W=st.W||sr.width,L=st.L||36,R=st.R||12;
+  const px=(ev.clientX-sr.left)/Math.max(1,sr.width)*W;
+  let i=0,best=1e9;
+  st.series.forEach((p,k)=>{const d=Math.abs(px-p.cx);if(d<best){best=d;i=k}});
+  const p=st.series[i];
+  const src=p.partial?'Fibbler, rolling 3-month window, month to date':'Fibbler, rolling 3-month window';
+  tip.innerHTML=`<div class="mh">${esc(p.label||p.axis||'')}</div><div class="mr"><span>Account reach</span><b>${p.pct}%</b></div><div class="mr"><span>${esc(src)}</span><b>${p.reached!=null&&p.list_companies?num(p.reached)+' of '+num(p.list_companies):''}</b></div>`;
+  tip.style.display='block';
+  const tw=tip.offsetWidth||200,th=tip.offsetHeight||80;
+  let left=ev.clientX-r.left+12, top=ev.clientY-r.top+12;
+  if(left+tw>r.width-8)left=Math.max(8,ev.clientX-r.left-tw-12);
+  if(top+th>r.height-8)top=Math.max(8,ev.clientY-r.top-th-12);
+  tip.style.left=left+'px';tip.style.top=top+'px';
+}
+function reachChartLeave(){const tip=$('rtip');if(tip)tip.style.display='none'}
+
+function kcard(l,v,cur,pri,lowBetter,fmt){let c='<span>-</span> no prior data';
+ if(cur!==null&&pri!==null){if(!(pri>0)&&pri!==0){c=`vs ${fmt(pri)} prior`}else if(!(pri>0)){c='no prior data'}else{const r=Math.round((cur-pri)/pri*100);const better=lowBetter?r<0:r>0;c=r===0?`<span>flat</span> vs ${fmt(pri)} prior`:`<span class="${better?'up':'dn'}">${r>0?'&#8593;':'&#8595;'} ${Math.abs(r)}%</span> vs ${fmt(pri)} prior`}}
+ return `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="c">${c}</div></div>`}
+function kpis(rows){
+  const T=tot(rows,P),Tp=tot(rows,pk(P));
+  const co=companies(P),cop=companies(pk(P));
+  const cpl=cplOf(T),cplp=cplOf(Tp);
+  const coTxt=co==null?'–':num(co);
+  const coCard=co==null?`<div class="kpi"><div class="l">Companies reached</div><div class="v">–</div><div class="c">Not available for this filter</div></div>`:kcard('Companies reached',coTxt,co,cop,0,num);
+  return `<div class="kpis five">${kcard('Total spend',usd(T.spend),T.spend,Tp.spend,0,usd)}${kcard('Impressions',num(T.impr),T.impr,Tp.impr,0,num)}${kcard('Landing page clicks',num(T.lp),T.lp,Tp.lp,0,num)}${kcard('Cost per LP click',usd(cpl),cpl,cplp,1,usd)}${coCard}</div>`;
+}
+const AV={
+  status:r=>r.on?0:1,
+  label:r=>r.short||r.name||'',
+  obj:r=>r.obj_label||'',
+  aud:r=>r.aud==null?null:r.aud,
+  budget:r=>r.budget==null?null:r.budget,
+  biz:r=>r.biz==null?null:r.biz,
+  lp:r=>met(r,P).lp||0,
+  lpctr:r=>lpctrOf(met(r,P)),
+  cpl:r=>cplOf(met(r,P)),
+  cpm:r=>cpmOf(met(r,P)),
+  dwell:r=>met(r,P).dwell,
+  pen:r=>penOf(r,met(r,P)),
+  reach:r=>met(r,P).reach,
+  cpr:r=>cprOf(met(r,P)),
+  spend:r=>met(r,P).spend||0
+};
+function pillN(n){if(n<=1)return{b:0,w:0};if(n===2)return{b:1,w:1};if(n===3)return{b:2,w:1};return{b:3,w:Math.min(3,n-3)}}
+function winners(list){if(!list.length)return {};const W={};
+ [['cpl',-1],['cpm',-1],['cpr',-1],['lpctr',1],['dwell',1],['pen',1]].forEach(([k,dir])=>{
+  const el=list.filter(r=>{const v=AV[k](r);if(v===null)return false;if(k==='cpl')return met(r,P).lp>0&&v>0;if(k==='cpm')return met(r,P).impr>0&&v>0;if(k==='cpr')return met(r,P).reach>0&&v>0;if(k==='pen')return r.aud>0&&met(r,P).reach!=null;return met(r,P).impr>0});
+  const {b,w}=pillN(el.length);const vs=el.map(r=>AV[k](r));
+  const best=vs.slice().sort((a,c)=>(c-a)*dir).slice(0,b);
+  const worst=vs.slice().sort((a,c)=>(a-c)*dir).filter(v=>!best.includes(v)).slice(0,w);
+  W[k]={best,worst,el:new Set(el)}});return W}
+function hl(W,r,k,txt){const w=W[k];if(!w||!w.el.has(r))return txt;const v=AV[k](r);if(v===null)return txt;const i=w.best.indexOf(v);if(i>=0){w.best.splice(i,1,NaN);return `<span class="gv">${txt}</span>`}const j=w.worst.indexOf(v);if(j>=0){w.worst.splice(j,1,NaN);return `<span class="bv">${txt}</span>`}return txt}
+function cmpv(a,b){if(a===null&&b===null)return 0;if(a===null)return 1;if(b===null)return -1;return typeof a==='string'?a.localeCompare(b):a-b}
+let SORT={c:'cpl',d:1,vol:1};
+function srt(c){SORT=(SORT.c===c)?{c,d:-SORT.d,vol:SORT.vol}:{c,d:(c==='label'||c==='cpl'||c==='cpm'||c==='cpr'||c==='obj'||c==='status')?1:-1,vol:SORT.vol};render()}
+function th(c,label,cls,title){const on=SORT.c===c;const arw=on?(SORT.d>0?'▲':'▼'):'';return `<th class="s ${cls||''}${on?' act':''}" onclick="srt('${c}')" ${title?`title="${esc(title)}"`:''}>${label}<span class="arw" style="opacity:${on?1:.35};font-size:9px;margin-left:3px">${arw}</span></th>`}
+function st(r){return r.on?'<span class="sp-on">Active</span>':'<span class="sp-off">Paused</span>'}
+function statusMix(rows){const a=rows.filter(r=>r.on).length,p=rows.length-a;if(a&&!p)return '<span class="sp-on">Active</span>';if(!a&&p)return '<span class="sp-off">Paused</span>';return `<span class="sp-on">${a}</span> <span class="sp-off">${p}</span>`}
+const dwf=v=>v==null?'–':Number(v).toFixed(1)+'s';
+const fmtP=n=>n==null?'–':(Math.round(n)+'%');
+const fmtLPCTR=v=>v==null?'–':((100*v).toFixed(2)+'%');
+const usd2=v=>v==null?'–':('$'+Number(v).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}));
+function groupRows(rows){
+  const byG={};
+  rows.forEach(r=>{(byG[r.gid]||(byG[r.gid]=[])).push(r)});
+  const gOrder=D.groups.filter(g=>byG[g.id]);
+  Object.keys(byG).forEach(id=>{if(!gOrder.some(g=>g.id===id)) gOrder.push({id,name:byG[id][0].gname||id})});
+  return {byG,gOrder};
+}
+const CM_ACCT='517356586';
+function cmAdset(id){return 'https://www.linkedin.com/campaignmanager/accounts/'+CM_ACCT+'/campaigns/'+id+'/details'}
+function cmGroup(id){return 'https://www.linkedin.com/campaignmanager/accounts/'+CM_ACCT+'/campaign-groups/'+id}
+function cmName(href,label){return href?`<a class="cm" href="${esc(href)}" target="_blank" rel="noopener noreferrer">${label}</a>`:label}
+function asCamp(g,grows){
+  const T=tot(grows,P);
+  return {id:g.id,name:g.name,short:g.name,isCamp:true,kids:grows,on:grows.every(r=>r.on),aud:null,obj_label:'',budget:T.budget,biz:T.biz,m:{[P]:{spend:T.spend,impr:T.impr,lp:T.lp,clicks:T.clicks,dwell:T.dwell,reach:null}}};
+}
+function sortRows(list){
+  const totSpend=list.reduce((s,r)=>s+(met(r,P).spend||0),0);
+  const ok=r=>{if(!totSpend||(met(r,P).spend||0)<totSpend*0.05||!(met(r,P).impr||0))return false;if(SORT.c==='cpl')return (met(r,P).lp||0)>0;if(SORT.c==='cpr')return (met(r,P).reach||0)>0;return true};
+  const byVol=(a,b)=>{
+    if(SORT.vol&&(SORT.c==='cpl'||SORT.c==='cpm'||SORT.c==='cpr')){const qa=ok(a),qb=ok(b);if(qa!==qb)return qa?-1:1}
+    const c=cmpv(AV[SORT.c](a),AV[SORT.c](b))*SORT.d;
+    return c||((met(b,P).spend||0)-(met(a,P).spend||0));
+  };
+  return list.slice().sort(byVol);
+}
+function table(){
+  const rows=scoped();
+  if(!rows.length)return `<div class="empty">No delivery in this period.</div><div class="note" id="showing"></div>`;
+  const live=rows.filter(r=>r.on).length, paused=rows.length-live;
+  if(campView()){
+    const {byG,gOrder}=groupRows(rows);
+    const camps=sortRows(gOrder.map(g=>asCamp(g,byG[g.id])));
+    const W=winners(camps);
+    const head=`<thead><tr>
+      ${th('status','Status','st')}
+      ${th('label','Campaign','nm')}
+      ${th('budget','Daily<br>budget','n','Current daily budget, summed across ad sets in the campaign at pull time.')}
+      ${th('biz','Last biz<br>day spend','n','Spend on '+D.last_biz_day_label+'. LinkedIn reports in UTC days.')}
+      ${th('lp','Landing<br>page clicks','n')}
+      ${th('lpctr','LP CTR','n','Landing page clicks / impressions. Higher is better')}
+      ${th('cpl','Cost /<br>LP click','n','Lower is better')}
+      ${th('cpm','CPM','n','Spend ÷ impressions × 1,000, rounded to whole dollars. Lower is better')}
+      ${th('dwell','Dwell<br>time','n','Period average dwell time, impression-weighted. Higher is better')}
+    </tr></thead>`;
+    let body='';
+    camps.forEach(r=>{
+      const m=met(r,P);
+      body+=`<tr>
+        <td class="st">${statusMix(r.kids)}</td>
+        <td class="nm" title="${esc(r.name)}"><div class="vlab">${cmName(r.id?cmGroup(r.id):'',esc(r.name))}</div><div class="vdesc">${r.kids.length} ad set${r.kids.length===1?'':'s'}</div></td>
+        <td class="n">${usd(r.budget)}</td>
+        <td class="n">${usd(r.biz)}</td>
+        <td class="n">${num(m.lp)}</td>
+        <td class="n">${hl(W,r,'lpctr',fmtLPCTR(lpctrOf(m)))}</td>
+        <td class="n">${hl(W,r,'cpl',usd(cplOf(m)))}</td>
+        <td class="n">${hl(W,r,'cpm',usd(cpmOf(m)))}</td>
+        <td class="n">${hl(W,r,'dwell',dwf(m.dwell))}</td>
+      </tr>`;
+    });
+    return `<div class="note" style="margin:0 0 12px">${camps.length} campaign${camps.length===1?'':'s'}. Choose ENT, TAM, or an industry to see ad set rows.</div><div class="tw"><table class="camp-table">${head}<tbody>${body}</tbody></table></div>`;
+  }
+  const list=sortRows(rows);
+  const W=winners(list);
+  const head=`<thead><tr>
+    ${th('status','Status','st')}
+    ${th('label','Ad set','nm')}
+    ${th('obj','Objective','obj')}
+    ${th('aud','Audience<br>size','n','Current targeting from LinkedIn audienceCounts, pulled '+D.aud_pulled+'. Not historical for the period.')}
+    ${th('budget','Daily<br>budget','n','Current daily budget on the ad set at pull time.')}
+    ${th('biz','Last biz<br>day spend','n','Spend on '+D.last_biz_day_label+'. LinkedIn reports in UTC days.')}
+    ${th('lp','Landing<br>page clicks','n')}
+    ${th('lpctr','LP CTR','n','Landing page clicks / impressions. Higher is better')}
+    ${th('cpl','Cost /<br>LP click','n','Lower is better')}
+    ${th('cpm','CPM','n','Spend ÷ impressions × 1,000, rounded to whole dollars. Lower is better')}
+    ${th('dwell','Dwell<br>time','n','Period average dwell time. Higher is better')}
+    ${th('pen','Audience<br>penetration','n','Period reach ÷ current audience size, rounded to a whole percent. Higher is better')}
+    ${th('reach','Reach','n','approximateMemberReach for the selected period')}
+    ${th('cpr','Cost per<br>reach','n','Period spend ÷ approximate member reach. Lower is better')}
+  </tr></thead>`;
+  let body='';
+  list.forEach(r=>{
+    const m=met(r,P);
+    body+=`<tr>
+      <td class="st">${st(r)}</td>
+      <td class="nm" title="${esc(r.name)}"><div class="vlab">${cmName(r.id?cmAdset(r.id):'',esc(r.short))}</div><div class="vdesc">${cmName(r.id?cmAdset(r.id):'',esc(r.name))}</div></td>
+      <td class="obj">${esc(r.obj_label)}</td>
+      <td class="n">${r.aud==null?'–':num(r.aud)}</td>
+      <td class="n">${usd(r.budget)}</td>
+      <td class="n">${usd(r.biz)}</td>
+      <td class="n">${num(m.lp)}</td>
+      <td class="n">${hl(W,r,'lpctr',fmtLPCTR(lpctrOf(m)))}</td>
+      <td class="n">${hl(W,r,'cpl',usd(cplOf(m)))}</td>
+      <td class="n">${hl(W,r,'cpm',usd(cpmOf(m)))}</td>
+      <td class="n">${hl(W,r,'dwell',dwf(m.dwell))}</td>
+      <td class="n">${hl(W,r,'pen',fmtP(penOf(r,m)))}</td>
+      <td class="n">${m.reach==null?'–':num(m.reach)}</td>
+      <td class="n">${hl(W,r,'cpr',usd2(cprOf(m)))}</td>
+    </tr>`;
+  });
+  return `<div class="note" style="margin:0 0 12px">${list.length} ad set${list.length===1?'':'s'} in ${esc(scopeLabel())} (${live} Active, ${paused} Paused)</div><div class="tw"><table class="sets-table">${head}<tbody>${body}</tbody></table></div>`;
+}
+
+const info=t=>`<span class="i" tabindex="0" role="note" aria-label="Definition">i<span class="tip">${t}</span></span>`;
+const nice=v=>{if(!(v>0))return 1;const e=Math.pow(10,Math.floor(Math.log10(v)));const f=v/e;return (f<=1?1:f<=2?2:f<=5?5:10)*e};
+const TX=(x,y,s,o)=>`<text x="${x}" y="${y}" font-size="${(o&&o.fs)||11}" fill="${(o&&o.c)||'#525252'}" text-anchor="${(o&&o.a)||'start'}" ${o&&o.b?'font-weight="600"':''}>${s}</text>`;
+function mkShort(items){const L=new Set(),P=new Set();items.forEach(it=>{(it.a==='launched'?L:P).add(it.n)});const b=[];if(L.size)b.push(L.size+' ad'+(L.size===1?'':'s')+' launched');if(P.size)b.push(P.size+' ad'+(P.size===1?'':'s')+' paused');return b.join(', ')}
+function mkFull(d,items){const order=['launched','paused','adset_paused','removed'];
+ const lab={launched:'Launched (first delivered)',paused:'Last delivered (ad now paused)',adset_paused:'Last delivered (ad set now paused)',removed:'Last delivered (ad now removed)'};
+ const groups={};items.forEach(it=>{const g=groups[it.a]=groups[it.a]||{};const e=g[it.n]=g[it.n]||{camps:new Set(),created:it.created,first:it.first};e.camps.add(it.camp);if(it.created)e.created=it.created});
+ const lines=[fmtD(d)];
+ order.forEach(a=>{if(!groups[a])return;lines.push(lab[a]+':');Object.keys(groups[a]).sort((x,y)=>pretty(x).t.localeCompare(pretty(y).t)).forEach(n=>{const e=groups[a][n],nc=e.camps.size;let extra=nc>1?' (on '+nc+' ad sets)':'';if(a==='launched'&&e.created&&e.first&&e.created!==e.first)extra+=' (created '+sd(e.created)+')';lines.push('• '+pretty(n).t+extra)})});
+ return lines.join('\n')}
+function chartPack(){const ch=D.CHART||{start:'',end:'',s:{}};if(ch.s[scopeKey()])return ch.s[scopeKey()];const base=(ch.s.all||{d:[]}).d;return {d:base.map(r=>[r[0],0,null,null,0]),m:[],ms:[]}}
+const MC={lp:'#336754',ctr:'#1F8A4C',cpl:'#0d0f0f',spend:'#C45C26'};
+function rangeText(d0,d1){if(!d0||!d1||d0===d1)return '';const a=new Date(d0+'T12:00:00'),b=new Date(d1+'T12:00:00');const mo=t=>t.toLocaleDateString('en-US',{month:'short'});if(mo(a)===mo(b))return mo(a)+' '+a.getDate()+'-'+b.getDate();return sd(d0)+'\u2013'+sd(d1)}
+function daysApart(a,b){return Math.abs((new Date(a+'T12:00:00')-new Date(b+'T12:00:00'))/86400000)}
+const MST={ms:{fill:'#eaf1ec',stroke:'#336754',ink:'#336754',dots:['#336754'],line:'#336754',dash:''},new:{fill:'#E3F3E8',stroke:'#C5E4CC',ink:'#2E6B45',dots:['#2E6B45'],line:'#2E6B45',dash:'3 4'},paused:{fill:'#fdebe9',stroke:'#f0c9c6',ink:'#b8261b',dots:['#b8261b'],line:'#b8261b',dash:'3 4'},both:{fill:'#F4F4F2',stroke:'#DDDDDA',ink:'#0d0f0f',dots:['#2E6B45','#b8261b'],line:'#0d0f0f',dash:'3 4'}};
+let MTIPS={},MTIPN=0;
+function tipId(html){const id='m'+(++MTIPN);MTIPS[id]=html;return id}
+function showMtip(ev,id){let tip=$('mtip');if(!tip){tip=document.createElement('div');tip.id='mtip';tip.className='mtip';document.body.appendChild(tip)}tip.innerHTML=MTIPS[id]||'';tip.style.display='block';const r=(ev.currentTarget||ev.target).getBoundingClientRect();const w=tip.offsetWidth||340,h=tip.offsetHeight||120;let left=r.left+r.width/2-w/2;left=Math.max(8,Math.min(left,window.innerWidth-w-8));let top=r.bottom+8;if(top+h>window.innerHeight-8)top=Math.max(8,r.top-h-8);tip.style.left=left+'px';tip.style.top=top+'px'}
+function hideMtip(){const tip=$('mtip');if(tip)tip.style.display='none'}
+function markTipHtml(days){const d0=days[0].d,d1=days[days.length-1].d,multi=d0!==d1;const head=multi?rangeText(d0,d1):fmtD(d0);const buckets={camp:[],campp:[],adset:[],adsetp:[],ads:[],adsp:[]};const add=(k,name,d)=>{const s=name+(multi?' ('+sd(d)+')':'');if(s&&!buckets[k].includes(s))buckets[k].push(s)};days.forEach(e=>{(e.ms||[]).forEach(it=>{if(it.t==='new_campaign')add('camp',it.short||it.name,e.d);else if(it.t==='new_adset')add('adset',it.short||it.name,e.d);else if(it.t==='campaign_paused')add('campp',it.short||it.name,e.d);else if(it.t==='adset_paused')add('adsetp',it.short||it.name,e.d)}); (e.ads||[]).forEach(it=>{const nm=pretty(it.n).t||it.n;if(it.a==='launched')add('ads',nm,e.d);else add('adsp',nm,e.d)})});const labs=[['camp','New campaigns'],['adset','New ad sets'],['campp','Campaigns paused'],['adsetp','Ad sets paused']];let h=`<div class="mh">${esc(head)}</div>`;labs.forEach(([k,l])=>{if(buckets[k].length)h+=`<div class="ml"><b>${l}:</b> ${esc(buckets[k].join(', '))}</div>`});return h}
+function markKind(days){const types=new Set();days.forEach(e=>(e.ms||[]).forEach(it=>types.add(it.t)));const launch=types.has('new_adset');const camp=types.has('new_campaign');const pause=types.has('adset_paused')||types.has('campaign_paused');if((launch||camp)&&pause)return 'both';if(pause)return 'paused';if(launch&&!camp)return 'new';return 'ms'}
+function markLabel(days){let nNew=0,nPause=0,nCamp=0,nCampP=0;days.forEach(e=>(e.ms||[]).forEach(it=>{if(it.t==='new_adset')nNew++;else if(it.t==='new_campaign')nCamp++;else if(it.t==='campaign_paused')nCampP++;else if(it.t==='adset_paused')nPause++}));const b=[];if(nCamp)b.push(nCamp+' new campaign'+(nCamp===1?'':'s'));if(nNew)b.push(nNew+' new ad set'+(nNew===1?'':'s'));if(nCampP)b.push(nCampP+' campaign'+(nCampP===1?'':'s')+' paused');if(nPause)b.push(nPause+' paused');return b.join(', ')||sd(days[0].d)}
+function layoutMarks(events,L,R,W){events=events.slice().sort((a,b)=>a.d.localeCompare(b.d));if(!events.length)return [];
+ const make=days=>{days=days.slice().sort((a,b)=>a.d.localeCompare(b.d));const kind=markKind(days);const label=markLabel(days);const nd=kind==='both'?2:1;const w=Math.ceil(12+nd*9+String(label).length*6.4+10);const mid=days.reduce((s,e)=>s+e.x0,0)/days.length;let bx=mid-w/2;if(bx<L)bx=L;if(bx+w>W-R)bx=W-R-w;return {days,kind,label,w,mid,bx,x0s:days.map(e=>e.x0),html:markTipHtml(days)}};
+ let raw=[];events.forEach(e=>{const last=raw[raw.length-1];if(last&&daysApart(last[last.length-1].d,e.d)<=3)last.push(e);else raw.push([e])});
+ let groups=raw.map(make);
+ let guard=0;while(guard++<24){let hit=-1;for(let i=0;i<groups.length-1;i++){if(!(groups[i].bx+groups[i].w+6<=groups[i+1].bx)&&daysApart(groups[i].days[groups[i].days.length-1].d,groups[i+1].days[0].d)<=3){hit=i;break}}if(hit<0)break;groups=groups.slice(0,hit).concat([make(groups[hit].days.concat(groups[hit+1].days))],groups.slice(hit+2))}
+ for(let i=1;i<groups.length;i++){const minBx=groups[i-1].bx+groups[i-1].w+6;if(groups[i].bx<minBx){groups[i].bx=minBx;if(groups[i].bx+groups[i].w>W-R){groups[i].bx=W-R-groups[i].w;for(let j=i;j>=1;j--){if(groups[j-1].bx+groups[j-1].w+6<=groups[j].bx)break;groups[j-1].bx=Math.max(L,groups[j].bx-groups[j-1].w-6)}}}}
+ return groups}
+function tpanel(d,key,fmt,col,H,o){const W=1180,L=64,R=20,T=o.marks?42:14,B=o.xl?30:10;const n=d.length;const vals=d.map(r=>r[key]);const S=nice(1.1*Math.max(.0001,...vals.filter(v=>v!=null)));
+ const bw=(W-L-R)/n;const x=i=>L+bw*i+bw/2;const y=v=>T+(H-T-B)*(1-v/S);let g='';
+ for(let k=0;k<=4;k++){const yy=T+(H-T-B)*k/4;g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#ECECEC"/>`+TX(L-8,yy+4,fmt(S*(1-k/4)),{a:'end'})}
+ const tip=(r)=>`${fmtD(r[0])}: ${o.name} ${r[key]==null?'n/a':fmt(r[key])}`;
+ const pts=d.map((r,i)=>r[key]==null?null:[x(i),y(r[key])]).filter(Boolean);
+ let line='';
+ if(pts.length){const segs=[];let cur=[];pts.forEach((p,i)=>{cur.push(p);const nxt=pts[i+1];const broken=nxt&&Math.abs(nxt[0]-p[0])>bw*1.6;if(!nxt||broken){segs.push(cur);cur=[]}});
+  line=segs.map(s=>s.length===1?'':`<polyline fill="none" stroke="${col}" stroke-width="2.2" stroke-dasharray="6 4" points="${s.map(p=>p.join(',')).join(' ')}"/>`).join('')}
+ const body=line+d.map((r,i)=>r[key]==null?'':`<circle cx="${x(i)}" cy="${y(r[key])}" r="3" fill="${col}"><title>${esc(tip(r))}</title></circle>`).join('');
+ let mk='';
+ if(o.marks&&o.marks.length){const idx=s=>d.findIndex(r=>r[0]==s);const ev=[];o.marks.forEach(e=>{const i=idx(e.d);if(i<0)return;ev.push({...e,x0:x(i)})});
+  const placed=layoutMarks(ev,L,R,W);const ly=18;
+  placed.forEach(p=>{const st=MST[p.kind];const id=tipId(p.html);const evs=`onmouseenter="showMtip(event,'${id}')" onmouseleave="hideMtip()"`;
+   mk+=`<g ${evs} style="cursor:pointer">`;
+   (p.x0s||[]).forEach(x0=>{mk+=`<line x1="${x0}" x2="${x0}" y1="${ly+7}" y2="${H-B}" stroke="${st.line}" stroke-width="${p.kind==='ms'?1.6:1}" ${st.dash?`stroke-dasharray="${st.dash}"`:''} opacity=".7"/>`});
+   mk+=`<rect x="${p.bx}" y="${ly-9}" width="${p.w}" height="16" rx="8" fill="${st.fill}" stroke="${st.stroke}"/>`;
+   let dx=p.bx+8;st.dots.forEach(c=>{mk+=`<circle cx="${dx}" cy="${ly}" r="3.2" fill="${c}"/>`;dx+=9});
+   mk+=`<text x="${dx+2}" y="${ly+3.5}" font-size="10" font-weight="700" fill="${st.ink}">${esc(p.label)}</text></g>`})}
+ const step=Math.ceil(n/12);const lab=o.xl?d.map((r,i)=>i%step==0||i==n-1?TX(x(i),H-B+18,sd(r[0]),{a:'middle'}):'').join(''):'';
+ return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${esc(o.name)} by day">${g}${mk}${body}${lab}</svg>`}
+function firstBase(d,key){for(let i=0;i<d.length;i++){const v=d[i][key];if(v!=null&&v>0)return v}return null}
+function niceRange(lo,hi){if(!(hi>lo)){lo-=10;hi+=10}const step=nice((hi-lo)/4)||1;const y0=Math.floor(lo/step)*step,y1=Math.ceil(hi/step)*step;return {y0,y1,step}}
+function allPanel(d,H,keys){keys=keys&&keys.length?keys:['lp','ctr','cpl'];const W=1180,L=64,R=20,T=18,B=30;const n=d.length;const base={};keys.forEach(k=>base[k]=firstBase(d,k));
+ const idxOf=(r,k)=>r[k]==null||!base[k]?null:100*r[k]/base[k];
+ const ys=d.flatMap(r=>keys.map(k=>idxOf(r,k)).filter(v=>v!=null));
+ const lo=ys.length?Math.min(...ys):80,hi=ys.length?Math.max(...ys):120;const pad=(hi-lo)*0.12||10;const {y0,y1}=niceRange(lo-pad,hi+pad);
+ const bw=(W-L-R)/n;const x=i=>L+bw*i+bw/2;const y=v=>T+(H-T-B)*(1-(v-y0)/(y1-y0));
+ let g='';const ticks=4;for(let k=0;k<=ticks;k++){const v=y0+(y1-y0)*k/ticks,yy=y(v);g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#ECECEC"/>`+TX(L-8,yy+4,String(Math.round(v)),{a:'end'})}
+ if(y0<100&&100<y1)g+=`<line x1="${L}" x2="${W-R}" y1="${y(100)}" y2="${y(100)}" stroke="#BDBDBD" stroke-dasharray="3 4"/>`+TX(L-8,y(100)+4,'100',{a:'end',c:'#6B6B6B'});
+ g+=TX(L,12,'Index',{fs:10,c:'#8A8A8A'});
+ const fmt={lp:v=>num(v),ctr:v=>(100*v).toFixed(2)+'%',cpl:v=>usd(v),spend:v=>usd(v)};
+ const names={lp:'Rolling LP clicks',ctr:'Rolling LP CTR',cpl:'Rolling Cost/LP',spend:'Rolling Spend'};
+ let body='';
+ keys.forEach(k=>{const pts=d.map((r,i)=>{const v=idxOf(r,k);return v==null?null:[x(i),y(v)]});
+  const segs=[];let cur=[];pts.forEach((p,i)=>{if(!p){if(cur.length){segs.push(cur);cur=[]}return}cur.push(p);const nxt=pts[i+1];if(!nxt||(nxt&&Math.abs(nxt[0]-p[0])>bw*1.6)){segs.push(cur);cur=[]}});
+  body+=segs.map(s=>s.length===1?'':`<polyline fill="none" stroke="${MC[k]}" stroke-width="2.2" points="${s.map(p=>p.join(',')).join(' ')}"/>`).join('');
+  body+=d.map((r,i)=>{const v=idxOf(r,k);return v==null?'':`<circle cx="${x(i)}" cy="${y(v)}" r="3" fill="${MC[k]}"/>`}).join('')});
+ MTIPS={};MTIPN=0;
+ const hits=d.map((r,i)=>{const id=tipId(`<div class="mh">${esc(fmtD(r[0]))}</div>`+keys.map(k=>`<div class="ml"><i style="background:${MC[k]}"></i><b>${names[k]}:</b> ${r[k]==null?'n/a':fmt[k](r[k])}</div>`).join(''));return `<rect x="${x(i)-bw/2}" y="${T}" width="${bw}" height="${H-T-B}" fill="transparent" style="cursor:crosshair" onmouseenter="showMtip(event,'${id}')" onmouseleave="hideMtip()"/>`}).join('');
+ const step=Math.ceil(n/12);const lab=d.map((r,i)=>i%step==0||i==n-1?TX(x(i),H-B+18,sd(r[0]),{a:'middle'}):'').join('');
+ return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Rolling LP clicks, LP CTR, and Cost/LP, indexed to 100">${g}${body}${lab}${hits}</svg>`}
+function dailyChart(){const ch=D.CHART||{start:'',end:'',s:{}};const pack=chartPack();
+ const MET={lp:['lp',v=>v==null?'n/a':num(v),MC.lp,'Rolling LP clicks'],ctr:['ctr',v=>v==null?'n/a':(100*v).toFixed(2)+'%',MC.ctr,'Rolling LP CTR'],cpl:['cpl',v=>v==null?'n/a':usd(v),MC.cpl,'Rolling Cost/LP'],spend:['spend',v=>v==null?'n/a':usd(v),MC.spend,'Rolling Spend']};
+ const dd=pack.d.map(r=>({0:r[0],lp:r[1],ctr:r[2],cpl:r[3]==null?null:r[3],spend:r[4]==null?null:r[4]}));
+ MTIPS={};MTIPN=0;
+ const byD={};(pack.m||[]).forEach(([d,items])=>{(byD[d]=byD[d]||{d,ads:[],ms:[]}).ads.push(...items)});(pack.ms||[]).forEach(([d,items])=>{(byD[d]=byD[d]||{d,ads:[],ms:[]}).ms.push(...items)});
+ const MARKS=Object.keys(byD).sort().map(d=>byD[d]);
+ const one=(m,H,o)=>`<div style="font-size:12px;font-weight:600;color:var(--ink);margin:4px 0 0 4px"><i style="display:inline-block;width:10px;height:10px;border-radius:3px;background:${m[2]};margin-right:6px"></i>${m[3]}</div>`+tpanel(dd,m[0],m[1],m[2],H,{name:m[3],marks:MARKS,...o});
+ const vis=DSEL.length?DSEL.slice():['lp'];
+ const isReach=vis.length===1&&vis[0]==='reach';
+ const multi=!isReach&&vis.length>1;
+ const inner=isReach?reachChart():(!dd.length?`<div class="empty">No delivery in the last 60 days for this filter.</div>`:(multi?allPanel(dd,320,vis):one(MET[vis[0]]||MET.lp,300,{xl:1})));
+ const tip=isReach
+  ?'Account reach in this chart is companies on the uploaded lists with paid impressions in Fibbler during each rolling 3-month window, divided by the companies on the current list exports, as a whole percent. Bars are the currently selected lists combined. The latest window is marked lighter when its end month is still month to date. Companies Hub exports (Oct 6 baseline, Nov 21, and later Mondays) are in the table under the chart. The KPI above stays on the latest Campaign Manager export. This chart follows the segment and industry filters, not the period pills.'
+  :'Single-metric views mark bigger account changes in the current filter: a new ad set on its first day with delivery, an ad set paused or ended on its last day with delivery if it is no longer live, and a new campaign (campaign group) if one launched in this window. Objective and daily budget change history is not available from the LinkedIn API, so those are not marked. Click one or more metric pills to plot them together (or All for every metric). Two or more metrics share one chart, each indexed to 100 at the start of the window; hover for actual values. Rolling Spend is spend in the last 7 days. Rolling metrics use a 7-day window. The chart always shows the last 60 days and follows the segment and industry filters, not the period pills.';
+ const pills=[['lp','Rolling LP clicks'],['ctr','Rolling LP CTR'],['cpl','Rolling Cost/LP'],['spend','Rolling Spend'],['all','All']].map(([k,l])=>{const on=k==='all'?!isReach&&vis.length===MET_KEYS.length:vis.includes(k);return `<button class="${on?'on':''}" onclick="setD('${k}')">${l}</button>`;}).join('');
+ const hasPartial=isReach&&reachSeries().some(p=>p.partial);
+ const metLeg=isReach?((reachEmptyMessage()||!reachSeries().length)?'':'<span><i style="background:#336754;border-radius:2px"></i>Fibbler, rolling 3-month windows</span>'+(hasPartial?'<span><i style="background:#a9c6b6;border-radius:2px"></i>Current window, month to date</span>':'')):vis.map(k=>`<span><i style="background:${MET[k][2]}"></i>${MET[k][3]}</span>`).join('');
+ const markLeg=isReach||multi?'':`<span><i style="background:#2E6B45;border-radius:50%"></i>New ad sets launched</span><span><i style="background:#b8261b;border-radius:50%"></i>Ad sets paused</span><span><i style="background:#336754;border-radius:50%"></i>Milestone</span><span>Hover a marker for what changed</span>`;
+ const idxNote=multi?'<span>Each line is indexed to 100 at the start of the window. Hover for actual values.</span>':'';
+ const rollNote=isReach?'':'<span>Rolling metrics use a 7-day window.</span>';
+ const series=isReach?reachSeries():[];
+ const reachDesc=series.length?`Rolling 3-month windows from Fibbler, ${series[0].label} to ${series[series.length-1].label}${series.some(p=>p.partial)?' (latest window is month to date)':''}. Follows the segment and industry filters, not the period pills.`:'Account reach % follows the segment and industry filters.';
+ const title=isReach?'Account reach %':'Daily performance';
+ const desc=isReach?reachDesc:`${sd(ch.start)} to ${fmtD(ch.end)} (last 60 days). Follows the segment and industry filters, not the period pills.`;
+ const chartWrap=isReach?inner:`<div class="chart" id="trend">${inner}</div>`;
+ const exports=isReach?exportReachTable():'';
+ return `<div class="daily" id="daily"><div class="ch"><div><h2>${title} ${info(tip)}</h2><div class="desc">${desc}</div></div><div class="seg sm" id="dmode">${pills}</div></div>${chartWrap}<div class="legend">${metLeg}${markLeg}${idxNote}${rollNote}</div>${exports}</div>`}
+
+
+function listRows(){const L=(D.LISTS&&D.LISTS.lists)||[];return L.filter(r=>{
+ if(SEG==='ENT'&&r.tier!=='Enterprise')return false;
+ if(SEG==='GRW'&&r.tier!=='Growth')return false;
+ if(IND!=='All'){
+  if(IND==='Retargeting')return r.tier==='Retargeting'||r.industry==='Retargeting';
+  if(r.industry!==IND)return false;
+  if(SUB!=='All'&&r.sub&&r.sub!==SUB)return false;
+ }
+ return true;
+})}
+function spark(points){
+ const ns=points.map(p=>p&&p.n!=null?p.n:null);
+ const vals=ns.filter(v=>v!=null);
+ if(!vals.length)return '';
+ const lo=Math.min(...vals), hi=Math.max(...vals);
+ const W=240,H=36,P=3;
+ const x=i=>P+i*((W-2*P)/Math.max(1,ns.length-1));
+ const y=v=>{if(hi===lo)return H/2;return P+(H-2*P)*(1-(v-lo)/(hi-lo))};
+ const pts=[];ns.forEach((v,i)=>{if(v!=null)pts.push([x(i),y(v)])});
+ const line=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ');
+ const last=pts[pts.length-1];
+ return `<svg class="spark" viewBox="0 0 ${W} ${H}" width="100%" height="36" aria-hidden="true"><path d="${line}" fill="none" stroke="#336754" stroke-width="2"/>${last?`<circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.6" fill="#336754"/>`:''}</svg>`;
+}
+function listColor(i){const C=['#336754','#C45C26','#1F8A4C','#1F6BA5','#B45309','#9B1C5A','#0F766E','#6D28D9','#B91C1C','#3F6212','#075985','#9A3412'];return C[i%C.length]}
+function listAllChart(lists, total){
+ const weeks=((D.LISTS&&D.LISTS.weeks)||[]).slice();
+ const listsS=lists.map((r,i)=>({id:r.id,label:r.label||r.name||r.id,color:r.color||listColor(i),points:r.points||[],thick:0,pct:r.pct}));
+ const sumS=total&&(total.points||[]).length?[{id:'sum',label:'All lists (sum)',color:'#111111',points:total.points,thick:1}]:[];
+ const ends=weeks.length?weeks:(listsS[0]&&listsS[0].points||[]).map(p=>p.end);
+ const valAt=(s,end)=>{const p=(s.points||[]).find(x=>x.end===end);return p&&p.n!=null?p.n:null};
+ const host=$('main')||document.body;
+ const W=Math.max(300, Math.round((host&&host.clientWidth)||(window.innerWidth-48)));
+ const L=54,R=8,T=10,B=24;
+ const draw=(series,H,label)=>{
+  const vals=series.flatMap(s=>ends.map(e=>valAt(s,e))).filter(v=>v!=null);
+  if(!ends.length||!vals.length)return '';
+  const minV=Math.min(...vals), maxV=Math.max(...vals);
+  const pad=(maxV-minV)*0.14||Math.max(20,maxV*0.08);
+  let {y0,y1}=niceRange(Math.max(0,minV-pad),maxV+pad);
+  if(y0<0)y0=0;
+  const y=v=>T+(H-T-B)*(1-(v-y0)/(y1-y0||1));
+  const x=i=>L+i*((W-L-R)/Math.max(1,ends.length-1));
+  const fmtA=v=>{const n=Math.round(v);const span=y1-y0;if(span<5000){return n.toLocaleString('en-US')}if(Math.abs(n)>=1000){const k=n/1000;return (Math.abs(k-Math.round(k))<0.05?Math.round(k):k.toFixed(1))+'k'}return String(n)};
+  let g='';
+  const ticks=H<240?2:4;
+  for(let k=0;k<=ticks;k++){const v=y0+(y1-y0)*k/ticks,yy=y(v);g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#ECECEC"/>`+TX(L-8,yy+4,fmtA(v),{a:'end'})}
+  const lab=ends.map((e,i)=>TX(x(i),H-B+16,sd(e),{a:i===0?'start':i===ends.length-1?'end':'middle'})).join('');
+  let body='';
+  series.forEach(s=>{
+   const pts=ends.map((e,i)=>{const v=valAt(s,e);return v==null?null:[x(i),y(v)]});
+   const segs=[];let cur=[];
+   pts.forEach(pt=>{if(!pt){if(cur.length){segs.push(cur);cur=[]}return}cur.push(pt)});
+   if(cur.length)segs.push(cur);
+   const sw=s.thick?2.8:1.8;
+   segs.forEach(seg=>{const d=seg.map((pt,i)=>(i?'L':'M')+pt[0].toFixed(1)+','+pt[1].toFixed(1)).join(' ');body+=`<path d="${d}" fill="none" stroke="${s.color}" stroke-width="${sw}" stroke-linejoin="round"/>`});
+   const last=pts.filter(Boolean).pop();
+   if(last) body+=`<circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="${s.thick?3.4:2.4}" fill="${s.color}"/>`;
+  });
+  const slot=(W-L-R)/Math.max(1,ends.length-1);
+  const hit=ends.map((e,i)=>`<rect data-i="${i}" data-series="${series[0]&&series[0].id==='sum'?'sum':'lists'}" x="${(x(i)-slot/2).toFixed(1)}" y="${T}" width="${slot.toFixed(1)}" height="${H-T-B}" fill="transparent"/>`).join('');
+  return {svg:`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${esc(label||'Weekly companies reached')}" onmousemove="listChartMove(event)" onmouseleave="listChartLeave()">${g}${body}${lab}${hit}</svg>`, series, ends};
+ };
+ const sumDraw=sumS.length?draw(sumS,180,'All lists (sum)'):null;
+ const listDraw=listsS.length?draw(listsS,380,'By list'):null;
+ window._LISTCHART={ends, series:[...listsS,...sumS], W,L,R, packs:{sum:sumDraw&&{series:sumS,ends}, lists:listDraw&&{series:listsS,ends}}};
+ const legend=listsS.concat(sumS).map(s=>`<span><i style="background:${s.color}${s.thick?';height:3px;border-radius:1px':''}"></i>${esc(s.label)}${s.pct!=null?` · ${s.pct}%`:''}</span>`).join('');
+ return `<div class="lchart">${sumDraw?`<div class="lchart-sum"><div class="lchart-cap">All lists (sum)</div>${sumDraw.svg}</div>`:''}${listDraw?`<div class="lchart-lists"><div class="lchart-cap">By list</div>${listDraw.svg}</div>`:''}<div class="ltip" id="ltip"></div><div class="lleg">${legend}</div></div>`;
+}
+function listChartMove(ev){
+ const svg=ev.currentTarget;const tip=$('ltip');if(!tip||!window._LISTCHART)return;
+ const {ends,series}=window._LISTCHART;
+ const sr=svg.getBoundingClientRect();const box=svg.closest('.lchart')||svg;const r=box.getBoundingClientRect();
+ const W=window._LISTCHART.W||sr.width,L=window._LISTCHART.L||54,R=window._LISTCHART.R||12;
+ const px=(ev.clientX-sr.left)/Math.max(1,sr.width)*W;
+ let i=0,best=1e9;
+ ends.forEach((e,k)=>{const xx=L+k*((W-L-R)/Math.max(1,ends.length-1));const d=Math.abs(px-xx);if(d<best){best=d;i=k}});
+ const end=ends[i];
+ const rows=series.map(s=>{const p=(s.points||[]).find(x=>x.end===end);return {label:s.label,v:p&&p.n!=null?p.n:null,color:s.color}}).filter(x=>x.v!=null);
+ const sumFirst=rows.filter(x=>x.label&&x.label.indexOf('All lists')===0);
+ const rest=rows.filter(x=>!(x.label&&x.label.indexOf('All lists')===0));
+ const shown=sumFirst.concat(rest);
+ tip.innerHTML=`<div class="mh">${esc(fmtD(end))}</div>`+shown.map(x=>`<div class="mr"><span>${esc(x.label)}</span><b>${num(x.v)}</b></div>`).join('');
+ tip.style.display='block';
+ const tw=tip.offsetWidth||200,th=tip.offsetHeight||80;
+ let left=ev.clientX-r.left+12, top=ev.clientY-r.top+12;
+ if(left+tw>r.width-8)left=Math.max(8,ev.clientX-r.left-tw-12);
+ if(top+th>r.height-8)top=Math.max(8,ev.clientY-r.top-th-12);
+ tip.style.left=left+'px';tip.style.top=top+'px';
+}
+function listChartLeave(){const tip=$('ltip');if(tip)tip.style.display='none'}
+
+function vsBaseLine(vs){
+ if(!vs||vs.from_pct==null||vs.to_pct==null)return '';
+ const pts=vs.pts;
+ const ptsH=pts===0?'0 pts':((pts>0?'+':'')+pts+' pts');
+ const cls=pts>0?'up':(pts<0?'dn':'');
+ return `<div class="lbase ${cls}">vs Oct 6 baseline: ${vs.from_pct}% to ${vs.to_pct}% (${ptsH})</div>`;
+}
+function pctChart(series, opts){
+ opts=opts||{};
+ const H=opts.H||180;
+ const ends=[];
+ series.forEach(s=>(s.points||[]).forEach(p=>{if(p&&p.end&&ends.indexOf(p.end)<0)ends.push(p.end)}));
+ ends.sort();
+ const valAt=(s,end)=>{const p=(s.points||[]).find(x=>x.end===end);return p&&p.pct!=null?p.pct:null};
+ const vals=series.flatMap(s=>ends.map(e=>valAt(s,e))).filter(v=>v!=null);
+ if(!ends.length||!vals.length)return '';
+ const host=$('main')||document.body;
+ const W=Math.max(220, Math.round(opts.W||((host&&host.clientWidth)||(window.innerWidth-48))));
+ const L=36,R=8,T=12,B=28;
+ const minV=Math.min(...vals), maxV=Math.max(...vals);
+ let y0=Math.max(0, Math.floor((minV-12)/5)*5);
+ let y1=Math.min(100, Math.ceil((maxV+12)/5)*5);
+ if(y1-y0<20){y0=Math.max(0,y0-10);y1=Math.min(100,y1+10)}
+ const y=v=>T+(H-T-B)*(1-(v-y0)/(y1-y0||1));
+ const x=i=>L+i*((W-L-R)/Math.max(1,ends.length-1));
+ const ticks=H<160?2:4;
+ let g='';
+ for(let k=0;k<=ticks;k++){
+  const v=y0+(y1-y0)*k/ticks,yy=y(v);
+  g+=`<line x1="${L}" x2="${W-R}" y1="${yy}" y2="${yy}" stroke="#ECECEC"/>`+TX(L-6,yy+4,Math.round(v)+'%',{a:'end'});
+ }
+ const lab=ends.map((e,i)=>TX(x(i),H-B+16,sd(e),{a:i===0?'start':i===ends.length-1?'end':'middle'})).join('');
+ let body='';
+ series.forEach(s=>{
+  const pts=ends.map((e,i)=>{const v=valAt(s,e);return v==null?null:[x(i),y(v)]});
+  const segs=[];let cur=[];
+  pts.forEach(pt=>{if(!pt){if(cur.length){segs.push(cur);cur=[]}return}cur.push(pt)});
+  if(cur.length)segs.push(cur);
+  const sw=s.thick?2.6:1.8;
+  segs.forEach(seg=>{const d=seg.map((pt,i)=>(i?'L':'M')+pt[0].toFixed(1)+','+pt[1].toFixed(1)).join(' ');body+=`<path d="${d}" fill="none" stroke="${s.color}" stroke-width="${sw}" stroke-linejoin="round"/>`});
+  pts.forEach(pt=>{if(pt) body+=`<circle cx="${pt[0].toFixed(1)}" cy="${pt[1].toFixed(1)}" r="${s.thick?3.2:2.4}" fill="${s.color}"/>`});
+ });
+ const slot=(W-L-R)/Math.max(1,ends.length-1);
+ const hit=ends.map((e,i)=>`<rect data-i="${i}" x="${(x(i)-slot/2).toFixed(1)}" y="${T}" width="${Math.max(slot,16).toFixed(1)}" height="${H-T-B}" fill="transparent"/>`).join('');
+ window._PCTCHARTS=window._PCTCHARTS||{};
+ const cid='c'+(window._PCTSEQ=(window._PCTSEQ||0)+1);
+ window._PCTCHARTS[cid]={ends,series,W,L,R};
+ return `<svg data-pct="${cid}" viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="${esc(opts.label||'Account reach percent')}" onmousemove="pctChartMove(event)" onmouseleave="pctChartLeave(event)">${g}${body}${lab}${hit}</svg>`;
+}
+function pctChartMove(ev){
+ const svg=ev.currentTarget;const st=window._PCTCHARTS&&window._PCTCHARTS[svg.getAttribute('data-pct')];
+ const box=svg.closest('.lchart')||svg.closest('.lpct')||svg;const tip=(box&&box.querySelector('.ltip'))||$('ptip')||$('ltip');
+ if(!tip||!st)return;
+ const {ends,series}=st;
+ const sr=svg.getBoundingClientRect();const r=box.getBoundingClientRect();
+ const W=st.W||sr.width,L=st.L||36,R=st.R||8;
+ const px=(ev.clientX-sr.left)/Math.max(1,sr.width)*W;
+ let i=0,best=1e9;
+ ends.forEach((e,k)=>{const xx=L+k*((W-L-R)/Math.max(1,ends.length-1));const d=Math.abs(px-xx);if(d<best){best=d;i=k}});
+ const end=ends[i];
+ const rows=series.map(s=>{const p=(s.points||[]).find(x=>x.end===end);return {label:s.label,v:p&&p.pct!=null?p.pct:null,reached:p&&p.reached,n:p&&p.list_companies}}).filter(x=>x.v!=null);
+ tip.innerHTML=`<div class="mh">${esc(fmtD(end))}</div>`+rows.map(x=>`<div class="mr"><span>${esc(x.label)}</span><b>${x.v}%${x.reached!=null&&x.n?` (${num(x.reached)} of ${num(x.n)})`:''}</b></div>`).join('');
+ tip.style.display='block';
+ const tw=tip.offsetWidth||200,th=tip.offsetHeight||80;
+ let left=ev.clientX-r.left+12, top=ev.clientY-r.top+12;
+ if(left+tw>r.width-8)left=Math.max(8,ev.clientX-r.left-tw-12);
+ if(top+th>r.height-8)top=Math.max(8,ev.clientY-r.top-th-12);
+ tip.style.left=left+'px';tip.style.top=top+'px';
+}
+function pctChartLeave(ev){const box=ev&&ev.currentTarget&&(ev.currentTarget.closest('.lchart')||ev.currentTarget.closest('.lpct'));const tip=(box&&box.querySelector('.ltip'))||$('ptip')||$('ltip');if(tip)tip.style.display='none'}
+function listPctChart(lists, total){
+ const listsS=lists.filter(r=>(r.pct_points||[]).length).map((r,i)=>({id:r.id,label:r.label||r.name||r.id,color:r.color||listColor(i),points:r.pct_points||[],thick:0}));
+ const sumPts=(total&&total.pct_points)||[];
+ const sumS=sumPts.length?[{id:'all-pct',label:'All lists',color:'#111111',points:sumPts,thick:1}]:[];
+ const series=listsS.concat(sumS);
+ if(!series.length)return '';
+ const legend=series.map(s=>{
+  const last=(s.points||[]).slice().reverse().find(p=>p&&p.pct!=null);
+  return `<span><i style="background:${s.color}${s.thick?';height:3px;border-radius:1px':''}"></i>${esc(s.label)}${last?` · ${last.pct}%`:''}</span>`;
+ }).join('');
+ return `<div class="lchart lchart-pct"><div class="lchart-cap">Account reach %</div>${pctChart(series,{H:220,label:'Account reach percent'})}<div class="ltip" id="ptip"></div><div class="lleg">${legend}</div></div>`;
+}
+function pctSpark(points){
+ if(!points||points.length<1)return '';
+ const series=[{id:'one',label:'Account reach',color:'#336754',points:points,thick:1}];
+ const first=points[0]&&points[0].end?sd(points[0].end):'';
+ const last=points[points.length-1]&&points[points.length-1].end?sd(points[points.length-1].end):'';
+ const iw=window.innerWidth||390;
+ const cols=iw<=700?1:(iw<=1100?2:3);
+ const host=$('main')||document.body;
+ const avail=Math.round((host&&host.clientWidth)||iw)-28;
+ const cardW=Math.max(220, Math.round(avail/cols - (cols>1?12:0) - 28));
+ return `<div class="lpct"><div class="lpct-cap">Account reach %</div>${pctChart(series,{H:120,W:cardW,label:'Account reach percent'})}<div class="ltip"></div></div>`;
+}
+function combinedPctFromRows(ar){
+ const dates=[];
+ ar.forEach(r=>(r.pct_points||[]).forEach(p=>{if(p&&p.end&&dates.indexOf(p.end)<0)dates.push(p.end)}));
+ dates.sort();
+ const pct_points=dates.map(end=>{
+  let rch=0,n=0,src=null;
+  ar.forEach(row=>{
+   const p=(row.pct_points||[]).find(x=>x.end===end);
+   if(p&&p.reached!=null&&p.list_companies){rch+=p.reached;n+=p.list_companies;src=src||p.source}
+  });
+  return n?{end,source:src,pct:Math.round(100*rch/n),reached:rch,list_companies:n}:null;
+ }).filter(Boolean);
+ let baseline=null;
+ const withB=ar.filter(r=>r.baseline&&r.baseline.list_companies);
+ if(withB.length===ar.length&&ar.length){
+  const rch=withB.reduce((s,x)=>s+x.baseline.reached,0);
+  const n=withB.reduce((s,x)=>s+x.baseline.list_companies,0);
+  baseline={end:withB[0].baseline.end,reached:rch,list_companies:n,pct:Math.round(100*rch/n)};
+ }
+ const latest=pct_points.filter(p=>p.source==='export').slice(-1)[0]||pct_points[pct_points.length-1];
+ const vs=(baseline&&latest&&latest.pct!=null)?{from_pct:baseline.pct,to_pct:latest.pct,pts:latest.pct-baseline.pct,from_end:baseline.end,to_end:latest.end}:null;
+ return {pct_points,baseline,vs_baseline:vs};
+}
+
+function isNarrow(){return window.innerWidth<=700}
+function listShortLabel(r){
+  const full=r.label||r.name||r.id||'';
+  const ind=r.industry||'';
+  const tier=r.tier==='Enterprise'?'ENT':(r.tier==='Growth'?'GRW':'');
+  const subMap={'Beauty':'Beauty','Food & Bev':'Food & Bev','Supplements / Hygiene / Baby / Pet':'Supp','Apparel / Jewelry & Accessories':'','Electronics / Fitness / Sporting / Outdoor / Home':'','SaaS / Mid-market B2B':''};
+  const sub=r.sub||'';
+  const ss=Object.prototype.hasOwnProperty.call(subMap,sub)?subMap[sub]:(sub?String(sub).split(' / ')[0]:'');
+  const peers=(accountLists()||[]).filter(x=>x.industry===r.industry&&x.tier===r.tier);
+  const needSub=!!(ss&&peers.length>1);
+  const parts=[ind,tier].filter(Boolean);
+  if(needSub)parts.push(ss);
+  return parts.length?parts.join(' '):full;
+}
+function listCoverage(){
+ const rows=accountLists();
+ const scope=`<div class="sh"><h2>Account lists</h2><span class="sc">${esc(scopeLabel())}</span></div>`;
+ const empty=reachEmptyMessage();
+ if(!rows.length){
+  if(!empty)return '';
+  return `<div class="lists lists-compact" id="lists">${scope}<div class="empty">${esc(empty)}</div></div>`;
+ }
+ const body=rows.map(r=>{
+  const vs=r.vs_baseline;
+  const pts=vs&&vs.pts!=null?vs.pts:null;
+  const ptsH=pts==null?'–':(pts===0?'0 pts':((pts>0?'+':'')+pts+' pts'));
+  const cls=pts>0?'up':(pts<0?'dn':'');
+  const reach=r.pct!=null?`${r.pct}%${r.n!=null&&r.list_companies?`<div class="vdesc">${num(r.n)} of ${num(r.list_companies)}</div>`:''}`:'–';
+  const full=r.label||r.name||r.id||'';
+  const label=isNarrow()?listShortLabel(r):full;
+  return `<tr><td class="al" title="${esc(full)}">${esc(label)}</td><td class="n">${reach}</td><td class="n">${pts==null?'–':`<span class="${cls}">${ptsH}</span>`}</td></tr>`;
+ }).join('');
+ return `<div class="lists lists-compact" id="lists">${scope}<div class="tw"><table><thead><tr><th class="al">List</th><th class="n">Account reach</th><th class="n">vs Oct 6</th></tr></thead><tbody>${body}</tbody></table></div></div>`;
+}
+
+function render(){if(typeof hideMtip==='function')hideMtip();const p=D.periods[P];const rows=scoped();
+ $('pills').innerHTML=ORDER.map(k=>`<button class="${k==P?'on':''}" onclick="setP('${k}')">${D.periods[k].label}</button>`).join('');
+ const pr=p.prior||{start:p.prior_start,end:p.prior_end};
+ $('range').textContent=`${sd(p.start)} to ${fmtD(p.end)} vs ${sd(pr.start)} to ${fmtD(pr.end)}`;
+ $('segs').innerHTML=[['All','All'],['ENT','ENT'],['TAM','TAM']].map(([k,l])=>`<button class="${k==SEG?'on':''}" onclick="setG('${k}')" title="${k=='All'?'All ad sets, including industry and thought leader ad sets that are not split by segment':SEGT[k]+' ad sets only'}">${l}</button>`).join('');
+ $('inds').innerHTML=indsFor(SEG).map(k=>`<button class="${k==IND?'on':''}" onclick="setI('${k}')">${dotH(k)}${k}</button>`).join('');
+ const sl=SUBS[IND];$('subs').style.display=sl?'':'none';
+ $('subs').innerHTML=sl?[['All','All '+IND]].concat(sl).map(([k,l])=>`<button class="${k==SUB?'on':''}" onclick="setS('${k}')">${k=='All'?'':dotH(SUBT[k])}${esc(l.split(' / ')[0])}</button>`).join(''):'';
+ const title=campView()?'Campaign performance':'Ad set performance';
+ $('main').innerHTML=`<div class="sh"><h2>${title}</h2><span class="sc">${esc(scopeLabel())}, ${esc(p.label.toLowerCase())}</span></div>${kpis(rows)}${dailyChart()}${table()}`;
+ syncNav();
+}
+$('nlive').textContent=(D.meta&&D.meta.live_camps!=null)?D.meta.live_camps:'';
+$('nhist').textContent=(D.meta&&D.meta.hist_camps!=null)?D.meta.hist_camps:'';
+$('thru').textContent=fmtD((D.meta&&D.meta.through)||D.asof);
+$('asof').textContent=(D.meta&&D.meta.asof)||D.asof_label;
+$('foot').innerHTML=`<li>LinkedIn Ads account 517356586 (Avarra, USD). The All view lists campaigns (campaign groups). Choose ENT, TAM, or an industry to see ad set rows. ENT and TAM are the Enterprise Accounts and TAM Accounts ad sets in the LinkedIn Ads 2026 campaign. Industry is Cross-industry for those ad sets, and Cybersecurity, Medical Device, or Thought Leaders for the vertical and thought leader campaigns, which are not split by segment. Tables include live ad sets and paused or completed ad sets that delivered in the selected period. Status is the ad set's current status: Active (ACTIVE and serving) or Paused.</li>
+<li>Cost/LP = spend / landing page clicks, in whole dollars. LP CTR = landing page clicks / impressions, shown to two decimals. Prior = previous equal-length period (month to date: same days last month). Period comparisons are whole percents. Dwell is the period average, shown to one decimal second. Audience size is current targeting from LinkedIn audienceCounts as of ${D.aud_pulled}, not a historical size for the period. Reach is approximate member reach for the selected period (not a sum of daily reach). Audience penetration = period reach / current audience size, as a whole percent. Campaign-level reach, audience size, and penetration are not shown because those metrics are not de-duplicated across ad sets.</li>
+<li>Companies reached counts unique companies with impressions in the period (MEMBER_COMPANY, all-period granularity), pulled separately for every segment and industry filter and every period, so filtered counts are true unique counts.</li>
+<li>Account reach % (uploaded company lists) is not shown for Avarra yet. It needs Campaign Manager Companies exports per uploaded list and a Fibbler workspace for Avarra.</li>
+<li>The Daily performance chart always covers the last 60 days ending ${fmtD((D.meta&&D.meta.through)||D.asof)}, and uses six days before that so the first chart day has a full 7-day window. Rolling metrics use a 7-day window: Rolling LP clicks = LP clicks in the last 7 days, Rolling LP CTR = LP clicks in the last 7 days / impressions in the last 7 days, Rolling Cost/LP = spend in the last 7 days / LP clicks in the last 7 days, in whole dollars, and Rolling Spend = spend in the last 7 days, in whole dollars. Click one or more metric pills to plot them together, or All for every metric. Two or more metrics share one chart, each indexed to 100 at the start of the window; hover for actual values. There are no change or milestone markers when more than one metric is selected. On single-metric views, a compact marker is an ad set's first day with delivery for a launch, or last day with delivery for a pause (only if the ad set is no longer live), or a new campaign (campaign group) if one launched in the window. LinkedIn does not provide objective or daily budget change history, so those are not marked. Nearby dates are merged when needed so labels never overlap. Hover a marker for the names of what changed.</li>
+<li>Last business day spend is spend on ${D.last_biz_day_label}. Daily budget and objective are current campaign-entity values at pull time. LinkedIn reports in UTC days; data runs through the last completed UTC day and never includes today.</li>`;
+render();
+let _listRz;
+window.addEventListener('resize',()=>{clearTimeout(_listRz);_listRz=setTimeout(()=>{const y=window.scrollY;render();window.scrollTo(0,y);},180)});
+
+</script>
+</body></html>
