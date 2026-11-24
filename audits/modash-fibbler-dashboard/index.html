@@ -945,7 +945,7 @@ function render(){
  const spendLine=' The line is DPP spend for the three product promotion groups, on the same euro scale as the bars. It is not influenced-only spend, and influence or business type does not change it.'+part;
  document.getElementById('pipe-note').textContent='* Bars: filtered deals by create month, in EUR.'+spendLine;
  document.getElementById('rev-note').textContent='* Bars: Closed Won from the same filtered deals, by close month, in EUR.'+spendLine;
- document.getElementById('month-charts').hidden=S.per==='lfm';
+ document.getElementById('month-charts').hidden=S.per==='lfm'||S.per==='mtd';
  const fx=document.getElementById('fx-note');
  if(fx) fx.innerHTML='<b>Currency.</b> Ad spend is DPP spend in EUR for the three product promotion groups and is not converted. Deal, pipeline, and revenue amounts are stored in USD and shown in EUR using the '+esc(FX.source)+' for '+esc(FX.dateLabel)+': 1 EUR = '+FX.usdPerEur+' USD. The same rate is used for every deal. This is a fixed-rate presentation, not the rate on each deal date. Money is rounded to the nearest euro. CPM, CPC, and spend per influenced deal use EUR spend only.';
  renderNB(FP);renderCB(FP);renderJ(FP);renderCP(FP,spend);
