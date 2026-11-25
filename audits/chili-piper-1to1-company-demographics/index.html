@@ -57,6 +57,7 @@ tr.flag td{color:var(--red)}
 tr.flag td:first-child{border-left:4px solid var(--red);font-weight:700}
 .chip{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.03em;text-transform:uppercase;border-radius:6px;padding:1px 6px;margin-left:6px;vertical-align:1px}
 .chip.On{background:#e6f4ea;color:var(--gr)}
+.chip.Related{background:#e6f4ea;color:var(--gr)}
 .chip.Off{background:#fdebe9;color:var(--red)}
 .chip.Extra{background:#fff3dc;color:var(--gold)}
 .chip.Filler{background:#fdebe9;color:var(--red)}
@@ -143,6 +144,7 @@ const PAGE = 15;
 /* WINDOWS and DATA load from data.js */
 const CLS = {
   target_variant: {label:'On target', chip:'On'},
+  related_affiliation: {label:'Related / affiliation', chip:'Related'},
   off_target: {label:'Off-target', chip:'Off'},
   extra_targeted: {label:'Extra (in audience)', chip:'Extra'},
   filler: {label:'Filler', chip:'Filler'},
@@ -307,7 +309,7 @@ function render() {
   const namedPct = w.impr ? (w.named_impr / w.impr) : 0;
   let note = 'This report covers 1-to-1 ad sets only (names that start with "1 to 1"). Shares are of named company impressions, the employers LinkedIn attached to the breakdown. ';
   note += fmtN(w.hidden_impr) + ' delivered impressions (' + fmtP(w.impr ? w.hidden_impr / w.impr : 0) + ') have no company attached. ';
-  note += 'Off-target means the company is not the intended 1-to-1 account for that ad set. Fillers are dummy companies added to clear LinkedIn\'s 300-person audience minimum. Extra (in audience) means the company is in that ad set\'s employer list, but it is not the intended account.';
+  note += 'Off-target means the company is not the intended 1-to-1 account for that ad set. Related / affiliation is counted as on-target: VMware on Broadcom and Palo Alto Networks on CyberArk (parent or acquisition), and Pavilion and Fast Company Executive Board on any ad set (secondary memberships people list as an employer). Fillers are dummy companies added to clear LinkedIn\'s 300-person audience minimum. Extra (in audience) means the company is in that ad set\'s employer list, but it is not the intended account.';
   if (w.over_impr) note += ' Named company impressions oversum delivered impressions by ' + fmtN(w.over_impr) + ' in this window.';
   $('note').textContent = note;
 
